@@ -1,0 +1,37 @@
+  body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    height: 100vh;
+  }
+  .mdc-top-app-bar {
+    background-color: #dd6700;
+  }
+  .mdc-button.foo-button {
+    --mdc-theme-primary: #dd6700;
+    --mdc-theme-on-primary: #dd6700;
+  }
+
+  .mdc-drawer {
+    --mdc-theme-primary: #dd6700;
+    --mdc-theme-on-primary: #dd6700;
+  }
+
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
+  position: relative;
+}
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+}
+
+.app-bar {
+  position: absolute;
+}
+
+// only apply this style if below top app bar
+.mdc-top-app-bar {
+  z-index: 7;
+}
