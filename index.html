@@ -58,7 +58,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 1.5rem;
+  padding: 0;
 }
 
 .demo__title {
@@ -109,10 +109,10 @@ body {
     <nav class="mdc-drawer__drawer">
       <nav class="mdc-drawer__content">
         <div id="list01" class="mdc-list">
-          <a class="mdc-list-item" href="#">
+          <a class="mdc-list-item" href="pages/tinelix/index.html" target="content_frame">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>Домашняя страница
           </a>
-          <a class="mdc-list-item" href="#">
+          <a class="mdc-list-item" href="pages/tinelix/news.html" target="content_frame">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">article</i>Новости
           </a>
         </div>
@@ -145,7 +145,7 @@ body {
 
   <!-- Content -->
   <main class="mdc-drawer-app-content main-content">
- 		<iframe src="pages/tinelix/index.html" width="100%" height="100%" align="left" frameborder="no">
+ 		<iframe src="pages/tinelix/index.html" width="100%" height="100%" align="left" frameborder="no" name="content_frame">
     		Ваш браузер не поддерживает плавающие фреймы!
  		</iframe>
   </main>

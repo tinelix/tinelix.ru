@@ -24,7 +24,7 @@
 
 .main-content {
   overflow: auto;
-  height: 100%;
+  height: 90%;
 }
 
 .app-bar {
@@ -46,7 +46,17 @@ a {
   color: #dd6700
 }
 
-.mdc-button {
-    --mdc-theme-primary: #dd6700;
-    --mdc-theme-on-primary: #dd6700;
+.demo__title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+  white-space: nowrap;
+}
+.demo__title-icon {
+  padding-left: 0.75rem;
+}
+.demo__subtitle {
+  color: #888;
+  font-size: 1rem;
 }
