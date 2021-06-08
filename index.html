@@ -6,8 +6,8 @@
 
   <meta charset="UTF-8">
   
-<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<meta name="apple-mobile-web-app-title" content="Tinelix">
 
 
   <title>Tinelix</title>
@@ -106,43 +106,47 @@ body {
 <div class="app-drawer-layout mdc-top-app-bar--fixed-adjust">
   <!-- Drawer -->
   <aside class="mdc-drawer mdc-drawer--dismissible demo-drawer">
-    <nav class="mdc-drawer__drawer">
-      <nav class="mdc-drawer__content">
-        <div id="list01" class="mdc-list">
-          <a class="mdc-list-item" href="pages/tinelix/index.html" target="content_frame">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>Домашняя страница
+      <div class="mdc-drawer__content">
+        <nav id="list01" class="mdc-list">
+          <a class="mdc-list-item" href="pages/tinelix/index.html" target="content_frame" aria-current="page">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i><span class="mdc-list-item__text">Домашняя страница</span>
           </a>
-          <a class="mdc-list-item" href="pages/tinelix/news.html" target="content_frame">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">article</i>Новости
+          <a class="mdc-list-item" href="pages/tinelix/news.html" target="content_frame" aria-current="page">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">article</i><span class="mdc-list-item__text">Новости</span>
           </a>
-        </div>
+        </nav>
 
         <hr class="mdc-list-divider">
 
-        <div id="list02" class="mdc-list">
-          <a class="mdc-list-item" href="pages/visionbot/index.html" target="content_frame">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">api</i>VisionOne
+        <nav id="list02" class="mdc-list">
+          <a class="mdc-list-item" href="pages/visionbot/index.html" target="content_frame" aria-current="page">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">api</i><span class="mdc-list-item__text">VisionOne</a>
           </a>
-        </div>
+        </nav>
 
 		<hr class="mdc-list-divider">
 
-        <div id="list03" class="mdc-list">
-          <a class="mdc-list-item" href="pages/tinelix/contacts.html" target="content_frame">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">feedback</i>Контакты
+        <nav id="list03" class="mdc-list">
+          <a class="mdc-list-item" href="pages/tinelix/contacts.html" target="content_frame" aria-current="page">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">feedback</i><span class="mdc-list-item__text">Контакты</span>
           </a>
           <a class="mdc-list-item" href="http://tretdm.neonarod.com/" target="_self">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">design_services</i>Упрощенный стиль
+          <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">design_services</i><span class="mdc-list-item__text">Упрощенный стиль</span>
           </a>
           <a class="mdc-list-item" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">language</i>Язык (Language)
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">language</i><span class="mdc-list-item__text">Язык (Language)</span>
             <i class="mdc-list-item__meta material-icons" onclick="event.preventDefault();">
               expand_more
             </i>
           </a>
-        </div>
-      </nav>
-    </nav>
+        </nav>
+    </div>
     <span style="position: absolute; bottom: 10px; font-size: 12px; padding: 16px;">Сайт Tinelix в разработке.<br>Дизайн: <a href="https://material.io">Material Design</a>.</span>
   </aside>
 

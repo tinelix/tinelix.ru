@@ -1,16 +1,16 @@
 <!DOCTYPE HTML>
 <html>
-<title>Новости - Tinelix</title>
+<title>Домашняя страница - Tinelix</title>
 <head>
 	<meta charset="UTF-8">
 	<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
 	<meta name="apple-mobile-web-app-title" content="CodePen">
-	<meta charset="utf-8">
+	  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel='stylesheet' href='https://unpkg.com/material-components-web@latest/dist/material-components-web.css'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-  <link rel="stylesheet" href="../../style_subtitle.css">
+  <link rel="stylesheet" href="../../style.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet">
 
@@ -50,10 +50,13 @@ body {
 .main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   flex: 1;
   padding: 1.5rem;
+}
+
+.cover {
+  display: flex;
+  padding: 0;
 }
 
 .demo__title {
@@ -83,15 +86,14 @@ body {
     window.parent.postMessage("resize", "*");
   }
 </script>
-</head>
 
-<body translate="no">
-  <main class="main-content">
-      <div class="demo-image">
-      <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 362 176" width="362px" height="176px" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 362 176" class="docs-homescreen-empty-sites-svg"><g opacity=".08"><path d="m96.7 91.8h-29.4c-2.3 0-4.2 1.9-4.2 4.2v29.4c0 2.3 1.9 4.2 4.2 4.2h29.4c2.3 0 4.2-1.9 4.2-4.2v-29.4c0-2.3-1.9-4.2-4.2-4.2zm-21 29.4h-4.2v-8.4h4.2v8.4zm8.4 0h-4.2v-14.7h4.2v14.7zm8.4 0h-4.2v-21h4.2v21z"></path><rect y="85.5" x="56.8" height="50.4" width="50.4" fill="none"></rect><rect y="69.5" x="-1" height="26.5" width="26.5" fill="none"></rect><path d="m20 72.8h-15.5c-1.2 0-2.2 1-2.2 2.2v15.4c0 1.2 1 2.2 2.2 2.2h15.5c1.2 0 2.2-1 2.2-2.2v-15.4c0-1.2-1-2.2-2.2-2.2zm-2.2 6.6h-11v-2.2h11v2.2zm0 4.5h-11v-2.2h11v2.2zm-3.4 4.4h-7.7v-2.2h7.7v2.2z"></path><path d="m330 109.6h-29.4c-2.3 0-4.2 1.9-4.2 4.2v29.4c0 2.3 1.9 4.2 4.2 4.2h29.4c2.3 0 4.2-1.9 4.2-4.2v-29.4c0-2.3-1.9-4.2-4.2-4.2zm-21.1 29.5h-4.2v-4.2h4.2v4.2zm0-8.5h-4.2v-4.2h4.2v4.2zm0-8.4h-4.2v-4.2h4.2v4.2zm16.9 16.9h-14.8v-4.2h14.7v4.2zm0-8.5h-14.8v-4.2h14.7v4.2zm0-8.4h-14.8v-4.2h14.7v4.2z"></path><rect y="103.3" x="290" height="50.5" width="50.5" fill="none"></rect><rect y="66.1" x="330.8" height="30.2" width="30.2" fill="none"></rect><path d="m354.7 69.9h-17.6c-1.4 0-2.5 1.1-2.5 2.5v17.6c0 1.4 1.1 2.5 2.5 2.5h17.6c1.4 0 2.5-1.1 2.5-2.5v-17.6c0-1.4-1.1-2.5-2.5-2.5zm-17.6 18.9l4.4-6.9 3.2 4.9 4.3-6.8 5.7 8.8h-17.6z"></path><rect y="103.9" x="29.9" height="19.2" width="19.2" fill="none"></rect><path d="m45.1 106.3h-11.2c-0.9 0-1.6 0.7-1.6 1.6v2.4 8.8c0 0.9 0.7 1.6 1.6 1.6h11.2c0.9 0 1.6-0.7 1.6-1.6v-11.2c0-0.9-0.8-1.6-1.6-1.6zm0 6.4h-6.4v6.4h-1.6v-6.4h-3.2v-1.6h3.2v-3.2h1.6v3.2h6.4v1.6z"></path><g id="Icon_1_"><rect y="39.2" x="35.1" height="32.7" width="32.7" fill="none"></rect><path d="m62.4 45.2c-0.8-0.3-5.9-0.5-10.9-0.5s-10.1 0.3-11 0.5c-2.2 0.7-2.7 5.5-2.7 10.4s0.5 9.7 2.7 10.4c0.8 0.3 5.9 0.5 10.9 0.5s10.1-0.3 10.9-0.5c2.2-0.7 2.7-5.5 2.7-10.4s-0.5-9.7-2.6-10.4zm-13.7 16.5v-12.2l8.2 6.1-8.2 6.1z"></path></g><path d="m296.8 51h-21.2c-1.7 0-3 1.4-3 3v21.2c0 1.7 1.3 3 3 3h21.2c1.7 0 3-1.4 3-3v-21.1c0-1.7-1.3-3.1-3-3.1zm0 19.7h-21.2v-12.1h21.2v12.1z"></path><rect y="46.5" x="268.1" height="36.3" width="36.3" fill="none"></rect></g><g opacity=".1"><path d="m283.1 22.7c0-2.8-2.3-5.1-5.1-5.1h-177c-2.8 0-5.1 2.3-5.1 5.1v134.8c0 2.8 2.3 5.1 5.1 5.1h177c2.8 0 5.1-2.3 5.1-5.1v-134.8z" fill="#232421"></path></g><path d="m283.1 20.7c0-2.8-2.3-5.1-5.1-5.1h-177c-2.8 0-5.1 2.3-5.1 5.1v134.8c0 2.8 2.3 5.1 5.1 5.1h177c2.8 0 5.1-2.3 5.1-5.1v-134.8z" fill="#F1F1F1"></path><path d="m278.5 14h-177.4c-2.9 0-5.3 2.3-5.3 5.1v15.6h187.3v-15.6c0-2.8-1.7-5.1-4.6-5.1" fill="#A5A5A4"></path><rect y="22" x="134.8" height="6" width="120.4" fill="#E9E9E9"></rect><polygon points="107.8 22 104.8 25 107.8 28" fill="#E9E9E9"></polygon><polygon points="113.8 28 116.8 25 113.8 22" fill="#E9E9E9"></polygon><path d="m122.8 25c0 1.7 1.3 3 3 3s3-1.3 3-3-1.3-3-3-3-3 1.3-3 3" fill="#E9E9E9"></path><rect y="22" x="267.1" height="6" width="6" fill="#E9E9E9"></rect><rect y="41.6" x="114.5" height="84" width="150" fill="#E1E1E1"></rect><rect y="133" x="115" height="28" width="71" fill="#E1E1E1"></rect><rect y="133" x="195" height="7" width="70" fill="#E1E1E1"></rect><rect y="145" x="195" height="6" width="70" fill="#E1E1E1"></rect><rect y="156" x="195" height="5" width="70" fill="#E1E1E1"></rect><rect y="75" x="147" height="6" width="6" fill="#A3A3A3"></rect><rect y="69" x="147" height="6" width="6" fill="#A3A3A3"></rect><rect y="69" x="153" height="6" width="6" fill="#fff"></rect><rect y="75" x="153" height="6" width="6" fill="#A3A3A3"></rect><rect y="75" x="221" height="6" width="6" fill="#A3A3A3"></rect><rect y="69" x="221" height="6" width="6" fill="#A3A3A3"></rect><rect y="69" x="227" height="6" width="6" fill="#fff"></rect><rect y="75" x="227" height="6" width="6" fill="#A3A3A3"></rect><rect y="93" x="193" height="6" width="6" fill="#A3A3A3"></rect><rect y="87" x="199" height="6" width="6" fill="#A3A3A3"></rect><rect y="87" x="175" height="6" width="6" fill="#A3A3A3"></rect><rect y="93" x="187" height="6" width="6" fill="#A3A3A3"></rect><rect y="93" x="181" height="6" width="6" fill="#A3A3A3"></rect><rect y="81.3" x="226.2" height="6" width="6" fill="#fff"></rect><rect y="81.3" x="140.7" height="6" width="6" fill="#fff"></rect><rect y="81.3" x="232.2" height="6" width="6" fill="#fff"></rect><rect y="81.3" x="220.2" height="6" width="6" fill="#fff"></rect><rect y="81.3" x="146.7" height="6" width="12" fill="#fff"></rect><polygon points="73.2 29 67.8 23.6 73.2 18.2 78.6 23.6" fill="#fff"></polygon><polygon points="282.3 5.7 279.7 3.1 282.3 0.6 284.8 3.1" fill="#fff"></polygon><rect transform="matrix(.7068 .7074 -.7074 .7068 157.46 -184.43)" height="4.7" width="4.7" y="95.4" x="298.9" fill="#fff"></rect><rect transform="matrix(.7074 .7069 -.7069 .7074 136.08 -10.343)" height="6.1" width="6.1" y="156.1" x="77.5" fill="#fff"></rect><polygon points="333.7 55.6 328.3 50.2 333.7 44.9 339 50.2" fill="#fff"></polygon><polygon points="14.8 108.5 12.2 106 14.8 103.4 17.3 106" fill="#fff"></polygon><polygon points="341.7 150.9 339.1 148.3 341.7 145.8 344.3 148.3" fill="#fff"></polygon><rect transform="matrix(.7071 .7071 -.7071 .7071 73.277 -28.003)" height="4.5" width="4.5" y="72.2" x="68.2" fill="#fff"></rect></svg>
-    </div>
-    <div class="demo__title">У нас ничего нового нет,</div>
-    <div class="demo__subtitle">но сайт скоро откроется.</div>
-  </main>
+</head>
+<body>
+	<div style="margin-bottom: 6px; padding: 10px; background: #dd6700; color: white"><span style="vertical-align: middle; margin-right: 5px; margin-left: 12px;"><i class="material-icons md-18">warning</i></span><span style="font-size: 14px;">Внимание! Наш сайт в разработке, поэтому некоторые элементы в странице могут не сработать.</span></div>
+	<span class="main-content">
+	<h2 style="color: #dd6700; margin-bottom: 6px; margin-top: 1px;">Новости</h2>
+	<div style="margin-top: 8px;"><b style="font-size: 12px;">ВТОРНИК, 8 ИЮНЯ 2020</b><br>1. <a href="news/2021/06/08/001.html">Изменения на нашем сайте</a></div>
+<a href="../visionbot/index.html">
+</span>
 </body>
 </html>
