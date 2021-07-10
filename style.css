@@ -50,3 +50,31 @@ a {
     --mdc-theme-primary: #dd6700;
     --mdc-theme-on-primary: #dd6700;
 }
+
+.mdc-list-divider {
+  background-color: rgba(0, 0, 0, 0.12);
+  height: 1px;
+  padding: 0;
+  background-clip: content-box;
+  border-width: 0px;
+}
+.mdc-list-item__text {
+  padding-left: 12px;
+  margin-top: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2f2f2f;
+}
+
+.mdc-list-item {
+  height: 40px;
+}
+
+.mdc-list-item__graphic {
+  margin-top: 8px;
+  color: #2f2f2f;
+}
+.mdc-list-item__meta {
+  margin-top: 8px;
+  color: #2f2f2f;
+}
