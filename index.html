@@ -203,6 +203,12 @@ const string_005 = document.getElementById('string_005');
 const webinfo = document.getElementById('webinfo');
 const main_content = document.getElementById('main_content');
 
+if (document.body.clientHeight <= 480) {
+    webinfo.hidden = true
+} else {
+    webinfo.hidden = false
+}
+
 const russian_lang_item = document.getElementById('russian_lang_item');
 
 russian_lang_item.addEventListener('click', (event) => {
@@ -216,6 +222,11 @@ russian_lang_item.addEventListener('click', (event) => {
     item_002.setAttribute('href', 'pages/rus/tinelix/news.html');
     item_003.setAttribute('href', 'pages/rus/visionbot/index.html');
     item_004.setAttribute('href', 'pages/rus/tinelix/contacts.html');
+    if (document.body.clientHeight <= 480) {
+        webinfo.hidden = true
+    } else {
+        webinfo.hidden = false
+    }
 });
 
 const english_lang_item = document.getElementById('english_lang_item');
@@ -231,6 +242,11 @@ english_lang_item.addEventListener('click', (event) => {
     item_002.setAttribute('href', 'pages/eng/tinelix/news.html');
     item_003.setAttribute('href', 'pages/eng/visionbot/index.html');
     item_004.setAttribute('href', 'pages/eng/tinelix/contacts.html');
+    if (document.body.clientHeight <= 480) {
+        webinfo.hidden = true
+    } else {
+        webinfo.hidden = false
+    }
 });
 
 </script>
