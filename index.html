@@ -129,13 +129,17 @@ body {
 		<hr class="mdc-list-divider">
 
         <nav id="list03" class="mdc-list">
-          <a class="mdc-list-item" href="pages/rus/tinelix/contacts.html" target="content_frame" aria-current="page" id="item_004">
+          <a class="mdc-list-item" href="pages/rus/tinelix/communities.html" target="content_frame" aria-current="page" id="item_004">
             <span class="mdc-list-item__ripple"></span>
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">feedback</i><span class="mdc-list-item__text" id="string_004">Контакты</span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">groups</i><span class="mdc-list-item__text" id="string_004">Сообщества</span>
+          </a>
+          <a class="mdc-list-item" href="pages/rus/tinelix/contacts.html" target="content_frame" aria-current="page" id="item_005">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">feedback</i><span class="mdc-list-item__text" id="string_005">Контакты</span>
           </a>
           <a class="mdc-list-item" href="http://tretdm.neonarod.com/" target="_self">
           <span class="mdc-list-item__ripple"></span>
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">design_services</i><span class="mdc-list-item__text" id="string_005">Упрощенный стиль</span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">design_services</i><span class="mdc-list-item__text" id="string_006">Упрощенный стиль</span>
           </a>
           <a class="mdc-list-item" id="lang_item">
             <span class="mdc-list-item__ripple"></span>
@@ -201,6 +205,7 @@ const string_002 = document.getElementById('string_002');
 const string_003 = document.getElementById('string_003');
 const string_004 = document.getElementById('string_004');
 const string_005 = document.getElementById('string_005');
+const string_006 = document.getElementById('string_006');
 const webinfo = document.getElementById('webinfo');
 const main_content = document.getElementById('main_content');
 
@@ -215,14 +220,16 @@ const russian_lang_item = document.getElementById('russian_lang_item');
 russian_lang_item.addEventListener('click', (event) => {
     string_001.innerHTML = "Домашняя страница"
     string_002.innerHTML = "Новости"
-    string_004.innerHTML = "Контакты"
-    string_005.innerHTML = "Упрощенный стиль"
+    string_004.innerHTML = "Сообщества"
+    string_005.innerHTML = "Контакты"
+    string_006.innerHTML = "Упрощенный стиль"
     webinfo.innerHTML = "Сайт Tinelix в разработке.<br>Дизайн: <a href=\"https://material.io\">Material Design</a>.<br>© Dmitry Tretyakov, 2021."
     main_content.innerHTML = "<iframe src=\"pages/rus/tinelix/index.html\" width=\"100%\" height=\"100%\" align=\"left\" frameborder=\"no\" name=\"content_frame\">\nВаш браузер не поддерживает плавающие фреймы!</iframe>"
     item_001.setAttribute('href', 'pages/rus/tinelix/index.html');
     item_002.setAttribute('href', 'pages/rus/tinelix/news.html');
     item_003.setAttribute('href', 'pages/rus/visionbot/index.html');
-    item_004.setAttribute('href', 'pages/rus/tinelix/contacts.html');
+    item_004.setAttribute('href', 'pages/rus/tinelix/communities.html');
+    item_005.setAttribute('href', 'pages/rus/tinelix/contacts.html');
     if (document.body.clientHeight <= 480) {
         webinfo.hidden = true
     } else {
@@ -235,14 +242,16 @@ const english_lang_item = document.getElementById('english_lang_item');
 english_lang_item.addEventListener('click', (event) => {
     string_001.innerHTML = "Homepage"
     string_002.innerHTML = "News"
-    string_004.innerHTML = "Contacts"
-    string_005.innerHTML = "Simplified style"
+    string_004.innerHTML = "Communities"
+    string_005.innerHTML = "Contacts"
+    string_006.innerHTML = "Simplified style"
     webinfo.innerHTML = "Tinelix website is under construction.<br><a href=\"https://material.io\">Material Design</a>.<br>© 2021 Dmitry Tretyakov."
     main_content.innerHTML = "<iframe src=\"pages/eng/tinelix/index.html\" width=\"100%\" height=\"100%\" align=\"left\" frameborder=\"no\" name=\"content_frame\">\nYour browser not supported iframes!</iframe>"
     item_001.setAttribute('href', 'pages/eng/tinelix/index.html');
     item_002.setAttribute('href', 'pages/eng/tinelix/news.html');
     item_003.setAttribute('href', 'pages/eng/visionbot/index.html');
-    item_004.setAttribute('href', 'pages/eng/tinelix/contacts.html');
+    item_004.setAttribute('href', 'pages/eng/tinelix/communities.html');
+    item_005.setAttribute('href', 'pages/eng/tinelix/contacts.html');
     if (document.body.clientHeight <= 480) {
         webinfo.hidden = true
     } else {
