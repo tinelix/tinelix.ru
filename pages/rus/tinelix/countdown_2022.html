@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<title>Обратный отсчет до 2022 года - Tinelix</title>
+<head>
+	<meta charset="UTF-8">
+	<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+	<meta name="apple-mobile-web-app-title" content="CodePen">
+	  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel='stylesheet' href='https://unpkg.com/material-components-web@latest/dist/material-components-web.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+  <link rel="stylesheet" href="../../../style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet">
+
+<style>
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: 240px;
+  margin: 0;
+}
+
+.demo-body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.demo-main {
+  padding-left: 16px;
+  padding-bottom: 16px;
+  overflow: auto;
+}
+
+.app-drawer-layout {
+  display: flex;
+  flex: 1;
+}
+.app-drawer-layout .mdc-drawer--dismissible {
+  top: 64px;
+  height: calc(100% - 64px);
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.cover {
+  display: flex;
+  padding: 0;
+}
+
+.demo__title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+  white-space: nowrap;
+}
+.demo__title-icon {
+  padding-left: 0.75rem;
+}
+.demo__subtitle {
+  color: #888;
+  font-size: 1rem;
+}
+</style>
+
+<script>
+  window.console = window.console || function(t) {};
+</script>
+
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+    function onload() {
+    document.getElementById('noscript_info').innerHTML = "";
+    function countdownTimer() {
+        var today = new Date();
+        var newYear = new Date('1 January 2022');
+        var days = today - newYear;
+        var count_time = new Date(-days + (today.getTimezoneOffset() * 60 * 1000));
+        var countdown = Math.floor(-(days / 1000 / 60 / 60 / 24));
+        var timezone = '';
+        if((today.getTimezoneOffset() / 60) < 0) {
+            timezone = '+' + (-today.getTimezoneOffset() / 60)
+        } else {
+            timezone = '-' + (today.getTimezoneOffset() / 60)
+        };
+        document.getElementById('countdown_days').hidden = true;
+        document.getElementById('days_count').innerHTML = '<b>' + countdown + '</b>';
+        document.getElementById('hours_count').innerHTML = '<b>' + count_time.getHours() + '</b>';
+        document.getElementById('minutes_count').innerHTML = '<b>' + count_time.getMinutes() + '</b>';
+        document.getElementById('seconds_count').innerHTML = '<b>' + count_time.getSeconds() + '</b>';
+        today_text = 'Сегодня ' + today.toLocaleDateString('ru-RU') + ', ' + today.toLocaleTimeString("ru-RU") + ' по UTC' + timezone;
+        document.getElementById('today_text').hidden = false;
+        document.getElementById('today_text').innerHTML = '<i>' + today_text + '<i>';
+    };
+    setInterval(countdownTimer, 100);
+   }
+</script>
+
+</head>
+<body onload="onload()">
+	<span class="main-content">
+	<h2 style="color: #dd6700; margin-bottom: 6px; margin-top: 1px;">Обратный отсчет до 2022 г.</h2>
+    <span id="noscript_info" style="margin-top: 6px;"><b>Для работы данного счетчика необходим JavaScript.</b><br><br>Если используете расширение NoScript в своем браузере, добавьте сценарий нашего сайта в список доверенных и обновите страницу. В остальном случае воспользуйтесь другими браузерами.</span>
+    <div id="countdown_days" style="display: inline-block; background: url(../../../images/countdown_2022_rus.png); width: 576px; height: 240px;" hidden="true"><div id="days_block" style="left: 63px; width: 114px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="days_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>дн.</b></div></div><div id="hours_block" style="left: 191px; width: 114px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="hours_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>ч.</b></div></div><div id="minutes_block" style="left: 318px; width: 113px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="minutes_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>мин.</b></div></div><div id="seconds_block" style="left: 443px; width: 114px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="seconds_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>сек.</b></div></div></div><br><span id="today_text" hidden="true" style="font-size: 12px; color: #8a8a8a;"></span>
+    </span>
+</body>
+</html>
