@@ -15,14 +15,9 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet">
 
 <style>
-html {
-  height: 100%;
-}
-
 body {
   display: flex;
   flex-direction: column;
-  min-width: 240px;
   margin: 0;
 }
 
@@ -52,12 +47,15 @@ body {
   flex-direction: column;
   flex: 1;
   padding: 1.5rem;
-  min-width: 240px;
+  min-width: 600px;
+  max-width: 95%;
 }
 
 .cover {
   display: flex;
   padding: 0;
+  min-width: 600px;
+  width: 100%;
 }
 
 .demo__title {
@@ -90,15 +88,14 @@ body {
 
 </head>
 <body>
-	<span class="cover">
-		<img src="../../../images/cover_512px.png" width="100%"></img>
-	</span>
-	<div style="margin-bottom: 6px; padding: 10px; background: #dd6700; color: white; min-width: 240px;"><span style="vertical-align: middle; margin-right: 5px; margin-left: 12px;"><i class="material-icons md-18">warning</i></span><span style="font-size: 14px;">Attention! Our website is under construction, so some elements on the page may not work.</span></div>
-	<span class="main-content">
+	<div class="cover">
+		<img src="../../../images/cover_512px.png" style="width: 100%; min-width: 640px; max-width: 100%"></img>
+	</div>
+	<div class="main-content">
 	<h2 style="color: #dd6700; margin-bottom: 6px; margin-top: 1px;">Welcome</h2>
 	<b>Good afternoon, my name is Dmitry, i'm 17 years old.</b><p>My YouTube career started in March 2016, when I started recording TV broadcasts (that was before I switched to computer or IT subject). But, now, in my free time, I have been doing programming since 2018, and also YouTube. Although the second is not my main occupation.<br>Below is a list of my own works.
 	<h2 style="color: #dd6700; margin-bottom: 6px; margin-top: 12px;">List of my works</h2>
-    <ul class="mdc-list mdc-list--two-line mdc-list--avatar-list">
+    <ul class="mdc-list mdc-list--two-line mdc-list--avatar-list" style="max-width: 95%">
     <li class="mdc-list-item_2" tabindex="0">
         <span class="mdc-list-item__ripple"></span>
         <span class="mdc-list-item__graphic" role="presentation">
@@ -125,6 +122,6 @@ body {
     </a>
     </li>
     </ul>
-</span>
+</div>
 </body>
 </html>
