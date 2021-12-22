@@ -22,7 +22,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-width: 240px;
+  min-width: 360px;
   margin: 0;
 }
 
@@ -52,8 +52,6 @@ body {
   flex-direction: column;
   flex: 1;
   padding: 1.5rem;
-  min-width: 600px;
-  min-height: 90%;
 }
 
 .cover {
@@ -83,16 +81,24 @@ body {
 
   
   
-  <script>
+<script>
   if (document.location.search.match(/type=embed/gi)) {
     window.parent.postMessage("resize", "*");
   }
+   function onload() {
+    function resizeTimer() {
+        if(document.body.clientHeight <= 480) {
+            document.getElementById('cover').hidden = true;
+        } else {document.getElementById('cover').hidden = false;};
+    };
+    setInterval(resizeTimer, 100);
+  };
 </script>
 
 </head>
-<body>
-	<span class="cover">
-		<img src="../../../images/cover_512px.png" style="width: 100%; min-width: 640px; max-width: 100%"></img>
+<body onload="onload()">
+	<span class="cover" id="cover" hidden="false">
+		<img src="../../../images/cover_512px.png" style="width: 100%; max-width: 100% max-width: 100%"></img>
 	</span>
 	<span class="main-content">
 	<h2 style="color: #dd6700; margin-bottom: 6px; margin-top: 1px;">Приветствие</h2>

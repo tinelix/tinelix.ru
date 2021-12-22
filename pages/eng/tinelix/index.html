@@ -19,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+  min-width: 360px;
 }
 
 .demo-body {
@@ -47,14 +48,11 @@ body {
   flex-direction: column;
   flex: 1;
   padding: 1.5rem;
-  min-width: 600px;
-  max-width: 95%;
 }
 
 .cover {
   display: flex;
   padding: 0;
-  min-width: 600px;
   width: 100%;
 }
 
@@ -80,16 +78,24 @@ body {
 
   
   
-  <script>
+<script>
   if (document.location.search.match(/type=embed/gi)) {
     window.parent.postMessage("resize", "*");
   }
+  function onload() {
+    function resizeTimer() {
+        if(document.body.clientHeight <= 480) {
+            document.getElementById('cover').hidden = true;
+        } else {document.getElementById('cover').hidden = false;};
+    };
+    setInterval(resizeTimer, 100);
+  };
 </script>
 
 </head>
-<body>
-	<div class="cover">
-		<img src="../../../images/cover_512px.png" style="width: 100%; min-width: 640px; max-width: 100%"></img>
+<body onload="onload()">
+	<div class="cover" id="cover" hidden="false">
+		<img src="../../../images/cover_512px.png" style="width: 100%; max-width: 100%"></img>
 	</div>
 	<div class="main-content">
 	<h2 style="color: #dd6700; margin-bottom: 6px; margin-top: 1px;">Welcome</h2>

@@ -30,8 +30,8 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 .demo-body {
@@ -103,7 +103,7 @@ body {
 
 <div class="app-drawer-layout mdc-top-app-bar--fixed-adjust">
   <!-- Drawer -->
-  <aside class="mdc-drawer mdc-drawer--dismissible demo-drawer">
+  <aside class="mdc-drawer mdc-drawer--dismissible demo-drawer" style="overflow-y: scroll; overflow-x: hidden;">
     <nav class="mac-drawer__drawer">
       <div class="mdc-drawer__content">
         <nav id="list01" class="mdc-list">
@@ -180,7 +180,7 @@ const menu = new mdc.menu.MDCMenu.attachTo(document.querySelector('.mdc-menu'));
 
 topAppBar.setScrollTarget(document.querySelector('.main-content'));
 topAppBar.listen('MDCTopAppBar:nav', () => {
-  drawer.open = !drawer.open;
+    drawer.open = !drawer.open;
 });
 //# sourceURL=pen.js
 
