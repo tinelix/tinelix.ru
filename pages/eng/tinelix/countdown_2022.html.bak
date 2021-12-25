@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<title>Обратный отсчет до 2022 года - Tinelix</title>
+<title>2022's countdown - Tinelix</title>
 <head>
 	<meta charset="UTF-8">
 	<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
@@ -15,16 +15,13 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet">
 
 <style>
-html {
-  height: 100%;
-}
 
 body {
   display: flex;
   flex-direction: column;
+  margin: 0;
   min-width: 720px;
   min-height: 400px;
-  margin: 0;
 }
 
 .demo-body {
@@ -88,12 +85,12 @@ body {
     document.getElementById('noscript_info').innerHTML = "";
     function countdownTimer() {
         var today = new Date();
-        var newYear = new Date('1 January 2022');
+        var newYear = new Date('1 January 2021');
         var days = today - newYear;
         var count_time = new Date(-days + (today.getTimezoneOffset() * 60 * 1000));
         var countdown = Math.floor(-(days / 1000 / 60 / 60 / 24));
 		if(countdown < 0) {
-			document.getElementById('noscript_info').innerHTML = '<b>А все уже...</b>';
+			document.getElementById('noscript_info').innerHTML = '<b>And everything is already...</b>';
 			document.getElementById('noscript_info').hidden = false;
 			document.getElementById('days_count').innerHTML = '<b>0</b>';
 			document.getElementById('hours_count').innerHTML = '<b>0</b>';
@@ -122,7 +119,7 @@ body {
         document.getElementById('hours_count').innerHTML = '<b>' + count_time.getHours() + '</b>';
         document.getElementById('minutes_count').innerHTML = '<b>' + count_time.getMinutes() + '</b>';
         document.getElementById('seconds_count').innerHTML = '<b>' + count_time.getSeconds() + '</b>';
-        today_text = 'Сегодня ' + today.toLocaleDateString('ru-RU') + ', ' + today.toLocaleTimeString("ru-RU") + ' по UTC' + timezone;
+        today_text = 'Today ' + today.toLocaleDateString('ru-RU') + ', ' + today.toLocaleTimeString("ru-RU") + ' (UTC' + timezone + ')';
         document.getElementById('today_text').hidden = false;
         document.getElementById('today_text').innerHTML = '<i>' + today_text + '<i>';
 		document.getElementById('countdown_days').style.visibility = 'visible';
@@ -142,9 +139,9 @@ body {
 </head>
 <body onload="onload()">
 	<span class="main-content">
-	<h2 style="color: #dd6700; margin-bottom: 6px; margin-top: 1px;">Обратный отсчет до 2022 г.</h2>
-    <div id="noscript_info" style="margin-top: 6px;"><b>Для работы данного счетчика необходим JavaScript.</b><br><br>Если используете расширение NoScript в своем браузере, добавьте сценарий нашего сайта в список доверенных и обновите страницу. В остальном случае воспользуйтесь другими браузерами.</div>
-    <div id="countdown_days" style="display: inline-block; background: url(../../../images/countdown_2022_rus.png); width: 576px; height: 240px; visibility: hidden;" hidden="true"><div id="days_block" style="left: 63px; width: 114px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="days_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>дн.</b></div></div><div id="hours_block" style="left: 191px; width: 114px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="hours_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>ч.</b></div></div><div id="minutes_block" style="left: 318px; width: 113px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="minutes_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>мин.</b></div></div><div id="seconds_block" style="left: 443px; width: 114px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="seconds_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>сек.</b></div></div></div><br><span id="today_text" hidden="true" style="font-size: 12px; color: #8a8a8a;"></span>
+	<h2 style="color: #dd6700; margin-bottom: 6px; margin-top: 1px;">2022's countdown</h2>
+    <span id="noscript_info" style="margin-top: 6px;"><b>This countdown timer requires JavaScript to work.</b><br><br> If you are using the NoScript extension in your browser, add our site script to the trusted list and refresh the page. Otherwise, please use other browsers.</span>
+    <div id="countdown_days" hidden="true" style="display: inline-block; background: url(../../../images/countdown_2022_eng.png); width: 576px; height: 240px; visibility: hidden;"><div id="days_block" style="left: 63px; width: 114px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="days_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>days</b></div></div><div id="hours_block" style="left: 191px; width: 114px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="hours_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>hours</b></div></div><div id="minutes_block" style="left: 318px; width: 113px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="minutes_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>minutes</b></div></div><div id="seconds_block" style="left: 443px; width: 114px; position: absolute;"><div style="color: #ffffff; font-size: 80px; padding-top: 88px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="seconds_count"><b>?</b></div><div style="padding-left: 5px; text-align: center; color: #dd6700;"><b>seconds</b></div></div></div><br><span id="today_text" hidden="true" style="font-size: 12px; color: #8a8a8a;"></span>
     </span>
 </body>
 </html>

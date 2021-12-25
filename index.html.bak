@@ -140,7 +140,7 @@ body {
           </a>
     </div>
     </nav>
-	<div style="position: fixed; background-color: #ffffff; bottom: 0px; font-size: 12px; padding: 16px;" id="webinfo">Дизайн: <a href="https://material.io">Material Design</a>.<br>© Dmitry Tretyakov, 2021-2022.</div>
+	<div style="position: fixed; background-color: #ffffff; bottom: 0px; font-size: 12px; padding: 16px;" id="webinfo">Сайт Tinelix в разработке.<br>Дизайн: <a href="https://material.io">Material Design</a>.<br>© Dmitry Tretyakov, 2021.</div>
     <div class="mdc-menu mdc-menu-surface">
         <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
             <li class="mdc-list-item" role="menuitem" id="russian_lang_item">
@@ -214,7 +214,7 @@ russian_lang_item.addEventListener('click', (event) => {
     string_004.innerHTML = "Контакты"
     string_005.innerHTML = "Обр. отсчет до 2022 г."
     string_006.innerHTML = "Упрощенный стиль"
-    webinfo.innerHTML = "Дизайн: <a href=\"https://material.io\">Material Design</a>.<br>© Dmitry Tretyakov, 2021-2022."
+    webinfo.innerHTML = "Сайт Tinelix в разработке.<br>Дизайн: <a href=\"https://material.io\">Material Design</a>.<br>© Dmitry Tretyakov, 2021-2022."
     main_content.innerHTML = "<iframe src=\"pages/rus/tinelix/index.html\" width=\"100%\" height=\"100%\" align=\"left\" frameborder=\"no\" name=\"content_frame\">\nВаш браузер не поддерживает плавающие фреймы!</iframe>"
     item_001.setAttribute('href', 'pages/rus/tinelix/index.html');
     item_002.setAttribute('href', 'pages/rus/tinelix/news.html');
@@ -232,7 +232,7 @@ english_lang_item.addEventListener('click', (event) => {
     string_004.innerHTML = "Contacts"
     string_005.innerHTML = "2022's countdown"
     string_006.innerHTML = "Simplified style"
-    webinfo.innerHTML = "<a href=\"https://material.io\">Material Design</a>.<br>© 2021-2022 Dmitry Tretyakov."
+    webinfo.innerHTML = "Tinelix website is under construction.<br><a href=\"https://material.io\">Material Design</a>.<br>© 2021-2022 Dmitry Tretyakov."
     main_content.innerHTML = "<iframe src=\"pages/eng/tinelix/index.html\" width=\"100%\" height=\"100%\" align=\"left\" frameborder=\"no\" name=\"content_frame\">\nYour browser not supported iframes!</iframe>"
     item_001.setAttribute('href', 'pages/eng/tinelix/index.html');
     item_002.setAttribute('href', 'pages/eng/tinelix/news.html');

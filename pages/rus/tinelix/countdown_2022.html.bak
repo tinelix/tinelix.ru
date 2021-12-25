@@ -88,7 +88,7 @@ body {
     document.getElementById('noscript_info').innerHTML = "";
     function countdownTimer() {
         var today = new Date();
-        var newYear = new Date('1 January 2022');
+        var newYear = new Date('1 January 2021');
         var days = today - newYear;
         var count_time = new Date(-days + (today.getTimezoneOffset() * 60 * 1000));
         var countdown = Math.floor(-(days / 1000 / 60 / 60 / 24));
