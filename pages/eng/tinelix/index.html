@@ -90,8 +90,8 @@ body {
     };
 	var today = new Date();
 	var birthday = new Date('6 January 2004');
-	var age = (today - birthday) / 1000 / 60 / 60 / 24 / 365;
-	document.getElementById('age').innerHTML = Math.floor(age);
+	var age = (today - birthday);
+	document.getElementById('age').innerHTML = new Date(age).getFullYear() - 1970;
     setInterval(resizeTimer, 100);
   };
 </script>
