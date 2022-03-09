@@ -79,21 +79,52 @@ body {
 
 <script>
   window.console = window.console || function(t) {};
-</script>
 
-  
-  
-  <script>
   if (document.location.search.match(/type=embed/gi)) {
     window.parent.postMessage("resize", "*");
   }
 </script>
-
-</head>
+<script>
+  function onApkVersionChoosed(value) {
+    if(value == "0.1.7-alpha") {
+        document.getElementById("android_links").innerHTML = "<a href=\"http://tinelix.downmail.ru/software/irc_android_0.1.7.apk\" target=\"_blank\">Скачать версию 0.1.7 для Android</a> (*.apk)<br><a href=\"http://tinelix.downmail.ru/software/sourcecode/irc_android_0.1.7.zip\" target=\"_blank\">Скачать исходные коды версии 0.1.7 для Android</a> (лицензия GNU GPL 3.0)"
+    } else if(value == "0.1.6-alpha") {
+        document.getElementById("android_links").innerHTML = "<a href=\"http://tinelix.downmail.ru/software/irc_android_0.1.6.apk\" target=\"_blank\">Скачать версию 0.1.6 для Android</a> (*.apk)<br><a href=\"http://tinelix.downmail.ru/software/sourcecode/irc_android_0.1.6.zip\" target=\"_blank\">Скачать исходные коды версии 0.1.6 для Android</a> (лицензия GNU GPL 3.0)"
+    } else if(value == "0.1.5-alpha") {
+        document.getElementById("android_links").innerHTML = "<a href=\"http://tinelix.downmail.ru/software/irc_android_0.1.5.apk\" target=\"_blank\">Скачать версию 0.1.5 для Android</a> (*.apk)<br><a href=\"http://tinelix.downmail.ru/software/sourcecode/irc_android_0.1.5.zip\" target=\"_blank\">Скачать исходные коды версии 0.1.5 для Android</a> (лицензия GNU GPL 3.0)"
+    } if(value == "0.1.4-alpha") {
+        document.getElementById("android_links").innerHTML = "<a href=\"http://tinelix.downmail.ru/software/irc_android_0.1.4.apk\" target=\"_blank\">Скачать версию 0.1.4 для Android</a> (*.apk)<br><a href=\"http://tinelix.downmail.ru/software/sourcecode/irc_android_0.1.4.zip\" target=\"_blank\">Скачать исходные коды версии 0.1.4 для Android</a> (лицензия GNU GPL 3.0)"
+    } else if(value == "0.1.3-alpha") {
+        document.getElementById("android_links").innerHTML = "<a href=\"http://tinelix.downmail.ru/software/irc_android_0.1.3.apk\" target=\"_blank\">Скачать версию 0.1.3 для Android</a> (*.apk)<br><a href=\"http://tinelix.downmail.ru/software/sourcecode/irc_android_0.1.3.zip\" target=\"_blank\">Скачать исходные коды версии 0.1.3 для Android</a> (лицензия GNU GPL 3.0)"
+    } else if(value == "0.1.2-alpha") {
+        document.getElementById("android_links").innerHTML = "<a href=\"http://tinelix.downmail.ru/software/irc_android_0.1.2.apk\" target=\"_blank\">Скачать версию 0.1.2 для Android</a> (*.apk)<br><a href=\"http://tinelix.downmail.ru/software/sourcecode/irc_android_0.1.2.zip\" target=\"_blank\">Скачать исходные коды версии 0.1.2 для Android</a> (лицензия GNU GPL 3.0)"
+    };
+  };
+  function onload() {
+  }
+</script>
 <body>
-	<span class="main-content">
-	<h2 style="color: #dd6700; margin-bottom: 6px; margin-top: 1px;">Описание</h2>
-    <p style=""><i>Август 2021.</i> Итак, как и Veselcraft, который, кстати, возился с Escargot-клиентом на JavaScript, я решил создать нечто подобное, но теперь уже IRC-клиент на Python. Отмечу, что здесь используется фреймворк Qt 5 и пакеты - PyQt5 - реализация Qt 5 на Python, cryptography для шифрования паролей) и configparser (для файла настроек, подобно *.ini формата) и стандартные библиотеки Python 3. Подключается к IRC-серверу через модуль socket. Клиент поддерживает пять кодировок - UTF-8, Windows-1251 (для <a href="http://gramsk.ru" target="_blank">gramsk.ru</a> это актуально), DOS 866, KOI8-R и KOI8-U.<p style="text-align: center"><img src="../../../images/Screenshot_20210904_172602.png"></img><p><a href="https://github.com/tinelix/irc-client" target="_blank">Репозиторий IRC-клиента с открытым исходным кодом</a> <i>(лицензия: GNU GPL 3.0)</i><br><a href="https://github.com/HSDChannel/irc-client-by-tinelix-portable" target="_blank">Портативные версии Tinelix IRC Client от Дмитрия Ивченко (aka. HSD)</a><br><br>Скажу на всякий случай: чтобы запускать скрипт flight.py, скачиваем интепретатор Python (версия 3.7 и посвежее подойдет). Желательно, при этом указываем параметр Add to PATH, и скачиваем через cmd или терминал недостающие пакеты через pip3. Например, <code>pip3 install [пакет]</code>. Проверить можно в самом начале файла flight.py.<br><br><b>Предупреждение:</b> Запускать нужно скрипт flight.py, потому что остальные скрипты не работают, но они нужны для составления форм и диалогов графического интерфейса.
-    </span>
+  <div style="display: block; padding: 20px; margin-bottom: 160px; height: 800px">
+    <h2 style="color: #dd6700; margin-top: 1px;">Tinelix IRC Client</h2>
+    <b>Немного расскажу пару слов, что это такое.</b><br><br>IRC расшифровывается как Internet Relay Chat. Это простой и древний протокол для общения с людьми в реальном времени. Он использует только текстовые данные и немного специфичный набор форматирования текста в отличии от Markdown и обеспечивает Socket-подключение к любым IRC-клиентам. Для этого нужно знать только базовые команды вроде <code>PONG</code>, <code>JOIN</code>, <code>MODE</code>, <code>PRIVMSG</code> и <code>QUIT</code>.<br><br>И раз уж я начал знакомство с сайтом <a href="https://narodweb.ru" target="_blank">http://narodweb.ru</a> в начале лета 2021 г., в августе в моей голове появилась такая мысль о создании собственного IRC-клиента на языке программирования Python 3.x и на базе PyQt5, так как на данный момент мой коллега <a href="https://youtube.com/veselcraft" target="_blank">Владимир Баринов (Veselcraft)</a> писал клиент для серверов Escargot на языке JavaScript для интепретатора node.js.<p style="text-align: center"><img src="../../../images/tlx_irc.png" width="80%"></img>
+    <h2 style="color: #dd6700; margin-bottom: 0px; margin-top: 24px; margin-left: -1px;">Что нового появилось в Tinelix IRC Client версии 0.1.2?</h2>
+    <p>1. Помимо поддержки Android 2.x, которая появилась с версии 0.1.0, улучшен внешний вид приложения. Это, что касается версий Android ниже 3.0.
+    <p style="text-align: center"><img src="../../../images/tlx_irc_2.png" width="80%"></img><p>В какой-то степени такой дизайн отдалено напоминает интерфейс Holo, что был в Android 4.x.<br>2. Добавлена возможность создавать пользовательские QUIT-сообщения.<br>3. Исправлен баг в Profile Adapter (кастомного адаптера списков для ListView) в активности менеджера подключений<br>4. Добавлены уведломения о упоминаниях ника.
+    <h2 style="color: #dd6700; margin-bottom: 0px; margin-top: 24px; margin-left: -1px;">Ссылки</h2>
+    <p style="margin-bottom: 4px"><span style="font-size: 12px; color: black;"><b>ANDROID</b></span>
+    <p style="margin-top: 4px"><span style="font-size: 12px; margin-bottom: 2px">Версия: </span><select id="apkversion_combobox" style="font-size: 11px" onchange="onApkVersionChoosed(this.options[this.selectedIndex].value)">
+        <option value="0.1.7-alpha" selected>0.1.7 Alpha (2022-03-09)</option>
+        <option value="0.1.6-alpha">0.1.6 Alpha (2022-03-08)</option>
+        <option value="0.1.5-alpha">0.1.5 Alpha (2022-03-08)</option>
+        <option value="0.1.4-alpha">0.1.4 Alpha (2022-03-07)</option>
+        <option value="0.1.3-alpha">0.1.3 Alpha (2022-03-06)</option>
+        <option value="0.1.2-alpha">0.1.2 Alpha (2022-03-05)</option>
+    </select>
+    <br><div id="android_links"><a href="http://tinelix.downmail.ru/software/irc_android_0.1.7.apk" target="_blank">Скачать версию 0.1.7 для Android</a> (*.apk)<br><a href="http://tinelix.downmail.ru/software/sourcecode/irc_android_0.1.7.zip" target="_blank">Скачать исходные коды версии 0.1.7 для Android</a> (лицензия GNU GPL 3.0)</div><p><h6 style="margin-top: 6px;">Поддерживается Android 2.0 Eclair (API уровня 5) и выше.</h6>
+    <span style="font-size: 12px; color: black;"><b>WINDOWS</b></span>
+    <br><a href="http://tinelix.downmail.ru/software/irc_win32s_0.1.12.zip" target="_blank">Скачать актуальную версию для Win32s</a> (*.zip)<br><a href="http://tinelix.downmail.ru/software/sourcecode/irc_win32s_0.1.12.zip" target="_blank">Скачать исходные коды версии для Win32s</a> (лицензия GNU GPL 3.0)<p>
+    <span style="font-size: 12px; color: black;"><b>PYTHON + PYQT5</b></span>
+    <br><a href="https://github.com/tinelix/irc-client/releases/tag/1.1.1-stable" target="_blank">Скачать актуальную версию для Python</a> (*.zip)<br><a href="https://github.com/tinelix/irc-client" target="_blank">Скачать исходные коды версии для Python</a> (лицензия GNU GPL 3.0)
+	<p><h6 style="margin-top: 6px; padding-bottom: 48px;">Win32s (Win32 subset) - прослойка совместимости программ Win32, пригодная для запуска на Windows 3.1 и Windows 3.11 для рабочих групп. Имеет массу ограничений, поэтому далеко не все Win32-программы могут быть совместимы с Win32s.</h6>
+	</div>
 </body>
-</html>
