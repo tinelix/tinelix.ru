@@ -11,14 +11,12 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet">
 
         <style>
-            html {
-                height: 100%;
-            }
 
             body {
                 display: flex;
                 flex-direction: column;
-                min-width: 240px;
+                min-width: 600px;
+                min-height: 400px;
                 margin: 0;
                 background: url(../../../images/new_year.png) no-repeat;
             }
@@ -58,7 +56,6 @@
                 var countdown = Math.floor(-(days / 1000 / 60 / 60 / 24));
                 if(countdown < 0) {
                     document.getElementById('dialog-text').innerHTML = '<b>А все уже...</b>';
-                    document.getElementById('noscript_info').hidden = false;
                     document.getElementById('days_count').innerHTML = '<b>0</b>';
                     document.getElementById('hours_count').innerHTML = '<b>0</b>';
                     document.getElementById('minutes_count').innerHTML = '<b>0</b>';
