@@ -120,6 +120,10 @@ body {
             <span class="mdc-list-item__ripple"></span>
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">feedback</i><span class="mdc-list-item__text" id="string_004">Контакты</span>
           </a>
+          <a class="mdc-list-item" href="pages/rus/tinelix/new-year.html" target="content_frame" aria-current="page" id="item_006">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">celebration</i><span class="mdc-list-item__text" id="string_006">Ждать 2023</span>
+          </a>
         </nav>
         <hr class="mdc-list-divider">
         <nav id="list02" class="mdc-list">
@@ -196,6 +200,7 @@ const string_002 = document.getElementById('string_002');
 const string_003 = document.getElementById('string_003');
 const string_004 = document.getElementById('string_004');
 const string_005 = document.getElementById('string_005');
+const string_006 = document.getElementById('string_006');
 const webinfo = document.getElementById('webinfo');
 const main_content = document.getElementById('main_content');
 
@@ -207,12 +212,14 @@ russian_lang_item.addEventListener('click', (event) => {
     string_003.innerHTML = "Соцсети"
     string_004.innerHTML = "Контакты"
     string_005.innerHTML = "Упрощенный стиль"
+    string_006.innerHTML = "Ждать 2023"
     webinfo.innerHTML = "Дизайн: <a href=\"https://material.io\">Material Design</a>.<br>© Dmitry Tretyakov, 2021-2022."
     main_content.innerHTML = "<iframe src=\"pages/rus/tinelix/index.html\" width=\"100%\" height=\"100%\" align=\"left\" frameborder=\"no\" name=\"content_frame\">\nВаш браузер не поддерживает плавающие фреймы!</iframe>"
     item_001.setAttribute('href', 'pages/rus/tinelix/index.html');
     item_002.setAttribute('href', 'pages/rus/tinelix/news.html');
     item_003.setAttribute('href', 'pages/rus/tinelix/socmedia.html');
     item_004.setAttribute('href', 'pages/rus/tinelix/contacts.html');
+    item_006.setAttribute('href', 'pages/rus/tinelix/new-year.html');
 });
 
 const english_lang_item = document.getElementById('english_lang_item');
@@ -223,12 +230,14 @@ english_lang_item.addEventListener('click', (event) => {
     string_003.innerHTML = "Social media"
     string_004.innerHTML = "Contacts"
     string_005.innerHTML = "Simplified style"
+    string_006.innerHTML = "Wait 2023"
     webinfo.innerHTML = "<a href=\"https://material.io\">Material Design</a>.<br>© 2021-2022 Dmitry Tretyakov."
     main_content.innerHTML = "<iframe src=\"pages/eng/tinelix/index.html\" width=\"100%\" height=\"100%\" align=\"left\" frameborder=\"no\" name=\"content_frame\">\nYour browser not supported iframes!</iframe>"
     item_001.setAttribute('href', 'pages/eng/tinelix/index.html');
     item_002.setAttribute('href', 'pages/eng/tinelix/news.html');
     item_003.setAttribute('href', 'pages/eng/tinelix/socmedia.html');
     item_004.setAttribute('href', 'pages/eng/tinelix/contacts.html');
+    item_006.setAttribute('href', 'pages/eng/tinelix/new-year.html');
 });
 
 </script>
