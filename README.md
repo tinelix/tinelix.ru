@@ -1,2 +1,2 @@
-# tinelix.github.io
-Our website (testing mode)
+# tinelix.ru
+Our website
