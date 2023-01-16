@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<title>403 - Tinelix</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://unpkg.com/material-components-web@latest/dist/material-components-web.css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <link rel="stylesheet" href="http://tinelix.ru/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet">
+
+        <style>
+
+            body {
+                display: flex;
+                flex-direction: column;
+                min-width: 600px;
+                min-height: 400px;
+                margin: 0;
+                background-color: #ffffff;
+                background-size: cover;
+            }
+
+
+            ul.hr {
+                margin: 0;
+                padding: 4px;
+            }
+            ul.hr li {
+                display: inline;
+                padding: 3px;
+            }
+
+        </style>
+        <script src='https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js'></script>
+        <script>
+            window.console = window.console || function(t) {};
+            if (document.location.search.match(/type=embed/gi)) {
+                window.parent.postMessage("resize", "*");
+            }
+        </script>
+        <script id="rendered_js">
+            var language = "ru";
+            function dialog() {
+                const dialog = new mdc.dialog.MDCDialog(document.querySelector(".mdc-dialog"));
+                dialog.escapeKeyAction = "";
+                dialog.scrimClickAction = "";
+                dialog.open();
+                dialog.listen('MDCDialog:closing', function() {
+                    window.location.href = "http://tinelix.ru";
+                });
+            }
+			function switchtoEng() {
+                if(document.getElementById('language_switch').innerHTML == "Switch to English") {
+                    document.getElementById('dialog-content').innerHTML = 'I didn\'t create the site to dig into my secrets.<p><p><a onclick=\"switchtoEng()\" id="language_switch">Переключиться на русский</a>';
+                    language = "en";
+                } else {
+                    document.getElementById('dialog-content').innerHTML = 'Я создавал сайт не для того, чтобы копаться в моих секретах.<p><p><a onclick=\"switchtoEng()\" id="language_switch">Switch to English</a>';
+                    language = "ru";
+                }
+			}
+        </script>
+    </head>
+
+    <body onload="dialog()">
+        <div class="mdc-dialog">
+        <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface"
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="my-dialog-title"
+            aria-describedby="my-dialog-content">
+                <div class="mdc-dialog__content" id="dialog-content">
+                    <span id="dialog-text">Я создавал сайт не для того, чтобы копаться в моих секретах.<p><a onclick="switchtoEng()" id="language_switch">Switch to English</a></span>
+                </div>
+                <div class="mdc-dialog__actions">
+                    <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="home">
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label">ОК</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+        </div>
+    </body>
+</html>

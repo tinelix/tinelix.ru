@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<title>В ожидании Нового года - Tinelix</title>
+<title>Tinelix</title>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +18,8 @@
                 min-width: 600px;
                 min-height: 400px;
                 margin: 0;
-                background: url(../../../images/new_year.png) no-repeat;
-                background-color: #000000;
+                /*background: url(../../../images/new_year.png) no-repeat;*/
+                background-color: #ffffff;
                 background-size: cover;
             }
 
@@ -51,7 +51,7 @@
                 setInterval(countdownTimer, 100);
             }
             function countdownTimer() {
-                var today = new Date();
+                /*var today = new Date();
                 var newYear = new Date('1 January 2023');
                 var days = today - newYear;
                 var count_time = new Date(-days + (today.getTimezoneOffset() * 60 * 1000));
@@ -73,7 +73,7 @@
                 document.getElementById('days_count').innerHTML = '<b>' + countdown + '</b>';
                 document.getElementById('hours_count').innerHTML = '<b>' + count_time.getHours() + '</b>';
                 document.getElementById('minutes_count').innerHTML = '<b>' + count_time.getMinutes() + '</b>';
-                document.getElementById('seconds_count').innerHTML = '<b>' + count_time.getSeconds() + '</b>';
+                document.getElementById('seconds_count').innerHTML = '<b>' + count_time.getSeconds() + '</b>';*/
 			}
         </script>
     </head>
@@ -87,8 +87,8 @@
             aria-labelledby="my-dialog-title"
             aria-describedby="my-dialog-content">
                 <div class="mdc-dialog__content" id="dialog-content">
-                    <span id="dialog-text">До Нового года осталось:</span>
-                    <p>
+                    <span id="dialog-text">Этой страницы больше нет.</span>
+                    <!--<p>
                     <div style="text-align: center; padding-top: 20px; margin-bottom: -20px;">
                         <ul class="hr">
                             <li><div id="days_block" style="width: 96px; display: inline-block; margin-top: 10px"><div style="color: #000000; font-size: 60px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="days_count"><b>?</b></div><div style="margin-top: 20px; margin-bottom: 10px; text-align: center; padding-left: 10px; color: #dd6700;"><b>дн.</b></div></div></li>
@@ -97,6 +97,7 @@
                             <li><div id="seconds_block" style="width: 96px; display: inline-block; margin-top: 10px;"><div style="color: #000000; font-size: 60px; padding-bottom: 0px; padding-left: 5px; text-align: center;" id="seconds_count"><b>?</b></div><div style="margin-top: 20px; margin-bottom: 10px; text-align: center; padding-left: 10px; color: #dd6700;"><b>сек.</b></div></div></li>
                         </ul>
                     </div>
+                    <!-->
                 </div>
                 <div class="mdc-dialog__actions">
                     <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="home">
