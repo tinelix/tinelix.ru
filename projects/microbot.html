@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <style>
+        </style>
+        <title>Tinelix</title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="tinelix, тинеликс">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="shortcut icon" href="webicon.png" type="image/png">
+    </head>
+    <body>
+        <div style="background-color: #dd6700">
+            <div class="menu">
+                <a href="../index.html" class="menu-logo">
+                    <img src="../images/logo_mono.png" width="104" alt="Домой">
+                </a>
+                <div class="site-menu">
+                    <a href="../projects.html">Проекты</a>
+                    <a href="../devices.html">Оборудование</a>
+                    <a href="http://irc.tinelix.ru">IRC-чат</a>
+                    <a href="https://t.me/tinelixdonators">Пожертвования</a>
+                    <a href="../about.html">О себе</a>
+                </div>
+                <div class="links">
+                    <a href="https://youtube.com/tinelix">YouTube</a>
+                    <a href="https://t.me/tinelix">Telegram</a>
+                    <a href="https://openvk.uk/tinelix">OpenVK</a>
+                    <a href="https://mastodon.ml/@tinelix">Mastodon</a>
+                    <a href="https://discord.gg/msVdtBy6qe">Discord</a>
+                </div>
+                <div style="display: inline-flex;">
+                    <a href="javascript:openmenu()" class="menu-icon">
+                        <img src="../expand-more.svg" width="40">
+                    </a>
+                    <a href="javascript:openaccountmenu()" class="menu-icon-show">
+                        <img src="../account-box.svg" width="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="content text">
+            <h1>Tinelix Microbot</h1>
+            Простой развлекательно-информационный бот Microbot на Disnake.</b><p>Этот Discord-бот является очередным преемником бота VisionOne, разработка которого была прекращена в середине 2021 года. Как и предшественник, он имеет интеграцию с БД SQlite3, упрощенную в разы, умеет узнавать местную погоду в OpenWeatherMap, показывать статьи из Википедии, развлекать игрой "Восьмерка" и генерировать случайные числа в указанном диапазоне.
+            <br><br>Сейчас бот насчитывает около <b>11</b> серверов.
+            <h2>Журнал изменений</h2>
+            <h3>0.1.2 для Android</h3>
+            <ol>
+                <li>Помимо поддержки Android 2.x, которая появилась с версии 0.1.0, улучшен внешний вид приложения. Это, что касается версий Android ниже 3.0.</li>
+                <li>Добавлена возможность создавать пользовательские QUIT-сообщения.</li>
+            </ol>
+            <h2>Список команд</h2>
+            <table rules="all" cellpadding="5" bordercolor="#8f8f8f">
+                <tr>
+                    <th>Команда</th>
+                    <th>Синтаксис</th>
+                    <th>Описание</th>
+                </tr>
+                <tr>
+                    <td><code>help</code></td>
+                    <td><code>help</code> или <code>help [имя команды]</code></td>
+                    <td>Показывает справочную информацию, включая список доступных команд.</td>
+                </tr>
+                <tr>
+                    <td><code>about</code></td>
+                    <td><code>about</code></td>
+                    <td>Показывает описание бота, а также служебную информацию.</td>
+                </tr>
+                <tr>
+                    <td><code>user</code></td>
+                    <td><code>user [@упоминание | ID участника | юзернейм]</code></td>
+                    <td>Показывает информацию о пользователе.</td>
+                </tr>
+                <tr>
+                    <td><code>guild</code></td>
+                    <td><code>guild</code></td>
+                    <td>Показывает информацию о гильдии (сервере)</td>
+                </tr>
+                <tr>
+                    <td><code>ping</code></td>
+                    <td><code>ping</code></td>
+                    <td>Пни меня.</td>
+                </tr>
+                <tr>
+                    <td><code>8ball</code></td>
+                    <td><code>8ball [вопрос]</code></td>
+                    <td>Генерирует для любого вопроса случайный ответ. Все совпадения случайны!</td>
+                </tr>
+                <tr>
+                    <td><code>rngen</code> или <code>rand</code></td>
+                    <td><code>rngen [начало диапазона]-[конец диапазона]</code></td>
+                    <td>Генерирует случайное число в указанном диапазоне.</td>
+                </tr>
+                <tr>
+                    <td><code>weather</code></td>
+                    <td><code>weather [город или населенный пункт]</code></td>
+                    <td>Отображает прогноз погоды на ближайшие 24 часа. Для этого используется сервис <a href="https://openweathermap.org/">OpenWeatherMap</a>.</td>
+                </tr>
+                <tr>
+                    <td><code>wiki</code></td>
+                    <td><code>wiki [полное название страницы]</code></td>
+                    <td>Показывает статью в Википедии в краткой форме.</td>
+                </tr>
+                <tr>
+                    <td><code>settings</code></td>
+                    <td><code>settings</code> или <code>settings [-L] [значение]</code></td>
+                    <td>Настройки бота.</td>
+                </tr>
+                <tr>
+                    <td><code>calc</code></td>
+                    <td><code>calc [выражение]</code></td>
+                    <td>Простейший калькулятор.</td>
+                </tr>
+                <tr>
+                    <td><code>codec</code></td>
+                    <td><code>codec [-d / -e] [алгоритм] [содержимое]</code></td>
+                    <td>Расшифровка и зашифровка текста.</td>
+                </tr>
+                <tr>
+                    <td><code>timers</code></td>
+                    <td><code>timers</code><br><code>timers [-Cr / -Ce] [имя таймера] -t [ГГГГ-ММ-ДД ЧЧ:ММ:СС] -e [эмодзи]</code><br><code>timers -D [имя таймера]</code></td>
+                    <td>Создание и управление таймерами в прошедшее и оставшиеся времени.</td>
+                </tr>
+                <tr>
+                    <td><code>publish</code></td>
+                    <td><code>publish</code> или <code>publish [текст]</code></td>
+                    <td>Публикует сообщения с новостного канала без лишнего клика по кнопке мыши.</td>
+                </tr>
+                </table>
+            <h2>Ссылки</h2>
+            <div class="list" style="width: 200px">
+                <a href="https://github.com/tinelix/microbot">Исходный код</a>
+                <a href="https://discordapp.com/api/oauth2/authorize?client_id=994906248526970951&permissions=2147862592&scope=bot">Добавить в Discord</a>
+            </div>
+        </div>
+    </body>
+    <script src="../script.js"></script>
+</html>

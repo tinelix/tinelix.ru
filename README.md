@@ -1,2 +1,0 @@
-# tinelix.ru
-Our website
