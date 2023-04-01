@@ -265,13 +265,13 @@
                 \r\n                            <div align=\"center\">
                 \r\n                                <img src=\"".$banners[$i][2]."\" width=\"88\" height=\"31\" />
                 \r\n                                <br>
-                \r\n                            </div>
-                \r\n                            <pre>
+                \r\n                                <pre class=\"full-code\">
 &lt;a href=\"http://web1.tinelix.ru/\"&gt;
     &lt;img src=\"".$banners[$i][2]."\"
          width=\"88\" height=\"31\" border=\"0\"/&gt;
 &lt;/a&gt;
-                                                </pre>
+</pre>
+                                                </div>
                 \r\n                            ";
             }
             echo "</div>

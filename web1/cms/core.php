@@ -53,7 +53,7 @@
             \r\n                <tr>
             \r\n                    <td bgcolor=\"#151515\" width=\"150\" valign=\"top\">
             \r\n                        <div class=\"title-text\">МЕНЮ САЙТА</div>
-            \r\n                        <hr class=\"accent-color cell\" size=\"1\"/>
+            \r\n                        <hr class=\"accent-color cell\" size=\"1\">
             \r\n                        <div class=\"menu-links text\">
             \r\n                            <a href=\".\">Домой</a>
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/projects.php\">Проекты</a>
@@ -61,7 +61,7 @@
             \r\n                            <p class=\"newline\"><a href=\"http://irc.tinelix.ru\">IRC-чат</a>
             \r\n                            <p class=\"newline\"><a href=\"https://t.me/tinelixdonators\">Пожертвования</a>
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/about.php\">О себе</a>
-            \r\n                            <hr bgcolor=\"#3a3a3a\" size=\"1\"/>
+            \r\n                            <hr size=\"1\">
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/banner.php\">Баннер для сайта</a>
             \r\n                        </div>
             \r\n                    </td>
@@ -79,7 +79,7 @@
         $article_title = mb_strtoupper($article[1]);
         echo "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
             \r\n                        <div class=\"title-text\">".$article_title."</div>
-            \r\n                        <hr class=\"accent-color\" size=\"1\"/>
+            \r\n                        <hr class=\"accent-color\" size=\"1\">
             \r\n                        <div class=\"text\">".$article[2]."</div>
             \r\n                    </td>
             \r\n                </tr>
@@ -122,11 +122,27 @@
 
 
     function getLastUpdatedDate() {
-        return "31.03.2023";
+        return "01.04.2023";
     }
 
     function closePage() {
-        $html = "
+        $html = "<p>
+        \r\n            <table width=\"640\" class=\"footer\" cellpadding=\"4\">
+        \r\n                <tbody>
+        \r\n                    <tr>
+        \r\n                        <td align=\"left\">
+        \r\n                            Copyright © 2023 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
+        \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">Исходный код сайта</a>
+        \r\n                        </td>
+        \r\n                        <td align=\"right\">
+        \r\n                            <a href=\"http://validator.w3.org/check?uri=referer\"><img
+        \r\n                                src=\"http://www.w3.org/Icons/valid-html401\" alt=\"Valid HTML 4.01 Transitional\" height=\"31\" width=\"88\">
+        \r\n                            </a>
+        \r\n                        </td>
+        \r\n                    </tr>
+        \r\n                </tbody>
+        \r\n            </table>
+        \r\n        </div>
         \r\n    </body>
         \r\n</html>";
         $html_cp1251 = mb_convert_encoding($html, "utf-8", "windows-1251");

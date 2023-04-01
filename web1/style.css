@@ -59,3 +59,15 @@ table {
 .accent-color {
     color: #eb7f22;
 }
+
+.full-code {
+    width: 400px;
+    overflow: auto;
+    text-align: left;
+    border: 1px solid #8f8f8f;
+    padding: 8px;
+}
+
+.footer {
+    font-size: 9pt;
+}
