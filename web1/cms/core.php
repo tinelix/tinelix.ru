@@ -55,7 +55,7 @@
             \r\n                        <div class=\"title-text\">МЕНЮ САЙТА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
             \r\n                        <div class=\"menu-links text\">
-            \r\n                            <a href=\".\">Домой</a>
+            \r\n                            <a href=\"http://".$web1_subdomain."\">Домой</a>
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/projects.php\">Проекты</a>
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/hardware.php\">Оборудование</a>
             \r\n                            <p class=\"newline\"><a href=\"http://irc.tinelix.ru\">IRC-чат</a>
@@ -138,6 +138,11 @@
         \r\n                            <a href=\"http://validator.w3.org/check?uri=referer\"><img
         \r\n                                src=\"http://www.w3.org/Icons/valid-html401\" alt=\"Valid HTML 4.01 Transitional\" height=\"31\" width=\"88\">
         \r\n                            </a>
+        \r\n                            <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">
+                                            <img style=\"border:0;width:88px;height:31px\"
+                                                 src=\"http://jigsaw.w3.org/css-validator/images/vcss\"
+                                                 alt=\"Правильный CSS!\" />
+                                        </a>
         \r\n                        </td>
         \r\n                    </tr>
         \r\n                </tbody>
