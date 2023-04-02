@@ -126,23 +126,27 @@
     }
 
     function closePage() {
+        $web1_subdomain = "web1.tinelix.ru";
         $html = "<p>
         \r\n            <table width=\"640\" class=\"footer\" cellpadding=\"4\">
         \r\n                <tbody>
         \r\n                    <tr>
-        \r\n                        <td align=\"left\">
+        \r\n                        <td align=\"center\">
         \r\n                            Copyright © 2023 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
         \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">Исходный код сайта</a>
-        \r\n                        </td>
-        \r\n                        <td align=\"right\">
-        \r\n                            <a href=\"http://validator.w3.org/check?uri=referer\"><img
+        \r\n                            <p><a href=\"http://validator.w3.org/check?uri=referer\"><img
         \r\n                                src=\"http://www.w3.org/Icons/valid-html401\" alt=\"Valid HTML 4.01 Transitional\" height=\"31\" width=\"88\">
         \r\n                            </a>
         \r\n                            <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">
-                                            <img style=\"border:0;width:88px;height:31px\"
-                                                 src=\"http://jigsaw.w3.org/css-validator/images/vcss\"
-                                                 alt=\"Правильный CSS!\" />
-                                        </a>
+        \r\n                                <img style=\"border:0;width:88px;height:31px\"
+        \r\n                                     src=\"http://jigsaw.w3.org/css-validator/images/vcss\"
+        \r\n                                     alt=\"Правильный CSS!\" />
+        \r\n                            </a>
+        \r\n                            <a href=\"https://gnu.org\">
+        \r\n                                <img style=\"border:0;width:88px;height:31px\"
+        \r\n                                     src=\"http://".$web1_subdomain."/banners/gnu.png\"
+        \r\n                                     alt=\"Свободное ПО нужно каждому!\" />
+        \r\n                            </a>
         \r\n                        </td>
         \r\n                    </tr>
         \r\n                </tbody>
