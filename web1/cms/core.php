@@ -123,7 +123,7 @@
         }
     }
 
-    function showAboutPage($db) {
+    function showAboutPage($db, $html_encoding) {
         $web1_subdomain = "web1.tinelix.ru";
         $irc_subdomain = "irc.tinelix.ru";
         $query = "SELECT id, title, body FROM about LIMIT 1;";
