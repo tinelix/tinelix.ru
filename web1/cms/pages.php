@@ -1,20 +1,23 @@
 <?php
-    function showProjectsPage($db) {
+    function showProjectsPage($db, $html_encoding) {
             $query = "SELECT id, name, description, link FROM projects;";
             $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
             $projects = array();
             $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
-                \r\n                        <div class=\"title-text\">ПРОЕКТЫ</div>
+                \r\n                        <div class=\"title-text\">РџР РћР•РљРўР«</div>
                 \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                 \r\n                        <div class=\"text\">";
-            $html_cp1251 = mb_convert_encoding($html, "utf-8", "windows-1251");
-            echo $html_cp1251;
+            echo $html;
+            $params = "";
+            if($html_encoding) {
+                $params = "?encoding=".$html_encoding;
+            }
             while($project = $result->fetchArray()) {
                 array_push($projects, $project);
             }
             for($i = 0; $i < count($projects); ++$i) {
                 echo "
-                \r\n                            <a href=\"".$projects[$i][3]."\">".$projects[$i][1]."</a>
+                \r\n                            <a href=\"".$projects[$i][3].$params."\">".$projects[$i][1]."</a>
                 \r\n                            <br><span class=\"subtext\">".$projects[$i][2]."</span>";
                 if($i < count($projects) - 1) {
                     echo "
@@ -35,141 +38,139 @@
                 \r\n                        <div class=\"title-text\">TINELIX IRC CLIENT</div>
                 \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                 \r\n                        <div class=\"text\">
-                \r\n                            <i>Если вы не знакомы c IRC, нажмите <a href=\"http://irc.tinelix.ru\">здесь</a>.</i>
-                \r\n                            <h4>Предыстория</h4>
-                \r\n                            Раз уж я начал знакомство с проектом <a href=\"http://narodweb.ru\" target=\"_blank\">Народное достояние Рунета</a> в начале лета 2021 г., в августе в моей голове появилась такая мысль о создании собственного IRC-клиента на языке программирования Python 3.x и на базе PyQt5, так как тогда мой коллега <a href=\"https://youtube.com/veselcraft\" target=\"_blank\">Владимир Баринов (Veselcraft)</a> писал клиент для серверов Escargot на языке JavaScript для интепретатора node.js.
-                \r\n                            <h4>Журнал изменений</h4>
-                \r\n                            <h5>0.1.2 для Android</h5>
+                \r\n                            <i>Р•СЃР»Рё РІС‹ РЅРµ Р·РЅР°РєРѕРјС‹ c IRC, РЅР°Р¶РјРёС‚Рµ <a href=\"http://irc.tinelix.ru\">Р·РґРµСЃСЊ</a>.</i>
+                \r\n                            <h4>РџСЂРµРґС‹СЃС‚РѕСЂРёСЏ</h4>
+                \r\n                            Р Р°Р· СѓР¶ СЏ РЅР°С‡Р°Р» Р·РЅР°РєРѕРјСЃС‚РІРѕ СЃ РїСЂРѕРµРєС‚РѕРј <a href=\"http://narodweb.ru\" target=\"_blank\">РќР°СЂРѕРґРЅРѕРµ РґРѕСЃС‚РѕСЏРЅРёРµ Р СѓРЅРµС‚Р°</a> РІ РЅР°С‡Р°Р»Рµ Р»РµС‚Р° 2021 Рі., РІ Р°РІРіСѓСЃС‚Рµ РІ РјРѕРµР№ РіРѕР»РѕРІРµ РїРѕСЏРІРёР»Р°СЃСЊ С‚Р°РєР°СЏ РјС‹СЃР»СЊ Рѕ СЃРѕР·РґР°РЅРёРё СЃРѕР±СЃС‚РІРµРЅРЅРѕРіРѕ IRC-РєР»РёРµРЅС‚Р° РЅР° СЏР·С‹РєРµ РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёСЏ Python 3.x Рё РЅР° Р±Р°Р·Рµ PyQt5, С‚Р°Рє РєР°Рє С‚РѕРіРґР° РјРѕР№ РєРѕР»Р»РµРіР° <a href=\"https://youtube.com/veselcraft\" target=\"_blank\">Р’Р»Р°РґРёРјРёСЂ Р‘Р°СЂРёРЅРѕРІ (Veselcraft)</a> РїРёСЃР°Р» РєР»РёРµРЅС‚ РґР»СЏ СЃРµСЂРІРµСЂРѕРІ Escargot РЅР° СЏР·С‹РєРµ JavaScript РґР»СЏ РёРЅС‚РµРїСЂРµС‚Р°С‚РѕСЂР° node.js.
+                \r\n                            <h4>Р–СѓСЂРЅР°Р» РёР·РјРµРЅРµРЅРёР№</h4>
+                \r\n                            <h5>0.1.2 РґР»СЏ Android</h5>
                 \r\n                            <ol>
-                \r\n                                <li>Помимо поддержки Android 2.x, которая появилась с версии 0.1.0, улучшен внешний вид приложения. Это, что касается версий Android ниже 3.0.</li>
-                \r\n                                <li>Добавлена возможность создавать пользовательские QUIT-сообщения.</li>
+                \r\n                                <li>РџРѕРјРёРјРѕ РїРѕРґРґРµСЂР¶РєРё Android 2.x, РєРѕС‚РѕСЂР°СЏ РїРѕСЏРІРёР»Р°СЃСЊ СЃ РІРµСЂСЃРёРё 0.1.0, СѓР»СѓС‡С€РµРЅ РІРЅРµС€РЅРёР№ РІРёРґ РїСЂРёР»РѕР¶РµРЅРёСЏ. Р­С‚Рѕ, С‡С‚Рѕ РєР°СЃР°РµС‚СЃСЏ РІРµСЂСЃРёР№ Android РЅРёР¶Рµ 3.0.</li>
+                \r\n                                <li>Р”РѕР±Р°РІР»РµРЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЃРѕР·РґР°РІР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ QUIT-СЃРѕРѕР±С‰РµРЅРёСЏ.</li>
                 \r\n                            </ol>
-                \r\n                            <h4>Исходный код</h4>
+                \r\n                            <h4>РСЃС…РѕРґРЅС‹Р№ РєРѕРґ</h4>
                 \r\n                            <div align=\"center\">
-                \r\n                                <a href=\"https://github.com/tinelix/irc-client-win32_64\">для Windows (x86/x64)</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32_64\">для Windows (x86/x64)</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32s\">для Win32s</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client\">для Python</a>
+                \r\n                                <a href=\"https://github.com/tinelix/irc-client-win32_64\">РґР»СЏ Windows (x86/x64)</a>
+                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32_64\">РґР»СЏ Windows (x86/x64)</a>
+                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32s\">РґР»СЏ Win32s</a>
+                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client\">РґР»СЏ Python</a>
                 \r\n                            </div>
-                \r\n                            <h4>Предварительно-скомпилированные файлы</h4>
+                \r\n                            <h4>РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ-СЃРєРѕРјРїРёР»РёСЂРѕРІР°РЅРЅС‹Рµ С„Р°Р№Р»С‹</h4>
                 \r\n                            <div align=\"center\">
-                \r\n                                <a href=\"https://github.com/tinelix/irc-client-win32_64\">для Windows (x86/x64)</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32s/releases/tag/0.1.12-beta-win32s\">для Win32s</a>
+                \r\n                                <a href=\"https://github.com/tinelix/irc-client-win32_64\">РґР»СЏ Windows (x86/x64)</a>
+                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32s/releases/tag/0.1.12-beta-win32s\">РґР»СЏ Win32s</a>
                 \r\n                            </div>
                 \r\n                        </div>
                 \r\n                    </td>
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
-            $html_cp1251 = mb_convert_encoding($html, "utf-8", "windows-1251");
-            echo $html_cp1251;
+            echo $html;
         } else if($i == 1) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
                 \r\n                        <div class=\"title-text\">TINELIX MICROBOT</div>
                 \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                 \r\n                        <div class=\"text\">
-                \r\n                            Простой развлекательно-информационный бот Microbot на Disnake.
-                \r\n                            <p>Этот Discord-бот является очередным преемником бота VisionOne, разработка которого была прекращена в середине 2021 года. Как и предшественник, он имеет интеграцию с БД SQlite3, упрощенную в разы, умеет узнавать местную погоду в OpenWeatherMap, показывать статьи из Википедии, развлекать игрой \"Восьмерка\" и генерировать случайные числа в указанном диапазоне.
-                \r\n                            <br><br>Сейчас бот насчитывает около <b>11</b> серверов.
-                \r\n                            <h4>Список команд</h4>
+                \r\n                            РџСЂРѕСЃС‚РѕР№ СЂР°Р·РІР»РµРєР°С‚РµР»СЊРЅРѕ-РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅС‹Р№ Р±РѕС‚ Microbot РЅР° Disnake.
+                \r\n                            <p>Р­С‚РѕС‚ Discord-Р±РѕС‚ СЏРІР»СЏРµС‚СЃСЏ РѕС‡РµСЂРµРґРЅС‹Рј РїСЂРµРµРјРЅРёРєРѕРј Р±РѕС‚Р° VisionOne, СЂР°Р·СЂР°Р±РѕС‚РєР° РєРѕС‚РѕСЂРѕРіРѕ Р±С‹Р»Р° РїСЂРµРєСЂР°С‰РµРЅР° РІ СЃРµСЂРµРґРёРЅРµ 2021 РіРѕРґР°. РљР°Рє Рё РїСЂРµРґС€РµСЃС‚РІРµРЅРЅРёРє, РѕРЅ РёРјРµРµС‚ РёРЅС‚РµРіСЂР°С†РёСЋ СЃ Р‘Р” SQlite3, СѓРїСЂРѕС‰РµРЅРЅСѓСЋ РІ СЂР°Р·С‹, СѓРјРµРµС‚ СѓР·РЅР°РІР°С‚СЊ РјРµСЃС‚РЅСѓСЋ РїРѕРіРѕРґСѓ РІ OpenWeatherMap, РїРѕРєР°Р·С‹РІР°С‚СЊ СЃС‚Р°С‚СЊРё РёР· Р’РёРєРёРїРµРґРёРё, СЂР°Р·РІР»РµРєР°С‚СЊ РёРіСЂРѕР№ \"Р’РѕСЃСЊРјРµСЂРєР°\" Рё РіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ СЃР»СѓС‡Р°Р№РЅС‹Рµ С‡РёСЃР»Р° РІ СѓРєР°Р·Р°РЅРЅРѕРј РґРёР°РїР°Р·РѕРЅРµ.
+                \r\n                            <br><br>РЎРµР№С‡Р°СЃ Р±РѕС‚ РЅР°СЃС‡РёС‚С‹РІР°РµС‚ РѕРєРѕР»Рѕ <b>11</b> СЃРµСЂРІРµСЂРѕРІ.
+                \r\n                            <h4>РЎРїРёСЃРѕРє РєРѕРјР°РЅРґ</h4>
                 \r\n                            <table rules=\"all\" cellpadding=\"5\" bordercolor=\"#8f8f8f\">
                 \r\n                            <tbody>
                 \r\n                                <tr>
-                \r\n                                    <th>Команда</th>
-                \r\n                                    <th>Синтаксис</th>
-                \r\n                                    <th>Описание</th>
+                \r\n                                    <th>РљРѕРјР°РЅРґР°</th>
+                \r\n                                    <th>РЎРёРЅС‚Р°РєСЃРёСЃ</th>
+                \r\n                                    <th>РћРїРёСЃР°РЅРёРµ</th>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>help</code></td>
-                \r\n                                    <td><code>help</code> или <code>help [имя команды]</code></td>
-                \r\n                                    <td>Показывает справочную информацию, включая список доступных команд.</td>
+                \r\n                                    <td><code>help</code> РёР»Рё <code>help [РёРјСЏ РєРѕРјР°РЅРґС‹]</code></td>
+                \r\n                                    <td>РџРѕРєР°Р·С‹РІР°РµС‚ СЃРїСЂР°РІРѕС‡РЅСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ, РІРєР»СЋС‡Р°СЏ СЃРїРёСЃРѕРє РґРѕСЃС‚СѓРїРЅС‹С… РєРѕРјР°РЅРґ.</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>about</code></td>
                 \r\n                                    <td><code>about</code></td>
-                \r\n                                    <td>Показывает описание бота, а также служебную информацию.</td>
+                \r\n                                    <td>РџРѕРєР°Р·С‹РІР°РµС‚ РѕРїРёСЃР°РЅРёРµ Р±РѕС‚Р°, Р° С‚Р°РєР¶Рµ СЃР»СѓР¶РµР±РЅСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ.</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>user</code></td>
-                \r\n                                    <td><code>user [@упоминание | ID участника | юзернейм]</code></td>
-                \r\n                                    <td>Показывает информацию о пользователе.</td>
+                \r\n                                    <td><code>user [@СѓРїРѕРјРёРЅР°РЅРёРµ | ID СѓС‡Р°СЃС‚РЅРёРєР° | СЋР·РµСЂРЅРµР№Рј]</code></td>
+                \r\n                                    <td>РџРѕРєР°Р·С‹РІР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ.</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>guild</code></td>
                 \r\n                                    <td><code>guild</code></td>
-                \r\n                                    <td>Показывает информацию о гильдии (сервере)</td>
+                \r\n                                    <td>РџРѕРєР°Р·С‹РІР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РіРёР»СЊРґРёРё (СЃРµСЂРІРµСЂРµ)</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>ping</code></td>
                 \r\n                                    <td><code>ping</code></td>
-                \r\n                                    <td>Пни меня.</td>
+                \r\n                                    <td>РџРЅРё РјРµРЅСЏ.</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>8ball</code></td>
-                \r\n                                    <td><code>8ball [вопрос]</code></td>
-                \r\n                                    <td>Генерирует для любого вопроса случайный ответ. Все совпадения случайны!</td>
+                \r\n                                    <td><code>8ball [РІРѕРїСЂРѕСЃ]</code></td>
+                \r\n                                    <td>Р“РµРЅРµСЂРёСЂСѓРµС‚ РґР»СЏ Р»СЋР±РѕРіРѕ РІРѕРїСЂРѕСЃР° СЃР»СѓС‡Р°Р№РЅС‹Р№ РѕС‚РІРµС‚. Р’СЃРµ СЃРѕРІРїР°РґРµРЅРёСЏ СЃР»СѓС‡Р°Р№РЅС‹!</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
-                \r\n                                    <td><code>rngen</code> или <code>rand</code></td>
-                \r\n                                    <td><code>rngen [начало диапазона]-[конец диапазона]</code></td>
-                \r\n                                    <td>Генерирует случайное число в указанном диапазоне.</td>
+                \r\n                                    <td><code>rngen</code> РёР»Рё <code>rand</code></td>
+                \r\n                                    <td><code>rngen [РЅР°С‡Р°Р»Рѕ РґРёР°РїР°Р·РѕРЅР°]-[РєРѕРЅРµС† РґРёР°РїР°Р·РѕРЅР°]</code></td>
+                \r\n                                    <td>Р“РµРЅРµСЂРёСЂСѓРµС‚ СЃР»СѓС‡Р°Р№РЅРѕРµ С‡РёСЃР»Рѕ РІ СѓРєР°Р·Р°РЅРЅРѕРј РґРёР°РїР°Р·РѕРЅРµ.</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>weather</code></td>
-                \r\n                                    <td><code>weather [город или населенный пункт]</code></td>
-                \r\n                                    <td>Отображает прогноз погоды на ближайшие 24 часа. Для этого используется сервис <a href=\"https://openweathermap.org/\">OpenWeatherMap</a>.</td>
+                \r\n                                    <td><code>weather [РіРѕСЂРѕРґ РёР»Рё РЅР°СЃРµР»РµРЅРЅС‹Р№ РїСѓРЅРєС‚]</code></td>
+                \r\n                                    <td>РћС‚РѕР±СЂР°Р¶Р°РµС‚ РїСЂРѕРіРЅРѕР· РїРѕРіРѕРґС‹ РЅР° Р±Р»РёР¶Р°Р№С€РёРµ 24 С‡Р°СЃР°. Р”Р»СЏ СЌС‚РѕРіРѕ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ СЃРµСЂРІРёСЃ <a href=\"https://openweathermap.org/\">OpenWeatherMap</a>.</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>wiki</code></td>
-                \r\n                                    <td><code>wiki [полное название страницы]</code></td>
-                \r\n                                    <td>Показывает статью в Википедии в краткой форме.</td>
+                \r\n                                    <td><code>wiki [РїРѕР»РЅРѕРµ РЅР°Р·РІР°РЅРёРµ СЃС‚СЂР°РЅРёС†С‹]</code></td>
+                \r\n                                    <td>РџРѕРєР°Р·С‹РІР°РµС‚ СЃС‚Р°С‚СЊСЋ РІ Р’РёРєРёРїРµРґРёРё РІ РєСЂР°С‚РєРѕР№ С„РѕСЂРјРµ.</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>settings</code></td>
-                \r\n                                    <td><code>settings</code> или <code>settings [-L] [значение]</code></td>
-                \r\n                                    <td>Настройки бота.</td>
+                \r\n                                    <td><code>settings</code> РёР»Рё <code>settings [-L] [Р·РЅР°С‡РµРЅРёРµ]</code></td>
+                \r\n                                    <td>РќР°СЃС‚СЂРѕР№РєРё Р±РѕС‚Р°.</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>calc</code></td>
-                \r\n                                    <td><code>calc [выражение]</code></td>
-                \r\n                                    <td>Простейший калькулятор.</td>
+                \r\n                                    <td><code>calc [РІС‹СЂР°Р¶РµРЅРёРµ]</code></td>
+                \r\n                                    <td>РџСЂРѕСЃС‚РµР№С€РёР№ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ.</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>codec</code></td>
-                \r\n                                    <td><code>codec [-d / -e] [алгоритм] [содержимое]</code></td>
-                \r\n                                    <td>Расшифровка и зашифровка текста.</td>
+                \r\n                                    <td><code>codec [-d / -e] [Р°Р»РіРѕСЂРёС‚Рј] [СЃРѕРґРµСЂР¶РёРјРѕРµ]</code></td>
+                \r\n                                    <td>Р Р°СЃС€РёС„СЂРѕРІРєР° Рё Р·Р°С€РёС„СЂРѕРІРєР° С‚РµРєСЃС‚Р°.</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>timers</code></td>
-                \r\n                                    <td><code>timers</code><br><code>timers [-Cr / -Ce] [имя таймера] -t [ГГГГ-ММ-ДД ЧЧ:ММ:СС] -e [эмодзи]</code><br><code>timers -D [имя таймера]</code></td>
-                \r\n                                    <td>Создание и управление таймерами в прошедшее и оставшиеся времени.</td>
+                \r\n                                    <td><code>timers</code><br><code>timers [-Cr / -Ce] [РёРјСЏ С‚Р°Р№РјРµСЂР°] -t [Р“Р“Р“Р“-РњРњ-Р”Р” Р§Р§:РњРњ:РЎРЎ] -e [СЌРјРѕРґР·Рё]</code><br><code>timers -D [РёРјСЏ С‚Р°Р№РјРµСЂР°]</code></td>
+                \r\n                                    <td>РЎРѕР·РґР°РЅРёРµ Рё СѓРїСЂР°РІР»РµРЅРёРµ С‚Р°Р№РјРµСЂР°РјРё РІ РїСЂРѕС€РµРґС€РµРµ Рё РѕСЃС‚Р°РІС€РёРµСЃСЏ РІСЂРµРјРµРЅРё.</td>
                 \r\n                                </tr>
                 \r\n                                <tr>
                 \r\n                                    <td><code>publish</code></td>
-                \r\n                                    <td><code>publish</code> или <code>publish [текст]</code></td>
-                \r\n                                    <td>Публикует сообщения с новостного канала без лишнего клика по кнопке мыши.</td>
+                \r\n                                    <td><code>publish</code> РёР»Рё <code>publish [С‚РµРєСЃС‚]</code></td>
+                \r\n                                    <td>РџСѓР±Р»РёРєСѓРµС‚ СЃРѕРѕР±С‰РµРЅРёСЏ СЃ РЅРѕРІРѕСЃС‚РЅРѕРіРѕ РєР°РЅР°Р»Р° Р±РµР· Р»РёС€РЅРµРіРѕ РєР»РёРєР° РїРѕ РєРЅРѕРїРєРµ РјС‹С€Рё.</td>
                 \r\n                                </tr>
                 \r\n                            </tbody></table>
-                \r\n                            <h4>Исходный код</h4>
+                \r\n                            <h4>РСЃС…РѕРґРЅС‹Р№ РєРѕРґ</h4>
                 \r\n                            <div align=\"center\">
-                \r\n                                <a href=\"https://github.com/tinelix/irc-client-win32_64\">для Windows (x86/x64)</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32_64\">для Windows (x86/x64)</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32s\">для Win32s</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client\">для Python</a>
+                \r\n                                <a href=\"https://github.com/tinelix/irc-client-win32_64\">РґР»СЏ Windows (x86/x64)</a>
+                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32_64\">РґР»СЏ Windows (x86/x64)</a>
+                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32s\">РґР»СЏ Win32s</a>
+                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client\">РґР»СЏ Python</a>
                 \r\n                            </div>
-                \r\n                            <h4>Предварительно-скомпилированные файлы</h4>
+                \r\n                            <h4>РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ-СЃРєРѕРјРїРёР»РёСЂРѕРІР°РЅРЅС‹Рµ С„Р°Р№Р»С‹</h4>
                 \r\n                            <div align=\"center\">
-                \r\n                                <a href=\"https://github.com/tinelix/irc-client-win32_64\">для Windows (x86/x64)</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32s/releases/tag/0.1.12-beta-win32s\">для Win32s</a>
+                \r\n                                <a href=\"https://github.com/tinelix/irc-client-win32_64\">РґР»СЏ Windows (x86/x64)</a>
+                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32s/releases/tag/0.1.12-beta-win32s\">РґР»СЏ Win32s</a>
                 \r\n                            </div>
                 \r\n                        </div>
                 \r\n                    </td>
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
-            $html_cp1251 = mb_convert_encoding($html, "utf-8", "windows-1251");
-            echo $html_cp1251;
+            echo $html;
         } else if ($i == 2) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
@@ -177,23 +178,23 @@
                 \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                 \r\n                        <div class=\"text\">
                 \r\n                            <ol>
-                \r\n                                <li>Мобильное приложение OpenVK для ретро-устройств на Android с дизайном ВКонтакте 3.0.4 из 2013 года.</li>
-                \r\n                                <li>Минимально поддерживаемой версией является Android 2.1 Eclair, то есть аппараты времён начала 2010-ых вполне пригодятся.</li>
+                \r\n                                <li>РњРѕР±РёР»СЊРЅРѕРµ РїСЂРёР»РѕР¶РµРЅРёРµ OpenVK РґР»СЏ СЂРµС‚СЂРѕ-СѓСЃС‚СЂРѕР№СЃС‚РІ РЅР° Android СЃ РґРёР·Р°Р№РЅРѕРј Р’РљРѕРЅС‚Р°РєС‚Рµ 3.0.4 РёР· 2013 РіРѕРґР°.</li>
+                \r\n                                <li>РњРёРЅРёРјР°Р»СЊРЅРѕ РїРѕРґРґРµСЂР¶РёРІР°РµРјРѕР№ РІРµСЂСЃРёРµР№ СЏРІР»СЏРµС‚СЃСЏ Android 2.1 Eclair, С‚Рѕ РµСЃС‚СЊ Р°РїРїР°СЂР°С‚С‹ РІСЂРµРјС‘РЅ РЅР°С‡Р°Р»Р° 2010-С‹С… РІРїРѕР»РЅРµ РїСЂРёРіРѕРґСЏС‚СЃСЏ.</li>
                 \r\n                            </ol>
-                \r\n                            <h4>Журнал изменений</h4>
-                \r\n                            <h5>1.1, сборка №176</h5>
+                \r\n                            <h4>Р–СѓСЂРЅР°Р» РёР·РјРµРЅРµРЅРёР№</h4>
+                \r\n                            <h5>1.1, СЃР±РѕСЂРєР° в„–176</h5>
                 \r\n                            <ol>
-                \r\n                                <li>Добавлено воспроизведение вложенных видео. Обратите внимание, полноценное воспроизведение видео доступно лишь в Android 3.1+, иначе приходится устанавливать сторонний плеер.</li>
-                \r\n                                <li>Проведен рефакторинг всех основных макетов интерфейса: вместо каких-либо примитивных объектов класса View используются фрагменты. Это делает работу приложения намного эффективнее, но при этом имеются косяки в переключении (позже будет исправлено, окда).</li>
-                \r\n                                <li>Переделан экран настроек.</li>
-                \r\n                                <li>Теперь панель эмодзи при открытии клавиатуры сразу скрывается, что делает прокрутку сообщений комфортным.</li>
-                \r\n                                <li><s>Исправлен баг, связанный с прокруткой постов в ленте.</s></li>
+                \r\n                                <li>Р”РѕР±Р°РІР»РµРЅРѕ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ РІР»РѕР¶РµРЅРЅС‹С… РІРёРґРµРѕ. РћР±СЂР°С‚РёС‚Рµ РІРЅРёРјР°РЅРёРµ, РїРѕР»РЅРѕС†РµРЅРЅРѕРµ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ РІРёРґРµРѕ РґРѕСЃС‚СѓРїРЅРѕ Р»РёС€СЊ РІ Android 3.1+, РёРЅР°С‡Рµ РїСЂРёС…РѕРґРёС‚СЃСЏ СѓСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ СЃС‚РѕСЂРѕРЅРЅРёР№ РїР»РµРµСЂ.</li>
+                \r\n                                <li>РџСЂРѕРІРµРґРµРЅ СЂРµС„Р°РєС‚РѕСЂРёРЅРі РІСЃРµС… РѕСЃРЅРѕРІРЅС‹С… РјР°РєРµС‚РѕРІ РёРЅС‚РµСЂС„РµР№СЃР°: РІРјРµСЃС‚Рѕ РєР°РєРёС…-Р»РёР±Рѕ РїСЂРёРјРёС‚РёРІРЅС‹С… РѕР±СЉРµРєС‚РѕРІ РєР»Р°СЃСЃР° View РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ С„СЂР°РіРјРµРЅС‚С‹. Р­С‚Рѕ РґРµР»Р°РµС‚ СЂР°Р±РѕС‚Сѓ РїСЂРёР»РѕР¶РµРЅРёСЏ РЅР°РјРЅРѕРіРѕ СЌС„С„РµРєС‚РёРІРЅРµРµ, РЅРѕ РїСЂРё СЌС‚РѕРј РёРјРµСЋС‚СЃСЏ РєРѕСЃСЏРєРё РІ РїРµСЂРµРєР»СЋС‡РµРЅРёРё (РїРѕР·Р¶Рµ Р±СѓРґРµС‚ РёСЃРїСЂР°РІР»РµРЅРѕ, РѕРєРґР°).</li>
+                \r\n                                <li>РџРµСЂРµРґРµР»Р°РЅ СЌРєСЂР°РЅ РЅР°СЃС‚СЂРѕРµРє.</li>
+                \r\n                                <li>РўРµРїРµСЂСЊ РїР°РЅРµР»СЊ СЌРјРѕРґР·Рё РїСЂРё РѕС‚РєСЂС‹С‚РёРё РєР»Р°РІРёР°С‚СѓСЂС‹ СЃСЂР°Р·Сѓ СЃРєСЂС‹РІР°РµС‚СЃСЏ, С‡С‚Рѕ РґРµР»Р°РµС‚ РїСЂРѕРєСЂСѓС‚РєСѓ СЃРѕРѕР±С‰РµРЅРёР№ РєРѕРјС„РѕСЂС‚РЅС‹Рј.</li>
+                \r\n                                <li><s>РСЃРїСЂР°РІР»РµРЅ Р±Р°Рі, СЃРІСЏР·Р°РЅРЅС‹Р№ СЃ РїСЂРѕРєСЂСѓС‚РєРѕР№ РїРѕСЃС‚РѕРІ РІ Р»РµРЅС‚Рµ.</s></li>
                 \r\n                            </ol>
-                \r\n                            <h4>Исходный код</h4>
+                \r\n                            <h4>РСЃС…РѕРґРЅС‹Р№ РєРѕРґ</h4>
                 \r\n                            <div align=\"center\">
-                \r\n                                <a href=\"https://github.com/tinelix/microbot\">для Android</a>
+                \r\n                                <a href=\"https://github.com/tinelix/microbot\">РґР»СЏ Android</a>
                 \r\n                            </div>
-                \r\n                            <h4>Предварительно-скомпилированные файлы</h4>
+                \r\n                            <h4>РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ-СЃРєРѕРјРїРёР»РёСЂРѕРІР°РЅРЅС‹Рµ С„Р°Р№Р»С‹</h4>
                 \r\n                            <div align=\"center\">
                 \r\n                                <a href=\"https://f-droid.org/packages/uk.openvk.android.legacy\">F-Droid</a>
                 \r\n                                <br><a href=\"https://github.com/openvk/mobile-android-legacy/releases/tag/1.1.176-alpha\">GitHub</a>
@@ -203,8 +204,7 @@
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
-            $html_cp1251 = mb_convert_encoding($html, "utf-8", "windows-1251");
-            echo $html_cp1251;
+            echo $html;
         }
     }
 
@@ -213,21 +213,20 @@
             $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
             $computers = array();
             $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
-                     \r\n                        <div class=\"title-text\">ОБОРУДОВАНИЕ</div>
+                     \r\n                        <div class=\"title-text\">РћР‘РћР РЈР”РћР’РђРќРР•</div>
                      \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                      \r\n                        <div class=\"text\">";
-            $html_cp1251 = mb_convert_encoding($html, "utf-8", "windows-1251");
-            echo $html_cp1251;
+            echo $html;
             while($computer = $result->fetchArray()) {
                 array_push($computers, $computer);
             }
-            echo mb_convert_encoding("\r\n                          <h3>Компьютеры</h3>", "utf-8", "windows-1251");
+            echo "\r\n                          <h3>РљРѕРјРїСЊСЋС‚РµСЂС‹</h3>";
             for($i = 0; $i < count($computers); ++$i) {
                 echo "
                 \r\n                            <h4>".$computers[$i][1]."</h4>
                 \r\n                            ".$computers[$i][2];
             }
-            echo mb_convert_encoding("\r\n                          <h3>Смартфоны</h3>", "utf-8", "windows-1251");
+            echo "\r\n                          <h3>РЎРјР°СЂС‚С„РѕРЅС‹</h3>";
             $query = "SELECT id, name, specs FROM hardware WHERE type = 1;";
             $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
             $phones = array();
@@ -251,11 +250,10 @@
             $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
             $banners = array();
             $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
-                     \r\n                        <div class=\"title-text\">БАННЕР ДЛЯ САЙТА</div>
+                     \r\n                        <div class=\"title-text\">Р‘РђРќРќР•Р  Р”Р›РЇ РЎРђР™РўРђ</div>
                      \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                      \r\n                        <div class=\"text\">";
-            $html_cp1251 = mb_convert_encoding($html, "utf-8", "windows-1251");
-            echo $html_cp1251;
+            echo $html;
             while($banner = $result->fetchArray()) {
                 array_push($banners, $banner);
             }

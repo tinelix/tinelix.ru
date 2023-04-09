@@ -1,19 +1,32 @@
 <?php
-    function genPageHeader() {
+    function genPageHeader($html_encoding) {
         $web1_subdomain = "web1.tinelix.ru";
         $irc_subdomain = "irc.tinelix.ru";
         $current_time = new DateTime('now', new DateTimeZone('Europe/Moscow'));
         $dw = date("w");
         $formatter = new IntlDateFormatter('ru_RU', IntlDateFormatter::MEDIUM, IntlDateFormatter::MEDIUM);
-        $dws = array('Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота');
+        $dws = array('Р’РѕСЃРєСЂРµСЃРµРЅСЊРµ', 'РџРѕРЅРµРґРµР»СЊРЅРёРє', 'Р’С‚РѕСЂРЅРёРє', 'РЎСЂРµРґР°', 'Р§РµС‚РІРµСЂРі', 'РџСЏС‚РЅРёС†Р°', 'РЎСѓР±Р±РѕС‚Р°');
         $formatter->setPattern('dd.MM.yyyy');
-        $format_date = mb_convert_encoding($formatter->format($current_time), "windows-1251", "utf-8");
+        $format_date = $formatter->format($current_time);
         $html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">
         \r\n<!-- HTML4 PAGE !-->
         \r\n<html>
         \r\n    <head>
-        \r\n        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1251\">
-        \r\n        <title>Tinelix (стиль Web 1.0)</title>
+        ";
+        $params = "";
+        if($html_encoding) {
+            $params = "?encoding=".$html_encoding;
+        }
+        if(!$html_encoding || $html_encoding != "utf-8") {
+            $html = $html."
+        \r\n        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1251\">";
+        } else {
+            $html = $html."
+        \r\n        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">";
+        }
+
+        $html = $html."
+        \r\n        <title>Tinelix (СЃС‚РёР»СЊ Web 1.0)</title>
         \r\n        <link rel=\"stylesheet\" href=\"http://".$web1_subdomain."/style.css\">
         \r\n    </head>
         \r\n    <body>
@@ -33,41 +46,46 @@
         \r\n            <tbody>
         \r\n                <tr>
         \r\n                    <td align=\"left\">
-        \r\n                        <div align=\"center\">
-        \r\n                            ".$dws[$dw].", ".$format_date.". Последнее обновление от ".getLastUpdatedDate()."
+        \r\n                        <div align=\"left\">
+        \r\n                            ".$dws[$dw].", ".$format_date.". РџРѕСЃР»РµРґРЅРµРµ РѕР±РЅРѕРІР»РµРЅРёРµ РѕС‚ ".getLastUpdatedDate()."
         \r\n                        </div>
+        \r\n                    </td>
+        \r\n                    <td align=\"right\">
+        \r\n                        <a href=\"http://".$web1_subdomain."\">CP1251</a> / <a href=\"http://".$web1_subdomain."?encoding=utf-8\">UTF-8</a>
         \r\n                    </td>
         \r\n                </tr>
         \r\n            </tbody>
         \r\n        </table>";
-        $html_cp1251 = mb_convert_encoding($html, "utf-8", "windows-1251");
-        echo $html_cp1251;
+        echo $html;
     }
 
-    function genWebsiteMenu() {
+    function genWebsiteMenu($html_encoding) {
         $web1_subdomain = "web1.tinelix.ru";
         $irc_subdomain = "irc.tinelix.ru";
+        $params = "";
+        if($html_encoding) {
+            $params = "?encoding=".$html_encoding;
+        }
         $html = "
             \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
             \r\n            <tbody>
             \r\n                <tr>
             \r\n                    <td bgcolor=\"#151515\" width=\"150\" valign=\"top\">
-            \r\n                        <div class=\"title-text\">МЕНЮ САЙТА</div>
+            \r\n                        <div class=\"title-text\">РњР•РќР® РЎРђР™РўРђ</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
             \r\n                        <div class=\"menu-links text\">
-            \r\n                            <a href=\"http://".$web1_subdomain."\">Домой</a>
-            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/projects.php\">Проекты</a>
-            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/hardware.php\">Оборудование</a>
-            \r\n                            <p class=\"newline\"><a href=\"http://irc.tinelix.ru\">IRC-чат</a>
-            \r\n                            <p class=\"newline\"><a href=\"https://t.me/tinelixdonators\">Пожертвования</a>
-            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/about.php\">О себе</a>
+            \r\n                            <a href=\"http://".$web1_subdomain."\">Р”РѕРјРѕР№</a>
+            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/projects.php".$params."\">РџСЂРѕРµРєС‚С‹</a>
+            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/hardware.php".$params."\">РћР±РѕСЂСѓРґРѕРІР°РЅРёРµ</a>
+            \r\n                            <p class=\"newline\"><a href=\"http://irc.tinelix.ru\">IRC-С‡Р°С‚</a>
+            \r\n                            <p class=\"newline\"><a href=\"https://t.me/tinelixdonators\">РџРѕР¶РµСЂС‚РІРѕРІР°РЅРёСЏ</a>
+            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/about.php".$params."\">Рћ СЃРµР±Рµ</a>
             \r\n                            <hr size=\"1\">
-            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/banner.php\">Баннер для сайта</a>
+            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/banner.php".$params."\">Р‘Р°РЅРЅРµСЂ РґР»СЏ СЃР°Р№С‚Р°</a>
             \r\n                        </div>
             \r\n                    </td>
         ";
-        $html_cp1251 = mb_convert_encoding($html, "utf-8", "windows-1251");
-        echo $html_cp1251;
+        echo $html;
     }
 
     function showStartPage($db) {
@@ -100,7 +118,7 @@
             \r\n                        <hr class=\"accent-color\" size=\"1\"/>
             \r\n                        <div class=\"text\">
             \r\n                            ".$about_page[2];
-        echo mb_convert_encoding("\r\n               <h3>Контакты</h3>", "utf-8", "windows-1251");
+        echo "\r\n               <h3>РљРѕРЅС‚Р°РєС‚С‹</h3>";
         $query = "SELECT id, name, value FROM contacts;";
         $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
         $contacts = array();
@@ -122,18 +140,18 @@
 
 
     function getLastUpdatedDate() {
-        return "02.04.2023";
+        return "09.04.2023";
     }
 
-    function closePage() {
+    function closePage($html_encoding) {
         $web1_subdomain = "web1.tinelix.ru";
         $html = "<p>
         \r\n            <table width=\"640\" class=\"footer\" cellpadding=\"4\">
         \r\n                <tbody>
         \r\n                    <tr>
         \r\n                        <td align=\"center\">
-        \r\n                            Copyright © 2023 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
-        \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">Исходный код сайта</a>
+        \r\n                            Copyright В© 2023 Dmitry Tretyakov (aka. Tinelix). РЎС‚РёР»СЊ Web 1.0.
+        \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">РСЃС…РѕРґРЅС‹Р№ РєРѕРґ СЃР°Р№С‚Р°</a>
         \r\n                            <p>
         \r\n                            <a href=\"http://validator.w3.org/check?uri=referer\">
         \r\n                                <img style=\"border:0;\"
@@ -143,12 +161,12 @@
         \r\n                            <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">
         \r\n                                <img style=\"border:0;width:88px;height:31px\"
         \r\n                                     src=\"http://".$web1_subdomain."/banners/valid-css.png\"
-        \r\n                                     alt=\"Правильный CSS!\" />
+        \r\n                                     alt=\"РџСЂР°РІРёР»СЊРЅС‹Р№ CSS!\" />
         \r\n                            </a>
         \r\n                            <a href=\"https://gnu.org\">
         \r\n                                <img style=\"border:0;width:88px;height:31px\"
         \r\n                                     src=\"http://".$web1_subdomain."/banners/gnu.png\"
-        \r\n                                     alt=\"Свободное ПО нужно каждому!\" />
+        \r\n                                     alt=\"РЎРІРѕР±РѕРґРЅРѕРµ РџРћ РЅСѓР¶РЅРѕ РєР°Р¶РґРѕРјСѓ!\" />
         \r\n                            </a>
         \r\n                        </td>
         \r\n                    </tr>
@@ -157,8 +175,7 @@
         \r\n        </div>
         \r\n    </body>
         \r\n</html>";
-        $html_cp1251 = mb_convert_encoding($html, "utf-8", "windows-1251");
-        echo $html_cp1251;
+        echo $html;
         $db->close();
         unset($db);
     }

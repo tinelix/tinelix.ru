@@ -2,8 +2,8 @@
 require dirname(__FILE__) . '/cms/core.php';
 require dirname(__FILE__) . '/cms/pages.php';
 $db = new SQLite3(dirname(__FILE__) . '/cms/pub.db');
-genPageHeader();
-genWebsiteMenu();
+genPageHeader($_GET['encoding']);
+genWebsiteMenu($_GET['encoding']);
 showStartPage($db);
-closePage();
+closePage($_GET['encoding']);
 ?>

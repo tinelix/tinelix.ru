@@ -1,8 +1,8 @@
 <?php
 require dirname(__FILE__) . '/../cms/core.php';
 require dirname(__FILE__) . '/../cms/pages.php';
-genPageHeader();
-genWebsiteMenu();
+genPageHeader($_GET['encoding']);
+genWebsiteMenu($_GET['encoding']);
 showProjectPage(2);
-closePage();
+closePage($_GET['encoding']);
 ?>
