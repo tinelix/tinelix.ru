@@ -1,5 +1,10 @@
 <?php
     function genPageHeader($html_encoding) {
+        if($html_encoding == "utf-8") {
+            header('Content-Type: text/html; charset=utf-8');
+        } else {
+            header('Content-Type: text/html; charset=windows-1251');
+        }
         $web1_subdomain = "web1.tinelix.ru";
         $irc_subdomain = "irc.tinelix.ru";
         $current_time = new DateTime('now', new DateTimeZone('Europe/Moscow'));
@@ -56,7 +61,11 @@
         \r\n                </tr>
         \r\n            </tbody>
         \r\n        </table>";
-        echo $html;
+        if(!$html_encoding || $html_encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
+        }
     }
 
     function genWebsiteMenu($html_encoding) {
@@ -85,7 +94,11 @@
             \r\n                        </div>
             \r\n                    </td>
         ";
-        echo $html;
+        if(!$html_encoding || $html_encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
+        }
     }
 
     function showStartPage($db) {
@@ -95,7 +108,7 @@
         $result = $db->query($query);
         $article = $result->fetchArray();
         $article_title = mb_strtoupper($article[1]);
-        echo "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
+        $html =  "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
             \r\n                        <div class=\"title-text\">".$article_title."</div>
             \r\n                        <hr class=\"accent-color\" size=\"1\">
             \r\n                        <div class=\"text\">".$article[2]."</div>
@@ -103,6 +116,11 @@
             \r\n                </tr>
             \r\n            </tbody>
             \r\n        </table>";
+        if(!$html_encoding || $html_encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
+        }
     }
 
     function showAboutPage($db) {
@@ -112,13 +130,13 @@
         $result = $db->query($query);
         $about_page = $result->fetchArray();
         $about_page_title = mb_strtoupper($about_page[1]);
-        echo "
+        $html = "
             \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
             \r\n                        <div class=\"title-text\">".$about_page_title."</div>
             \r\n                        <hr class=\"accent-color\" size=\"1\"/>
             \r\n                        <div class=\"text\">
             \r\n                            ".$about_page[2];
-        echo "\r\n               <h3>Контакты</h3>";
+        $html = $html."\r\n               <h3>Контакты</h3>";
         $query = "SELECT id, name, value FROM contacts;";
         $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
         $contacts = array();
@@ -126,16 +144,21 @@
             array_push($contacts, $contact);
         }
         for($i = 0; $i < count($contacts); ++$i) {
-            echo "
+            $html = $html."
             \r\n                            <b>".$contacts[$i][1].":</b> ".$contacts[$i][2]."<br>";
         }
-        echo "
+        $html = $html."
             \r\n
             \r\n                        </div>
             \r\n                    </td>
             \r\n                </tr>
             \r\n            </tbody>
             \r\n        </table>";
+        if(!$html_encoding || $html_encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
+        }
     }
 
 
@@ -175,7 +198,11 @@
         \r\n        </div>
         \r\n    </body>
         \r\n</html>";
-        echo $html;
+        if(!$html_encoding || $html_encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
+        }
         $db->close();
         unset($db);
     }

@@ -1,37 +1,43 @@
 <?php
     function showProjectsPage($db, $html_encoding) {
-            $query = "SELECT id, name, description, link FROM projects;";
-            $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
-            $projects = array();
-            $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
+        $query = "SELECT id, name, description, link FROM projects;";
+        $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
+        $projects = array();
+        $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
                 \r\n                        <div class=\"title-text\">ПРОЕКТЫ</div>
                 \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                 \r\n                        <div class=\"text\">";
-            echo $html;
-            $params = "";
-            if($html_encoding) {
-                $params = "?encoding=".$html_encoding;
-            }
-            while($project = $result->fetchArray()) {
-                array_push($projects, $project);
-            }
-            for($i = 0; $i < count($projects); ++$i) {
-                echo "
+        $params = "";
+        if($html_encoding) {
+            $params = "?encoding=".$html_encoding;
+        }
+        while($project = $result->fetchArray()) {
+            array_push($projects, $project);
+        }
+        for($i = 0; $i < count($projects); ++$i) {
+            $html = $html."
                 \r\n                            <a href=\"".$projects[$i][3].$params."\">".$projects[$i][1]."</a>
                 \r\n                            <br><span class=\"subtext\">".$projects[$i][2]."</span>";
-                if($i < count($projects) - 1) {
-                    echo "
+            if($i < count($projects) - 1) {
+                $html = $html. "
                     \r\n                            <hr size=\"1\"/>";
-                }
             }
-            echo "</div>
+        }
+        $html = $html."
+            </div>
                 \r\n                    </td>
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
+        if(!$html_encoding || $html_encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
         }
+    }
 
-    function showProjectPage($i) {
+    function showProjectPage($i, $html_encoding) {
+        $html = "";
         if($i == 0) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
@@ -64,7 +70,6 @@
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
-            echo $html;
         } else if($i == 1) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
@@ -170,7 +175,6 @@
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
-            echo $html;
         } else if ($i == 2) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
@@ -204,48 +208,56 @@
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
+        }
+        if(!$html_encoding || $html_encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
             echo $html;
         }
     }
 
-    function showHardwarePage($db) {
-            $query = "SELECT id, name, specs FROM hardware WHERE type = 0;";
-            $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
-            $computers = array();
-            $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
+    function showHardwarePage($db, $html_encoding) {
+        $query = "SELECT id, name, specs FROM hardware WHERE type = 0;";
+        $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
+        $computers = array();
+        $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
                      \r\n                        <div class=\"title-text\">ОБОРУДОВАНИЕ</div>
                      \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                      \r\n                        <div class=\"text\">";
-            echo $html;
-            while($computer = $result->fetchArray()) {
+        while($computer = $result->fetchArray()) {
                 array_push($computers, $computer);
-            }
-            echo "\r\n                          <h3>Компьютеры</h3>";
-            for($i = 0; $i < count($computers); ++$i) {
-                echo "
+        }
+        $html = $html."\r\n                          <h3>Компьютеры</h3>";
+        for($i = 0; $i < count($computers); ++$i) {
+                $html = $html."
                 \r\n                            <h4>".$computers[$i][1]."</h4>
                 \r\n                            ".$computers[$i][2];
-            }
-            echo "\r\n                          <h3>Смартфоны</h3>";
-            $query = "SELECT id, name, specs FROM hardware WHERE type = 1;";
-            $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
-            $phones = array();
-            while($phone = $result->fetchArray()) {
-                array_push($phones, $phone);
-            }
-            for($i = 0; $i < count($phones); ++$i) {
-                echo "
+        }
+        $html = $html."\r\n                          <h3>Смартфоны</h3>";
+        $query = "SELECT id, name, specs FROM hardware WHERE type = 1;";
+        $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
+        $phones = array();
+        while($phone = $result->fetchArray()) {
+            array_push($phones, $phone);
+        }
+        for($i = 0; $i < count($phones); ++$i) {
+            $html = $html."
                 \r\n                            <h4>".$phones[$i][1]."</h4>
                 \r\n                            ".$phones[$i][2];
-            }
-            echo "</div>
+        }
+        $html = $html."</div>
                 \r\n                    </td>
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
+        if(!$html_encoding || $html_encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
+        }
     }
 
-    function showWebsiteBannersPage($db) {
+    function showWebsiteBannersPage($db, $html_encoding) {
             $query = "SELECT id, name, link FROM banners;";
             $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
             $banners = array();
@@ -253,12 +265,11 @@
                      \r\n                        <div class=\"title-text\">БАННЕР ДЛЯ САЙТА</div>
                      \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                      \r\n                        <div class=\"text\">";
-            echo $html;
             while($banner = $result->fetchArray()) {
                 array_push($banners, $banner);
             }
             for($i = 0; $i < count($banners); ++$i) {
-                echo "
+                $html = $html."
                 \r\n                            <h4>".$banners[$i][1]."</h4>
                 \r\n                            <div align=\"center\">
                 \r\n                                <img src=\"".$banners[$i][2]."\" width=\"88\" height=\"31\" />
@@ -272,10 +283,15 @@
                                                 </div>
                 \r\n                            ";
             }
-            echo "</div>
+            $html = $html."</div>
                 \r\n                    </td>
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
+        if(!$html_encoding || $html_encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
+        }
     }
 ?>
