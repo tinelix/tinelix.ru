@@ -101,7 +101,7 @@
         }
     }
 
-    function showStartPage($db) {
+    function showStartPage($db, $html_encoding) {
         $web1_subdomain = "web1.tinelix.ru";
         $irc_subdomain = "irc.tinelix.ru";
         $query = "SELECT id, title, body FROM articles WHERE on_start_page = 1 LIMIT 1;";
