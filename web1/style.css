@@ -68,6 +68,18 @@ table {
     padding: 8px;
 }
 
+.actions-text {
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 9pt;
+    border: 1px solid #4f4f4f;
+    background: #000000;
+}
+
+hr {
+    border: 1px solid #8f8f8f;
+}
+
 .footer {
     font-size: 9pt;
 }
