@@ -8,13 +8,17 @@
                 \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                 \r\n                        <div class=\"text\">";
         $params = "";
-        if($html_encoding) {
-            $params = "?encoding=".$html_encoding;
-        }
         while($project = $result->fetchArray()) {
             array_push($projects, $project);
         }
         for($i = 0; $i < count($projects); ++$i) {
+            if($html_encoding) {
+                if(strpos($projects[$i][3], "?")) {
+                    $params = "&encoding=".$html_encoding;
+                } else {
+                    $params = "?encoding=".$html_encoding;
+                }
+            }
             $html = $html."
                 \r\n                            <a href=\"".$projects[$i][3].$params."\">".$projects[$i][1]."</a>
                 \r\n                            <br><span class=\"subtext\">".$projects[$i][2]."</span>";
@@ -38,7 +42,7 @@
 
     function showProjectPage($i, $html_encoding) {
         $html = "";
-        if($i == 0) {
+        if($i == 1) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
                 \r\n                        <div class=\"title-text\">TINELIX IRC CLIENT</div>
@@ -70,7 +74,7 @@
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
-        } else if($i == 1) {
+        } else if($i == 2) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
                 \r\n                        <div class=\"title-text\">TINELIX MICROBOT</div>
@@ -175,7 +179,7 @@
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
-        } else if ($i == 2) {
+        } else if ($i == 3) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
                 \r\n                        <div class=\"title-text\">OPENVK LEGACY</div>
@@ -203,6 +207,18 @@
                 \r\n                                <a href=\"https://f-droid.org/packages/uk.openvk.android.legacy\">F-Droid</a>
                 \r\n                                <br><a href=\"https://github.com/openvk/mobile-android-legacy/releases/tag/1.1.176-alpha\">GitHub</a>
                 \r\n                            </div>
+                \r\n                        </div>
+                \r\n                    </td>
+                \r\n                </tr>
+                \r\n            </tbody>
+                \r\n        </table>";
+        } else {
+            $html = "
+                \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
+                \r\n                        <div class=\"title-text\">ОШИБКА</div>
+                \r\n                        <hr class=\"accent-color\" size=\"1\"/>
+                \r\n                        <div class=\"text\">
+                \r\n                           Такой страницы не существует.
                 \r\n                        </div>
                 \r\n                    </td>
                 \r\n                </tr>
