@@ -59,15 +59,7 @@
                 \r\n                            </ol>
                 \r\n                            <h4>Исходный код</h4>
                 \r\n                            <div align=\"center\">
-                \r\n                                <a href=\"https://github.com/tinelix/irc-client-win32_64\">для Windows (x86/x64)</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32_64\">для Windows (x86/x64)</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32s\">для Win32s</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client\">для Python</a>
-                \r\n                            </div>
-                \r\n                            <h4>Предварительно-скомпилированные файлы</h4>
-                \r\n                            <div align=\"center\">
-                \r\n                                <a href=\"https://github.com/tinelix/irc-client-win32_64\">для Windows (x86/x64)</a>
-                \r\n                                <br><a href=\"https://github.com/tinelix/irc-client-win32s/releases/tag/0.1.12-beta-win32s\">для Win32s</a>
+                \r\n                                <br><a href=\"https://github.com/tinelix/microbot\">для Python</a>
                 \r\n                            </div>
                 \r\n                        </div>
                 \r\n                    </td>
