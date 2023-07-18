@@ -195,7 +195,7 @@
                 \r\n                            <h4>Предварительно-скомпилированные файлы</h4>
                 \r\n                            <div align=\"center\">
                 \r\n                                <a href=\"https://f-droid.org/packages/uk.openvk.android.legacy\">F-Droid</a>
-                \r\n                                <br><a href=\"https://github.com/openvk/mobile-android-legacy/releases/tag/1.1.176-alpha\">GitHub</a>
+                \r\n                                <br><a href=\"https://github.com/openvk/mobile-android-legacy/releases/tag/1.1.198-alpha\">GitHub</a>
                 \r\n                            </div>
                 \r\n                        </div>
                 \r\n                    </td>
