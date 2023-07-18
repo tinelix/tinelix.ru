@@ -91,6 +91,7 @@
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/about.php".$params."\">О себе</a>
             \r\n                            <hr class=\"simple-line\" size=\"1\">
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/banner.php".$params."\">Баннер для сайта</a>
+	    \r\n			    <p class=\"newline\"><a href=\"http://ovk.tinelix.ru\">Tinelix Astorium</a>
             \r\n                        </div>
             \r\n                    </td>
         ";
@@ -163,7 +164,7 @@
 
 
     function getLastUpdatedDate() {
-        return "23.06.2023";
+        return "18.07.2023";
     }
 
     function closePage($html_encoding) {
