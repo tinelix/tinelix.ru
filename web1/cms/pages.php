@@ -63,7 +63,9 @@
                 \r\n                            </div>
                 \r\n                        </div>
                 \r\n                    </td>
-                \r\n                </tr>";
+                \r\n                </tr>
+                \r\n            </tbody>
+                \r\n        </table>";
         } else if($i == 2) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
@@ -166,7 +168,9 @@
                 \r\n                            </div>
                 \r\n                        </div>
                 \r\n                    </td>
-                \r\n                </tr>";
+                \r\n                </tr>
+                \r\n            </tbody>
+                \r\n        </table>";
         } else if ($i == 3) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
@@ -195,7 +199,9 @@
                 \r\n                            </div>
                 \r\n                        </div>
                 \r\n                    </td>
-                \r\n                </tr>";
+                \r\n                </tr>
+                \r\n            </tbody>
+                \r\n        </table>";
         } else {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
