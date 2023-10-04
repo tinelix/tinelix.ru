@@ -314,3 +314,8 @@ code, pre {
     font-family: 'Roboto Mono';
     font-size: 12pt;
 }
+
+.right-photo  {
+    float: right;
+    margin: 24px 0 24px 24px;
+}
