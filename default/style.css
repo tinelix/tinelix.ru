@@ -320,3 +320,8 @@ code, pre {
     margin: 24px 0 24px 24px;
     border-radius: 8px;
 }
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
