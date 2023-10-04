@@ -318,4 +318,5 @@ code, pre {
 .right-photo  {
     float: right;
     margin: 24px 0 24px 24px;
+    border-radius: 8px;
 }
