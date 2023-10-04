@@ -98,8 +98,7 @@
             \r\n                        <div class=\"title-text\">ДО НОВОГО ГОДА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
             \r\n                        <p style=\"text-align: center; font-size: 18pt; margin-top: 4px; margin-bottom: 0px;\"><b class=\"highlight\">".$new_year_countdown."</b></p>
-            \r\n                        <p style=\"text-align: center; margin-top: 0px;\">дней</p><p>
-            \r\n                        </div>
+            \r\n                        <p style=\"text-align: center; margin-top: 0px;\">дней</p><p></p>
             \r\n                    </td>
         ";
         if(!$html_encoding || $html_encoding != "utf-8") {
