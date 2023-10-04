@@ -63,9 +63,7 @@
                 \r\n                            </div>
                 \r\n                        </div>
                 \r\n                    </td>
-                \r\n                </tr>
-                \r\n            </tbody>
-                \r\n        </table>";
+                \r\n                </tr>";
         } else if($i == 2) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
@@ -168,9 +166,7 @@
                 \r\n                            </div>
                 \r\n                        </div>
                 \r\n                    </td>
-                \r\n                </tr>
-                \r\n            </tbody>
-                \r\n        </table>";
+                \r\n                </tr>";
         } else if ($i == 3) {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
@@ -199,9 +195,7 @@
                 \r\n                            </div>
                 \r\n                        </div>
                 \r\n                    </td>
-                \r\n                </tr>
-                \r\n            </tbody>
-                \r\n        </table>";
+                \r\n                </tr>";
         } else {
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
@@ -253,9 +247,7 @@
         }
         $html = $html."</div>
                 \r\n                    </td>
-                \r\n                </tr>
-                \r\n            </tbody>
-                \r\n        </table>";
+                \r\n                </tr>";
         if(!$html_encoding || $html_encoding != "utf-8") {
             echo mb_convert_encoding($html, "windows-1251", "utf-8");
         } else {
@@ -291,9 +283,7 @@
             }
             $html = $html."</div>
                 \r\n                    </td>
-                \r\n                </tr>
-                \r\n            </tbody>
-                \r\n        </table>";
+                \r\n                </tr>";
         if(!$html_encoding || $html_encoding != "utf-8") {
             echo mb_convert_encoding($html, "windows-1251", "utf-8");
         } else {

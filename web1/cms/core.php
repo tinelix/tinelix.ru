@@ -75,6 +75,7 @@
         if($html_encoding) {
             $params = "?encoding=".$html_encoding;
         }
+        $new_year_countdown = -round((time() - strtotime("2024-01-01")) / (60 * 60 * 24));
         $html = "
             \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
             \r\n            <tbody>
@@ -92,6 +93,12 @@
             \r\n                            <hr class=\"simple-line\" size=\"1\">
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/banner.php".$params."\">Баннер для сайта</a>
             \r\n                            <p class=\"newline\"><a href=\"http://ovk.tinelix.ru\">Tinelix Astorium</a>
+            \r\n                        </div>
+            \r\n                        <hr style=\"background: #232323; border: none\" size=\"4\">
+            \r\n                        <div class=\"title-text\">ДО НОВОГО ГОДА</div>
+            \r\n                        <hr class=\"accent-color cell\" size=\"1\">
+            \r\n                        <p style=\"text-align: center; font-size: 18pt; margin-top: 4px; margin-bottom: 0px;\"><b class=\"highlight\">".$new_year_countdown."</b></p>
+            \r\n                        <p style=\"text-align: center; margin-top: 0px;\">дней</p><p>
             \r\n                        </div>
             \r\n                    </td>
         ";
@@ -164,7 +171,7 @@
 
 
     function getLastUpdatedDate() {
-        return "18.07.2023";
+        return "04.10.2023";
     }
 
     function closePage($html_encoding) {

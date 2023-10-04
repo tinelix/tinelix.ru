@@ -77,7 +77,13 @@ table {
 }
 
 .simple-line {
-    border: 1px solid #8f8f8f;
+    border: none;
+    color: #8f8f8f;
+    background: #8f8f8f;
+}
+
+.highlight {
+    color: #eb7f22;
 }
 
 .footer {
