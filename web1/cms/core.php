@@ -94,7 +94,7 @@
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/banner.php".$params."\">Баннер для сайта</a>
             \r\n                            <p class=\"newline\"><a href=\"http://ovk.tinelix.ru\">Tinelix Astorium</a>
             \r\n                        </div>
-            \r\n                        <hr style=\"background: #232323; border: none\" size=\"4\">
+            \r\n                        <hr style=\"background: #232323; color: #232323; border: none\" size=\"4\">
             \r\n                        <div class=\"title-text\">ДО НОВОГО ГОДА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
             \r\n                        <p style=\"text-align: center; font-size: 18pt; margin-top: 4px; margin-bottom: 0px;\"><b class=\"highlight\">".$new_year_countdown."</b></p>
