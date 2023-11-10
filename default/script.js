@@ -23,7 +23,4 @@ function openaccountmenu() {
 var ee = "";
 document.onkeypress = function(event){
     ee = ee + event.key;
-    if (ee == "gpg") {
-        window.location.replace("/vc_pub.gpg");
-    }
 }

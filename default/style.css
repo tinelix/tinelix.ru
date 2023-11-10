@@ -100,11 +100,17 @@ a, a:visited {
 .content.text {
     overflow: auto;
 }
-    
-.content iframe {
-    width: 75vw;
-    max-width: 1000px;
-    height: 70vh;
+
+.homepage-content {
+    display: inline-flex;
+}
+
+.homepage-content iframe {
+    margin-right: 2vw;
+    width: 256vh;
+    height: 50vh;
+    max-width: 480px;
+    max-height: 270px;
 }
 
 .list {
@@ -198,10 +204,14 @@ a, a:visited {
         box-shadow: #0000004f 0px 4px 12px 2px;
     }
 
-    .content iframe {
-        width: 100vw;
-        max-width: 1000px;
-        height: 45vh;
+    .homepage-content {
+        display: block;
+    }
+
+    .homepage-content iframe {
+        margin-bottom: 20px;
+        width: 92vw;
+        height: 50vw;
     }
 
     .menu .site-menu a {
@@ -266,11 +276,6 @@ a, a:visited {
 
     .menu .site-menu a:hover {
         background-color: rgba(255,255,255,0.25);
-    }
-
-    .content iframe {
-        width: 100vw;
-        height: 75vh;
     }
 
     a, a:visited {
