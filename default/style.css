@@ -9,14 +9,14 @@ body {
 
 a, a:visited {
     text-decoration: none;
-    color: #dd6700;
+    color: #399cde;
 }
 
 .menubar {
     box-shadow: #0000004f 0px 4px 12px 2px;
     margin: 0 -6px 0 -6px;
     padding: 0 6px 0 6px;
-    background-color: #dd6700;
+    background-color: #399cde;
 }
 
 .menu {
@@ -47,11 +47,16 @@ a, a:visited {
 .menu .links.open {
     display: block !important;
     position: absolute;
-    background: white;
+    background: #ffffff8b;
     right: calc(50% - 500px);
     top: 56px;
     border-radius: 15px;
     box-shadow: #0000004f 0px 4px 12px 2px;
+    backdrop-filter: blur(4px);
+}
+
+.menu .site-menu .open {
+    backdrop-filter: blur(4px);
 }
 
 .menu .links a {
@@ -86,10 +91,10 @@ a, a:visited {
 .content {
     display: flex;
 	max-width: 1000px;
-	height: calc(100vh - 80px);
+	height: calc(100vh - 75px);
 	margin: 0 auto;
-    padding: 8px;
 	overflow: hidden;
+    padding: 33px 8px 0px 8px;
     flex-direction: column;
 }
 
@@ -147,6 +152,21 @@ a, a:visited {
     border-radius: 15px;
 }
 
+.footer {
+    background: #0000001f;
+    padding: 8px;
+    font-size: 11pt;
+    border-radius: 15px;
+}
+
+.accent-color {
+    color: #399cde
+}
+
+.medium-font {
+    font-weight: 500;
+}
+
 @media (max-width: 1000px) {
     .menu .links a {
         font-size: 16px;
@@ -157,17 +177,22 @@ a, a:visited {
     .menu .links.open {
         display: block !important;
         position: absolute;
-        background: white;
+        background: #ffffff8b;
         right: 4px;
         top: 56px;
         border-radius: 15px;
         box-shadow: #0000004f 0px 4px 12px 2px;
+        backdrop-filter: blur(4px);
+    }
+    .menu.site-menu.open {
+        backdrop-filter: blur(4px);
     }
     .content {
         display: flex;
         padding: 8px;
         overflow: hidden;
         flex-direction: column;
+        padding: 33px 8px 0px 8px;
     }
 }
 
@@ -188,20 +213,22 @@ a, a:visited {
     .menu .links.open {
         display: block !important;
         position: absolute;
-        background: white;
+        background: #ffffff8b;
         right: 4px;
         top: 56px;
         border-radius: 15px;
+        backdrop-filter: blur(4px);
     }
 
     .menu .site-menu.open {
         display: block !important;
         position: absolute;
-        background: white;
-        right: 56px;
+        background: #ffffff8b;
+        left: 10px;
         top: 56px;
         border-radius: 15px;
         box-shadow: #0000004f 0px 4px 12px 2px;
+        backdrop-filter: blur(4px);
     }
 
     .homepage-content {
@@ -238,6 +265,10 @@ a, a:visited {
         background-color: #1a1a1a;
     }
 
+    .menubar {
+        background-color: #2f7caf;
+    }
+
     .logo img {
         filter: none;
     }
@@ -263,11 +294,11 @@ a, a:visited {
     }
 
     .menu .links.open {
-        background-color: black;
+        background-color: #0000008b;
     }
 
     .menu .site-menu.open {
-        background-color: black;
+        background-color: #0000008b;
     }
    
     .menu .links a:hover {
@@ -280,7 +311,7 @@ a, a:visited {
 
     a, a:visited {
         text-decoration: none;
-        color: #eb7f22;
+        color: #60bfff;
     }
 
     .list {
@@ -312,6 +343,14 @@ a, a:visited {
         margin-left: 10px;
         margin-right: 10px;
         border-radius: 15px;
+    }
+
+    .footer {
+        background: #ffffff1f
+    }
+
+    .accent-color {
+        color: #60bfff
     }
 }
 
