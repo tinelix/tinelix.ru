@@ -147,6 +147,26 @@ a, a:visited {
     border-radius: 15px;
 }
 
+.footer {
+    border-radius: 15px;
+    padding: 10px;
+    background: #0000001f
+}
+
+.new-year-footer {
+    border-radius: 15px;
+    padding: 10px;
+    background: repeating-linear-gradient(140deg, #f46a611f 5px, #e3e3581f 5px, #87f96e1f 5px)
+}
+
+.accent-color {
+    color: #eb7f22;
+}
+
+.medium-font {
+    font-weight: 500;
+}
+
 @media (max-width: 1000px) {
     .menu .links a {
         font-size: 16px;
@@ -312,6 +332,16 @@ a, a:visited {
         margin-left: 10px;
         margin-right: 10px;
         border-radius: 15px;
+    }
+
+    .footer {
+        background: #ffffff1f
+    }
+
+    .new-year-footer {
+        border-radius: 15px;
+        padding: 10px;
+        background: repeating-linear-gradient(120deg, #f46a614f 15px, #e3e3584f 45px, #87f96e4f 60px, #f46a614f 120px)
     }
 }
 
