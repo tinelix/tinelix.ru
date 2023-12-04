@@ -83,7 +83,7 @@
             \r\n                    <td bgcolor=\"#151515\" width=\"150\" valign=\"top\">
             \r\n                        <div class=\"title-text\">МЕНЮ САЙТА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
-            \r\n                        <div class=\"menu-links text\">
+            \r\n                        <div class=\"menu-links text\" style=\"margin-bottom: 0px;\">
             \r\n                            <a href=\"http://".$web1_subdomain."\">Домой</a>
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/projects.php".$params."\">Проекты</a>
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/hardware.php".$params."\">Оборудование</a>
@@ -94,7 +94,7 @@
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/banner.php".$params."\">Баннер для сайта</a>
             \r\n                            <p class=\"newline\"><a href=\"http://ovk.tinelix.ru\">Tinelix Astorium</a>
             \r\n                        </div>
-            \r\n                        <hr style=\"background: #232323; color: #232323; border: none; margin-bottom: 0px;\" size=\"4\">
+            \r\n                        <hr style=\"background: #232323; color: #232323; border: none;\" size=\"4\">
             \r\n                        <div class=\"title-text\" style=\"margin-top: 0px;\">ДО НОВОГО ГОДА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
             \r\n                        <p style=\"text-align: center; font-size: 18pt; margin-top: 4px; margin-top: 0px; margin-bottom: 0px;\"><b class=\"highlight\">".$new_year_countdown."</b></p>
