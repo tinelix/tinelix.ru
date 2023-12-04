@@ -95,7 +95,7 @@
             \r\n                            <p class=\"newline\"><a href=\"http://ovk.tinelix.ru\">Tinelix Astorium</a>
             \r\n                        </div>
             \r\n                        <hr style=\"background: #232323; color: #232323; border: none;\" size=\"4\">
-            \r\n                        <div class=\"title-text\" style=\"margin-top: 0px;\">ДО НОВОГО ГОДА</div>
+            \r\n                        <div class=\"title-text no-top-margins\">ДО НОВОГО ГОДА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
             \r\n                        <p style=\"text-align: center; font-size: 18pt; margin-top: 4px; margin-top: 0px; margin-bottom: 0px;\"><b class=\"highlight\">".$new_year_countdown."</b></p>
             \r\n                        <p style=\"text-align: center; margin-top: 0px;\">дней</p><p></p>

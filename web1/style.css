@@ -94,3 +94,16 @@ table {
     float: right;
     margin: 24px 0 24px 24px;
 }
+
+.no-top-margins {
+    margin-top: 0px;
+}
+
+.no-bottom-margins {
+    margin-bottom: 0px;
+}
+
+.no-vertical-margins {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
