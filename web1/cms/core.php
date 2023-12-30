@@ -101,7 +101,7 @@
             \r\n                        <hr style=\"background: #232323; color: #232323; border: none;\" size=\"4\">
             \r\n                        <div class=\"title-text no-top-margins\">ДО НОВОГО ГОДА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
-            \r\n                        <p style=\"text-align: center; font-size: 12pt; margin-top: 4px; margin-bottom: 0px;\">
+            \r\n                        <p style=\"text-align: left; font-size: 12pt; margin-left: 6px; margin-top: 4px; margin-bottom: 0px;\">
 	    \r\n				<b class=\"highlight\">".$new_year_countdown."</b> дн.
 	    \r\n				<br><b class=\"highlight\">".$new_year_countdown_h."</b> ч.
 	    \r\n				<br><b class=\"highlight\">".$new_year_countdown_min."</b> мин.
