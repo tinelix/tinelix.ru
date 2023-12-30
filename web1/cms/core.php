@@ -103,7 +103,7 @@
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
             \r\n                        <p style=\"text-align: left; font-size: 12pt; margin-left: 6px; margin-top: 4px; margin-bottom: 0px;\">
 	    \r\n				<b class=\"highlight\">".$new_year_countdown."</b> дн.
-	    \r\n				<br><b class=\"highlight\">".$new_year_countdown_h."</b> ч.
+	    \r\n				<br><b class=\"highlight\">".$new_year_countdown_h."</b> час.
 	    \r\n				<br><b class=\"highlight\">".$new_year_countdown_min."</b> мин.
 	    \r\n				<br><b class=\"highlight\">".$new_year_countdown_sec."</b> сек.
 	    \r\n			</p>
