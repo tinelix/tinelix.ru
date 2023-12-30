@@ -75,6 +75,7 @@
         if($html_encoding) {
             $params = "?encoding=".$html_encoding;
         }
+	date_default_timezone_set('Europe/Moscow'); 
         $new_year_countdown = -round((time() - strtotime("2024-01-01")) / (60 * 60 * 24));
 	$new_year_countdown_h = -(round((time() - strtotime("2024-01-01")) / (60 * 60)) % 24);
         $new_year_countdown_min = -(round((time() - strtotime("2024-01-01")) / 60) % 60);
@@ -100,7 +101,13 @@
             \r\n                        <hr style=\"background: #232323; color: #232323; border: none;\" size=\"4\">
             \r\n                        <div class=\"title-text no-top-margins\">ДО НОВОГО ГОДА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
-            \r\n                        <p style=\"text-align: center; font-size: 12pt; margin-top: 4px; margin-top: 0px; margin-bottom: 8px;\"><b class=\"highlight\">".$new_year_countdown."</b> дн.<br><b class=\"highlight\">".$new_year_countdown_h."</b> ч.<br><b class=\"highlight\">".$new_year_countdown_min."</b> мин.<br><b class=\"highlight\">".$new_year_countdown_sec."</b> сек.</p><p></p>
+            \r\n                        <p style=\"text-align: center; font-size: 12pt; margin-top: 4px; margin-bottom: 0px;\">
+	    \r\n				<b class=\"highlight\">".$new_year_countdown."</b> дн.
+	    \r\n				<br><b class=\"highlight\">".$new_year_countdown_h."</b> ч.
+	    \r\n				<br><b class=\"highlight\">".$new_year_countdown_min."</b> мин.
+	    \r\n				<br><b class=\"highlight\">".$new_year_countdown_sec."</b> сек.
+	    \r\n			</p>
+	    \r\n			<p style=\"text-align: center; font-size: 8pt; margin-top: 5px; margin-bottom: 6px\">Московское время</p>
             \r\n                    </td>
         ";
         if(!$html_encoding || $html_encoding != "utf-8") {
