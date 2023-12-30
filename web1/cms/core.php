@@ -76,6 +76,9 @@
             $params = "?encoding=".$html_encoding;
         }
         $new_year_countdown = -round((time() - strtotime("2024-01-01")) / (60 * 60 * 24));
+	$new_year_countdown_h = -(round((time() - strtotime("2024-01-01")) / (60 * 60)) % 24);
+        $new_year_countdown_min = -(round((time() - strtotime("2024-01-01")) / 60) % 60);
+	$new_year_countdown_sec = -(round(time() - strtotime("2024-01-01")) % 60);
         $html = "
             \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
             \r\n            <tbody>
@@ -97,8 +100,7 @@
             \r\n                        <hr style=\"background: #232323; color: #232323; border: none;\" size=\"4\">
             \r\n                        <div class=\"title-text no-top-margins\">ДО НОВОГО ГОДА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
-            \r\n                        <p style=\"text-align: center; font-size: 18pt; margin-top: 4px; margin-top: 0px; margin-bottom: 0px;\"><b class=\"highlight\">".$new_year_countdown."</b></p>
-            \r\n                        <p style=\"text-align: center; margin-top: 0px;\">дней</p><p></p>
+            \r\n                        <p style=\"text-align: center; font-size: 12pt; margin-top: 4px; margin-top: 0px; margin-bottom: 8px;\"><b class=\"highlight\">".$new_year_countdown."</b> дн.<br><b class=\"highlight\">".$new_year_countdown_h."</b> ч.<br><b class=\"highlight\">".$new_year_countdown_min."</b> мин.<br><b class=\"highlight\">".$new_year_countdown_sec."</b> сек.</p><p></p>
             \r\n                    </td>
         ";
         if(!$html_encoding || $html_encoding != "utf-8") {
