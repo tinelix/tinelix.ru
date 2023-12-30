@@ -77,9 +77,16 @@
         }
 	date_default_timezone_set('Europe/Moscow'); 
         $new_year_countdown = -round((time() - strtotime("2024-01-01")) / (60 * 60 * 24));
-	$new_year_countdown_h = -(round((time() - strtotime("2024-01-01")) / (60 * 60)) % 24);
-        $new_year_countdown_min = -(round((time() - strtotime("2024-01-01")) / 60) % 60);
-	$new_year_countdown_sec = -(round(time() - strtotime("2024-01-01")) % 60);
+	if($new_year_countdown >= 0) {
+		$new_year_countdown_h = -(round((time() - strtotime("2024-01-01")) / (60 * 60)) % 24);
+        	$new_year_countdown_min = -(round((time() - strtotime("2024-01-01")) / 60) % 60);
+		$new_year_countdown_sec = -(round(time() - strtotime("2024-01-01")) % 60);
+	} else {
+		$new_year_countdown = 0;
+		$new_year_countdown_h = 0;
+        	$new_year_countdown_min = 0;
+		$new_year_countdown_sec = 0;
+	}
         $html = "
             \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
             \r\n            <tbody>
@@ -102,10 +109,10 @@
             \r\n                        <div class=\"title-text no-top-margins\">ДО НОВОГО ГОДА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
             \r\n                        <p style=\"text-align: left; font-size: 12pt; margin-left: 6px; margin-top: 4px; margin-bottom: 0px;\">
-	    \r\n				<b class=\"highlight\">".str_pad($new_year_countdown, 2, " ", STR_PAD_LEFT)."</b> дн.
-	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_h, 2, " ", STR_PAD_LEFT)."</b> час.
-	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_min, 2, " ", STR_PAD_LEFT)."</b> мин.
-	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_sec, 2, " ", STR_PAD_LEFT)."</b> сек.
+	    \r\n				<b class=\"highlight\">".str_pad($new_year_countdown, 2, "0", STR_PAD_LEFT)."</b> дн.
+	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_h, 2, "0", STR_PAD_LEFT)."</b> час.
+	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_min, 2, "0", STR_PAD_LEFT)."</b> мин.
+	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_sec, 2, "0", STR_PAD_LEFT)."</b> сек.
 	    \r\n			</p>
 	    \r\n			<p style=\"text-align: center; font-size: 8pt; margin-top: 5px; margin-bottom: 6px\">Московское время</p>
             \r\n                    </td>
