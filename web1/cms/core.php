@@ -75,7 +75,18 @@
         if($html_encoding) {
             $params = "?encoding=".$html_encoding;
         }
+	date_default_timezone_set('Europe/Moscow'); 
         $new_year_countdown = -round((time() - strtotime("2024-01-01")) / (60 * 60 * 24));
+	if($new_year_countdown >= 0) {
+		$new_year_countdown_h = -(round((time() - strtotime("2024-01-01")) / (60 * 60)) % 24);
+        	$new_year_countdown_min = -(round((time() - strtotime("2024-01-01")) / 60) % 60);
+		$new_year_countdown_sec = -(round(time() - strtotime("2024-01-01")) % 60);
+	} else {
+		$new_year_countdown = 0;
+		$new_year_countdown_h = 0;
+        	$new_year_countdown_min = 0;
+		$new_year_countdown_sec = 0;
+	}
         $html = "
             \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
             \r\n            <tbody>
@@ -83,7 +94,7 @@
             \r\n                    <td bgcolor=\"#151515\" width=\"150\" valign=\"top\">
             \r\n                        <div class=\"title-text\">МЕНЮ САЙТА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
-            \r\n                        <div class=\"menu-links text\">
+            \r\n                        <div class=\"menu-links text\" style=\"margin-bottom: 0px;\">
             \r\n                            <a href=\"http://".$web1_subdomain."\">Домой</a>
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/projects.php".$params."\">Проекты</a>
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/hardware.php".$params."\">Оборудование</a>
@@ -94,11 +105,16 @@
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/banner.php".$params."\">Баннер для сайта</a>
             \r\n                            <p class=\"newline\"><a href=\"http://ovk.tinelix.ru\">Tinelix Astorium</a>
             \r\n                        </div>
-            \r\n                        <hr style=\"background: #232323; color: #232323; border: none\" size=\"4\">
-            \r\n                        <div class=\"title-text\">ДО НОВОГО ГОДА</div>
+            \r\n                        <hr style=\"background: #232323; color: #232323; border: none;\" size=\"4\">
+            \r\n                        <div class=\"title-text no-top-margins\">ДО НОВОГО ГОДА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
-            \r\n                        <p style=\"text-align: center; font-size: 18pt; margin-top: 4px; margin-bottom: 0px;\"><b class=\"highlight\">".$new_year_countdown."</b></p>
-            \r\n                        <p style=\"text-align: center; margin-top: 0px;\">дней</p><p></p>
+            \r\n                        <p style=\"text-align: left; font-size: 12pt; margin-left: 6px; margin-top: 4px; margin-bottom: 0px;\">
+	    \r\n				<b class=\"highlight\">".str_pad($new_year_countdown, 2, "0", STR_PAD_LEFT)."</b> дн.
+	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_h, 2, "0", STR_PAD_LEFT)."</b> час.
+	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_min, 2, "0", STR_PAD_LEFT)."</b> мин.
+	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_sec, 2, "0", STR_PAD_LEFT)."</b> сек.
+	    \r\n			</p>
+	    \r\n			<p style=\"text-align: center; font-size: 8pt; margin-top: 5px; margin-bottom: 6px\">Московское время</p>
             \r\n                    </td>
         ";
         if(!$html_encoding || $html_encoding != "utf-8") {
@@ -170,7 +186,7 @@
 
 
     function getLastUpdatedDate() {
-        return "04.10.2023";
+        return "30.12.2023";
     }
 
     function closePage($html_encoding) {
