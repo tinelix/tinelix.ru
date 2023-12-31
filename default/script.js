@@ -38,16 +38,14 @@ function newYearCountdownTimer() {
     	var timezone = '';
     	if((today.getTimezoneOffset() / 60) < 0) {
         	timezone = '+' + (-today.getTimezoneOffset() / 60)
-   	} else {
+        } else {
         	timezone = '-' + (today.getTimezoneOffset() / 60)
     	};
-	document.getElementById('days_count').innerHTML = countdown;
     	document.getElementById('hours_count').innerHTML = countdown_h;
     	document.getElementById('minutes_count').innerHTML = countdown_min;
     	document.getElementById('seconds_count').innerHTML = countdown_sec;
    } else {
-	document.getElementById('days_count').innerHTML = "0";
-  	document.getElementById('hours_count').innerHTML = "00";
+        document.getElementById('hours_count').innerHTML = "00";
     	document.getElementById('minutes_count').innerHTML = "00";
     	document.getElementById('seconds_count').innerHTML = "00";
    }
