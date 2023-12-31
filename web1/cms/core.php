@@ -109,8 +109,7 @@
             \r\n                        <div class=\"title-text no-top-margins\">ДО НОВОГО ГОДА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
             \r\n                        <p style=\"text-align: left; font-size: 12pt; margin-left: 6px; margin-top: 4px; margin-bottom: 0px;\">
-	    \r\n				<b class=\"highlight\">".str_pad($new_year_countdown, 2, "0", STR_PAD_LEFT)."</b> дн.
-	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_h, 2, "0", STR_PAD_LEFT)."</b> час.
+	    \r\n				<b class=\"highlight\"><b class=\"highlight\">".str_pad($new_year_countdown_h, 2, "0", STR_PAD_LEFT)."</b> час.
 	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_min, 2, "0", STR_PAD_LEFT)."</b> мин.
 	    \r\n				<br><b class=\"highlight\">".str_pad($new_year_countdown_sec, 2, "0", STR_PAD_LEFT)."</b> сек.
 	    \r\n			</p>
