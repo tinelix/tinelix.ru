@@ -78,11 +78,11 @@
         $tz = "Europe/Moscow";
         $dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
         $dt->setTimestamp(time());
-        $new_year_countdown = -round(($dt->getTimestamp() - strtotime("2024-01-01")) / (60 * 60 * 24));
+        $new_year_countdown = -round(($dt->getTimestamp() - strtotime("2024-01-01 00:00:00")) / (60 * 60 * 24));
         if($new_year_countdown >= 0) {
-            $new_year_countdown_h = -(round(($dt->getTimestamp() - strtotime("2024-01-01")) / (60 * 60)) % 24);
-            $new_year_countdown_min = -(round(($dt->getTimestamp() - strtotime("2024-01-01")) / 60) % 60);
-            $new_year_countdown_sec = -(round($dt->getTimestamp() - strtotime("2024-01-01")) % 60);
+            $new_year_countdown_h = -(round(($dt->getTimestamp() - strtotime("2024-01-01 00:00:00")) / (60 * 60)) % 24);
+            $new_year_countdown_min = -(round(($dt->getTimestamp() - strtotime("2024-01-01 00:00:00")) / 60) % 60);
+            $new_year_countdown_sec = -(round($dt->getTimestamp() - strtotime("2024-01-01 00:00:00")) % 60);
         } else {
             $new_year_countdown = 0;
             $new_year_countdown_h = 0;
