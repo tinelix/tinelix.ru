@@ -30,7 +30,7 @@ function newYearCountdownTimer() {
     var newYear = new Date('1 January 2024');
     var days = today - newYear;
     var count_time = new Date(-days + (today.getTimezoneOffset() * 60 * 1000));
-    var countdown = Math.floor(-(days / 1000 / 60 / 60 / 60)) + 1;
+    var countdown = Math.floor(-(days / 1000 / 60 / 60 / 60));
     if(countdown >= 0) {
     	var countdown_h = addIntZeros(Math.floor(-(days / 1000 / 60 / 60)) % 24, 2);
     	var countdown_min = addIntZeros(Math.floor(-(days / 1000 / 60)) % 60, 2);
