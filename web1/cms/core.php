@@ -213,6 +213,11 @@
         \r\n                                     src=\"http://".$web1_subdomain."/banners/gnu.png\"
         \r\n                                     alt=\"Свободное ПО нужно каждому!\" />
         \r\n                            </a>
+        \r\n                            <a href=\"https://narodweb.ru\">
+        \r\n                                <img style=\"border:0;width:88px;height:31px\"
+        \r\n                                     src=\"http://".$web1_subdomain."/banners/ndr.gif\"
+        \r\n                                     alt=\"Сайт проекта &qt;Народное достояние Рунета&lt;\" />
+        \r\n                            </a>
         \r\n                        </td>
         \r\n                    </tr>
         \r\n                </tbody>
