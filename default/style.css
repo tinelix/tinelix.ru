@@ -91,7 +91,7 @@ a, a:visited {
 .content {
     display: flex;
 	max-width: 1000px;
-	height: calc(100vh - 75px);
+	height: calc(100vh - 85px);
 	margin: 0 auto;
 	overflow: hidden;
     padding: 33px 8px 0px 8px;
