@@ -75,18 +75,20 @@
         if($html_encoding) {
             $params = "?encoding=".$html_encoding;
         }
-	date_default_timezone_set('Europe/Moscow'); 
-        $new_year_countdown = -round((time() - strtotime("2024-01-01")) / (60 * 60 * 24));
-	if($new_year_countdown >= 0) {
-		$new_year_countdown_h = -(round((time() - strtotime("2024-01-01")) / (60 * 60)) % 24);
-        	$new_year_countdown_min = -(round((time() - strtotime("2024-01-01")) / 60) % 60);
-		$new_year_countdown_sec = -(round(time() - strtotime("2024-01-01")) % 60);
-	} else {
-		$new_year_countdown = 0;
-		$new_year_countdown_h = 0;
-        	$new_year_countdown_min = 0;
-		$new_year_countdown_sec = 0;
-	}
+        $tz = "Europe/Moscow";
+        $dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
+        $dt->setTimestamp(time());
+        $new_year_countdown = -round((dt->getTimestamp() - strtotime("2024-01-01")) / (60 * 60 * 24));
+        if($new_year_countdown >= 0) {
+            $new_year_countdown_h = -(round((dt->getTimestamp() - strtotime("2024-01-01")) / (60 * 60)) % 24);
+            $new_year_countdown_min = -(round((dt->getTimestamp() - strtotime("2024-01-01")) / 60) % 60);
+            $new_year_countdown_sec = -(round(dt->getTimestamp() - strtotime("2024-01-01")) % 60);
+        } else {
+            $new_year_countdown = 0;
+            $new_year_countdown_h = 0;
+            $new_year_countdown_min = 0;
+            $new_year_countdown_sec = 0;
+        }
         $html = "
             \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
             \r\n            <tbody>
