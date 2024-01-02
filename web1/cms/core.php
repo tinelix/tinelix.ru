@@ -104,6 +104,7 @@
             \r\n                            <hr class=\"simple-line\" size=\"1\">
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/banner.php".$params."\">Баннер для сайта</a>
             \r\n                            <p class=\"newline\"><a href=\"http://ovk.tinelix.ru\">Tinelix Astorium</a>
+            </div>
             \r\n                    </td>
         ";
         if(!$html_encoding || $html_encoding != "utf-8") {
