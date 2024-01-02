@@ -52,7 +52,7 @@ function newYearCountdownTimer() {
 }
 
 function homepage_onload() {
-    setInterval(newYearCountdownTimer, 100);
+    //setInterval(newYearCountdownTimer, 100);
 }
 
 function addIntZeros(num, size) {
