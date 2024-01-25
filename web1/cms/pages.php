@@ -280,7 +280,7 @@
                 $html = $html."
                 \r\n                            <h4>".$banners[$i][1]."</h4>
                 \r\n                            <div align=\"center\">
-                \r\n                                <img src=\"".$banners[$i][2]."\" width=\"88\" height=\"31\" alt=\"\"></img>
+                \r\n                                <img src=\"".$banners[$i][2]."\" width=\"88\" height=\"31\" alt=\"\">
                 \r\n                                <br>
                 \r\n                                <pre class=\"full-code\">
 &lt;a href=\"http://web1.tinelix.ru/\"&gt;
