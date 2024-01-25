@@ -174,7 +174,7 @@
 
 
     function getLastUpdatedDate() {
-        return "31.12.2023";
+        return "25.01.2024";
     }
 
     function closePage($html_encoding) {
