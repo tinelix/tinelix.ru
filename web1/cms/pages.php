@@ -270,7 +270,9 @@
             $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
                      \r\n                        <div class=\"title-text\">БАННЕР ДЛЯ САЙТА</div>
                      \r\n                        <hr class=\"accent-color\" size=\"1\"/>
-                     \r\n                        <div class=\"text\">";
+                     \r\n                        <div class=\"text\">
+                     \r\n                        Прикрепите любой из предложенных баннеров на свой ретросайт, так нас проще будет найти.
+                     \r\n<p><b>ВНИМАНИЕ!</b> Для показа баннеров на современных браузерах советуем отключить блокировщик рекламы или добавить сайт в исключения блокировки.";
             while($banner = $result->fetchArray()) {
                 array_push($banners, $banner);
             }
