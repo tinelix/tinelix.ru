@@ -293,7 +293,8 @@
             }
             $html = $html."</div>
                 \r\n                    </td>
-                \r\n                </tr>";
+                \r\n                </tr>
+                \r\n            </table>";
         if(!$html_encoding || $html_encoding != "utf-8") {
             echo mb_convert_encoding($html, "windows-1251", "utf-8");
         } else {
