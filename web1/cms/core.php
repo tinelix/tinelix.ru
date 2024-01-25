@@ -98,12 +98,10 @@
             \r\n                            <a href=\"http://".$web1_subdomain."\">Домой</a>
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/projects.php".$params."\">Проекты</a>
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/hardware.php".$params."\">Оборудование</a>
-            \r\n                            <p class=\"newline\"><a href=\"http://irc.tinelix.ru\">IRC-чат</a>
             \r\n                            <p class=\"newline\"><a href=\"https://t.me/tinelixdonators\">Пожертвования</a>
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/about.php".$params."\">О себе</a>
             \r\n                            <hr class=\"simple-line\" size=\"1\">
             \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/banner.php".$params."\">Баннер для сайта</a>
-            \r\n                            <p class=\"newline\"><a href=\"http://ovk.tinelix.ru\">Tinelix Astorium</a>
             \r\n                        </div>
             \r\n                    </td>
         ";
