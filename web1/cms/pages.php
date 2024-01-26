@@ -273,7 +273,7 @@
                      \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                      \r\n                        <div class=\"text\">
                      \r\n                        Прикрепите любой из предложенных баннеров на свой ретросайт, так нас проще будет найти.
-                     \r\n<p><div class=\"warning-banner\"><b>ВНИМАНИЕ!</b> Для показа баннеров на современных браузерах советуем отключить блокировщик рекламы или добавить сайт в исключения блокировки.</div>";
+                     \r\n<p><div class=\"warning-banner\"><b>ВНИМАНИЕ!</b> Для показа баннеров на современных браузерах советуем отключить блокировщик рекламы или добавить сайт ".$web1_subdomain." в исключения блокировки.</div>";
             while($banner = $result->fetchArray()) {
                 array_push($banners, $banner);
             }
@@ -284,7 +284,7 @@
                 \r\n                                <img src=\"".$banners[$i][2]."\" width=\"88\" height=\"31\" alt=\"\">
                 \r\n                                <br>
                 \r\n                                <pre class=\"full-code\">
-&lt;a href=\"http://web1.tinelix.ru/\"&gt;
+&lt;a href=\"http://".$web1_subdomain."\"&gt;
     &lt;img src=\"".$banners[$i][2]."\"
          width=\"88\" height=\"31\" border=\"0\"/&gt;
 &lt;/a&gt;
