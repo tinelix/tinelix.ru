@@ -80,6 +80,7 @@ table {
     border: none;
     color: #8f8f8f;
     background: #8f8f8f;
+    margin-bottom: 0;
 }
 
 .warning-banner {
