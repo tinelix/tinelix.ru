@@ -78,7 +78,10 @@
         date_default_timezone_set('Europe/Moscow');
         $query = "SELECT * FROM menu;";
         $result = $db->query($query);
-        $menu_items = $result->fetchArray();
+        $menu_items = array();
+        while($menu_item = $result->fetchArray()) {
+            array_push($menu_items, $menu_item);
+        }
         $menu = "";
         for($i = 0; $i < count($menu_items); ++$i) {
             if($i > 0)
