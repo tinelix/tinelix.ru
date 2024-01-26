@@ -264,6 +264,7 @@
     }
 
     function showWebsiteBannersPage($db, $html_encoding) {
+            $web1_subdomain = "web1.tinelix.ru";
             $query = "SELECT id, name, link FROM banners;";
             $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
             $banners = array();
