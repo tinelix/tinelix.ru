@@ -68,7 +68,7 @@
         }
     }
 
-    function genWebsiteMenu($html_encoding) {
+    function genWebsiteMenu($db, $html_encoding) {
         $web1_subdomain = "web1.tinelix.ru";
         $irc_subdomain = "irc.tinelix.ru";
         $params = "";
@@ -76,16 +76,15 @@
             $params = "?encoding=".$html_encoding;
         }
         date_default_timezone_set('Europe/Moscow');
-        $new_year_countdown = -round((time() - strtotime("2024-01-01")) / (60 * 60 * 24));
-        if($new_year_countdown >= 0) {
-            $new_year_countdown_h = -(round((time() - strtotime("2024-01-01")) / (60 * 60)) % 24);
-            $new_year_countdown_min = -(round((time() - strtotime("2024-01-01")) / 60) % 60);
-            $new_year_countdown_sec = -(round(time() - strtotime("2024-01-01")) % 60);
-        } else {
-            $new_year_countdown = 0;
-            $new_year_countdown_h = 0;
-            $new_year_countdown_min = 0;
-            $new_year_countdown_sec = 0;
+        $query = "SELECT * FROM menu;";
+        $result = $db->query($query);
+        $menu_items = $result->fetchArray();
+        $menu = ""
+        for($i = 0; $i < count($menu_items); ++$i) {
+            if($i > 0)
+                $menu += "<p class=\"newline\"><a href=\"".$menu_items[i][1].$params."\">".$menu_items[i][0]."</a>"
+            else
+                $menu += "<a href=\"".$menu_items[i][1].$params."\">".$menu_items[i][0]."</a>"
         }
         $html = "
             \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
@@ -95,13 +94,7 @@
             \r\n                        <div class=\"title-text\">МЕНЮ САЙТА</div>
             \r\n                        <hr class=\"accent-color cell\" size=\"1\">
             \r\n                        <div class=\"menu-links text\" style=\"margin-bottom: 0px;\">
-            \r\n                            <a href=\"http://".$web1_subdomain."\">Домой</a>
-            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/projects.php".$params."\">Проекты</a>
-            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/hardware.php".$params."\">Оборудование</a>
-            \r\n                            <p class=\"newline\"><a href=\"https://t.me/tinelixdonators\">Пожертвования</a>
-            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/about.php".$params."\">О себе</a>
-            \r\n                            <hr class=\"simple-line\" size=\"1\">
-            \r\n                            <p class=\"newline\"><a href=\"http://".$web1_subdomain."/banner.php".$params."\">Баннер для сайта</a>
+            \r\n                            ".$menu."
             \r\n                        </div>
             \r\n                    </td>
         ";
@@ -110,6 +103,21 @@
         } else {
             echo $html;
         }
+
+        /* This part of code will uncommenting before 2025 year.
+         *
+         * $new_year_countdown = -round((time() - strtotime("2025-01-01")) / (60 * 60 * 24));
+         * if($new_year_countdown >= 0) {
+         *   $new_year_countdown_h = -(round((time() - strtotime("2025-01-01")) / (60 * 60)) % 24);
+         *   $new_year_countdown_min = -(round((time() - strtotime("2025-01-01")) / 60) % 60);
+         *   $new_year_countdown_sec = -(round(time() - strtotime("2025-01-01")) % 60);
+         * } else {
+         *   $new_year_countdown = 0;
+         *   $new_year_countdown_h = 0;
+         *   $new_year_countdown_min = 0;
+         *   $new_year_countdown_sec = 0;
+         * }
+         */
     }
 
     function showStartPage($db, $html_encoding) {
@@ -174,7 +182,7 @@
 
 
     function getLastUpdatedDate() {
-        return "25.01.2024";
+        return "26.01.2024";
     }
 
     function closePage($html_encoding) {
@@ -184,7 +192,7 @@
         \r\n                <tbody>
         \r\n                    <tr>
         \r\n                        <td align=\"center\">
-        \r\n                            Copyright © 2023 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
+        \r\n                            Copyright © 2023-2024 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
         \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">Исходный код сайта</a>
         \r\n                            <p>
         \r\n                            <a href=\"http://validator.w3.org/check?uri=referer\">
