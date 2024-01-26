@@ -85,9 +85,9 @@
         $menu = "";
         for($i = 0; $i < count($menu_items); ++$i) {
             if($i > 0)
-                $menu += "<p class=\"newline\"><a href=\"".$menu_items[$i][1].$params."\">".$menu_items[$i][0]."</a>";
+                $menu = $menu."\r\n<p class=\"newline\"><a href=\"".$menu_items[$i][1].$params."\">".$menu_items[$i][0]."</a>";
             else
-                $menu += "<a href=\"".$menu_items[$i][1].$params."\">".$menu_items[$i][0]."</a>";
+                $menu = $menu."\r\n<a href=\"".$menu_items[$i][1].$params."\">".$menu_items[$i][0]."</a>";
         }
         $html = "
             \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
