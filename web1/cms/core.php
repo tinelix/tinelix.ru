@@ -85,8 +85,8 @@
         $menu = "";
         for($i = 0; $i < count($menu_items); ++$i) {
             if(menu_items[$i][0] == "-")
-                $menu = $menu."\r\n<hr class=\"simple-line\" size=\"1\">"
-            else if($i > 0)
+                $menu = $menu."\r\n<hr class=\"simple-line\" size=\"1\">";
+            elseif($i > 0)
                 $menu = $menu."\r\n<p class=\"newline\"><a href=\"".$menu_items[$i][1].$params."\">".$menu_items[$i][0]."</a>";
             else
                 $menu = $menu."\r\n<a href=\"".$menu_items[$i][1].$params."\">".$menu_items[$i][0]."</a>";
