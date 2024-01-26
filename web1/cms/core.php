@@ -79,7 +79,7 @@
         $query = "SELECT * FROM menu;";
         $result = $db->query($query);
         $menu_items = $result->fetchArray();
-        $menu = ""
+        $menu = "";
         for($i = 0; $i < count($menu_items); ++$i) {
             if($i > 0)
                 $menu += "<p class=\"newline\"><a href=\"".$menu_items[i][1].$params."\">".$menu_items[i][0]."</a>"
