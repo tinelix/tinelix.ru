@@ -26,7 +26,7 @@
             $menu_items = array();
             while($menu_item = $result->fetchArray()) {
                 array_push($menu_items, $menu_item);
-            }
+            };
 
             $variables = [
                 'web1_subdomain' => 'web1.tinelix.ru',
@@ -37,7 +37,7 @@
                 'html_encoding' => $html_encoding,
                 'content' => $content,
                 'menu_items' => $menu_items
-            ]
+            ];
 
             $html = $template->render($variables);
             if(!$html_encoding || $html_encoding != "utf-8") {
