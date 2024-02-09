@@ -47,7 +47,7 @@
                 echo $html;
             }
         } else {
-            echo "<html><body>Jinja template not found!<p>Check the template path: <pre>".$template_fn."</pre></body></html>";
+            echo "<html><body><b>Jinja template not found!</b><p>Check the template path: <pre>".$template_fn."</pre></body></html>";
         }
     }
 ?>
