@@ -1,6 +1,5 @@
 <?php
-    require '../vendor/autoload.php';
-    use ByJG\Jinja\Template;
+    namespace Tinelix\Oldwebsite;
 
     function loadTemplate($db, $html_encoding, $content) {
         $template_fn = dirname(__FILE__)."/template.html";
