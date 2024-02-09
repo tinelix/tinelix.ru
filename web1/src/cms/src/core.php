@@ -1,5 +1,5 @@
 <?php
-    namespace Tinelix\Web1site\Cms\Src;
+    namespace Tinelix\Web1site;
     use ByJG\Jinja\Template;
 
     function loadTemplate($db, $html_encoding, $content) {
