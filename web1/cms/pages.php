@@ -1,4 +1,22 @@
 <?php
+    function showStartPage($db, $html_encoding) {
+        $web1_subdomain = "web1.tinelix.ru";
+        $irc_subdomain = "irc.tinelix.ru";
+        $query = "SELECT id, title, body FROM articles WHERE on_start_page = 1 LIMIT 1;";
+        $result = $db->query($query);
+        $article = $result->fetchArray();
+        $article_title = mb_strtoupper($article[1]);
+        $html =  "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
+            \r\n                        <div class=\"title-text\">".$article_title."</div>
+            \r\n                        <hr class=\"accent-color\" size=\"1\">
+            \r\n                        <div class=\"text\">".$article[2]."</div>
+            \r\n                    </td>
+            \r\n                </tr>
+            \r\n            </tbody>
+            \r\n        </table>";
+        return $html;
+    }
+
     function showProjectsPage($db, $html_encoding) {
         $query = "SELECT id, name, description, link FROM projects;";
         $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
@@ -33,11 +51,7 @@
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
-        if(!$html_encoding || $html_encoding != "utf-8") {
-            echo mb_convert_encoding($html, "windows-1251", "utf-8");
-        } else {
-            echo $html;
-        }
+        return $html;
     }
 
     function showProjectPage($i, $html_encoding) {
@@ -215,11 +229,7 @@
                 \r\n            </tbody>
                 \r\n        </table>";
         }
-        if(!$html_encoding || $html_encoding != "utf-8") {
-            echo mb_convert_encoding($html, "windows-1251", "utf-8");
-        } else {
-            echo $html;
-        }
+        return $html;
     }
 
     function showHardwarePage($db, $html_encoding) {
@@ -256,11 +266,7 @@
                 \r\n                </tr>
                 \r\n            </tbody>
                 \r\n        </table>";
-        if(!$html_encoding || $html_encoding != "utf-8") {
-            echo mb_convert_encoding($html, "windows-1251", "utf-8");
-        } else {
-            echo $html;
-        }
+        return $html;
     }
 
     function showWebsiteBannersPage($db, $html_encoding) {
@@ -296,10 +302,6 @@
                 \r\n                    </td>
                 \r\n                </tr>
                 \r\n            </table>";
-        if(!$html_encoding || $html_encoding != "utf-8") {
-            echo mb_convert_encoding($html, "windows-1251", "utf-8");
-        } else {
-            echo $html;
-        }
+        return $html;
     }
 ?>
