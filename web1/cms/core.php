@@ -2,8 +2,9 @@
     use ByJG\Jinja\Template;
 
     function loadTemplate($db, $html_encoding, $content) {
-        if(file_exists("template.html")) {
-            $template_file = fread("template.html",filesize("template.html"));
+        $template_fn = dirname(__FILE__)."template.html";
+        if(file_exists($template_fn) {
+            $template_file = fread($template_fn,filesize($template_fn);
             $template = new Template($template_file);
             $template->withUndefined(new DebugUndefined());
 
