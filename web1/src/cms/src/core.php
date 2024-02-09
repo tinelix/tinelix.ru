@@ -1,5 +1,7 @@
 <?php
 
+    use ByJG\Jinja\Template;
+
     function loadTemplate($db, $html_encoding, $content) {
         $template_fn = dirname(__FILE__)."/template.html";
         if(file_exists($template_fn)) {
