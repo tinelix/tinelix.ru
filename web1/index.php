@@ -1,6 +1,6 @@
 <?php
-    require dirname(__FILE__) . '/cms/core.php';
-    require dirname(__FILE__) . '/cms/pages.php';
+    require dirname(__FILE__) . '/cms/src/core.php';
+    require dirname(__FILE__) . '/cms/src/pages.php';
 
     $db = new SQLite3(dirname(__FILE__) . '/cms/pub.db');
 
