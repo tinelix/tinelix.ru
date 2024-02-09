@@ -6,5 +6,5 @@
 
     $encoding = "utf-8";
 
-    loadTemplate($db, $encoding, showStartPage($db, $encoding));
+    Tinelix\Oldwebsite\loadTemplate($db, $encoding, showStartPage($db, $encoding));
 ?>
