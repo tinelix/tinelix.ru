@@ -6,6 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Tinelix\\Oldwebsite\\' => array($baseDir . '/src'),
-    'ByJG\\JinjaPhp\\' => array($vendorDir . '/byjg/jinja-php/src'),
+    'Tinelix\\Web1site\\' => array($baseDir . '/src'),
 );

@@ -1,11 +1,11 @@
 {
-    "name": "tinelix/oldwebsite",
+    "name": "tinelix/web1site",
     "description": "Tinelix Web 1.0 site",
     "type": "project",
     "license": "Apache 2",
     "autoload": {
         "psr-4": {
-            "Tinelix\\Oldwebsite\\": "src/"
+            "Tinelix\\Web1site\\": "src/"
         }
     },
     "authors": [

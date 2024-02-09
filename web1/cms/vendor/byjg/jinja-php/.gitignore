@@ -1,6 +1,0 @@
-.idea/*
-!.idea/runConfigurations
-
-vendor
-composer.lock
-.phpunit.result.cache
