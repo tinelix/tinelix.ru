@@ -1,4 +1,5 @@
 <?php
+    require 'vendor/autoload.php'
     use ByJG\Jinja\Template;
 
     function loadTemplate($db, $html_encoding, $content) {
