@@ -6,9 +6,9 @@
 
     $encoding = "";
     if($_GET['encoding'] ?? null) {
-        $encoding = "utf-8";
-    } else {
         $encoding = $_GET['encoding'];
+    } else {
+        $encoding = "utf-8";
     }
 
     loadTemplate($db, $encoding, showStartPage($db, $_GET['encoding']));
