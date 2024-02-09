@@ -1,9 +1,7 @@
 <?php
-require dirname(__FILE__) . '/cms/core.php';
-require dirname(__FILE__) . '/cms/pages.php';
-$db = new SQLite3(dirname(__FILE__) . '/cms/pub.db');
-genPageHeader($_GET['encoding']);
-genWebsiteMenu($db, $_GET['encoding']);
-showAboutPage($db, $_GET['encoding']);
-closePage($_GET['encoding']);
+    require dirname(__FILE__) . '/cms/core.php';
+    require dirname(__FILE__) . '/cms/pages.php';
+
+    $db = new SQLite3(dirname(__FILE__) . '/cms/pub.db');
+    loadTemplate($db, $_GET['encoding'], showAboutPage($db, $_GET['encoding']));
 ?>

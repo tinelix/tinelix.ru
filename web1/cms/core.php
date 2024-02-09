@@ -1,7 +1,7 @@
 <?php
     use ByJG\Jinja\Template;
 
-    function loadTemplate($db, $html_encoding) {
+    function loadTemplate($db, $html_encoding, $content) {
         if(file_exists("template.html")) {
             $template_file = fread($myfile,filesize("webdictionary.txt"));
             $template = new Template($template_file);
