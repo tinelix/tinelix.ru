@@ -3,10 +3,18 @@
     require dirname(__FILE__) . '/cms/pages.php';
 
     $db = new SQLite3(dirname(__FILE__) . '/cms/pub.db');
-    if($_GET['page']) {
-        loadTemplate($db, $_GET['encoding'], showProjectPage($_GET['page'], $_GET['encoding']));
+
+    $encoding = "";
+    if($_GET['encoding']) {
+        $encoding = $_GET['encoding'];
     } else {
-        loadTemplate($db, $_GET['encoding'], showProjectsPage($db, $_GET['encoding']));
+        $encoding = "utf-8";
+    }
+
+    if($_GET['page']) {
+        loadTemplate($db, $_GET['encoding'], showProjectPage($_GET['page'], $encoding));
+    } else {
+        loadTemplate($db, $_GET['encoding'], showProjectsPage($db, $encoding));
     }
     closePage($_GET['encoding']);
 ?>

@@ -1,7 +1,15 @@
 <?php
-require dirname(__FILE__) . '/cms/core.php';
-require dirname(__FILE__) . '/cms/pages.php';
+    require dirname(__FILE__) . '/cms/core.php';
+    require dirname(__FILE__) . '/cms/pages.php';
 
     $db = new SQLite3(dirname(__FILE__) . '/cms/pub.db');
-    loadTemplate($db, $_GET['encoding'], showStartPage($db, $_GET['encoding']));
+
+    $encoding = "";
+    if($_GET['encoding']) {
+        $encoding = $_GET['encoding'];
+    } else {
+        $encoding = "utf-8";
+    }
+
+    loadTemplate($db, , showStartPage($db, $_GET['encoding']));
 ?>
