@@ -1,6 +1,6 @@
 <?php
-    require dirname(__FILE__) . '/cms/core.php';
-    require dirname(__FILE__) . '/cms/pages.php';
+    require dirname(__FILE__) . '/cms/src/core.php';
+    require dirname(__FILE__) . '/cms/src/pages.php';
 
     $encoding = "";
     if($_GET['encoding']) {
@@ -10,5 +10,7 @@
     }
 
     $db = new SQLite3(dirname(__FILE__) . '/cms/pub.db');
-    loadTemplate($db, $_GET['encoding'], showWebsiteBannersPage($db, $encoding)));
+    Tinelix\Oldwebsite\loadTemplate($db, $_GET['encoding'], showWebsiteBannersPage($db, $encoding)));
+
+    unset($db);
 ?>

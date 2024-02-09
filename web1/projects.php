@@ -1,8 +1,6 @@
 <?php
-    require dirname(__FILE__) . '/cms/core.php';
-    require dirname(__FILE__) . '/cms/pages.php';
-
-    $db = new SQLite3(dirname(__FILE__) . '/cms/pub.db');
+    require dirname(__FILE__) . '/cms/src/core.php';
+    require dirname(__FILE__) . '/cms/src/pages.php';
 
     $encoding = "";
     if($_GET['encoding']) {
@@ -12,9 +10,10 @@
     }
 
     if($_GET['page']) {
-        loadTemplate($db, $_GET['encoding'], showProjectPage($_GET['page'], $encoding));
+        Tinelix\Oldwebsite\loadTemplate($db, $_GET['encoding'], showProjectPage($_GET['page'], $encoding));
     } else {
-        loadTemplate($db, $_GET['encoding'], showProjectsPage($db, $encoding));
+        Tinelix\Oldwebsite\loadTemplate($db, $_GET['encoding'], showProjectsPage($db, $encoding));
     }
-    closePage($_GET['encoding']);
+
+    unset($db);
 ?>
