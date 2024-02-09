@@ -3,7 +3,7 @@
 
     function loadTemplate($db, $html_encoding, $content) {
         if(file_exists("template.html")) {
-            $template_file = fread($myfile,filesize("webdictionary.txt"));
+            $template_file = fread("template.html",filesize("template.html"));
             $template = new Template($template_file);
             $template->withUndefined(new DebugUndefined());
 
