@@ -11,5 +11,5 @@
         $encoding = "utf-8";
     }
 
-    loadTemplate($db, , showStartPage($db, $_GET['encoding']));
+    loadTemplate($db, $encoding, showStartPage($db, $_GET['encoding']));
 ?>
