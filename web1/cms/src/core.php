@@ -1,9 +1,9 @@
 <?php
-    require 'vendor/autoload.php';
+    require '../vendor/autoload.php';
     use ByJG\Jinja\Template;
 
     function loadTemplate($db, $html_encoding, $content) {
-        $template_fn = dirname(__FILE__)."/cms/src/template.html";
+        $template_fn = dirname(__FILE__)."/template.html";
         if(file_exists($template_fn)) {
             $template_file = fread(fopen($template_fn, "r"), filesize($template_fn));
             $template = new Template($template_file);
