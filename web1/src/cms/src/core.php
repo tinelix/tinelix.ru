@@ -1,5 +1,5 @@
 <?php
-    use \ByJG\Jinja\Template;
+    use ByJG\Jinja\Template;
 
     require dirname(__FILE__).'/../../../vendor/autoload.php';
 
