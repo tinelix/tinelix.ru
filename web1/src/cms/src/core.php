@@ -1,8 +1,5 @@
 <?php
     namespace Tinelix\Web1site;
-    use ByJG\Jinja\Template;
-
-    require dirname(__FILE__).'/../../../vendor/autoload.php';
 
     function loadTemplate($db, $html_encoding, $content) {
         $template_fn = dirname(__FILE__)."/template.html";
