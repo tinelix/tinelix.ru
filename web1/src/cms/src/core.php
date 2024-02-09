@@ -1,6 +1,5 @@
 <?php
     namespace Tinelix\Web1site;
-    use ByJG\Jinja\Template;
 
     require dirname(__FILE__).'/../../../vendor/autoload.php';
 
