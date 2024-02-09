@@ -1,7 +1,7 @@
 <?php
     namespace Tinelix\Web1site;
     use ByJG\Jinja\Template;
-    use \SQLite3
+    use \SQLite3;
 
     require dirname(__FILE__).'/cms/src/core.php';
     require dirname(__FILE__).'/cms/src/pages.php';
