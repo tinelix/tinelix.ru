@@ -28,7 +28,7 @@
                 array_push($menu_items, $menu_item);
             }
 
-            variables = [
+            $variables = [
                 'web1_subdomain' => 'web1.tinelix.ru',
                 'irc_subdomain' => 'irc.tinelix.ru',
                 'currnet_dw' => $dws["w"][$dw],
