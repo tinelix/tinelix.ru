@@ -1,6 +1,4 @@
 <?php
-    require dirname(__FILE__).'/../../../vendor/autoload.php';
-
     use ByJG\Jinja\Template;
 
     function loadTemplate($db, $html_encoding, $content) {
