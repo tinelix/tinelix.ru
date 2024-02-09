@@ -5,7 +5,7 @@
     "license": "Apache 2",
     "autoload": {
         "psr-4": {
-            "Tinelix\\Web1site\\": "src/"
+            "Tinelix\\Web1site\\": ["src/", "src/cms/src"]
         }
     },
     "authors": [
