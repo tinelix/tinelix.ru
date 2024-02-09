@@ -5,7 +5,7 @@
     $db = new SQLite3(dirname(__FILE__) . '/cms/pub.db');
 
     $encoding = "";
-    if($_GET['encoding']) {
+    if($_GET['encoding'] != null) {
         $encoding = $_GET['encoding'];
     } else {
         $encoding = "utf-8";
