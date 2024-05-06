@@ -132,7 +132,10 @@
 
     function closePage($html_encoding) {
         $web1_subdomain = "web1.tinelix.ru";
-        $html = "<p>
+        $html = "                                </tr>
+        \r\n                </tbody>
+        \r\n            </table>
+        \r\n            <p>
         \r\n            <table width=\"640\" class=\"footer\" cellpadding=\"4\">
         \r\n                <tbody>
         \r\n                    <tr>

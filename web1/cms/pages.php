@@ -220,4 +220,25 @@
             echo $html;
         }
     }
+
+    function showRetroInternetPage($db, $html_encoding) {
+        $html = "";
+        $query = "SELECT id, title, body, address FROM pages WHERE address = 'retroinet.php' LIMIT 1;";
+        $result = $db->query($query) or die("Last error: {$db->lastErrorMsg()}\n");
+        $page = $result->fetchArray();
+        $page_title = mb_strtoupper($page[1]);
+
+        $html = "<td bgcolor=\"#151515\" valign=\"top\">
+                \r\n                        <div class=\"title-text\">".$page_title."</div>
+                \r\n                        <hr class=\"accent-color\" size=\"1\"/>
+                \r\n                        <div class=\"text\">
+                \r\n				            ".$page[2]."
+                \r\n                        </div>
+                \r\n                    </td>";
+        if(!$html_encoding || $html_encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
+        }
+    }
 ?>
