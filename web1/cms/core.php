@@ -127,7 +127,7 @@
 
 
     function getLastUpdatedDate() {
-        return "09.02.2024";
+        return "06.05.2024";
     }
 
     function closePage($html_encoding) {
@@ -172,7 +172,5 @@
         } else {
             echo $html;
         }
-        $db->close();
-        unset($db);
     }
 ?>
