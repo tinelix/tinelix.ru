@@ -1,0 +1,91 @@
+.big-icon {
+    width: 128px;
+    height: 128px;
+    display: inline-block;
+}
+
+.big-icon-center {
+    width: 160px;
+    height: 160px;
+    display: inline-block;
+}
+
+.big-icon-projects {
+    background: url(images/menu/projects/001.gif);
+}
+
+.big-icon-projects:hover {
+    background: url(images/menu/projects/002.gif);
+}
+
+.big-icon-hardware {
+    background: url(images/menu/hardware/001.gif);
+}
+
+.big-icon-hardware:hover {
+    background: url(images/menu/hardware/002.gif);
+}
+
+.big-icon-about {
+    background: url(images/menu/about/001.gif);
+}
+
+.big-icon-about:hover {
+    background: url(images/menu/about/002.gif);
+}
+
+.big-icon-photos {
+    background: url(images/menu/photos/001.gif);
+}
+
+.big-icon-photos:hover {
+    background: url(images/menu/photos/002.gif);
+}
+
+.big-icon-start {
+    background: url(images/menu/start/001.gif);
+}
+
+.big-icon-seasons-june1-start {
+    background: url(images/menu/start/001_01.06.gif);
+}
+
+.big-icon-seasons-june1-start:hover {
+    background: url(images/menu/start/002_01.06.gif);
+}
+
+.big-icon-start:hover {
+    background: url(images/menu/start/002.gif);
+}
+
+.big-icon-banner {
+    background: url(images/menu/banner/001.gif);
+}
+
+.big-icon-banner:hover {
+    background: url(images/menu/banner/002.gif);
+}
+
+.big-icon-donate {
+    background: url(images/menu/donate/001.gif);
+}
+
+.big-icon-donate:hover {
+    background: url(images/menu/donate/002.gif);
+}
+
+.big-icon-retroinet {
+    background: url(images/menu/retroinet/001.gif);
+}
+
+.big-icon-retroinet:hover {
+    background: url(images/menu/retroinet/002.gif);
+}
+
+.big-icon-youtube {
+    background: url(images/menu/youtube/001.gif);
+}
+
+.big-icon-youtube:hover {
+    background: url(images/menu/youtube/002.gif);
+}
