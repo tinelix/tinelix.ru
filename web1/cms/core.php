@@ -7,12 +7,6 @@
         }
         $web1_subdomain = "web1.tinelix.ru";
         $irc_subdomain = "irc.tinelix.ru";
-        $current_time = new DateTime('now', new DateTimeZone('Europe/Moscow'));
-        $dw = date("w");
-        $formatter = new IntlDateFormatter('ru_RU', IntlDateFormatter::MEDIUM, IntlDateFormatter::MEDIUM);
-        $dws = array('Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота');
-        $formatter->setPattern('dd.MM.yyyy');
-        $format_date = $formatter->format($current_time);
         $html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">
         \r\n<!-- HTML4 PAGE !-->
         \r\n<html>
@@ -52,7 +46,7 @@
         \r\n                <tr>
         \r\n                    <td align=\"left\">
         \r\n                        <div align=\"left\">
-        \r\n                            ".$dws[$dw].", ".$format_date.". Последнее обновление от ".getLastUpdatedDate()."
+        \r\n                            ".getFullFormattedMskTime().". Последнее обновление от ".getLastUpdatedDate()."
         \r\n                        </div>
         \r\n                    </td>
         \r\n                    <td align=\"right\">
@@ -84,12 +78,12 @@
         }
         $menu = "";
         for($i = 0; $i < count($menu_items); ++$i) {
-            if($menu_items[$i][0] == "-")
+            if($menu_items[$i][0] < 0)
                 $menu = $menu."\r\n<hr class=\"simple-line\" size=\"1\">";
             elseif($i > 0)
-                $menu = $menu."\r\n<p class=\"newline\"><a href=\"".$menu_items[$i][1].$params."\">".$menu_items[$i][0]."</a>";
+                $menu = $menu."\r\n<p class=\"newline\"><a href=\"".$menu_items[$i][2].$params."\">".$menu_items[$i][1]."</a>";
             else
-                $menu = $menu."\r\n<a href=\"".$menu_items[$i][1].$params."\">".$menu_items[$i][0]."</a>";
+                $menu = $menu."\r\n<a href=\"".$menu_items[$i][2].$params."\">".$menu_items[$i][1]."</a>";
         }
         $html = "
             \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
@@ -125,14 +119,24 @@
          */
     }
 
+    function getFullFormattedMskTime() {
+        $current_time = new DateTime('now', new DateTimeZone('Europe/Moscow'));
+        $dw = date("w");
+        $formatter = new IntlDateFormatter('ru_RU', IntlDateFormatter::MEDIUM, IntlDateFormatter::MEDIUM);
+        $dws = array('Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота');
+        $formatter->setPattern('dd.MM.yyyy');
+        $format_date = $formatter->format($current_time);
+        return $dws[$dw].", ".$format_date;
+    }
 
     function getLastUpdatedDate() {
-        return "06.05.2024";
+        return "24.05.2024";
     }
 
     function closePage($html_encoding) {
         $web1_subdomain = "web1.tinelix.ru";
-        $html = "                                </tr>
+        $html = "
+                                </tr>
         \r\n                </tbody>
         \r\n            </table>
         \r\n            <p>
