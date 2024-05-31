@@ -17,10 +17,13 @@
 
         $params = "";
 
-        $formattedMskTime = getFullFormattedMskTime();
+	$current_time = new DateTime('now', new DateTimeZone('Europe/Moscow'));
+	$current_time->setTimestamp($current_time->getTimestamp() + (3 * 60 * 60));
 
-        $day_of_month = intval(date('j'));
-        $month = intval(date('m'));
+        $day_of_month = intval(date('j', $current_time->getTimestamp()));
+        $month = intval(date('m', $current_time->getTimestamp()));
+
+        $formattedMskTime = getFullFormattedMskTime();
 
         if($html_encoding) {
             $params = "?encoding=".$html_encoding;

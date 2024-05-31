@@ -121,7 +121,8 @@
 
     function getFullFormattedMskTime() {
         $current_time = new DateTime('now', new DateTimeZone('Europe/Moscow'));
-        $dw = date("w");
+	$current_time->setTimestamp($current_time->getTimestamp() + (3 * 60 * 60));
+        $dw = date("w", $current_time->getTimestamp());
         $formatter = new IntlDateFormatter('ru_RU', IntlDateFormatter::MEDIUM, IntlDateFormatter::MEDIUM);
         $dws = array('Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота');
         $formatter->setPattern('dd.MM.yyyy');
