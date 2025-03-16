@@ -1,18 +1,20 @@
 <?php
-require dirname(__FILE__) . '/cms/core.php';
-require dirname(__FILE__) . '/cms/pages.php';
+    require dirname(__FILE__) . '/cms/core.php';
 
-$db = new SQLite3(dirname(__FILE__) . '/cms/pub.db');
+    global $encoding;
+    
+    if(strlen($encoding) > 0)
+        $encoding = $_GET['encoding'];
 
-genPageHeader($_GET['encoding']);
-genWebsiteMenu($db, $_GET['encoding']);
-if($_GET['page']) {
-    showProjectPage($db, $_GET['page'], $_GET['encoding']);
-} else {
-    showProjectsPage($db, $_GET['encoding']);
-}
-closePage($_GET['encoding']);
+    $cms = new TinelixCms\Core($encoding);
 
-$db->close();
-unset($db);
+    $cms->template->genPageHeader();
+    $cms->template->genWebsiteMenu();
+    if($_GET['page']) {
+        $cms->pages->showProjectPage($_GET['page']);
+    } else {
+        $cms->pages->showProjectsPage();
+    }
+    $cms->template->closePage();
+    $cms->closeDatabase();
 ?>
