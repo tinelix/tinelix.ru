@@ -119,13 +119,15 @@
                 echo $html;
             }
 
-            /* This part of code will uncommenting before 2025 year.
+            /* This part of code will uncommenting before 2026 year.
              *
-             * $new_year_countdown = -round((time() - strtotime("2025-01-01")) / (60 * 60 * 24));
+             * $new_year = strtotime("2026-01-01");
+             * $new_year_countdown = -round((time() - strtotime("2026-01-01")) / (60 * 60 * 24));
+	     *
              * if($new_year_countdown >= 0) {
-             *   $new_year_countdown_h = -(round((time() - strtotime("2025-01-01")) / (60 * 60)) % 24);
-             *   $new_year_countdown_min = -(round((time() - strtotime("2025-01-01")) / 60) % 60);
-             *   $new_year_countdown_sec = -(round(time() - strtotime("2025-01-01")) % 60);
+             *   $new_year_countdown_h = -(round((time() - $new_year) / (60 * 60)) % 24);
+             *   $new_year_countdown_min = -(round((time() - $new_year) / 60) % 60);
+             *   $new_year_countdown_sec = -(round(time() - $new_year) % 60);
              * } else {
              *   $new_year_countdown = 0;
              *   $new_year_countdown_h = 0;
@@ -145,7 +147,7 @@
             \r\n                <tbody>
             \r\n                    <tr>
             \r\n                        <td align=\"center\">
-            \r\n                            Copyright © 2023-2024 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
+            \r\n                            Copyright © 2023-2025 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
             \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">Исходный код сайта</a>
             \r\n                            <p>
             \r\n                            <a href=\"http://validator.w3.org/check?uri=referer\">
