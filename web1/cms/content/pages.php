@@ -69,7 +69,7 @@
             }
 
             $html = $html."
-                \r\n<table width=\"600\" height=\"600\">
+                \r\n<table width=\"560\" height=\"560\">
                 \t\n    <tbody>";
 
             for($i = 0; $i < count($menu_items); ++$i) {
