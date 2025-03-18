@@ -40,9 +40,6 @@
 
             $formattedMskTime = Core::getFullFormattedMskTime();
 
-            if($this->cms->encoding) {
-                $params = "?encoding=".$this->cms->encoding;
-            }
             if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
                 $html = $html."
             \r\n        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1251\">";
@@ -108,14 +105,25 @@
                         $html = $html."
                         \r\n    <td align=\"left\" valign=\"top\">";
 
+            	    if($this->cms->encoding) {
+                	if(str_contains($menu_items[$i][2], web1_subdomain)) {
+				if(str_contains($menu_items[$i][2], "?"))
+					$params = "&encoding=".htmlspecialchars($this->cms->encoding);
+				else
+					$params = "?encoding=".htmlspecialchars($this->cms->encoding);
+			} else {
+				$params = "";
+			}
+            	    }
+
                     if($i == 4) {
                         if($day_of_month == 1 && $month == 6) {
                             $html = $html."
-                            \r\n        <a href=\"".htmlspecialchars($menu_items[$i][2].$params)."\" class=\"big-icon-center big-icon-seasons-june1-".htmlspecialchars($menu_items[$i][3])."\"/>
+                            \r\n        <a href=\"".htmlspecialchars($menu_items[$i][2]).$params."\" class=\"big-icon-center big-icon-seasons-june1-".htmlspecialchars($menu_items[$i][3])."\"/>
                             \r\n    </td>";
                         } else {
                             $html = $html."
-                            \r\n        <a href=\"".htmlspecialchars($menu_items[$i][2].$params)."\" class=\"big-icon-center big-icon-".htmlspecialchars($menu_items[$i][3])."\"/>
+                            \r\n        <a href=\"".htmlspecialchars($menu_items[$i][2]).$params."\" class=\"big-icon-center big-icon-".htmlspecialchars($menu_items[$i][3])."\"/>
                             \r\n    </td>";
                         }
                     } else {
