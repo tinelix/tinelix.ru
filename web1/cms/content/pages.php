@@ -305,13 +305,14 @@
         }
 
         public function showHardwarePage() {
-            $query = "SELECT id, name, specs FROM hardware WHERE type = 0;";
-            $result = $this->db->query($query) or die("Last error: {$this->db->lastErrorMsg()}\n");
-            $computers = array();
             $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\">
                          \r\n                        <div class=\"title-text\">ОБОРУДОВАНИЕ</div>
                          \r\n                        <hr class=\"accent-color\" size=\"1\"/>
                          \r\n                        <div class=\"text\">";
+                         
+            $query = "SELECT id, name, specs FROM hardware WHERE type = 0;";
+            $result = $this->db->query($query) or die("Last error: {$this->db->lastErrorMsg()}\n");
+            $computers = array();
             while($computer = $result->fetchArray()) {
                     array_push($computers, $computer);
             }
@@ -321,8 +322,22 @@
                     \r\n                            <h4>".htmlspecialchars($computers[$i][1])."</h4>
                     \r\n                            ".$this->purifier->purify($computers[$i][2]);
             }
-            $html = $html."\r\n                          <h3>Смартфоны</h3>";
+            
             $query = "SELECT id, name, specs FROM hardware WHERE type = 1;";
+            $result = $this->db->query($query) or die("Last error: {$this->db->lastErrorMsg()}\n");
+            $laptops = array();
+            while($laptop = $result->fetchArray()) {
+                    array_push($laptops, $laptop);
+            }
+            $html = $html."\r\n                          <h3>Ноутбуки</h3>";
+            for($i = 0; $i < count($laptops); ++$i) {
+                    $html = $html."
+                    \r\n                            <h4>".htmlspecialchars($laptops[$i][1])."</h4>
+                    \r\n                            ".$this->purifier->purify($laptops[$i][2]);
+            }
+            
+            $html = $html."\r\n                          <h3>Смартфоны</h3>";
+            $query = "SELECT id, name, specs FROM hardware WHERE type = 2;";
             $result = $this->db->query($query) or die("Last error: {$this->db->lastErrorMsg()}\n");
             $phones = array();
             while($phone = $result->fetchArray()) {
@@ -333,6 +348,7 @@
                     \r\n                            <h4>".htmlspecialchars($phones[$i][1])."</h4>
                     \r\n                            ".$this->purifier->purify($phones[$i][2]);
             }
+              
             $html = $html."</div>
                     \r\n                    </td>";
             if(!$this->db->encoding || $this->db->encoding != "utf-8") {
