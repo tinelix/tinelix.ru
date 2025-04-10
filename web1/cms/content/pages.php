@@ -348,6 +348,8 @@
                     \r\n                            <h4>".htmlspecialchars($phones[$i][1])."</h4>
                     \r\n                            ".$this->purifier->purify($phones[$i][2]);
             }
+            
+            $html = $html."<p style=\"font-size: 9pt\"><b>*</b> Несмотря на то, что готовая конфигурация была идентичной, компьютер был пересобран перед покупкой.</p>";
               
             $html = $html."</div>
                     \r\n                    </td>";
