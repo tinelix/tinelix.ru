@@ -44,7 +44,7 @@
 
             $html = $html."
             \r\n        <title>Tinelix (стиль Web 1.0)</title>
-            \r\n        <link rel=\"stylesheet\" href=\"http://".web1_subdomain."/style.css\">
+            \r\n        <link rel=\"stylesheet\" href=\"".$this->cms->protocol.web1_subdomain."/style.css\">
             \r\n    </head>
             \r\n    <body>
             \r\n        <div align=\"center\">
@@ -54,7 +54,7 @@
             \r\n            <tbody>
             \r\n                <tr>
             \r\n                    <td>
-            \r\n                        <img src=\"http://".web1_subdomain."/images/header.gif\" alt=\"Tinelix\">
+            \r\n                        <img src=\"".$this->cms->protocol.web1_subdomain."/images/header.gif\" alt=\"Tinelix\">
             \r\n                    </td>
             \r\n                </tr>
             \r\n            </tbody>
@@ -68,7 +68,7 @@
             \r\n                        </div>
             \r\n                    </td>
             \r\n                    <td align=\"right\">
-            \r\n                        <a href=\"http://".web1_subdomain."\">CP1251</a> / <a href=\"http://".web1_subdomain."?encoding=utf-8\">UTF-8</a>
+            \r\n                        <a href=\"".$this->cms->protocol.web1_subdomain."\">CP1251</a> / <a href=\"http://".web1_subdomain."?encoding=utf-8\">UTF-8</a>
             \r\n                    </td>
             \r\n                </tr>
             \r\n            </tbody>
@@ -86,7 +86,14 @@
                 $params = "?encoding=".$this->cms->encoding;
             }
             date_default_timezone_set('Europe/Moscow');
-            $query = "SELECT * FROM menu;";
+            
+            if(strstr($this->cms->protocol, 'https'))
+                $columns = "id, item_name, tls_link, icon_class, small_icon_path";
+            else
+                $columns = "id, item_name, link, icon_class, small_icon_path";
+                
+            $query = "SELECT ".$columns." FROM menu";
+            
             $result = $this->db->query($query);
             $menu_items = array();
             while($menu_item = $result->fetchArray()) {
@@ -97,9 +104,9 @@
                 if($menu_items[$i][0] < 0)
                     $menu = $menu."\r\n<hr class=\"simple-line\" size=\"1\">";
                 elseif($i > 0)
-                    $menu = $menu."\r\n<p class=\"newline\"><a href=\"".htmlspecialchars($menu_items[$i][2].$params)."\">".htmlspecialchars($menu_items[$i][1])."</a>";
+                    $menu = $menu."\r\n<p class=\"newline\"><a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2].$params)."\">".htmlspecialchars($menu_items[$i][1])."</a>";
                 else
-                    $menu = $menu."\r\n<a href=\"".htmlspecialchars($menu_items[$i][2].$params)."\">".htmlspecialchars($menu_items[$i][1])."</a>";
+                    $menu = $menu."\r\n<a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2].$params)."\">".htmlspecialchars($menu_items[$i][1])."</a>";
             }
             $html = "
                 \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
@@ -152,22 +159,22 @@
             \r\n                            <p>
             \r\n                            <a href=\"http://validator.w3.org/check?uri=referer\">
             \r\n                                <img style=\"border:0;\"
-            \r\n                                     src=\"http://".web1_subdomain."/banners/valid-html401.png\"
+            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/valid-html401.png\"
             \r\n                                     alt=\"Valid HTML 4.01 Transitional\" height=\"31\" width=\"88\">
             \r\n                            </a>
             \r\n                            <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">
             \r\n                                <img style=\"border:0;width:88px;height:31px\"
-            \r\n                                     src=\"http://".web1_subdomain."/banners/valid-css.png\"
+            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/valid-css.png\"
             \r\n                                     alt=\"Правильный CSS!\" />
             \r\n                            </a>
             \r\n                            <a href=\"https://gnu.org\">
             \r\n                                <img style=\"border:0;width:88px;height:31px\"
-            \r\n                                     src=\"http://".web1_subdomain."/banners/gnu.png\"
+            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/gnu.png\"
             \r\n                                     alt=\"Свободное ПО нужно каждому!\" />
             \r\n                            </a>
             \r\n                            <a href=\"http://narodweb.ru\">
             \r\n                                <img style=\"border:0;width:88px;height:31px\"
-            \r\n                                     src=\"http://".web1_subdomain."/banners/ndr.gif\"
+            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/ndr.gif\"
             \r\n                                     alt=\"Сайт проекта &lt;Народное достояние Рунета&gt;\" />
             \r\n                            </a>
             \r\n                        </td>

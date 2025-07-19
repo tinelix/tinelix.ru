@@ -17,9 +17,16 @@
 		public $enconding;
 		public $pages;
 		public $purifier;
+		public $protocol;
 		
-		public function __construct($enconding) {
+		public function __construct($protocol, $enconding) {
 			$this->db = new \SQLite3(dirname(__FILE__) . '/pub.db');
+			
+			if(isset($protocol))
+				$this->protocol = $protocol;
+			else
+				$this->protocol = "http://";
+			
 			if (isset($encoding))
 				$this->encoding = $encoding;
 			else
