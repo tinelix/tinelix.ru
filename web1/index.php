@@ -19,10 +19,12 @@ $cms = new TinelixCms\Core($protocol, $encoding);
 if($lite) {
     $cms->template->genPageHeader();
     $cms->template->genWebsiteMenu();
+    $cms->pages->getNewYearCountdown();
     $cms->pages->showStartPage();
     $cms->template->closePage();
 } else {
     $cms->pages->showNewStartPage();
 }
+
 $cms->closeDatabase();
 ?>
