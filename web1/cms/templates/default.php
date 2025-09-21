@@ -142,16 +142,9 @@
             \r\n                            Copyright © 2023-2025 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
             \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">Исходный код сайта</a>
             \r\n                            <p>
-            \r\n                            <a href=\"http://validator.w3.org/check?uri=referer\">
-            \r\n                                <img style=\"border:0;\"
-            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/valid-html401.png\"
-            \r\n                                     alt=\"Valid HTML 4.01 Transitional\" height=\"31\" width=\"88\">
-            \r\n                            </a>
-            \r\n                            <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">
-            \r\n                                <img style=\"border:0;width:88px;height:31px\"
-            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/valid-css.png\"
-            \r\n                                     alt=\"Правильный CSS!\" />
-            \r\n                            </a>
+            \r\n                            <img style=\"border:0;\"
+            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/anybrowser.gif\"
+            \r\n                                     alt=\"Лучше смотрится с любым браузером\" height=\"31\" width=\"88\">
             \r\n                            <a href=\"https://gnu.org\">
             \r\n                                <img style=\"border:0;width:88px;height:31px\"
             \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/gnu.png\"
@@ -176,6 +169,4 @@
             }
         }
     }
-    
-    
 ?>
