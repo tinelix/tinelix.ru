@@ -386,7 +386,7 @@
                     \r\n                                <pre class=\"full-code\">
 &lt;a href=\"".$this->cms->protocol.web1_subdomain."\"&gt;
     &lt;img src=\"http://".$banners[$i][2]."\"
-    width=\"88\" height=\"31\" border=\"0\"/&gt;
+     width=\"88\" height=\"31\" border=\"0\"/&gt;
 &lt;/a&gt;</pre>
                                                     </div>
                     \r\n                            ";
