@@ -77,7 +77,7 @@
             }
 
             $html = $html."
-                \r\n<table width=\"560\" height=\"560\">
+                \r\n<table width=\"560\">
                 \t\n    <tbody>";
 
             for($i = 0; $i < count($menu_items); ++$i) {
@@ -116,7 +116,7 @@
          if($this->cms->encoding) {  
             if(str_contains($menu_items[$i][2], web1_subdomain)) { 
 				if(str_contains($menu_items[$i][2], "?"))
-					$params = "&encoding=".htmlspecialchars($this->cms->encoding);
+					$params = "&amp;encoding=".htmlspecialchars($this->cms->encoding);
 				else
 					$params = "?encoding=".htmlspecialchars($this->cms->encoding);
 			} else {
@@ -127,16 +127,16 @@
                     if($i == 4) {
                         if($day_of_month == 1 && $month == 6) {
                             $html = $html."
-                            \r\n        <a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2]).$params."\" class=\"big-icon-center big-icon-seasons-june1-".htmlspecialchars($menu_items[$i][3])."\"/>
+                            \r\n        <a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2]).$params."\" class=\"big-icon-center big-icon-seasons-june1-".htmlspecialchars($menu_items[$i][3])."\"></a>
                             \r\n    </td>";
                         } else {
                             $html = $html."
-                            \r\n        <a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2]).$params."\" class=\"big-icon-center big-icon-".htmlspecialchars($menu_items[$i][3])."\"/>
+                            \r\n        <a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2]).$params."\" class=\"big-icon-center big-icon-".htmlspecialchars($menu_items[$i][3])."\"></a>
                             \r\n    </td>";
                         }
                     } else {
                        $html = $html."
-                        \r\n        <a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2].$params)."\" class=\"big-icon big-icon-".htmlspecialchars($menu_items[$i][3])."\"/>
+                        \r\n        <a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2].$params)."\" class=\"big-icon big-icon-".htmlspecialchars($menu_items[$i][3])."\"></a>
                         \r\n    </td>";
                     }
 
