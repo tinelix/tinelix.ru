@@ -77,7 +77,7 @@
             }
 
             $html = $html."
-                \r\n<table width=\"560\">
+                \r\n<table width=\"560\" height=\"560\">
                 \t\n    <tbody>";
 
             for($i = 0; $i < count($menu_items); ++$i) {
@@ -194,7 +194,7 @@
             $html =  "\r\n
                 \r\n  <td bgcolor=\"#151515\" valign=\"top\">
                 \r\n                        <div class=\"title-text\">".htmlspecialchars($article_title)."</div>
-                \r\n                        <hr class=\"accent-color\" size=\"1\">
+                \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                 \r\n                        <div class=\"text\">".$this->purifier->purify($article[2])."</div>
                 \r\n                    </td>";
             if(!$this->db->encoding || $this->db->encoding != "utf-8") {
@@ -212,7 +212,7 @@
             $html = "
                 \r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
                 \r\n                        <div class=\"title-text\">".htmlspecialchars($about_page_title)."</div>
-                \r\n                        <hr class=\"accent-color\" size=\"1\"/>
+                \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                 \r\n                        <div class=\"text\">
                 \r\n                            ".$this->purifier->purify($about_page[2]);
             $html = $html."\r\n               <h3>Контакты</h3>";
@@ -243,7 +243,7 @@
             $projects = array();
             $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
                     \r\n                        <div class=\"title-text\">ПРОЕКТЫ</div>
-                    \r\n                        <hr class=\"accent-color\" size=\"1\"/>
+                    \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                     \r\n                        <div class=\"text\">";
             $params = "";
             while($project = $result->fetchArray()) {
@@ -286,7 +286,7 @@
               $html = "
                     \r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
                     \r\n                        <div class=\"title-text\">".htmlspecialchars($page_title)."</div>
-                    \r\n                        <hr class=\"accent-color\" size=\"1\"/>
+                    \r\n                        <hr class=\"accent-color\" size=\"1\" />
                     \r\n                        <div class=\"text\">
             \r\n				".$this->purifier->purify($page[2])."
                     \r\n                        </div>
@@ -295,7 +295,7 @@
                 $html = "
                     \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
                     \r\n                        <div class=\"title-text\">ОШИБКА</div>
-                    \r\n                        <hr class=\"accent-color\" size=\"1\"/>
+                    \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                     \r\n                        <div class=\"text\">
                     \r\n                           Такой страницы не существует.
                     \r\n                        </div>
@@ -311,7 +311,7 @@
         public function showHardwarePage() {
             $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
                          \r\n                        <div class=\"title-text\">ОБОРУДОВАНИЕ</div>
-                         \r\n                        <hr class=\"accent-color\" size=\"1\"/>
+                         \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                          \r\n                        <div class=\"text\">";
                          
             $query = "SELECT id, name, specs FROM hardware WHERE type = 0;";
@@ -370,7 +370,7 @@
                 $banners = array();
                 $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
                          \r\n                        <div class=\"title-text\">БАННЕР ДЛЯ САЙТА</div>
-                         \r\n                        <hr class=\"accent-color\" size=\"1\"/>
+                         \r\n                        <hr class=\"accent-color\" size=\"1\" noshade/>
                          \r\n                        <div class=\"text\">
                          \r\n                        Прикрепите любой из предложенных баннеров на свой ретросайт, так нас проще будет найти.
                          \r\n<p><div class=\"warning-banner\"><b>ВНИМАНИЕ!</b> Для показа баннеров на современных браузерах советуем отключить блокировщик рекламы или добавить сайт <b>".web1_subdomain."</b> в исключения блокировки.</div>";
@@ -411,7 +411,7 @@
             $html = "
                     \r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
                     \r\n                        <div class=\"title-text\">".htmlspecialchars($page_title)."</div>
-                    \r\n                        <hr class=\"accent-color\" size=\"1\"/>
+                    \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                     \r\n                        <div class=\"text\">
                     \r\n				            ".$this->purifier->purify($page[2])."
                     \r\n                        </div>
@@ -449,7 +449,7 @@
 			\r\n			    <div class=\"left-sidebar\" style=\"background-image: url(images/cells/ny_countdown.gif); height: 100px\">
                 	\r\n                        <div style=\"height: 20px\">
                 	\r\n                            <div class=\"title-text\">ДО НОВОГО ГОДА</div>
-                	\r\n                            <hr class=\"accent-color cell\" size=\"1\">
+                	\r\n                            <hr class=\"accent-color cell\" size=\"1\" noshade />
                 	\r\n                            <div class=\"text\" style=\"margin-bottom: 0px; text-align: center\">
                 	\r\n                                    <span style=\"font-size: 22pt; color: 4fff4f\"><b>".$new_year_countdown."</b></span>
 			\r\n					<br><span>дн.</span>
