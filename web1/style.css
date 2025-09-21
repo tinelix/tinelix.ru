@@ -62,6 +62,7 @@ table {
 
 .full-code {
     width: 400px;
+    height: 104px;
     overflow: auto;
     text-align: left;
     border: 1px solid #8f8f8f;
