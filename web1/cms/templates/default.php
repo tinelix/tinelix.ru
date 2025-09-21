@@ -68,7 +68,7 @@
             \r\n                        </div>
             \r\n                    </td>
             \r\n                    <td align=\"right\">
-            \r\n                        <a href=\"".$this->cms->protocol.web1_subdomain."\">CP1251</a> / <a href=\"http://".web1_subdomain."?encoding=utf-8\">UTF-8</a>
+            \r\n                        <a href=\"".$this->cms->protocol.web1_subdomain."\">CP1251</a> / <a href=\"http://".web1_subdomain."&amp;encoding=utf-8\">UTF-8</a>
             \r\n                    </td>
             \r\n                </tr>
             \r\n            </tbody>
@@ -157,10 +157,10 @@
             \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/gnu.png\"
             \r\n                                     alt=\"Свободное ПО нужно каждому!\" />
             \r\n                            </a>
-            \r\n                            <a href=\"http://narodweb.ru\">
+            \r\n                            <a href=\"http://old-web.com\">
             \r\n                                <img style=\"border:0;width:88px;height:31px\"
-            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/ndr.gif\"
-            \r\n                                     alt=\"Сайт проекта &lt;Народное достояние Рунета&gt;\" />
+            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/old-web.gif\"
+            \r\n                                     alt=\"Old-Web.com - возвращаем старый Интернет и старые сайты, обсуждаем старые технологии\" />
             \r\n                            </a>
             \r\n                        </td>
             \r\n                    </tr>
