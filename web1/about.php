@@ -15,8 +15,9 @@
     $cms->template->genPageHeader();
     $cms->template->genWebsiteMenu();
     
+    $cms->pages->getNewYearCountdown();    
     $cms->pages->showAboutPage();
     
-	$cms->template->closePage();
+    $cms->template->closePage();
     $cms->closeDatabase();
 ?>

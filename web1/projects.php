@@ -14,11 +14,15 @@
 
     $cms->template->genPageHeader();
     $cms->template->genWebsiteMenu();
+
+    $cms->pages->getNewYearCountdown();
+
     if($_GET['page']) {
         $cms->pages->showProjectPage($_GET['page']);
     } else {
         $cms->pages->showProjectsPage();
     }
+
     $cms->template->closePage();
     $cms->closeDatabase();
 ?>

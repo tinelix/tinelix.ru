@@ -50,8 +50,15 @@
 			return $dws[$dw].", ".$format_date;
 		}
 
+		public static function getCurrentYear() {
+			$current_time = new \DateTime('now', new \DateTimeZone('Europe/Moscow'));
+                        $current_time->setTimestamp($current_time->getTimestamp() + (3 * 60 * 60));
+			$year = $current_time->format('Y');
+			return (int)$year;
+		}
+
 		public static function getLastUpdatedDate() {
-			return "02.08.2025";
+			return "21.09.2025";
 		}
 		
 		public function closeDatabase() {

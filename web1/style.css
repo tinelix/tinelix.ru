@@ -12,7 +12,7 @@ body {
 }
 
 .title-text {
-    margin-top: 8px;
+    padding-top: 8px;
     margin-left: 8px;
     margin-right: 8px;
     font-size: 8pt;
@@ -113,4 +113,8 @@ table {
 .no-vertical-margins {
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+.left-sidebar {
+    margin-top: 8px;
 }

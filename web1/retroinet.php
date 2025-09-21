@@ -14,6 +14,8 @@
 
     $cms->template->genPageHeader();
     $cms->template->genWebsiteMenu();
+
+    $cms->pages->getNewYearCountdown();
     
     $cms->pages->showRetroInternetPage();
     

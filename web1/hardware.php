@@ -14,9 +14,10 @@
 
     $cms->template->genPageHeader();
     $cms->template->genWebsiteMenu();
-    
+
+    $cms->pages->getNewYearCountdown();
     $cms->pages->showHardwarePage();
     
-	$cms->template->closePage();
+    $cms->template->closePage();
     $cms->closeDatabase();
 ?>

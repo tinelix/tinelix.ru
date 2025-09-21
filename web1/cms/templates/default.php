@@ -112,36 +112,21 @@
                 \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
                 \r\n            <tbody>
                 \r\n                <tr>
-                \r\n                    <td bgcolor=\"#151515\" width=\"150\" valign=\"top\">
-                \r\n                        <div class=\"title-text\">МЕНЮ САЙТА</div>
-                \r\n                        <hr class=\"accent-color cell\" size=\"1\">
-                \r\n                        <div class=\"menu-links text\" style=\"margin-bottom: 0px;\">
-                \r\n                            ".$this->purifier->purify($menu)."
-                \r\n                        </div>
-                \r\n                    </td>
+                \r\n                    <td width=\"150\" valign=\"top\">
+		\r\n			    <div style=\"background-color: #151515\">
+                \r\n                        	<div class=\"title-text\">МЕНЮ САЙТА</div>
+                \r\n                        	<hr class=\"accent-color cell\" size=\"1\">
+                \r\n                        	<div class=\"menu-links text\" style=\"margin-bottom: 0px;\">
+                \r\n                            	".$this->purifier->purify($menu)."
+                \r\n                        	</div>
+		\r\n			    </div>
             ";
-            if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
+
+	    if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
                 echo mb_convert_encoding($html, "windows-1251", "utf-8");
             } else {
                 echo $html;
             }
-
-            /* This part of code will uncommenting before 2026 year.
-             *
-             * $new_year = strtotime("2026-01-01");
-             * $new_year_countdown = -round((time() - strtotime("2026-01-01")) / (60 * 60 * 24));
-	     *
-             * if($new_year_countdown >= 0) {
-             *   $new_year_countdown_h = -(round((time() - $new_year) / (60 * 60)) % 24);
-             *   $new_year_countdown_min = -(round((time() - $new_year) / 60) % 60);
-             *   $new_year_countdown_sec = -(round(time() - $new_year) % 60);
-             * } else {
-             *   $new_year_countdown = 0;
-             *   $new_year_countdown_h = 0;
-             *   $new_year_countdown_min = 0;
-             *   $new_year_countdown_sec = 0;
-             * }
-             */
         }
 
         function closePage() {
