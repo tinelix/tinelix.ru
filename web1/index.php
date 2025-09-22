@@ -8,7 +8,7 @@ global $protocol;
 if(count($_GET) > 0)
     $lite = $_GET['lite'];
     
-if(strlen($encoding) > 0)
+if(strlen($_GET['encoding']) > 0)
     $encoding = $_GET['encoding'];
     
 $protocol = isset($_SERVER['HTTPS']) ? 

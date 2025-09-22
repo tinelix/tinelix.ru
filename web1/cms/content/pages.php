@@ -179,7 +179,7 @@
             \r\n        </div>
             \r\n    </body>
             \r\n</html>";
-            if(!$this->db->encoding || $this->db->encoding != "utf-8") {
+            if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
                 echo mb_convert_encoding($html, "windows-1251", "utf-8");
             } else {
                 echo $html;
@@ -197,7 +197,7 @@
                 \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                 \r\n                        <div class=\"text\">".$this->purifier->purify($article[2])."</div>
                 \r\n                    </td>";
-            if(!$this->db->encoding || $this->db->encoding != "utf-8") {
+            if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
                 echo mb_convert_encoding($html, "windows-1251", "utf-8");
             } else {
                 echo $html;
@@ -230,7 +230,7 @@
                 \r\n
                 \r\n                        </div>
                 \r\n                    </td>";
-            if(!$this->db->encoding || $this->db->encoding != "utf-8") {
+            if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
                 echo mb_convert_encoding($html, "windows-1251", "utf-8");
             } else {
                 echo $html;
@@ -268,7 +268,7 @@
             $html = $html."
                 </div>
                     \r\n                    </td>";
-            if(!$this->db->encoding || $this->db->encoding != "utf-8") {
+            if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
                 echo mb_convert_encoding($html, "windows-1251", "utf-8");
             } else {
                 echo $html;
@@ -301,7 +301,7 @@
                     \r\n                        </div>
                     \r\n                    </td>";
             }
-            if(!$this->db->encoding || $this->db->encoding != "utf-8") {
+            if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
                 echo mb_convert_encoding($html, "windows-1251", "utf-8");
             } else {
                 echo $html;
@@ -357,7 +357,8 @@
               
             $html = $html."</div>
                     \r\n                    </td>";
-            if(!$this->db->encoding || $this->db->encoding != "utf-8") {
+
+            if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
                 echo mb_convert_encoding($html, "windows-1251", "utf-8");
             } else {
                 echo $html;
@@ -393,7 +394,7 @@
                 }
                 $html = $html."</div>
                     \r\n                    </td>";
-            if(!$this->db->encoding || $this->db->encoding != "utf-8") {
+            if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
                 echo mb_convert_encoding($html, "windows-1251", "utf-8");
             } else {
                 echo $html;
@@ -414,28 +415,28 @@
                     \r\n                        <div class=\"text\">
                     \r\n				            ".$this->purifier->purify($page[2])."
                     \r\n                        </div>
-		    \r\n                    </td>";
-            if(!$this->db->encoding || $this->db->encoding != "utf-8") {
+                    \r\n                    </td>";
+            if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
                 echo mb_convert_encoding($html, "windows-1251", "utf-8");
             } else {
                 echo $html;
             }
         }
 
- 	function getNewYearCountdown() {
-	    $year = Core::getCurrentYear();
+        function getNewYearCountdown() {
+            $year = Core::getCurrentYear();
 
             $current_time = time();
 
-	    $msk = 3 * 60 * 60;
+            $msk = 3 * 60 * 60;
             
             $new_year = strtotime(($year + 1)."-01-01");
-            $new_year_countdown = floor((-$current_time + $msk + $new_year) / (60 * 60 * 24));
+            $new_year_countdown = floor((-$current_time - $msk + $new_year) / (60 * 60 * 24));
 
             if($new_year_countdown >= 0) {
-                $new_year_countdown_h = floor((-$current_time + $msk + $new_year) / (60 * 60)) % 24;
-                $new_year_countdown_min = floor((-$current_time + $msk  + $new_year) / 60) % 60;
-                $new_year_countdown_sec = floor(-$current_time + $msk + $new_year) % 60;
+                $new_year_countdown_h = floor((-$current_time - $msk + $new_year) / (60 * 60)) % 24;
+                $new_year_countdown_min = floor((-$current_time - $msk  + $new_year) / 60) % 60;
+                $new_year_countdown_sec = floor(-$current_time - $msk + $new_year) % 60;
             } else {
                 $new_year_countdown = 0;
                 $new_year_countdown_h = 0;
@@ -443,26 +444,26 @@
                 $new_year_countdown_sec = 0;
             }
 
-	    if($new_year_countdown <= 100) {
-            	$html = "
-			\r\n			    <div class=\"left-sidebar\" style=\"background-image: url(images/cells/ny_countdown.gif); height: 100px\">
-                	\r\n                        <div style=\"height: 20px\">
-                	\r\n                            <div class=\"title-text\">ДО НОВОГО ГОДА</div>
-                	\r\n                            <hr class=\"accent-color cell\" size=\"1\" noshade />
-                	\r\n                            <div class=\"text\" style=\"margin-bottom: 0px; text-align: center\">
-                	\r\n                                    <span style=\"font-size: 22pt; color: 4fff4f\"><b>".$new_year_countdown."</b></span>
-			\r\n					<br><span>дн.</span>
-                	\r\n                            </div>
-                	\r\n                        </div>
-			\r\n			    </div>
-			\r\n
-            	";
-            	if(!$this->db->encoding || $this->db->encoding != "utf-8") {
-                	echo mb_convert_encoding($html, "windows-1251", "utf-8");
-            	} else {
-                	echo $html;
-            	}
-	    }
+            if($new_year_countdown <= 100) {
+                    $html = "
+                        \r\n			    <div class=\"left-sidebar\" style=\"background-image: url(images/cells/ny_countdown.gif); height: 100px\">
+                        \r\n                        <div style=\"height: 20px\">
+                        \r\n                            <div class=\"title-text\">ДО НОВОГО ГОДА</div>
+                        \r\n                            <hr class=\"accent-color cell\" size=\"1\" noshade />
+                        \r\n                            <div class=\"text\" style=\"margin-bottom: 0px; text-align: center\">
+                        \r\n                                    <span style=\"font-size: 22pt; color: 4fff4f\"><b>".$new_year_countdown."</b></span>
+                        \r\n					                <br><span>дн.</span>
+                        \r\n                            </div>
+                        \r\n                        </div>
+                        \r\n			    </div>
+                        \r\n
+                    ";
+                    if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
+                        echo mb_convert_encoding($html, "windows-1251", "utf-8");
+                    } else {
+                        echo $html;
+                    }
+            }
         }
     }
 ?>

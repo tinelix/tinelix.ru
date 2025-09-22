@@ -42,6 +42,8 @@
             \r\n        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">";
             }
 
+            $page_params = "";
+
             $html = $html."
             \r\n        <title>Tinelix (стиль Web 1.0)</title>
             \r\n        <link rel=\"stylesheet\" href=\"".$this->cms->protocol.web1_subdomain."/style.css\">
@@ -68,11 +70,12 @@
             \r\n                        </div>
             \r\n                    </td>
             \r\n                    <td align=\"right\">
-            \r\n                        <a href=\"".$this->cms->protocol.web1_subdomain."\">CP1251</a> / <a href=\"http://".web1_subdomain."&amp;encoding=utf-8\">UTF-8</a>
+            \r\n                        <a href=\"".$this->genHTTPGetParams($_SERVER['PHP_SELF'], "cp1251")."\">CP1251</a> / <a href=\"".$this->genHTTPGetParams($_SERVER['PHP_SELF'], "utf-8")."\">UTF-8</a>
             \r\n                    </td>
             \r\n                </tr>
             \r\n            </tbody>
             \r\n        </table>";
+
             if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
                 echo mb_convert_encoding($html, "windows-1251", "utf-8");
             } else {
@@ -167,6 +170,26 @@
             } else {
                 echo $html;
             }
+        }
+
+        function genHTTPGetParams($path = "/", $encoding = "cp1251") {
+            $page_params = "";
+
+            $url = $this->cms->protocol.web1_subdomain.$path;
+
+            $url_p = $this->cms->protocol.web1_subdomain.$path;
+
+            if(!$_GET["lite"] && !$_GET["pages"]) {
+                $page_params = "?encoding=".$encoding;
+            } else if($_GET["lite"] && !$_GET["pages"]) {
+                $page_params = "?lite=".$_GET["lite"]."&encoding=".$encoding;
+            } else if(!$_GET["lite"] && $_GET["pages"]) {
+                $page_params = "?pages=".$_GET["pages"]."&encoding=".$encoding;
+            } else {
+                $page_params = "?pages=".$_GET["pages"]."&lite=".$_GET["lite"]."&encoding=".$encoding;
+            }
+
+            return $url_p.$page_params;
         }
     }
 ?>

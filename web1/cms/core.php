@@ -29,6 +29,8 @@
 			
 			if (isset($encoding))
 				$this->encoding = $encoding;
+			else if (strlen($_GET["encoding"]) > 0)
+				$this->encoding = $_GET["encoding"];
 			else
 				$this->encoding = "cp1251";
 			
