@@ -1,7 +1,18 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter_18pt-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-weight: 700;
+    src: url('fonts/Inter_18pt-Bold.ttf') format('truetype');
+}
+
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family: Inter, Roboto, Verdana, Arial,  DejaVu Sans;
+    font-family: Inter, Roboto, Verdana, Arial, DejaVu Sans;
     font-size: 8pt;
 }
 

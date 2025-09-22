@@ -1,5 +1,5 @@
 <?php
-    require dirname(__FILE__) . '/cms/core.php';
+    require dirname(__FILE__) . '/../cms/core.php';
 
     global $encoding;
     global $protocol;
@@ -14,9 +14,9 @@
 
     $cms->template->genPageHeader();
     $cms->template->genWebsiteMenu();
-
-    $cms->pages->getNewYearCountdown();
-    $cms->pages->showHardwarePage();
+    
+    $cms->pages->getNewYearCountdown();    
+    $cms->pages->showAboutPage();
     
     $cms->template->closePage();
     $cms->closeDatabase();

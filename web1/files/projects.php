@@ -1,5 +1,5 @@
 <?php
-    require dirname(__FILE__) . '/cms/core.php';
+    require dirname(__FILE__) . '/../cms/core.php';
 
     global $encoding;
     global $protocol;

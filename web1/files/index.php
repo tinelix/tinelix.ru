@@ -1,5 +1,5 @@
 <?php
-include_once dirname(__FILE__) . '/cms/core.php';
+include_once dirname(__FILE__) . '/../cms/core.php';
 
 global $lite;
 global $encoding;
