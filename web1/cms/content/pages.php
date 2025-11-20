@@ -610,7 +610,7 @@
                                 		         font-size: 25pt; padding-top: 36px; padding-bottom: 36px\">
 						<center><b id=\"ny_countdown_days\">".$new_year_countdown."</b></center>
 			    		</div>
-			    	    	<div style=\"text-align: center; width: 114px\"><span>дней</span></div>
+			    	    	<div style=\"text-align: center; width: 114px\"><span>дн.</span></div>
 			    	    </div>
 				</td>
 				<td width=\"114\">
