@@ -15,6 +15,9 @@ function updateNewYearCountdown() {
 			var tzOffset = currDate.getTimezoneOffset();
 			var selectedTzOffset = 0;
 			
+			if(days_text == undefined)
+			    clearInterval(timer);
+
 			if(region_list.value == "paris" || region_list.value == "helsinki") {
 			    selectedTzOffset = -1 * 60;
 			} else if(region_list.value == "kiev" || region_list.value == "kaliningrad") {
