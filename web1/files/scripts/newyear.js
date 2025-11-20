@@ -15,7 +15,7 @@ function updateNewYearCountdown() {
 			var tzOffset = currDate.getTimezoneOffset();
 			var selectedTzOffset = 0;
 			
-			if(days_text == undefined) {
+			if(days_text == null) {
 			    clearInterval(timer);
 			    return;
 			}
