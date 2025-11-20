@@ -53,7 +53,7 @@
             \r\n        <link rel=\"stylesheet\" href=\"".$this->cms->protocol.web1_subdomain."/style.css\">
             \r\n        <link rel=\"stylesheet\" href=\"".$this->cms->protocol.web1_subdomain."/icons.css\">
             \r\n    </head>
-            \r\n    <body>
+            \r\n    <body bgcolor=\"#000000\" text=\"#ffffff\">
             \r\n        <p align=\"center\" style=\"font-size: 14pt;
             \r\n                                    margin-top: 15px;
             \r\n                                    margin-bottom: 0px
@@ -154,7 +154,7 @@
             \r\n                <tbody>
             \r\n                    <tr>
             \r\n                        <td align=\"center\">
-            \r\n                            Copyright © 2023-2024 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
+            \r\n                            Copyright © 2023-2025 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
             \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">Исходный код сайта</a>
             \r\n                            <p>
             \r\n                            <a href=\"http://validator.w3.org/check?uri=referer\">
@@ -446,13 +446,14 @@
 
             if($new_year_countdown <= 100) {
                     $html = "
-                        \r\n			    <div class=\"left-sidebar\" style=\"background-image: url(images/cells/ny_countdown.gif); height: 100px\">
+                        \r\n			    <div class=\"left-sidebar\" style=\"background-image: url(images/cells/ny_countdown.gif); height: 120px\">
                         \r\n                        <div style=\"height: 20px\">
                         \r\n                            <div class=\"title-text\">ДО НОВОГО ГОДА</div>
                         \r\n                            <hr class=\"accent-color cell\" size=\"1\" noshade />
                         \r\n                            <div class=\"text\" style=\"margin-bottom: 0px; text-align: center\">
-                        \r\n                                    <span style=\"font-size: 22pt; color: 4fff4f\"><b>".$new_year_countdown."</b></span>
+                        \r\n                                    <span style=\"font-size: 22pt; color: #4fff4f\"><b>".$new_year_countdown."</b></span>
                         \r\n					                <br><span>дн.</span>
+			\r\n							<p style=\"margin-top: 4px; font-size: 10pt;\"><a href=\"".$this->cms->protocol.web1_subdomain."/newyear.php\">Подробнее >>></a>
                         \r\n                            </div>
                         \r\n                        </div>
                         \r\n			    </div>
@@ -465,5 +466,242 @@
                     }
             }
         }
+
+	function showMoreNewYearCountdown() {
+	    $year = Core::getCurrentYear();
+
+            $current_time = time();
+
+	    $tz_offset = 3 * 60 * 60;
+
+	    $tz_name = "Europe/Moscow";
+	    $l18n_tz_name = "Московское время: ";
+	    
+	    if(isset($_POST["region"])) {
+		switch($_POST["region"]) {
+		    case "paris":
+			$l18n_tz_name = "Время в Париже: ";
+			$tz_name = "Europe/Paris";
+			$tz_offset = 1 * 60 * 60;
+			break;
+		    case "helsinki":
+			$l18n_tz_name = "Время в Хельсинки: ";
+			$tz_name = "Europe/Helsinki";
+		  	$tz_offset = 1 * 60 * 60;
+		        break;
+		    case "kiev":
+			$l18n_tz_name = "Киевское время: ";
+			$tz_name = "Europe/Kiev";
+			$tz_offset = 2 * 60 * 60;
+			break;
+		    case "kaliningrad":
+			$l18n_tz_name = "Время в Калининграде: ";
+			$tz_name = "Europe/Kaliningrad";
+			$tz_offset = 2 * 60 * 60;
+			break;
+		    case "yerevan":
+			$l18n_tz_name = "Время в Ереване: ";
+			$tz_name = "Asia/Yerevan";
+			$tz_offset = 4 * 60 * 60;
+			break;
+		    case "astrakhan":
+			$l18n_tz_name = "Время в Астрахани: ";
+			$tz_name = "Europe/Astrakhan";
+			$tz_offset = 4 * 60 * 60;
+			break;
+		    case "volgograd":
+			$l18n_tz_name = "Время в Волгограде: ";
+			$tz_name = "Europe/Volgograd";
+			$tz_offset = 4 * 60 * 60;
+			break;
+		    case "ulyanovsk":
+			$l18n_tz_name = "Время в Ульяновске: ";
+			$tz_name = "Europe/Volgograd";
+			$tz_offset = 4 * 60 * 60;
+			break;
+		    case "samara":
+			$l18n_tz_name = "Самарское время: ";
+			$tz_name = "Europe/Samara";
+			$tz_offset = 4 * 60 * 60;
+			break;
+		    case "yekaterinburg":
+			$l18n_tz_name = "Время в Екатеринбурге: ";
+			$tz_offset = 5 * 60 * 60;
+			break;
+		    case "omsk":
+			$l18n_tz_name = "Омское время: ";
+			$tz_name = "Asia/Omsk";
+			$tz_offset = 6 * 60 * 60;
+			break;
+		    case "novosibirsk":
+			$l18n_tz_name = "Новосибирское время: ";
+			$tz_name = "Asia/Novosibirsk";
+			$tz_offset = 7 * 60 * 60;
+			break;
+		    case "barnaul":
+			$l18n_tz_name = "Время в Барнауле: ";
+			$tz_name = "Asia/Barnaul";
+			$tz_offset = 7 * 60 * 60;
+			break;
+		    case "gorno-altaisk":
+			$l18n_tz_name = "Время в Горно-Алтайске: ";
+			$tz_name = "Etc/UTC+7";
+			$tz_offset = 7 * 60 * 60;
+			break;
+		    case "krasnoyarsk":
+			$l18n_tz_name = "Красноярское время: ";
+			$tz_name = "Asia/Krasnoyarsk";
+			$tz_offset = 7 * 60 * 60;
+			break;
+		    case "tomsk":
+			$l18n_tz_name = "Время в Томске: ";
+			$tz_name = "Etc/UTC+7";
+			$tz_offset = 7 * 60 * 60;
+			break;
+		    case "irkutsk":
+			$l18n_tz_name = "Время в Иркутске: ";
+			$tz_name = "Etc/UTC+7";
+			$tz_offset = 7 * 60 * 60;
+			break;
+		    case "beijing":
+			$l18n_tz_name = "Пекинское время: ";
+			$tz_name = "Asia/Shanghai";
+			$tz_offset = 8 * 60 * 60;
+			break;
+		    case "yakutsk":
+			$l18n_tz_name = "Время в Якутске: ";
+			$tz_name = "Etc/UTC+9";
+			$tz_offset = 9 * 60 * 60;
+			break;
+		    case "vladivostok":
+			$l18n_tz_name = "Время во Владивостоке: ";
+			$tz_name = "Asia/Vladivostok";
+			$tz_offset = 10 * 60 * 60;
+			break;
+		    case "magadan":
+			$l18n_tz_name = "Магаданское время: ";
+			$tz_name = "Asia/Magadan";
+			$tz_offset = 11 * 60 * 60;
+			break;
+		}
+	    }
+
+            $new_year = strtotime(($year + 1)."-01-01");
+            $new_year_countdown = floor((-$current_time - $tz_offset + $new_year) / (60 * 60 * 24));
+
+            if($new_year_countdown >= 0) {
+                $new_year_countdown_h = floor((-$current_time - $tz_offset + $new_year) / (60 * 60)) % 24;
+                $new_year_countdown_min = floor((-$current_time - $tz_offset  + $new_year) / 60) % 60;
+                $new_year_countdown_sec = floor(-$current_time - $tz_offset + $new_year) % 60;
+            } else {
+                $new_year_countdown = 0;
+                $new_year_countdown_h = 0;
+                $new_year_countdown_min = 0;
+                $new_year_countdown_sec = 0;
+            }
+
+            if($new_year_countdown <= 100 && $new_year_countdown >= 0) {
+		$page = "<h3>До Нового года осталось</h3>
+			<table cellpadding=\"0\" cellspacing=\"0\" align=\"center\" border=\"0\" width=\"140\" height=\"140\">
+			    <tbody>
+				<td width=\"114\">
+			    	    <div>
+			    		<div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame.gif); 
+                                		         font-size: 25pt; padding-top: 36px; padding-bottom: 36px\">
+						<center><b id=\"ny_countdown_days\">".$new_year_countdown."</b></center>
+			    		</div>
+			    	    	<div style=\"text-align: center; width: 114px\"><span>дней</span></div>
+			    	    </div>
+				</td>
+				<td width=\"114\">
+			    	    <div>
+                            	        <div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame_v2.gif); 
+                                        		 color: #209a20; font-size: 25pt; padding-top: 36px; padding-bottom: 36px\">
+                                		<center><b id=\"ny_countdown_hr\">".$new_year_countdown_h."</b></center>
+                            	    	</div>
+			    	    	<div style=\"text-align: center; width: 114px\"><span>ч.</span></div>
+			    	    </div>
+				</td>
+				<td width=\"114\">
+			    	    <div>
+                            		<div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame_v2.gif); 
+                                         		color: #209a20; font-size: 25pt; padding-top: 36px; padding-bottom: 36px\">
+                                		<center><b id=\"ny_countdown_min\">".$new_year_countdown_min."</b></center>
+                            		</div>
+                            	    	<div style=\"text-align: center; width: 114px\"><span>мин.</span></div>
+			            </div>
+				</td>
+				<td width=\"114\">
+			    	    <div> 
+                                	<div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame_v2.gif); 
+                                                	color: #209a20; font-size: 25pt; padding-top: 36px; padding-bottom: 36px\">
+                                        	<center><b id=\"ny_countdown_sec\">".$new_year_countdown_sec."</b></center>
+                                	</div>
+                                	<div style=\"text-align: center; width: 114px\"><span>сек.</span></div></div>
+                            	    </div>
+				</td>
+			    </tbody>
+			</table>
+			<form action=\"newyear.php\" method=\"post\">
+				<p>
+				<div style=\"text-align: center\">
+					Ваш город<sup>*</sup>: 
+					<select style=\"margin-left: 8px\" name=\"region\" id=\"ny_region\">
+						<option disabled>--- Российская Федерация ---</option>
+						<option value=\"kaliningrad\">Калининград</option>
+						<option value=\"moscow\" selected>Москва</option>
+						<option value=\"petersburg\">Санкт-Петербург</option>
+						<option value=\"astrakhan\">Астрахань</option>
+						<option value=\"volgograd\">Волгоград</option>
+						<option value=\"ulyanovsk\">Ульяновск</option>
+						<option value=\"samara\">Самара</option>
+						<option value=\"yekaterinburg\">Екатеринбург</option>
+						<option value=\"omsk\">Омск</option>
+						<option value=\"krasnoyarsk\">Красноярск</option>
+						<option value=\"novosibirsk\">Новосибирск</option>
+						<option value=\"tomsk\">Томск</option>
+						<option value=\"gorno-altaisk\">Горно-Алтайск</option>
+						<option value=\"barnaul\">Барнаул</option>
+						<option value=\"irkutsk\">Иркутск</option>
+						<option value=\"yakutsk\">Якутск</option>
+						<option value=\"vladivostok\">Владивосток</option>
+						<option value=\"magadan\">Магадан</option>
+						<option disabled>------- Другие страны -------</option>
+						<option value=\"paris\">Париж, Франция</option>
+                                                <option value=\"helsinki\">Хельсинки, Финляндия</option>
+                                                <option value=\"kiev\">Киев, Украина</option>
+                                                <option value=\"minsk\">Минск, Беларусь</option>
+                                                <option value=\"yerevan\">Ереван, Армения</option>
+						<option value=\"beijing\">Пекин, Китай</option>
+					</select>";
+		
+		if(str_contains($_SERVER['HTTP_USER_AGENT'], "Opera 2") || str_contains($_SERVER['HTTP_USER_AGENT'], "Opera 3"))
+			$page = $page." <input type=\"submit\" value=\"Показать\"><p>".$l18n_tz_name.Core::getFormattedDateTime($tz_name, "d.m.Y H:i:s", false);
+		else
+			$page = $page."<noscript> <input type=\"submit\" value=\"Показать\"></noscript>";
+
+		$page = $page."<h5>* список не полный</h5>
+				</div>
+			</form>";
+			
+	    } else {
+		$page = "<h3>Не трогай, это на Новый год!</h3><p>А пока вы сейчас ждете, советую поиграть в <a href=\"https://vk.com/elochkagame\">Ёлочку</a><sup>*</sup>. Она работает круглый год.<h5>* не является прямой рекламой.</h5>";
+	    }
+
+	    $html = "
+                    \r\n                    <td bgcolor=\"#7a1a1a\" valign=\"top\" rowspan=\"3\">
+                    \r\n                        <div class=\"title-text\">ОБРАТНЫЙ ОТСЧЁТ ДО НОВОГО ГОДА</div>
+                    \r\n                        <hr class=\"accent-color\" style=\"color: #2aaf2a\" size=\"1\" noshade />
+                    \r\n                        <div class=\"text\">
+                    \r\n                        ".$page."
+                    \r\n                        </div>
+                    \r\n                    </td>";
+            if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
+                echo mb_convert_encoding($html, "windows-1251", "utf-8");
+            } else {
+                echo $html;
+            }
+
+	}
     }
 ?>

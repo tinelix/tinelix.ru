@@ -52,6 +52,19 @@
 			return $dws[$dw].", ".$format_date;
 		}
 
+		public static function getFormattedDateTime($timezone = 'Europe/Moscow', $pattern, $day_of_week = true) {
+                        $current_time = new \DateTime('now', new \DateTimeZone($timezone));
+			$current_time->setTimestamp($current_time->getTimestamp() + (3 * 60 * 60));
+                        $dw = date("w", $current_time->getTimestamp());
+                        $format_dt = $current_time->format($pattern);
+                        $dws = array('Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота');
+			if($day_of_week)
+                        	return $dws[$dw].", ".$format_dt;
+			else
+				return $format_dt;
+                }
+
+
 		public static function getCurrentYear() {
 			$current_time = new \DateTime('now', new \DateTimeZone('Europe/Moscow'));
                         $current_time->setTimestamp($current_time->getTimestamp() + (3 * 60 * 60));
@@ -60,7 +73,7 @@
 		}
 
 		public static function getLastUpdatedDate() {
-			return "21.09.2025";
+			return "20.11.2025";
 		}
 		
 		public function closeDatabase() {

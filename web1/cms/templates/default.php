@@ -19,7 +19,7 @@
             $this->purifier = $source_cms->purifier;
         }
         
-        function genPageHeader() {
+        function genPageHeader($js_addr = null, $onload_func = null) {
             if($this->cms->encoding == "utf-8") {
                 header('Content-Type: text/html; charset=utf-8');
             } else {
@@ -47,8 +47,21 @@
             $html = $html."
             \r\n        <title>Tinelix (стиль Web 1.0)</title>
             \r\n        <link rel=\"stylesheet\" href=\"".$this->cms->protocol.web1_subdomain."/style.css\">
+	    ";
+	    
+	    if($js_addr)
+		$html = $html."
+			\r\n<script src=\"".$this->cms->protocol.web1_subdomain."/scripts/".$js_addr."\"></script>
+		";
+
+	    $html = $html."
             \r\n    </head>
-            \r\n    <body>
+            \r\n    <body bgcolor=\"#000000\" text=\"#ffffff\""; 
+
+            if($onload_func) 
+                $html = $html." onload=\"".$onload_func."\"";
+
+	    $html = $html.">
             \r\n        <div align=\"center\">
             \r\n        <!-- TABLE LAYOUT !-->
             \r\n        <table width=\"640\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">
