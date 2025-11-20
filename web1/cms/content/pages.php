@@ -433,7 +433,7 @@
             $new_year = strtotime(($year + 1)."-01-01");
             $new_year_countdown = floor((-$current_time - $msk + $new_year) / (60 * 60 * 24));
 
-            if($new_year_countdown >= 0) {
+            if($new_year_countdown >= 0 && $year == 2025) {
                 $new_year_countdown_h = floor((-$current_time - $msk + $new_year) / (60 * 60)) % 24;
                 $new_year_countdown_min = floor((-$current_time - $msk  + $new_year) / 60) % 60;
                 $new_year_countdown_sec = floor(-$current_time - $msk + $new_year) % 60;
