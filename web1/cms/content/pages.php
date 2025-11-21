@@ -479,6 +479,11 @@
 	    
 	    if(isset($_POST["region"])) {
 		switch($_POST["region"]) {
+		    case "berlin":
+			$l18n_tz_name = "Время в Берлине: ";
+			$tz_name = "Europe/Berlin";
+			$tz_offset = 1 * 60 * 60;
+			break;
 		    case "paris":
 			$l18n_tz_name = "Время в Париже: ";
 			$tz_name = "Europe/Paris";
@@ -526,6 +531,14 @@
 			break;
 		    case "yekaterinburg":
 			$l18n_tz_name = "Время в Екатеринбурге: ";
+			$tz_offset = 5 * 60 * 60;
+			break;
+		    case "chelyabinsk":
+			$l18n_tz_name = "Время в Челябинске: ";
+			$tz_offset = 5 * 60 * 60;
+			break;
+		    case "astana":
+			$l18n_tz_name = "Время в Алмате: ";
 			$tz_offset = 5 * 60 * 60;
 			break;
 		    case "omsk":
@@ -651,11 +664,13 @@
 						<option value=\"kaliningrad\">Калининград</option>
 						<option value=\"moscow\" selected>Москва</option>
 						<option value=\"petersburg\">Санкт-Петербург</option>
+						<option value=\"n_novgorod\">Нижний Новгород</option>
 						<option value=\"astrakhan\">Астрахань</option>
 						<option value=\"volgograd\">Волгоград</option>
 						<option value=\"ulyanovsk\">Ульяновск</option>
 						<option value=\"samara\">Самара</option>
 						<option value=\"yekaterinburg\">Екатеринбург</option>
+						<option value=\"chelyabinsk\">Челябинск</option>
 						<option value=\"omsk\">Омск</option>
 						<option value=\"krasnoyarsk\">Красноярск</option>
 						<option value=\"novosibirsk\">Новосибирск</option>
@@ -667,25 +682,30 @@
 						<option value=\"vladivostok\">Владивосток</option>
 						<option value=\"magadan\">Магадан</option>
 						<option disabled>------- Другие страны -------</option>
+						<option value=\"berlin\">Берлин, Германия</option>
 						<option value=\"paris\">Париж, Франция</option>
                                                 <option value=\"helsinki\">Хельсинки, Финляндия</option>
                                                 <option value=\"kiev\">Киев, Украина</option>
                                                 <option value=\"minsk\">Минск, Беларусь</option>
                                                 <option value=\"yerevan\">Ереван, Армения</option>
+						<option value=\"astana\">Астана, Казахстан</option>
 						<option value=\"beijing\">Пекин, Китай</option>
 					</select>";
 		
-		if(str_contains($_SERVER['HTTP_USER_AGENT'], "Opera 2") || str_contains($_SERVER['HTTP_USER_AGENT'], "Opera 3"))
-			$page = $page." <input type=\"submit\" value=\"Показать\"><p>".$l18n_tz_name.Core::getFormattedDateTime($tz_name, "d.m.Y H:i:s", false);
+		// if the browser does not support JS, we offer an alternative option - getting an accurate countdown via a POST request
+		if(str_contains($_SERVER['HTTP_USER_AGENT'], "Opera 2") || str_contains($_SERVER['HTTP_USER_AGENT'], "Opera 3") || 
+		   str_contains($_SERVER['HTTP_USER_AGENT'], "Opera 4") || str_contains($_SERVER['HTTP_USER_AGENT'], "Opera 5"))
+		   $page = $page." <input type=\"submit\" value=\"Показать\"><p><b>".$l18n_tz_name."</b>".Core::getFormattedDateTime($tz_name, "d.m.Y H:i:s", false);
 		else
-			$page = $page."<noscript> <input type=\"submit\" value=\"Показать\"></noscript>";
+		   $page = $page."<noscript> <input type=\"submit\" value=\"Показать\"></noscript>";
 
-		$page = $page."<h5>* список не полный</h5>
+		$page = $page."<h5>* список не полный и может обновляться в ближайшее время</h5>
 				</div>
 			</form>";
 			
 	    } else {
-		$page = "<h3>Не трогай, это на Новый год!</h3><p>А пока вы сейчас ждете, советую поиграть в <a href=\"https://vk.com/elochkagame\">Ёлочку</a><sup>*</sup>. Она работает круглый год.<h5>* не является прямой рекламой.</h5>";
+		$page = "<h3>Не трогай, это на Новый год!</h3><p>А пока вы сейчас ждете, советую поиграть в <a href=\"https://vk.com/elochkagame\">Ёлочку</a><sup>*</sup>. 
+			 Она работает круглый год.<h5>* не является прямой рекламой.</h5>";
 	    }
 
 	    $html = "

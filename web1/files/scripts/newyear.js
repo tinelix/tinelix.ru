@@ -24,11 +24,11 @@ function updateNewYearCountdown() {
 			    selectedTzOffset = -1 * 60;
 			} else if(region_list.value == "kiev" || region_list.value == "kaliningrad") {
 			    selectedTzOffset = -2 * 60;
-			} else if(region_list.value == "minsk" || region_list.value == "moscow" || region_list.value == "petersburg") {
+			} else if(region_list.value == "minsk" || region_list.value == "moscow" || region_list.value == "petersburg" || region_list.value == "n_novgorod") {
 			    selectedTzOffset = -3 * 60;
 			} else if(region_list.value == "yerevan" || region_list.value == "astrakhan" || region_list.value == "volgograd" || region_list.value == "ulyanovsk" || region_list.value == "samara") {
 			    selectedTzOffset = -4 * 60;
-			} else if(region_list.value == "yekaterinburg") {
+			} else if(region_list.value == "yekaterinburg" || region_list.value == "chelyabinsk" || region_list.value == "astana") {
 			    selectedTzOffset = -5 * 60;
 			} else if(region_list.value == "omsk") {
 			    selectedTzOffset = -6 * 60;
