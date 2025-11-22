@@ -13,6 +13,7 @@
 	class Core {
 		
 		public $db;
+		public $priv_db;
 		public $template;
 		public $enconding;
 		public $pages;
@@ -21,7 +22,8 @@
 		
 		public function __construct($protocol, $enconding) {
 			$this->db = new \SQLite3(dirname(__FILE__) . '/pub.db');
-			
+			$this->priv_db  = new \SQLite3(dirname(__FILE__) . '/priv.db');
+
 			if(isset($protocol))
 				$this->protocol = $protocol;
 			else

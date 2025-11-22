@@ -723,5 +723,9 @@
             }
 
 	}
+
+	function getNewYearFunFactsAdvent() {
+		
+	}
     }
 ?>
