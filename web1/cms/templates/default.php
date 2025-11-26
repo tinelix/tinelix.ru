@@ -125,11 +125,11 @@
                     $menu = $menu."\r\n<a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2].$params)."\">".htmlspecialchars($menu_items[$i][1])."</a>";
             }
             $html = "
-                \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#232323\">
+                \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#000000\">
                 \r\n            <tbody>
                 \r\n                <tr>
                 \r\n                    <td width=\"150\" valign=\"top\">
-		\r\n			    <div style=\"background-color: #151515\">
+		\r\n			    <div class=\"menu-column\">
                 \r\n                        	<div class=\"title-text\">МЕНЮ САЙТА</div>
                 \r\n                        	<hr class=\"accent-color cell\" size=\"1\" noshade />
                 \r\n                        	<div class=\"menu-links text\" style=\"margin-bottom: 0px;\">

@@ -75,7 +75,7 @@
 		}
 
 		public static function getLastUpdatedDate() {
-			return "20.11.2025";
+			return "26.11.2025";
 		}
 		
 		public function closeDatabase() {

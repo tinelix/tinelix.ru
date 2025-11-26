@@ -59,6 +59,7 @@
             \r\n                                    margin-bottom: 0px
             \r\n                                  \"><b>Приветствуем!</b></p>
             \r\n        <p align=\"center\" style=\"font-size: 10pt; margin-top: 2px\">".htmlspecialchars($formattedMskTime)."</p>
+            \r\n        <p align=\"center\">Если не видишь картинки, кликни <a href=\"".$this->cms->protocol.web1_subdomain."?lite=1\">сюда.</p>
             \r\n        <div align=\"center\">";
 
             $columns = "";
@@ -192,7 +193,7 @@
             $article = $result->fetchArray();
             $article_title = mb_strtoupper($article[1]);
             $html =  "\r\n
-                \r\n  <td bgcolor=\"#151515\" valign=\"top\">
+                \r\n  <td bgcolor=\"#000000\" valign=\"top\">
                 \r\n                        <div class=\"title-text\">".htmlspecialchars($article_title)."</div>
                 \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                 \r\n                        <div class=\"text\">".$this->purifier->purify($article[2])."</div>
@@ -210,7 +211,7 @@
             $about_page = $result->fetchArray();
             $about_page_title = mb_strtoupper($about_page[1]);
             $html = "
-                \r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
+                \r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
                 \r\n                        <div class=\"title-text\">".htmlspecialchars($about_page_title)."</div>
                 \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                 \r\n                        <div class=\"text\">
@@ -241,7 +242,7 @@
             $query = "SELECT id, name, description, link FROM projects;";
             $result = $this->db->query($query) or die("Last error: {$this->db->lastErrorMsg()}\n");
             $projects = array();
-            $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
+            $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
                     \r\n                        <div class=\"title-text\">ПРОЕКТЫ</div>
                     \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                     \r\n                        <div class=\"text\">";
@@ -284,7 +285,7 @@
 
             if($i > 0 && $i <= 3) {
               $html = "
-                    \r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
+                    \r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
                     \r\n                        <div class=\"title-text\">".htmlspecialchars($page_title)."</div>
                     \r\n                        <hr class=\"accent-color\" size=\"1\" />
                     \r\n                        <div class=\"text\">
@@ -293,7 +294,7 @@
                     \r\n                    </td>";
             } else {
                 $html = "
-                    \r\n                    <td bgcolor=\"#151515\" valign=\"top\">
+                    \r\n                    <td bgcolor=\"#000000\" valign=\"top\">
                     \r\n                        <div class=\"title-text\">ОШИБКА</div>
                     \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                     \r\n                        <div class=\"text\">
@@ -309,7 +310,7 @@
         }
 
         public function showHardwarePage() {
-            $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
+            $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
                          \r\n                        <div class=\"title-text\">ОБОРУДОВАНИЕ</div>
                          \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                          \r\n                        <div class=\"text\">";
@@ -369,7 +370,7 @@
                 $query = "SELECT id, name, link FROM banners;";
                 $result = $this->db->query($query) or die("Last error: {$this->db->lastErrorMsg()}\n");
                 $banners = array();
-                $html = "\r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
+                $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
                          \r\n                        <div class=\"title-text\">БАННЕР ДЛЯ САЙТА</div>
                          \r\n                        <hr class=\"accent-color\" size=\"1\" noshade/>
                          \r\n                        <div class=\"text\">
@@ -409,7 +410,7 @@
             $page_title = mb_strtoupper($page[1]);
 
             $html = "
-                    \r\n                    <td bgcolor=\"#151515\" valign=\"top\" rowspan=\"3\">
+                    \r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
                     \r\n                        <div class=\"title-text\">".htmlspecialchars($page_title)."</div>
                     \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
                     \r\n                        <div class=\"text\">
@@ -448,7 +449,7 @@
                     $html = "
                         \r\n			    <div class=\"left-sidebar\" style=\"background-image: url(images/cells/ny_countdown.gif); height: 120px\">
                         \r\n                        <div style=\"height: 20px\">
-                        \r\n                            <div class=\"title-text\">ДО НОВОГО ГОДА</div>
+                        \r\n                            <div class=\"title-text\" style=\"color: white;\">ДО НОВОГО ГОДА</div>
                         \r\n                            <hr class=\"accent-color cell\" size=\"1\" noshade />
                         \r\n                            <div class=\"text\" style=\"margin-bottom: 0px; text-align: center\">
                         \r\n                                    <span style=\"font-size: 22pt; color: #4fff4f\"><b>".$new_year_countdown."</b></span>
@@ -478,125 +479,140 @@
 	    $l18n_tz_name = "Московское время: ";
 	    
 	    if(isset($_POST["region"])) {
-		switch($_POST["region"]) {
-		    case "berlin":
-			$l18n_tz_name = "Время в Берлине: ";
-			$tz_name = "Europe/Berlin";
-			$tz_offset = 1 * 60 * 60;
-			break;
-		    case "paris":
-			$l18n_tz_name = "Время в Париже: ";
-			$tz_name = "Europe/Paris";
-			$tz_offset = 1 * 60 * 60;
-			break;
-		    case "helsinki":
-			$l18n_tz_name = "Время в Хельсинки: ";
-			$tz_name = "Europe/Helsinki";
-		  	$tz_offset = 1 * 60 * 60;
-		        break;
-		    case "kiev":
-			$l18n_tz_name = "Киевское время: ";
-			$tz_name = "Europe/Kiev";
-			$tz_offset = 2 * 60 * 60;
-			break;
-		    case "kaliningrad":
-			$l18n_tz_name = "Время в Калининграде: ";
-			$tz_name = "Europe/Kaliningrad";
-			$tz_offset = 2 * 60 * 60;
-			break;
-		    case "yerevan":
-			$l18n_tz_name = "Время в Ереване: ";
-			$tz_name = "Asia/Yerevan";
-			$tz_offset = 4 * 60 * 60;
-			break;
-		    case "astrakhan":
-			$l18n_tz_name = "Время в Астрахани: ";
-			$tz_name = "Europe/Astrakhan";
-			$tz_offset = 4 * 60 * 60;
-			break;
-		    case "volgograd":
-			$l18n_tz_name = "Время в Волгограде: ";
-			$tz_name = "Europe/Volgograd";
-			$tz_offset = 4 * 60 * 60;
-			break;
-		    case "ulyanovsk":
-			$l18n_tz_name = "Время в Ульяновске: ";
-			$tz_name = "Europe/Volgograd";
-			$tz_offset = 4 * 60 * 60;
-			break;
-		    case "samara":
-			$l18n_tz_name = "Самарское время: ";
-			$tz_name = "Europe/Samara";
-			$tz_offset = 4 * 60 * 60;
-			break;
-		    case "yekaterinburg":
-			$l18n_tz_name = "Время в Екатеринбурге: ";
-			$tz_offset = 5 * 60 * 60;
-			break;
-		    case "chelyabinsk":
-			$l18n_tz_name = "Время в Челябинске: ";
-			$tz_offset = 5 * 60 * 60;
-			break;
-		    case "astana":
-			$l18n_tz_name = "Время в Алмате: ";
-			$tz_offset = 5 * 60 * 60;
-			break;
-		    case "omsk":
-			$l18n_tz_name = "Омское время: ";
-			$tz_name = "Asia/Omsk";
-			$tz_offset = 6 * 60 * 60;
-			break;
-		    case "novosibirsk":
-			$l18n_tz_name = "Новосибирское время: ";
-			$tz_name = "Asia/Novosibirsk";
-			$tz_offset = 7 * 60 * 60;
-			break;
-		    case "barnaul":
-			$l18n_tz_name = "Время в Барнауле: ";
-			$tz_name = "Asia/Barnaul";
-			$tz_offset = 7 * 60 * 60;
-			break;
-		    case "gorno-altaisk":
-			$l18n_tz_name = "Время в Горно-Алтайске: ";
-			$tz_name = "Etc/UTC+7";
-			$tz_offset = 7 * 60 * 60;
-			break;
-		    case "krasnoyarsk":
-			$l18n_tz_name = "Красноярское время: ";
-			$tz_name = "Asia/Krasnoyarsk";
-			$tz_offset = 7 * 60 * 60;
-			break;
-		    case "tomsk":
-			$l18n_tz_name = "Время в Томске: ";
-			$tz_name = "Etc/UTC+7";
-			$tz_offset = 7 * 60 * 60;
-			break;
-		    case "irkutsk":
-			$l18n_tz_name = "Время в Иркутске: ";
-			$tz_name = "Etc/UTC+7";
-			$tz_offset = 7 * 60 * 60;
-			break;
-		    case "beijing":
-			$l18n_tz_name = "Пекинское время: ";
-			$tz_name = "Asia/Shanghai";
-			$tz_offset = 8 * 60 * 60;
-			break;
-		    case "yakutsk":
-			$l18n_tz_name = "Время в Якутске: ";
-			$tz_name = "Etc/UTC+9";
-			$tz_offset = 9 * 60 * 60;
-			break;
-		    case "vladivostok":
-			$l18n_tz_name = "Время во Владивостоке: ";
-			$tz_name = "Asia/Vladivostok";
-			$tz_offset = 10 * 60 * 60;
-			break;
-		    case "magadan":
-			$l18n_tz_name = "Магаданское время: ";
-			$tz_name = "Asia/Magadan";
-			$tz_offset = 11 * 60 * 60;
-			break;
-		}
+            switch($_POST["region"]) {
+                case "berlin":
+                    $l18n_tz_name = "Время в Берлине: ";
+                    $tz_name = "Europe/Berlin";
+                    $tz_offset = 1 * 60 * 60;
+                    break;
+                case "paris":
+                    $l18n_tz_name = "Время в Париже: ";
+                    $tz_name = "Europe/Paris";
+                    $tz_offset = 1 * 60 * 60;
+                    break;
+                case "helsinki":
+                    $l18n_tz_name = "Время в Хельсинки: ";
+                    $tz_name = "Europe/Helsinki";
+                    $tz_offset = 1 * 60 * 60;
+                    break;
+                case "kiev":
+                    $l18n_tz_name = "Киевское время: ";
+                    $tz_name = "Europe/Kiev";
+                    $tz_offset = 2 * 60 * 60;
+                    break;
+                case "kaliningrad":
+                    $l18n_tz_name = "Время в Калининграде: ";
+                    $tz_name = "Europe/Kaliningrad";
+                    $tz_offset = 2 * 60 * 60;
+                    break;
+                case "sevastopol":
+                    $l18n_tz_name = "Время в Севастополе: ";
+                    $tz_name = "Europe/Moscow";
+                    $tz_offset = 3 * 60 * 60;
+                    break;
+                case "donetsk":
+                    $l18n_tz_name = "Время в Донецке: ";
+                    $tz_name = "Europe/Moscow";
+                    $tz_offset = 3 * 60 * 60;
+                    break;
+                case "lugansk":
+                    $l18n_tz_name = "Время в Луганске: ";
+                    $tz_name = "Europe/Moscow";
+                    $tz_offset = 3 * 60 * 60;
+                    break;
+                case "yerevan":
+                    $l18n_tz_name = "Время в Ереване: ";
+                    $tz_name = "Asia/Yerevan";
+                    $tz_offset = 4 * 60 * 60;
+                    break;
+                case "astrakhan":
+                    $l18n_tz_name = "Время в Астрахани: ";
+                    $tz_name = "Europe/Astrakhan";
+                    $tz_offset = 4 * 60 * 60;
+                    break;
+                case "volgograd":
+                    $l18n_tz_name = "Время в Волгограде: ";
+                    $tz_name = "Europe/Volgograd";
+                    $tz_offset = 4 * 60 * 60;
+                    break;
+                case "ulyanovsk":
+                    $l18n_tz_name = "Время в Ульяновске: ";
+                    $tz_name = "Europe/Volgograd";
+                    $tz_offset = 4 * 60 * 60;
+                    break;
+                case "samara":
+                    $l18n_tz_name = "Самарское время: ";
+                    $tz_name = "Europe/Samara";
+                    $tz_offset = 4 * 60 * 60;
+                    break;
+                case "yekaterinburg":
+                    $l18n_tz_name = "Время в Екатеринбурге: ";
+                    $tz_offset = 5 * 60 * 60;
+                    break;
+                case "chelyabinsk":
+                    $l18n_tz_name = "Время в Челябинске: ";
+                    $tz_offset = 5 * 60 * 60;
+                    break;
+                case "astana":
+                    $l18n_tz_name = "Время в Алмате: ";
+                    $tz_offset = 5 * 60 * 60;
+                    break;
+                case "omsk":
+                    $l18n_tz_name = "Омское время: ";
+                    $tz_name = "Asia/Omsk";
+                    $tz_offset = 6 * 60 * 60;
+                    break;
+                case "novosibirsk":
+                    $l18n_tz_name = "Новосибирское время: ";
+                    $tz_name = "Asia/Novosibirsk";
+                    $tz_offset = 7 * 60 * 60;
+                    break;
+                case "barnaul":
+                    $l18n_tz_name = "Время в Барнауле: ";
+                    $tz_name = "Asia/Barnaul";
+                    $tz_offset = 7 * 60 * 60;
+                    break;
+                case "gorno-altaisk":
+                    $l18n_tz_name = "Время в Горно-Алтайске: ";
+                    $tz_name = "Etc/UTC+7";
+                    $tz_offset = 7 * 60 * 60;
+                    break;
+                case "krasnoyarsk":
+                    $l18n_tz_name = "Красноярское время: ";
+                    $tz_name = "Asia/Krasnoyarsk";
+                    $tz_offset = 7 * 60 * 60;
+                    break;
+                case "tomsk":
+                    $l18n_tz_name = "Время в Томске: ";
+                    $tz_name = "Etc/UTC+7";
+                    $tz_offset = 7 * 60 * 60;
+                    break;
+                case "irkutsk":
+                    $l18n_tz_name = "Время в Иркутске: ";
+                    $tz_name = "Etc/UTC+7";
+                    $tz_offset = 7 * 60 * 60;
+                    break;
+                case "beijing":
+                    $l18n_tz_name = "Пекинское время: ";
+                    $tz_name = "Asia/Shanghai";
+                    $tz_offset = 8 * 60 * 60;
+                    break;
+                case "yakutsk":
+                    $l18n_tz_name = "Время в Якутске: ";
+                    $tz_name = "Etc/UTC+9";
+                    $tz_offset = 9 * 60 * 60;
+                    break;
+                case "vladivostok":
+                    $l18n_tz_name = "Время во Владивостоке: ";
+                    $tz_name = "Asia/Vladivostok";
+                    $tz_offset = 10 * 60 * 60;
+                    break;
+                case "magadan":
+                    $l18n_tz_name = "Магаданское время: ";
+                    $tz_name = "Asia/Magadan";
+                    $tz_offset = 11 * 60 * 60;
+                    break;
+            }
 	    }
 
             $new_year = strtotime(($year + 1)."-01-01");
@@ -619,8 +635,8 @@
 			    <tbody>
 				<td width=\"114\">
 			    	    <div>
-			    		<div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame.gif); 
-                                		         font-size: 25pt; padding-top: 36px; padding-bottom: 36px\">
+			    		<div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame.gif) no-repeat; background-position: center;
+                                		         font-family: Shantell Sans Medium; font-size: 25pt; padding-top: 38px; padding-bottom: 36px;\">
 						<center><b id=\"ny_countdown_days\">".$new_year_countdown."</b></center>
 			    		</div>
 			    	    	<div style=\"text-align: center; width: 114px\"><span>дн.</span></div>
@@ -628,8 +644,8 @@
 				</td>
 				<td width=\"114\">
 			    	    <div>
-                            	        <div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame_v2.gif); 
-                                        		 color: #209a20; font-size: 25pt; padding-top: 36px; padding-bottom: 36px\">
+                            	        <div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame_v2.gif) no-repeat; background-position: center;
+                                        		 font-family: Shantell Sans Medium; color: #209a20; font-size: 25pt; padding-top: 38px; padding-bottom: 36px\">
                                 		<center><b id=\"ny_countdown_hr\">".$new_year_countdown_h."</b></center>
                             	    	</div>
 			    	    	<div style=\"text-align: center; width: 114px\"><span>ч.</span></div>
@@ -637,8 +653,8 @@
 				</td>
 				<td width=\"114\">
 			    	    <div>
-                            		<div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame_v2.gif); 
-                                         		color: #209a20; font-size: 25pt; padding-top: 36px; padding-bottom: 36px\">
+                            		<div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame_v2.gif) no-repeat; background-position: center;
+                                         		font-family: Shantell Sans Medium; color: #209a20; font-size: 25pt; padding-top: 38px; padding-bottom: 36px\">
                                 		<center><b id=\"ny_countdown_min\">".$new_year_countdown_min."</b></center>
                             		</div>
                             	    	<div style=\"text-align: center; width: 114px\"><span>мин.</span></div>
@@ -646,8 +662,8 @@
 				</td>
 				<td width=\"114\">
 			    	    <div> 
-                                	<div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame_v2.gif); 
-                                                	color: #209a20; font-size: 25pt; padding-top: 36px; padding-bottom: 36px\">
+                                	<div style=\"background: url(".$this->cms->protocol.web1_subdomain."/images/newyear/ny_countdown_frame_v2.gif) no-repeat; background-position: center;
+                                                	font-family: Shantell Sans Medium; color: #209a20; font-size: 25pt; padding-top: 38px; padding-bottom: 36px\">
                                         	<center><b id=\"ny_countdown_sec\">".$new_year_countdown_sec."</b></center>
                                 	</div>
                                 	<div style=\"text-align: center; width: 114px\"><span>сек.</span></div></div>
@@ -681,6 +697,10 @@
 						<option value=\"yakutsk\">Якутск</option>
 						<option value=\"vladivostok\">Владивосток</option>
 						<option value=\"magadan\">Магадан</option>
+						<option disabled>------- <3 Мир вам! <3 -------</option>
+						<option value=\"sevastopol\">Севастополь</option>
+						<option value=\"donetsk\">Донецк</option>
+						<option value=\"lugansk\">Луганск</option>
 						<option disabled>------- Другие страны -------</option>
 						<option value=\"berlin\">Берлин, Германия</option>
 						<option value=\"paris\">Париж, Франция</option>

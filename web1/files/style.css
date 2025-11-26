@@ -9,6 +9,27 @@
     src: url('fonts/Inter_18pt-Bold.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Shantell Sans';
+    src: url('fonts/ShantellSans-Regular.eot');
+    src: url('fonts/ShantellSans-Regular.eot?#iefix') format('embedded-opentype'), url('fonts/ShantellSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Shantell Sans Medium';
+    font-weight: 500;
+    src: url('fonts/ShantellSans-Medium.eot');
+    src: url('fonts/ShantellSans-Medium.eot?#iefix') format('embedded-opentype'), url('fonts/ShantellSans-Medium.ttf') format('truetype');
+
+}
+
+@font-face {
+    font-family: 'Shantell Sans';
+    font-weight: 700;
+    src: url('fonts/ShantellSans-Bold.eot');
+    src: url('fonts/ShantellSans-Bold.eot?#iefix') format('embedded-opentype'), url('fonts/ShantellSans-Bold.ttf') format('truetype');
+}
+
 body {
     background-color: #000000;
     color: #ffffff;
@@ -17,7 +38,7 @@ body {
 }
 
 .subheader {
-    background-color: #3f3f3f;
+    background-color: #0000e8;
     font-size: 9pt;
     font-weight: 700;
 }
@@ -28,6 +49,7 @@ body {
     margin-right: 8px;
     font-size: 8pt;
     font-weight: 700;
+    color: lime;
 }
 
 .text {
@@ -48,7 +70,7 @@ body {
 }
 
 a {
-   color: #60bfff;
+   color: cyan;
    text-decoration: none;
 }
 
@@ -56,6 +78,11 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+h1, h2, h3 {
+    background-color: aqua;
+    color: black;
 }
 
 table {
@@ -68,7 +95,7 @@ table {
 }
 
 .accent-color {
-    color: #60bfff;
+    color: lime;
 }
 
 .full-code {
