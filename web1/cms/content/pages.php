@@ -731,7 +731,7 @@
 	    $html = "
                     \r\n                    <td bgcolor=\"#7a1a1a\" valign=\"top\" rowspan=\"3\">
                     \r\n                        <div class=\"title-text\" style=\"color: white\">ОБРАТНЫЙ ОТСЧЁТ ДО НОВОГО ГОДА</div>
-                    \r\n                        <hr class=\"accent-color\" style=\"color: #2aaf2a\" size=\"1\" noshade />
+                    \r\n                        <hr class=\"accent-color\" style=\"color: #00ff00\" size=\"1\" noshade />
                     \r\n                        <div class=\"text\">
                     \r\n                        ".$page."
                     \r\n                        </div>
