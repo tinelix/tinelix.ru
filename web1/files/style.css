@@ -61,7 +61,7 @@ body {
 
 .subtext {
     font-size: 8pt;
-    color: #8f8f8f;
+    color: white;
 }
 
 .menu-links a {
@@ -125,7 +125,8 @@ table {
 .warning-banner {
     padding: 8px;
     font-size: 9pt;
-    background-color: #875100;
+    background-color: #ffff00;
+    color: #000000;
 }
 
 .highlight {

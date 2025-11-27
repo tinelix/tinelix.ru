@@ -630,7 +630,7 @@
             }
 
             if($new_year_countdown <= 100 && $new_year_countdown >= 0) {
-		$page = "<h3>До Нового года осталось</h3>
+		$page = "<h3 style=\"background: none; color: #ffffff\">До Нового года осталось</h3>
 			<table cellpadding=\"0\" cellspacing=\"0\" align=\"center\" border=\"0\" width=\"140\" height=\"140\">
 			    <tbody>
 				<td width=\"114\">
@@ -730,7 +730,7 @@
 
 	    $html = "
                     \r\n                    <td bgcolor=\"#7a1a1a\" valign=\"top\" rowspan=\"3\">
-                    \r\n                        <div class=\"title-text\">ОБРАТНЫЙ ОТСЧЁТ ДО НОВОГО ГОДА</div>
+                    \r\n                        <div class=\"title-text\" style=\"color: white\">ОБРАТНЫЙ ОТСЧЁТ ДО НОВОГО ГОДА</div>
                     \r\n                        <hr class=\"accent-color\" style=\"color: #2aaf2a\" size=\"1\" noshade />
                     \r\n                        <div class=\"text\">
                     \r\n                        ".$page."
