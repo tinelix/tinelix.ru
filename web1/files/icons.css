@@ -54,6 +54,14 @@
     background: url(images/menu/start/002_01.06.gif);
 }
 
+.big-icon-seasons-newyear-start {
+    background: url(images/menu/start/001_ny.gif);
+}
+
+.big-icon-seasons-newyear-start:hover {
+    background: url(images/menu/start/002_ny.gif);
+}
+
 .big-icon-start:hover {
     background: url(images/menu/start/002.gif);
 }

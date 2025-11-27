@@ -130,6 +130,10 @@
                             $html = $html."
                             \r\n        <a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2]).$params."\" class=\"big-icon-center big-icon-seasons-june1-".htmlspecialchars($menu_items[$i][3])."\"></a>
                             \r\n    </td>";
+                        } else if(($month == 11 && $day_of_month >= 27) || $month == 12 || ($month == 1 && $day_of_month <= 14)) {
+                            $html = $html."
+                            \r\n        <a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2]).$params."\" class=\"big-icon-center big-icon-seasons-newyear-".htmlspecialchars($menu_items[$i][3])."\"></a>
+                            \r\n    </td>";
                         } else {
                             $html = $html."
                             \r\n        <a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2]).$params."\" class=\"big-icon-center big-icon-".htmlspecialchars($menu_items[$i][3])."\"></a>

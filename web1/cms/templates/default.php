@@ -25,6 +25,13 @@
             } else {
                 header('Content-Type: text/html; charset=windows-1251');
             }
+
+            $current_time = new \DateTime('now', new \DateTimeZone('Europe/Moscow'));
+            $current_time->setTimestamp($current_time->getTimestamp() + (3 * 60 * 60));
+
+            $day_of_month = intval(date('j', $current_time->getTimestamp()));
+            $month = intval(date('m', $current_time->getTimestamp()));
+
             $html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">
             \r\n<!-- HTML4 PAGE !-->
             \r\n<html>
@@ -69,7 +76,15 @@
             \r\n            <tbody>
             \r\n                <tr>
             \r\n                    <td>
-            \r\n                        <img src=\"".$this->cms->protocol.web1_subdomain."/images/header.gif\" alt=\"Tinelix\">
+            ";
+
+        if(($month == 11 && $day_of_month >= 27) || $month == 12 || ($month == 1 && $day_of_month <= 14)) {
+            $html = $html."<img src=\"".$this->cms->protocol.web1_subdomain."/images/header/header_ny.gif\" alt=\"Tinelix\">";
+        } else {
+            $html = $html."<img src=\"".$this->cms->protocol.web1_subdomain."/images/header/header.gif\" alt=\"Tinelix\">";
+        }
+
+        $html = $html."
             \r\n                    </td>
             \r\n                </tr>
             \r\n            </tbody>
