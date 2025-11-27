@@ -131,7 +131,7 @@
                 \r\n                    <td width=\"150\" valign=\"top\">
 		\r\n			    <div class=\"menu-column\">
                 \r\n                        	<div class=\"title-text\">МЕНЮ САЙТА</div>
-                \r\n                        	<hr class=\"accent-color cell\" size=\"1\" noshade />
+                \r\n                        	<hr class=\"title-line cell\" size=\"1\" noshade />
                 \r\n                        	<div class=\"menu-links text\" style=\"margin-bottom: 0px;\">
                 \r\n                            	".$this->purifier->purify($menu)."
                 \r\n                        	</div>

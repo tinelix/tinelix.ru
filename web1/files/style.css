@@ -81,8 +81,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-    background-color: aqua;
-    color: black;
+    background-color: #00ffff;
+    color: #000000;
+}
+
+.lime-header {
+    background-color: #00ff00;
+    color: #000000;
+}
+
+.magenta-header {
+    background-color: #ff00ff;
+    color: #000000;
+}
+
+.yellow-header {
+    background-color: #ffff00;
+    color: #000000;
+}
+
+.red-header {
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+.blue-header {
+    background-color: #0000ff;
+    color: #ffffff;
 }
 
 table {
@@ -98,13 +123,17 @@ table {
     color: lime;
 }
 
+.title-line {
+    color: lime;
+    background-color: lime;
+}
+
 .full-code {
-    width: 400px;
-    height: 104px;
-    overflow: auto;
     text-align: left;
+    height: auto;
     border: 1px solid #8f8f8f;
-    padding: 8px;
+    background-color: #1f1f1f;
+    color: #ffffff;
 }
 
 .actions-text {

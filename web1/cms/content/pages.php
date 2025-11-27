@@ -158,20 +158,18 @@
             \r\n                            Copyright © 2023-2025 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
             \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">Исходный код сайта</a>
             \r\n                            <p>
-            \r\n                            <a href=\"http://validator.w3.org/check?uri=referer\">
-            \r\n                                <img style=\"border:0;\"
-            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/valid-html401.png\"
-            \r\n                                     alt=\"Valid HTML 4.01 Transitional\" height=\"31\" width=\"88\">
-            \r\n                            </a>
-            \r\n                            <a href=\"http://jigsaw.w3.org/css-validator/check/referer\">
-            \r\n                                <img style=\"border:0;width:88px;height:31px\"
-            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/valid-css.png\"
-            \r\n                                     alt=\"Правильный CSS!\" />
-            \r\n                            </a>
+            \r\n                            <img style=\"border:0;\"
+            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/anybrowser.gif\"
+            \r\n                                     alt=\"Лучше смотрится с любым браузером\" height=\"31\" width=\"88\">
             \r\n                            <a href=\"https://gnu.org\">
             \r\n                                <img style=\"border:0;width:88px;height:31px\"
             \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/gnu.png\"
             \r\n                                     alt=\"Свободное ПО нужно каждому!\" />
+            \r\n                            </a>
+            \r\n                            <a href=\"http://old-web.com\">
+            \r\n                                <img style=\"border:0;width:88px;height:31px\"
+            \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/old-web.gif\"
+            \r\n                                     alt=\"Old-Web.com - возвращаем старый Интернет и старые сайты, обсуждаем старые технологии\" />
             \r\n                            </a>
             \r\n                        </td>
             \r\n                    </tr>
@@ -195,7 +193,7 @@
             $html =  "\r\n
                 \r\n  <td bgcolor=\"#000000\" valign=\"top\">
                 \r\n                        <div class=\"title-text\">".htmlspecialchars($article_title)."</div>
-                \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
+                \r\n                        <hr class=\"title-line\" size=\"1\" noshade />
                 \r\n                        <div class=\"text\">".$this->purifier->purify($article[2])."</div>
                 \r\n                    </td>";
             if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
@@ -213,10 +211,10 @@
             $html = "
                 \r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
                 \r\n                        <div class=\"title-text\">".htmlspecialchars($about_page_title)."</div>
-                \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
+                \r\n                        <hr class=\"title-line\" size=\"1\" noshade />
                 \r\n                        <div class=\"text\">
                 \r\n                            ".$this->purifier->purify($about_page[2]);
-            $html = $html."\r\n               <h3>Контакты</h3>";
+            $html = $html."\r\n               <h3 class=\"lime-header\">Контакты</h3>";
             $query = "SELECT id, name, value FROM contacts;";
             $result = $this->db->query($query) or die("Last error: {$this->db->lastErrorMsg()}\n");
             $contacts = array();
@@ -225,7 +223,7 @@
             }
             for($i = 0; $i < count($contacts); ++$i) {
                 $html = $html."
-                \r\n                            <b>".$contacts[$i][1].":</b> ".$this->purifier->purify($contacts[$i][2])."<br>";
+                \r\n                            <b>".$this->purifier->purify($contacts[$i][1]).":</b> ".$this->purifier->purify($contacts[$i][2])."<br>";
             }
             $html = $html."
                 \r\n
@@ -244,7 +242,7 @@
             $projects = array();
             $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
                     \r\n                        <div class=\"title-text\">ПРОЕКТЫ</div>
-                    \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
+                    \r\n                        <hr class=\"title-line\" size=\"1\" noshade />
                     \r\n                        <div class=\"text\">";
             $params = "";
             while($project = $result->fetchArray()) {
@@ -286,7 +284,7 @@
             if($i > 0 && $i <= 3) {
               $html = "
                     \r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
-                    \r\n                        <div class=\"title-text\">".htmlspecialchars($page_title)."</div>
+                    \r\n                        <div class=\"title-line\">".htmlspecialchars($page_title)."</div>
                     \r\n                        <hr class=\"accent-color\" size=\"1\" />
                     \r\n                        <div class=\"text\">
             \r\n				".$this->purifier->purify($page[2])."
@@ -296,7 +294,7 @@
                 $html = "
                     \r\n                    <td bgcolor=\"#000000\" valign=\"top\">
                     \r\n                        <div class=\"title-text\">ОШИБКА</div>
-                    \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
+                    \r\n                        <hr class=\"title-line\" size=\"1\" noshade />
                     \r\n                        <div class=\"text\">
                     \r\n                           Такой страницы не существует.
                     \r\n                        </div>
@@ -312,7 +310,7 @@
         public function showHardwarePage() {
             $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
                          \r\n                        <div class=\"title-text\">ОБОРУДОВАНИЕ</div>
-                         \r\n                        <hr class=\"accent-color\" size=\"1\" noshade />
+                         \r\n                        <hr class=\"title-line\" size=\"1\" noshade />
                          \r\n                        <div class=\"text\">";
                          
             $query = "SELECT id, name, specs FROM hardware WHERE type = 0;";
@@ -334,14 +332,14 @@
             while($laptop = $result->fetchArray()) {
                     array_push($laptops, $laptop);
             }
-            $html = $html."\r\n                          <h3>Ноутбуки</h3>";
+            $html = $html."\r\n                          <h3 class=\"lime-header\">Ноутбуки</h3>";
             for($i = 0; $i < count($laptops); ++$i) {
                     $html = $html."
                     \r\n                            <h4>".htmlspecialchars($laptops[$i][1])."</h4>
                     \r\n                            ".$this->purifier->purify($laptops[$i][2]);
             }
             
-            $html = $html."\r\n                          <h3>Смартфоны</h3>";
+            $html = $html."\r\n                          <h3 class=\"magenta-header\">Смартфоны</h3>";
             $query = "SELECT id, name, specs FROM hardware WHERE type = 2;";
             $result = $this->db->query($query) or die("Last error: {$this->db->lastErrorMsg()}\n");
             $phones = array();
@@ -372,7 +370,7 @@
                 $banners = array();
                 $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
                          \r\n                        <div class=\"title-text\">БАННЕР ДЛЯ САЙТА</div>
-                         \r\n                        <hr class=\"accent-color\" size=\"1\" noshade/>
+                         \r\n                        <hr class=\"title-line\" size=\"1\" noshade/>
                          \r\n                        <div class=\"text\">
                          \r\n                        Прикрепите любой из предложенных баннеров на свой ретросайт, так нас проще будет найти.
                          \r\n<p><div class=\"warning-banner\"><b>ВНИМАНИЕ!</b> Для показа баннеров на современных браузерах советуем отключить блокировщик рекламы или добавить сайт <b>".web1_subdomain."</b> в исключения блокировки.</div>";
@@ -384,12 +382,9 @@
                     \r\n                            <h4>".htmlspecialchars($banners[$i][1])."</h4>
                     \r\n                            <div align=\"center\">
                     \r\n                                <img src=\"".$this->cms->protocol.htmlspecialchars($banners[$i][2])."\" width=\"88\" height=\"31\" alt=\"\">
-                    \r\n                                <br>
-                    \r\n                                <pre class=\"full-code\">
-&lt;a href=\"".$this->cms->protocol.web1_subdomain."\"&gt;
-    &lt;img src=\"http://".$banners[$i][2]."\"
-     width=\"88\" height=\"31\" border=\"0\"/&gt;
-&lt;/a&gt;</pre>
+                    \r\n                                <p>
+                    \r\n                                <textarea rows=\"4\" cols=\"40\" readonly class=\"full-code\">
+&lt;a href=\"".$this->cms->protocol.web1_subdomain."\"&gt;&lt;img src=\"http://".$banners[$i][2]."\" width=\"88\" height=\"31\" border=\"0\"/&gt;&lt;/a&gt;</textarea>
                                                     </div>
                     \r\n                            ";
                 }
@@ -450,7 +445,7 @@
                         \r\n			    <div class=\"left-sidebar\" style=\"background-image: url(images/cells/ny_countdown.gif); height: 120px\">
                         \r\n                        <div style=\"height: 20px\">
                         \r\n                            <div class=\"title-text\" style=\"color: white;\">ДО НОВОГО ГОДА</div>
-                        \r\n                            <hr class=\"accent-color cell\" size=\"1\" noshade />
+                        \r\n                            <hr class=\"title-line cell\" size=\"1\" noshade />
                         \r\n                            <div class=\"text\" style=\"margin-bottom: 0px; text-align: center\">
                         \r\n                                    <span style=\"font-size: 22pt; color: #4fff4f\"><b>".$new_year_countdown."</b></span>
                         \r\n					                <br><span>дн.</span>
@@ -731,7 +726,7 @@
 	    $html = "
                     \r\n                    <td bgcolor=\"#7a1a1a\" valign=\"top\" rowspan=\"3\">
                     \r\n                        <div class=\"title-text\" style=\"color: white\">ОБРАТНЫЙ ОТСЧЁТ ДО НОВОГО ГОДА</div>
-                    \r\n                        <hr class=\"accent-color\" style=\"color: #00ff00\" size=\"1\" noshade />
+                    \r\n                        <hr class=\"title-line\" size=\"1\" noshade />
                     \r\n                        <div class=\"text\">
                     \r\n                        ".$page."
                     \r\n                        </div>
