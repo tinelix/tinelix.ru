@@ -40,7 +40,7 @@
 			$this->purifier = new \HTMLPurifier($config);	
 			
 			$this->template = new DefaultTemplate($this->db, $this);
-			$this->pages = new PagesCollection($this->db, $this);
+			$this->pages = new PagesCollection($this->db, $this->priv_db, $this);
 		}
 
 		public static function getFullFormattedMskTime() {
@@ -55,16 +55,16 @@
 		}
 
 		public static function getFormattedDateTime($timezone = 'Europe/Moscow', $pattern, $day_of_week = true) {
-                        $current_time = new \DateTime('now', new \DateTimeZone($timezone));
+			$current_time = new \DateTime('now', new \DateTimeZone($timezone));
 			$current_time->setTimestamp($current_time->getTimestamp() + (3 * 60 * 60));
-                        $dw = date("w", $current_time->getTimestamp());
-                        $format_dt = $current_time->format($pattern);
-                        $dws = array('Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота');
+			$dw = date("w", $current_time->getTimestamp());
+			$format_dt = $current_time->format($pattern);
+			$dws = array('Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота');
 			if($day_of_week)
-                        	return $dws[$dw].", ".$format_dt;
+				return $dws[$dw].", ".$format_dt;
 			else
 				return $format_dt;
-                }
+		}
 
 
 		public static function getCurrentYear() {

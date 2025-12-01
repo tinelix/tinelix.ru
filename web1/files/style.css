@@ -187,3 +187,25 @@ table {
 .left-sidebar {
     margin-top: 4px;
 }
+
+
+.advent {
+    background-color: #ff5f00;
+    padding: 8px;
+}
+
+.advent th {
+    font-size: 12pt;
+}
+
+.advent a {
+    color: #ffff00;
+    clear: both;
+}
+
+.advent h3 {
+    margin: 0px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    color: white;
+}
