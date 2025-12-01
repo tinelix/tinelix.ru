@@ -675,7 +675,7 @@ class PagesCollection {
             <form action=\"newyear.php\" method=\"post\">
             <p>
             <div style=\"text-align: center\">
-            Ваш город<sup>*</sup>:
+            Ваш город:
             <select style=\"margin-left: 8px\" name=\"region\" id=\"ny_region\">
             <option disabled>--- Российская Федерация ---</option>
             <option value=\"kaliningrad\">Калининград</option>
@@ -720,7 +720,7 @@ class PagesCollection {
             else
                 $page = $page."<noscript> <input type=\"submit\" value=\"Показать\"></noscript>";
 
-            $page = $page."<h5>* список не полный и может обновляться в ближайшее время</h5>
+            $page = $page."
             </div>
             </form>".$this->getNewYearFunFactsAdvent();
 
