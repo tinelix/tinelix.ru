@@ -763,7 +763,10 @@ class PagesCollection {
             $author = $letter[3];
             $source = $letter[4];
 
-            return "<p><div class=\"advent\">
+            if($letter == null)
+                return "";
+
+            $html = "<p><div class=\"advent\">
                         <table>
                             <tbody>
                                 <tr>
@@ -772,15 +775,21 @@ class PagesCollection {
                                     </td>
                                     <td>
                                         <h3>Новогодний адвент</h3>
-                                        <b>Рубрика: </b>".$category."<p>".$text."<p style=\"font-size: 9pt\"></i>
+                                        <b>Рубрика: </b>".$category."<p>".$text."
                                     </td>
-                                </tr>
+                                </tr>";
+
+            if($author != null || $source != null)
+                $html .= "
                                 <tr>
-                                    <td colspan=\"2\"><i>Источник: ".$author.($source == null ? "" : ", ".$source)."</td>
+                                    <td colspan=\"2\"><i>Источник: ".($author == null ? "" : $author).($source == null ? "" : ", ".$source)."</td>
                                 </tr>
-                            </tbody>
-                        </table>
-                ";
+                        ";
+
+            $html .= "      </tbody>
+                        </table>";
+
+            return $html;
         }
     }
 }
