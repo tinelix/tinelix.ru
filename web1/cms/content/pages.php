@@ -446,26 +446,37 @@ class PagesCollection {
             $new_year_countdown_sec = 0;
         }
 
-        if($new_year_countdown <= 100) {
+        if($new_year_countdown <= 100 && $new_year_countdown >= 0) {
             $html = "
             \r\n			    <div class=\"left-sidebar\" style=\"background-image: url(images/cells/ny_countdown.gif); height: 120px\">
             \r\n                        <div style=\"height: 20px\">
             \r\n                            <div class=\"title-text\" style=\"color: white;\">ДО НОВОГО ГОДА</div>
             \r\n                            <hr class=\"title-line cell\" size=\"1\" noshade />
             \r\n                            <div class=\"text\" style=\"margin-bottom: 0px; text-align: center\">
-            \r\n                                    <span style=\"font-size: 22pt; color: #4fff4f\"><b>".$new_year_countdown."</b></span>
-            \r\n					                <br><span>дн.</span>
+            ";
+
+            if ($new_year_countdown == 0) {
+                $html .= "
+                \r\n					                <span style=\"font-size: 22pt; color: #4fff4f\"><b>совсем немного</b></span>
+                ";
+            } else {
+                $html .= "
+                \r\n                                    <span style=\"font-size: 22pt; color: #4fff4f\"><b>".$new_year_countdown."</b></span>
+                \r\n					                <br><span>дн.</span>
+                ";
+            }
+            $html .= "
             \r\n							<p style=\"margin-top: 4px; font-size: 10pt;\"><a href=\"".$this->cms->protocol.web1_subdomain."/newyear.php\">Подробнее >>></a>
             \r\n                            </div>
             \r\n                        </div>
             \r\n			    </div>
             \r\n
             ";
-        if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
-            echo mb_convert_encoding($html, "windows-1251", "utf-8");
-        } else {
-            echo $html;
-        }
+            if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
+                echo mb_convert_encoding($html, "windows-1251", "utf-8");
+            } else {
+                echo $html;
+            }
         }
     }
 
