@@ -457,7 +457,7 @@ class PagesCollection {
 
             if ($new_year_countdown == 0) {
                 $html .= "
-                \r\n					                <span style=\"font-size: 14pt; color: #4fff4f\"><b>совсем немного</b></span>
+                \r\n					                <span style=\"font-size: 12pt; color: #4fff4f\"><b>совсем немного</b></span>
                 ";
             } else {
                 $html .= "
