@@ -619,7 +619,7 @@ class PagesCollection {
         $new_year = strtotime(($year + 1)."-01-01");
         $new_year_countdown = floor((-$current_time - $tz_offset + $new_year) / (60 * 60 * 24));
 
-        if($new_year_countdown >= 0) {
+        if($new_year_countdown >= 0 && $new_year_countdown_h >= 0 && $new_year_countdown_min >= 0 && $new_year_countdown_sec >= 0) {
             $new_year_countdown_h = floor((-$current_time - $tz_offset + $new_year) / (60 * 60)) % 24;
             $new_year_countdown_min = floor((-$current_time - $tz_offset  + $new_year) / 60) % 60;
             $new_year_countdown_sec = floor(-$current_time - $tz_offset + $new_year) % 60;
@@ -724,9 +724,11 @@ class PagesCollection {
             </div>
             </form>".$this->getNewYearFunFactsAdvent();
 
+        } else if($new_year_countdown <= -20) {
+            $page = "<h3>Не трогай, это на Новый год!</h3>Мы рекомендуем поиграть в <a href=\"https://vk.com/elochkagame\">Ёлочку</a><sup>*</sup> с мини-играми, полянками и союзами.
+            Она работает круглый год и требует особого внимания к игрокам.<h5>* не является прямой рекламой</h5>";
         } else {
-            $page = "<h3>Не трогай, это на Новый год!</h3><p>А пока вы сейчас ждете, советую поиграть в <a href=\"https://vk.com/elochkagame\">Ёлочку</a><sup>*</sup>.
-            Она работает круглый год.<h5>* не является прямой рекламой.</h5>";
+            $page = "<h3>С наступившим Новым годом!</h3>Мы для вас уже кое-что приготовили. Следите в нашем <a href=\"https://t.me/tinelix\">Telegram-канале</a>.";
         }
 
         $html = "
