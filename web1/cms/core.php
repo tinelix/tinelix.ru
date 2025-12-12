@@ -37,7 +37,16 @@
 				$this->encoding = "cp1251";
 			
 			$config = \HTMLPurifier_Config::createDefault();
-			$this->purifier = new \HTMLPurifier($config);	
+			$config->set('HTML.AllowedAttributes',
+						 '*.style, *.class, a.href, a.name, p.align, table.rules, table.cellpadding, '
+						 .'table.cellspacing,table.align, table.width, table.height, table.border, '
+						 .'table.bordercolor, table.frame, td.align, td.rowspan, td.width, td.height, '
+						 .'td.colspan, img.width, img.height, img.alt, '
+						 .'img.src');
+			$config->set('URI.DisableExternal', false);
+			$config->set('Attr.EnableID', true);
+
+			$this->purifier = new \HTMLPurifier($config);
 			
 			$this->template = new DefaultTemplate($this->db, $this);
 			$this->pages = new PagesCollection($this->db, $this->priv_db, $this);

@@ -776,7 +776,7 @@ class PagesCollection {
             $author = $letter[3];
             $source = $letter[4];
 
-            if($letter == null)
+            if($letter == null || $text == null)
                 return "";
 
             $html = "<p><div class=\"advent\">
@@ -788,7 +788,12 @@ class PagesCollection {
                                     </td>
                                     <td>
                                         <h3>Новогодний адвент</h3>
-                                        <b>Рубрика: </b>".$category."<p>".$text."
+            ";
+
+            if($category != null)
+                $html .= "                   <b>Рубрика: </b>".$category."<p>";
+
+            $html .= $text."
                                     </td>
                                 </tr>";
 
