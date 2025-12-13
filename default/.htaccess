@@ -1,4 +1,0 @@
-# RedirectMatch 503 ^/(?!503\.html)
-ErrorDocument 503 /503.html
-ErrorDocument 404 /404.html
-ErrorDocument 403 /403.html
