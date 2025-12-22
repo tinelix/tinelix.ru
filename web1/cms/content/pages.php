@@ -810,5 +810,58 @@ class PagesCollection {
             return $html;
         }
     }
+
+    function showBirthdayCelebrations() {
+        $query = "SELECT id, text, author, anonymous FROM bd_celebrations;";
+        $result = $this->priv_db->query($query) or die("Last error: {$this->priv_db->lastErrorMsg()}\n");
+        $celebrations = array();
+
+        while($celebration = $result->fetchArray()) {
+            array_push($celebrations, $celebration);
+        }
+
+        $page = "<b>6 января 2026 года</b> автору Дзен-канала Tinelix исполняется 22 года.<p>В этот день рождения присоединяется его друг с ником CompTester, которому исполняется 21 год.<h3 class=\"cyan-header\">Доска поздравлений</h3><p>Подробнее о том, как попасть в доску поздравлений, можно узнать в нашем <a href=\"https://t.me/tinelix\">Telegram-канале</a>.<P>";
+
+        if(count($celebrations) === 0)
+            $page .= "<I>Пока ждем поздравлений...</I>";
+
+        for($i = 0; $i < count($celebrations); ++$i) {
+            $page .= "<div class=\"";
+
+            switch($i % 3) {
+                case 0:
+                    $page .= "red-birthday-frame";
+                    break;
+                case 1:
+                    $page .= "green-birthday-frame";
+                    break;
+                case 2:
+                    $page .= "blue-birthday-frame";
+                    break;
+            }
+
+            $page .= "\">";
+            $page .= htmlspecialchars($celebrations[$i][1])."<P class=\"author_info\"><I>";
+            if($celebrations[$i][3])
+                $page .= "Анонимус";
+            else
+                $page .= htmlspecialchars($celebrations[$i][2]);
+            $page .= "</I></div>";
+
+            if($i < count($celebrations) - 1) {
+                $page .= "<br>";
+            }
+        }
+
+        $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
+        \r\n                        <div class=\"title-text\">22-Й ДЕНЬ РОЖДЕНИЯ ДМИТРИЯ ТРЕТЬЯКОВА</div>
+        \r\n                        <hr class=\"title-line\" size=\"1\" noshade/><div class=\"text\">".$page."</div>";
+
+        if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
+        }
+    }
 }
 ?>

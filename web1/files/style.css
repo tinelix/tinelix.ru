@@ -37,6 +37,9 @@ body {
     font-size: 8pt;
 }
 
+backquote {
+    font-size: 12pt;
+}
 .subheader {
     background-color: #0000e8;
     font-size: 9pt;
@@ -87,6 +90,11 @@ h1, h2, h3 {
 
 h3 a {
     color: black;
+    text-decoration: none;
+}
+
+h4 a {
+    color: white;
     text-decoration: none;
 }
 
@@ -142,6 +150,48 @@ h3 a {
 
 .orange-header a {
     color: #000000;
+}
+
+.red-birthday-frame {
+    border: solid #ff0000 1px;
+    background: #800000 url(images/birthday/celebration_bg_001.gif) no-repeat;
+    background-position: right top;
+    padding: 8px;
+}
+
+.green-birthday-frame {
+    border: solid #00ff00 1px;
+    background: #008000 url(images/birthday/celebration_bg_002.gif) no-repeat;
+    background-position: right top;
+    padding: 8px;
+}
+
+.blue-birthday-frame {
+    border: solid #4040ff 1px;
+    background: #000080 url(images/birthday/celebration_bg_003.gif) no-repeat;
+    background-position: right top;
+    padding: 8px;
+}
+
+.red-birthday-frame .author_info {
+    margin-top: 4px;
+    margin-bottom: 2px;
+    font-size: 10pt;
+    color: #ff8080;
+}
+
+.green-birthday-frame .author_info {
+    margin-top: 4px;
+    margin-bottom: 2px;
+    font-size: 10pt;
+    color: #80ff80;
+}
+
+.blue-birthday-frame .author_info {
+    margin-top: 4px;
+    margin-bottom: 2px;
+    font-size: 10pt;
+    color: #a0a0ff;
 }
 
 table {
