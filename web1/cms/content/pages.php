@@ -457,7 +457,7 @@ class PagesCollection {
 
             if ($new_year_countdown == 0) {
                 $html .= "
-                \r\n					                <span style=\"font-size: 12pt; color: #4fff4f\"><b>совсем немного</b></span>
+                \r\n					                <span style=\"font-size: 16pt; color: #4fff4f\"><b>совсем немного</b></span>
                 ";
             } else {
                 $html .= "
@@ -784,14 +784,14 @@ class PagesCollection {
                             <tbody>
                                 <tr>
                                     <td>
-                                        <img style=\"float: left; padding-right: 8px\" src=\"".$this->cms->protocol.web1_subdomain."/images/newyear/candycanes_dance.gif\" />
+                                        <img style=\"float: left; padding-right: 8px\" src=\"".htmlspecialchars($this->cms->protocol.web1_subdomain)."/images/newyear/candycanes_dance.gif\" />
                                     </td>
                                     <td>
                                         <h3>Новогодний адвент</h3>
             ";
 
             if($category != null)
-                $html .= "                   <b>Рубрика: </b>".$category."<p>";
+                $html .= "                   <b>Рубрика: </b>".htmlspecialchars($category)."<p>";
 
             $html .= $text."
                                     </td>
@@ -800,7 +800,7 @@ class PagesCollection {
             if($author != null || $source != null)
                 $html .= "
                                 <tr>
-                                    <td colspan=\"2\"><i>Источник: ".($author == null ? "" : $author).($source == null ? "" : ", ".$source)."</td>
+                                    <td colspan=\"2\"><i>Источник: ".($author == null ? "" : htmlspecialchars($author)).($source == null ? "" : ", ".htmlspecialchars($source))."</td>
                                 </tr>
                         ";
 
@@ -812,6 +812,14 @@ class PagesCollection {
     }
 
     function showBirthdayCelebrations() {
+
+        $current_time = time();
+
+        $tz_offset = 3 * 60 * 60;
+
+        $birthday = strtotime("2026-01-06");
+        $birthday_countdown = floor((-$current_time - $tz_offset + $birthday) / (60 * 60 * 24));
+
         $query = "SELECT id, text, author, anonymous FROM bd_celebrations;";
         $result = $this->priv_db->query($query) or die("Last error: {$this->priv_db->lastErrorMsg()}\n");
         $celebrations = array();
@@ -822,35 +830,41 @@ class PagesCollection {
 
         $page = "<b>6 января 2026 года</b> автору Дзен-канала Tinelix исполняется 22 года.<p>В этот день рождения присоединяется его друг с ником CompTester, которому исполняется 21 год.<h3 class=\"cyan-header\">Доска поздравлений</h3><p>Подробнее о том, как попасть в доску поздравлений, можно узнать в нашем <a href=\"https://t.me/tinelix\">Telegram-канале</a>.<P>";
 
-        if(count($celebrations) === 0)
-            $page .= "<I>Пока ждем поздравлений...</I>";
+        if($birthday_countdown <= 3 && $birthday_countdown >= -4) {
+            if(count($celebrations) === 0)
+                $page .= "<I>Пока ждем поздравлений...</I>";
 
-        for($i = 0; $i < count($celebrations); ++$i) {
-            $page .= "<div class=\"";
+            for($i = 0; $i < count($celebrations); ++$i) {
+                $page .= "<div class=\"";
 
-            switch($i % 3) {
-                case 0:
-                    $page .= "red-birthday-frame";
-                    break;
-                case 1:
-                    $page .= "green-birthday-frame";
-                    break;
-                case 2:
-                    $page .= "blue-birthday-frame";
-                    break;
+                switch($i % 3) {
+                    case 0:
+                        $page .= "red-birthday-frame";
+                        break;
+                    case 1:
+                        $page .= "green-birthday-frame";
+                        break;
+                    case 2:
+                        $page .= "blue-birthday-frame";
+                        break;
+                }
+
+                $page .= "\">";
+                $page .= htmlspecialchars($celebrations[$i][1])."<P class=\"author_info\"><I>";
+                if($celebrations[$i][3])
+                    $page .= "Анонимус";
+                else
+                    $page .= htmlspecialchars($celebrations[$i][2]);
+                $page .= "</I></div>";
+
+                if($i < count($celebrations) - 1) {
+                    $page .= "<br>";
+                }
             }
-
-            $page .= "\">";
-            $page .= htmlspecialchars($celebrations[$i][1])."<P class=\"author_info\"><I>";
-            if($celebrations[$i][3])
-                $page .= "Анонимус";
-            else
-                $page .= htmlspecialchars($celebrations[$i][2]);
-            $page .= "</I></div>";
-
-            if($i < count($celebrations) - 1) {
-                $page .= "<br>";
-            }
+        } else if($birthday_countdown > 0){
+            $page = "<h3>Обратный отсчет</h3>До дня рождения осталось <b>".$birthday_countdown."</b> дн.";
+        } else {
+            $page = "<h3>Обратный отсчет</h3>Увидимся в 2027-м году!";
         }
 
         $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
