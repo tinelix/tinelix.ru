@@ -141,7 +141,7 @@ class PagesCollection {
                     \r\n        <a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2]).$params."\" class=\"big-icon-center big-icon-".htmlspecialchars($menu_items[$i][3])."\"></a>
                     \r\n    </td>";
                 }
-            } else {
+            } else if(htmlspecialchars($menu_items[$i][3]) !== ""){
                 $html = $html."
                 \r\n        <a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2].$params)."\" class=\"big-icon big-icon-".htmlspecialchars($menu_items[$i][3])."\"></a>
                 \r\n    </td>";
@@ -800,7 +800,7 @@ class PagesCollection {
             if($author != null || $source != null)
                 $html .= "
                                 <tr>
-                                    <td colspan=\"2\"><i>Источник: ".($author == null ? "" : htmlspecialchars($author)).($source == null ? "" : ", ".htmlspecialchars($source))."</td>
+                                    <td colspan=\"2\"><i>Источник: ".($author == null ? "" : htmlspecialchars($author)).($source == null ? "" : ", ".$source)."</td>
                                 </tr>
                         ";
 

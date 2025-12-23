@@ -38,8 +38,7 @@
 			
 			$config = \HTMLPurifier_Config::createDefault();
 			$config->set('HTML.AllowedAttributes',
-						 '*.style, *.class, a.href, a.name, p.align, table.rules, table.cellpadding, '
-						 .'table.cellspacing, table.align, table.width, table.border, '
+						 '*.style, *.class, a.href, a.name, p.align, table.rules, table.cellpadding, table.cellspacing, table.align, table.width, table.border, '
 						 .'table.border, table.frame, td.align, td.rowspan, td.width, td.height, '
 						 .'td.colspan, img.width, img.height, img.alt, '
 						 .'img.src');
