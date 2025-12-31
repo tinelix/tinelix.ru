@@ -10,7 +10,7 @@ function updateNewYearCountdown() {
         		var sec_text  = document.getElementById("ny_countdown_sec");
 
 			var currDate = new Date();
-			var newYearDate = new Date(currDate.getFullYear() + 1, 0, 1);
+			var newYearDate = new Date(2026, 0, 1);
 			
 			var tzOffset = currDate.getTimezoneOffset();
 			var selectedTzOffset = 0;
