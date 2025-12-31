@@ -22,7 +22,7 @@ function updateNewYearCountdown() {
 
 			if(region_list.value == "paris") {
 			    selectedTzOffset = -1 * 60;
-			} else if(region_list.value == "kiev" || region_list.value == "kaliningrad") {
+			} else if(region_list.value == "kiev" || region_list.value == "kaliningrad" || region_list.value == "helsinki") {
 			    selectedTzOffset = -2 * 60;
 			} else if(region_list.value == "minsk" || region_list.value == "sevastopol" || region_list.value == "donetsk" || region_list.value == "lugansk" || region_list.value == "moscow" || region_list.value == "petersburg" || region_list.value == "n_novgorod") {
 			    selectedTzOffset = -3 * 60;
