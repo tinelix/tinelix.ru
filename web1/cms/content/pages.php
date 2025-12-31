@@ -505,7 +505,7 @@ class PagesCollection {
                 case "helsinki":
                     $l18n_tz_name = "Время в Хельсинки: ";
                     $tz_name = "Europe/Helsinki";
-                    $tz_offset = 1 * 60 * 60;
+                    $tz_offset = 2 * 60 * 60;
                     break;
                 case "kiev":
                     $l18n_tz_name = "Киевское время: ";

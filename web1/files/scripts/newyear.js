@@ -20,7 +20,7 @@ function updateNewYearCountdown() {
 			    return;
 			}
 
-			if(region_list.value == "paris" || region_list.value == "helsinki") {
+			if(region_list.value == "paris") {
 			    selectedTzOffset = -1 * 60;
 			} else if(region_list.value == "kiev" || region_list.value == "kaliningrad") {
 			    selectedTzOffset = -2 * 60;
@@ -50,10 +50,17 @@ function updateNewYearCountdown() {
 			var countdownMin  = Math.floor(countdownTime / (1000 * 60)) % 60;
 			var countdownSec  = Math.floor(countdownTime / 1000) % 60;
 
-			days_text.innerHTML = "" + countdownDays;
-			hr_text.innerHTML   = "" + countdownHr;
-			min_text.innerHTML  = "" + countdownMin;
-			sec_text.innerHTML  = "" + countdownSec;	
+			if(countdownDays >= 0) {
+				days_text.innerHTML = "" + countdownDays;
+				hr_text.innerHTML   = "" + countdownHr;
+				min_text.innerHTML  = "" + countdownMin;
+				sec_text.innerHTML  = "" + countdownSec;	
+			} else {
+				days_text.innerHTML = "0";
+				hr_text.innerHTML   = "0";
+				min_text.innerHTML  = "0";
+				sec_text.innerHTML  = "0";
+			}
 		}, 500
 	);
 }
