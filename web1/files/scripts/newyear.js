@@ -44,7 +44,7 @@ function updateNewYearCountdown() {
 			    selectedTzOffset = -11 * 60;
 			}
 
-			var countdownTime = Math.abs(currDate.getTime() - newYearDate.getTime()) + ((-tzOffset + selectedTzOffset) * 60 * 1000);
+			var countdownTime = (currDate.getTime() - newYearDate.getTime()) + ((-tzOffset + selectedTzOffset) * 60 * 1000);
 			var countdownDays = Math.floor(countdownTime / (1000 * 60 * 60 * 24));
 			var countdownHr   = Math.floor(countdownTime / (1000 * 60 * 60)) % 24;
 			var countdownMin  = Math.floor(countdownTime / (1000 * 60)) % 60;
