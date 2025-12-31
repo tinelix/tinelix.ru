@@ -20,7 +20,7 @@ function updateNewYearCountdown() {
 			    return;
 			}
 
-			if(region_list.value == "paris") {
+			if(region_list.value == "paris" || region_list.value == "berlin") {
 			    selectedTzOffset = -1 * 60;
 			} else if(region_list.value == "kiev" || region_list.value == "kaliningrad" || region_list.value == "helsinki") {
 			    selectedTzOffset = -2 * 60;
