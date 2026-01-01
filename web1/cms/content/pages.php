@@ -439,11 +439,6 @@ class PagesCollection {
             $new_year_countdown_h = floor((-$current_time - $msk + $new_year) / (60 * 60)) % 24;
             $new_year_countdown_min = floor((-$current_time - $msk  + $new_year) / 60) % 60;
             $new_year_countdown_sec = floor(-$current_time - $msk + $new_year) % 60;
-        } else {
-            $new_year_countdown = 0;
-            $new_year_countdown_h = 0;
-            $new_year_countdown_min = 0;
-            $new_year_countdown_sec = 0;
         }
 
         if($new_year_countdown <= 100 && $new_year_countdown >= 0) {
@@ -634,11 +629,6 @@ class PagesCollection {
             $new_year_countdown_h = floor((-$current_time - $tz_offset + $new_year) / (60 * 60)) % 24;
             $new_year_countdown_min = floor((-$current_time - $tz_offset  + $new_year) / 60) % 60;
             $new_year_countdown_sec = floor(-$current_time - $tz_offset + $new_year) % 60;
-        } else {
-            $new_year_countdown = 0;
-            $new_year_countdown_h = 0;
-            $new_year_countdown_min = 0;
-            $new_year_countdown_sec = 0;
         }
 
         if($new_year_countdown <= 100 && $new_year_countdown >= 0) {
@@ -736,10 +726,14 @@ class PagesCollection {
             </form>".$this->getNewYearFunFactsAdvent();
 
         } else if($new_year_countdown <= -20) {
-            $page = "<h3>Не трогай, это на Новый год!</h3>Мы рекомендуем поиграть в <a href=\"https://vk.com/elochkagame\">Ёлочку</a><sup>*</sup> с мини-играми, полянками и союзами.
-            Она работает круглый год и требует особого внимания к игрокам.<h5>* не является прямой рекламой</h5>";
+            $page = "<h3 style=\"background-color: transparent; color: #ffffff\">Не трогай, это на Новый год!</h3>Вместо того, чтобы ждать 365 дней, мы рекомендуем поиграть в <a href=\"https://vk.com/elochkagame\">Ёлочку</a><sup>*</sup> с мини-играми, полянками и союзами.
+            Она работает круглый год, при этом требует особого внимания к игрокам.<p>Важно помнить, что всё самое интересное ещё впереди.<h5>* не является прямой рекламой</h5>";
         } else {
-            $page = "<h3>С наступившим Новым годом!</h3>Мы для вас уже кое-что приготовили. Следите в нашем <a href=\"https://t.me/tinelix\">Telegram-канале</a>.";
+            $new_year_countdown = 0;
+            $new_year_countdown_h = 0;
+            $new_year_countdown_min = 0;
+            $new_year_countdown_sec = 0;
+            $page = "<h3 style=\"background-color: transparent; color: #ffffff\">С наступившим Новым годом!</h3>Мы для вас уже приготовили подарки. Следите в нашем <a href=\"https://t.me/tinelix\">Telegram-канале</a>.";
         }
 
         $html = "
