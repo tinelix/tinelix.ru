@@ -170,7 +170,7 @@
             \r\n                <tbody>
             \r\n                    <tr>
             \r\n                        <td align=\"center\">
-            \r\n                            Copyright © 2023-2025 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
+            \r\n                            Copyright © 2023-2026 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
             \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">Исходный код сайта</a>
             \r\n                            <p>
             \r\n                            <img style=\"border:0;\"
