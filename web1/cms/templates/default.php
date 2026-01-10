@@ -78,7 +78,7 @@
             \r\n                    <td>
             ";
 
-        if(($month == 11 && $day_of_month >= 27) || $month == 12 || ($month == 1 && $day_of_month <= 14)) {
+        if(($month == 11 && $day_of_month >= 27) || $month == 12 || ($month == 1 && $day_of_month <= 9)) {
             $html = $html."<img src=\"".$this->cms->protocol.web1_subdomain."/images/header/header_ny.gif\" alt=\"Tinelix\">";
         } else {
             $html = $html."<img src=\"".$this->cms->protocol.web1_subdomain."/images/header/header.gif\" alt=\"Tinelix\">";
@@ -140,7 +140,7 @@
                     $menu = $menu."\r\n<a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2].$params)."\">".htmlspecialchars($menu_items[$i][1])."</a>";
             }
             $html = "
-                \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#000000\">
+                \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#1a1a1a\">
                 \r\n            <tbody>
                 \r\n                <tr>
                 \r\n                    <td width=\"150\" valign=\"top\">

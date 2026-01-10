@@ -44,7 +44,8 @@
 						 .'img.src');
 			$config->set('URI.DisableExternal', false);
 			$config->set('Attr.EnableID', true);
-
+			$config->set('HTML.Allowed', 'h1, h2, h3, h4, h5, h6, img, table, tbody, tr, td, p, br, b, i, a');
+			
 			$this->purifier = new \HTMLPurifier($config);
 			
 			$this->template = new DefaultTemplate($this->db, $this);
@@ -83,7 +84,7 @@
 		}
 
 		public static function getLastUpdatedDate() {
-			return "26.11.2025";
+			return "10.01.2026";
 		}
 		
 		public function closeDatabase() {

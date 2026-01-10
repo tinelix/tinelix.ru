@@ -290,8 +290,8 @@ class PagesCollection {
         if($i > 0 && $i <= 3) {
             $html = "
             \r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
-            \r\n                        <div class=\"title-line\">".htmlspecialchars($page_title)."</div>
-            \r\n                        <hr class=\"accent-color\" size=\"1\" />
+            \r\n                        <div class=\"title-text\">".htmlspecialchars($page_title)."</div>
+            \r\n                        <hr class=\"title-line\" size=\"1\" noshade />
             \r\n                        <div class=\"text\">
             \r\n				".$this->purifier->purify($page[2])."
             \r\n                        </div>
@@ -814,7 +814,7 @@ class PagesCollection {
         $birthday = strtotime("2026-01-06");
         $birthday_countdown = floor((-$current_time - $tz_offset + $birthday) / (60 * 60 * 24));
 
-        $query = "SELECT id, text, author, anonymous FROM bd_celebrations;";
+        $query = "SELECT id, text, author, anonymous, url FROM bd_celebrations ORDER BY id DESC;";
         $result = $this->priv_db->query($query) or die("Last error: {$this->priv_db->lastErrorMsg()}\n");
         $celebrations = array();
 
@@ -822,9 +822,9 @@ class PagesCollection {
             array_push($celebrations, $celebration);
         }
 
-        $page = "<b>6 января 2026 года</b> автору Дзен-канала Tinelix исполняется 22 года.<p>В этот день рождения присоединяется его друг с ником CompTester, которому исполняется 21 год.<h3 class=\"cyan-header\">Доска поздравлений</h3><p>Подробнее о том, как попасть в доску поздравлений, можно узнать в нашем <a href=\"https://t.me/tinelix\">Telegram-канале</a>.<P>";
+        $page = "<b>6 января 2026 года</b> автору Дзен-канала Tinelix и разработчику Дмитрию Третьякову исполнилось 22 года.<p>В этот день рождения присоединился его друг с ником CompTester, которому исполнилось 21 год.<h3 class=\"cyan-header\">Доска поздравлений</h3><p>Подробнее о том, как попасть в доску поздравлений, можно узнать в нашем <a href=\"https://t.me/tinelix\">Telegram-канале</a>.<P>Поздравления принимаются до 8 января 10:00 МСК.<P>";
 
-        if($birthday_countdown <= 3 && $birthday_countdown >= -4) {
+        if($birthday_countdown <= 3 && $birthday_countdown >= -3) {
             if(count($celebrations) === 0)
                 $page .= "<I>Пока ждем поздравлений...</I>";
 
@@ -844,15 +844,19 @@ class PagesCollection {
                 }
 
                 $page .= "\">";
-                $page .= htmlspecialchars($celebrations[$i][1])."<P class=\"author_info\"><I>";
-                if($celebrations[$i][3])
-                    $page .= "Анонимус";
+                $page .= $this->purifier->purify($celebrations[$i][1])."<P class=\"author_info\"><I>";
+                if($celebrations[$i][3] === "true")
+                    $page .= "Отправлено анонимно";
                 else
                     $page .= htmlspecialchars($celebrations[$i][2]);
+
+		//if($celebrations[$i][4] != null)
+		    //$page .= "<a href=\"".$this->cms->protocol.web1_subdomain.$celebrations[$i][4]."\">".$celebrations[$i][$4];
+		
                 $page .= "</I></div>";
 
                 if($i < count($celebrations) - 1) {
-                    $page .= "<br>";
+                    $page .= "<p style=\"margin-top: 4px\">";
                 }
             }
         } else if($birthday_countdown > 0){
