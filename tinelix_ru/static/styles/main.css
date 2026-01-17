@@ -1,0 +1,101 @@
+body {
+    font-family: Verdana, Tahoma, Arial;
+    font-size: 10pt;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin-top: 8px;
+}
+
+input {
+    background-color: #202020;
+    background: #202020;
+    color: #00ffff;
+    font-family: Verdana, Tahoma, Arial;
+    font-size: 10pt;
+    border: solid #404040 1px;
+}
+
+.warning_banner {
+    background: #ffff00;
+    color: #000000;
+    width: 588px;
+    text-align: left;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.warning_banner p {
+    margin-top: 6px;
+}
+
+.header-links {
+    background-color: #2A2A2A;
+    font-size: 8pt;
+    font-weight: 700;
+}
+
+.search_ta {
+    color: #ffffff;
+    padding: 2px;
+}
+
+.search_btn {
+    font-weight: 700;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.search_area {
+    padding-top: 12px;
+}
+
+.today_widget {
+    background: #0000ff;
+    padding: 6px;
+    width: 224px;
+}
+
+.weather_city {
+    font-weight: 700;
+    font-size: 8pt;
+}
+
+.weather_temp {
+    font-size: 18pt;
+    font-weight: 700;
+}
+
+.weather_link {
+    font-size: 8pt;
+}
+
+.feed_left {
+    padding-right: 16px;
+}
+
+.feed_top {
+    padding-bottom: 16px;
+}
+
+.feed_title {
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+
+.feed_subtitle {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: #808080;
+    font-size: 8pt;
+}
+
+.feed_subtitle a {
+    color: #808080;
+}

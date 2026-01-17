@@ -1,0 +1,27 @@
+{% load static %}
+<HTML>
+	<HEAD>
+		<TITLE>Tinelix</TITLE>
+		<META name="http-equiv" content="Content-Type: text/html; charset={{ charset }}" charset="{{ charset }}">
+		<LINK rel="stylesheet" href="{% static "styles/main.css" %}">
+	</HEAD>
+	<BODY bgcolor="#000000" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0">
+		<TABLE cellpadding="4" cellspacing="0" width="100%" class="header-links">
+			<TBODY>
+				<TR>
+					{% for link in links %}
+					{% autoescape off %}
+					<TD align="center" width="100">
+						<A href="{{ link.url|escape }}">{{ link.name|escape }}</A>
+					</TD>
+					{% endautoescape %}
+					{% endfor %}
+					<TD align="right">
+						{{ current_dt|date:"d E Y · H:i" }}
+					</TD>
+				</TR>
+			</TBODY>
+		</TABLE>
+		
+	</BODY>
+</HTML>
