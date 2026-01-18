@@ -13,6 +13,27 @@ def index(request):
 	ctx = {	
 		"charset": 	charset,
 		"links":   	links,
-		"current_dt":	current_dt
+		"current_dt":	current_dt,
+		"weather": {
+			"city": "с. Камыши",
+			"region": "ННР, Алтайский край",
+			"temp": "-15°"
+		},
+		"newsfeed": [
+				{
+					"title": "Заголовок 1",
+					"summary": "Краткое описание",
+					"link": "http://tinelix.ru",
+					"timestamp": "2025-12-31 23:59",
+					"source": "Tinelix"
+		  		},
+				{
+					"title": "Заголовок 2",
+					"summary": "Краткое описание",
+					"link": "http://tinelix.ru",
+					"timestamp": "2026-01-01 00:00",
+					"source": "Tinelix"
+				}
+      			    ]
 	      }
 	return render(request, "home.html", ctx)

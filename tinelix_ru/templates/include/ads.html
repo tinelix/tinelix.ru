@@ -1,0 +1,11 @@
+{% for promo in ads %}
+{% autoescape off %}
+<H5><A href="{{ promo.link|escape }}">{{ promo.title|escape }}</A></H5>
+{{ promo.summary|escape }}
+<H6>{{ promo.advert|escape }} · {{ promo.erid|escape }}</H6>
+{% endautoescape %}
+{% empty %}
+<H5>Здесь могла быть ваша реклама</H5>
+Для деловых предложений свяжитесь по эл. почте:
+<BR><A href="mailto:tinelix@mail.ru">tinelix(at)mail.ru</A>
+{% endfor %}

@@ -1,0 +1,7 @@
+{% for news in newsfeed %}
+{% autoescape off %}
+<H5><A href="{{ news.link|escape }}">{{ news.title|escape }}</A></H5>
+{{ news.summary|escape }}
+<H6>{{ news.timestamp|escape }} · {{ news.source|escape }}</H6>
+{% endautoescape %}
+{% endfor %}

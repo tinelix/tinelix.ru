@@ -1,0 +1,59 @@
+{% load static %}
+<HTML>
+	<HEAD>
+		<TITLE>{% block title %}Tinelix{% endblock title %}</TITLE>
+		<META name="http-equiv" content="Content-Type: text/html; charset={{ charset }}" charset="{{ charset }}">
+		<LINK rel="stylesheet" href="{% static "styles/main.css" %}">
+	</HEAD>
+	<BODY bgcolor="#000000" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0">
+		<TABLE cellpadding="0" cellspacing="4" width="100%" class="header-links">
+			<TBODY>
+				<TR>
+					{% for link in links %}
+					{% autoescape off %}
+					<TD align="center" width="80">
+						<FONT face="Verdana, Tahoma, Arial, Helvetica, sans-serif">
+							<A href="{{ link.url|escape }}">{{ link.name|escape }}</A>
+						</FONT>
+					</TD>
+					{% endautoescape %}
+					{% endfor %}
+					<TD align="right">
+						<FONT face="Verdana, Tahoma, Arial, Helvetica, sans-serif">
+							{{ current_dt|date:"D, d E · H:i" }}
+						</FONT>
+					</TD>
+				</TR>
+			</TBODY>
+		</TABLE>
+		<CENTER>
+			<P>
+			<TABLE width="700" cellpadding="0" cellspacing="0">
+				<TR valign="middle">
+					<TD width="144" height="80" valign="middle">
+						<IMG src="{% static "images/default/logo.gif" %}" alt="Tinelix"></IMG>
+					</TD>
+					<TD align="center" valign="middle">
+						<FORM action="http://go.tinelix.ru/search" class="search_area">
+							<INPUT name="q" type="text" value="Введите запрос для поиска в Интернете..." size="58" id="web_search" class="search_ta">
+							<INPUT type="submit" class="search_btn" value="Найти">
+						</FORM>
+					</TD>
+				</TR>
+			</TABLE>
+			<TABLE width="700" cellpadding="0" cellspacing="0">
+				<TBODY>
+					<TR>
+						{% block left_col %}{% endblock left_col %}
+						<TD valign="top" class="content">	
+							<FONT face="Verdana, Tahoma, Arial, Helvetica, sans-serif">
+								<H4>{% block header %}{% endblock header %}</H4>
+								{% block content %}{% endblock content %}
+							</FONT>
+						</TD>
+					</TD>
+				</TBODY>
+			</TABLE>
+		</CENTER>
+	</BODY>
+</HTML>

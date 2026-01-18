@@ -3,6 +3,11 @@ body {
     font-size: 10pt;
 }
 
+h1, h2, h3, h4, h5 {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
 a {
     text-decoration: none;
 }
@@ -18,6 +23,10 @@ input {
     font-family: Verdana, Tahoma, Arial;
     font-size: 10pt;
     border: solid #404040 1px;
+}
+
+input:hover, input:focus {
+    border: solid #00ffff 1px;
 }
 
 .warning_banner {
@@ -41,35 +50,47 @@ input {
     font-weight: 700;
 }
 
+.search_area {
+    display: inline;
+    text-align: middle;
+}
+
 .search_ta {
     color: #ffffff;
     padding: 2px;
+    height: 22px;
+    width: 420px;
 }
 
 .search_btn {
     font-weight: 700;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-.search_area {
-    padding-top: 12px;
+    width: 70px;
+    height: 22px;
 }
 
 .today_widget {
     background: #0000ff;
     padding: 6px;
-    width: 224px;
+}
+
+.today_widget p {
+    margin-top: 4px;
+    margin-bottom: 2px;
 }
 
 .weather_city {
+    display: block;
     font-weight: 700;
+    font-size: 8pt;
+}
+
+.weather_region {
     font-size: 8pt;
 }
 
 .weather_temp {
     font-size: 18pt;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .weather_link {
@@ -77,16 +98,52 @@ input {
 }
 
 .feed_left {
-    padding-right: 16px;
+    font-size: 8pt;
+}
+
+.feed_left h4 {
+    font-size: 12pt;
+}
+
+.feed_left h5 {
+    font-size: 10pt;
+}
+
+.feed_left h6 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 7pt;
+    color: #AFAFAF;
+}
+
+.content {
+    font-size: 10pt;
+}
+
+.content h4 {
+    font-size: 12pt;
+}
+
+.content h5 {
+    font-size: 10pt;
+}
+
+.content h6 {
+    font-size: 7pt;
+    color: #AFAFAF;
 }
 
 .feed_top {
     padding-bottom: 16px;
 }
 
-.feed_title {
-    margin-top: 4px;
-    margin-bottom: 12px;
+.feed_title_primary {
+    margin-bottom: 8px;
+}
+
+.feed_title_secondary {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .feed_subtitle {
