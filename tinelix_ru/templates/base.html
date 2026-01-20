@@ -44,11 +44,11 @@
 						<TABLE width="660" cellpadding="0" cellspacing="0">
 							<TBODY>
 								<TR>
-									<TD width="160" bgcolor="#0000ff">
+									<TD width="160" bgcolor="#0000ff" align="left">
 										{% include "include/weather.html" %}
 									</TD>
 									<TD width="10"></TD>
-									<TD width="160" bgcolor="#6f00ff">
+									<TD width="160" bgcolor="#6f00ff" align="left">
 										{% include "include/holidays.html" %}
 									</TD>
 									<TD colspan="100"></TD>
@@ -64,7 +64,7 @@
 		<TABLE class="feed_area" width="700" bordercolor="#00ffff" bgcolor="#181818" cellpadding="0" cellspacing="0">
 				<TBODY>
 					{% block left_col %}{% endblock left_col %}
-						<TD valign="top" class="feed_content" rowspan="20" bgcolor="#000000">
+						<TD valign="top" class="feed_content" rowspan="20" bgcolor="#000000" align="left">
 							<P class="active_header"><B>{% block header %}{% endblock header %}</B>
 							<DIV class="content_area">{% block content %}{% endblock content %}</DIV>
 						</TD>
