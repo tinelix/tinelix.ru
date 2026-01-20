@@ -125,8 +125,7 @@ input:hover, input:focus {
 
 .feed_left_p2 {
     font-size: 8pt;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding: 4px;
 }
 
 .feed_left_p1 h2, .feed_left_p2 h2, .content h2 {
