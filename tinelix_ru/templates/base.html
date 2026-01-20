@@ -7,7 +7,7 @@
 		<LINK rel="stylesheet" href="{% static "styles/main.css" %}">
 	</HEAD>
 	<BODY bgcolor="#000000" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0">
-		<TABLE width="100%" cellpadding="0" cellspacing="4" class="header-links">
+		<TABLE width="100%" cellpadding="0" cellspacing="4" bgcolor="#2A2A2A" class="header_links">
 				<TBODY>
 					<TR>
 						{% for link in links %}
@@ -61,17 +61,19 @@
 			</TBODY>
 		</TABLE>
 		<P>
-		<TABLE class="active_area" width="700" cellpadding="0" cellspacing="0">
+		<TABLE class="active_area feed_area" width="700" cellpadding="0" cellspacing="0">
 				<TBODY>
 					<TR>
-						<TD width="20"></TD>
+						<TD width="5" class="feed_left"></TD>
 						{% block left_col %}{% endblock left_col %}
-						<TD valign="top" class="content">	
-							<H4>{% block header %}{% endblock header %}</H4>
-							{% block content %}{% endblock content %}
+						<TD width="5" class="feed_left"></TD>
+						<TD width="5"></TD>
+						<TD valign="top" class="feed_content">
+							<P class="active_header"><B>{% block header %}{% endblock header %}</B>
+							<DIV class="content_area">{% block content %}{% endblock content %}</DIV>
 						</TD>
-						<TD width="20"></TD>
-                                        </TR>
+						<TD width="5"></TD>
+					</TR>
 				</TBODY>
 		<TABLE>
 	</BODY>

@@ -1,3 +1,4 @@
+<CENTER>
 {% for banners in partners %}
 {% autoescape off %}
 <A href="{{ banners.link|escape }}"><IMG src="{{ banners.src }}" width="88" height="31" alt="{{ banners.name }}"></IMG></A>
@@ -8,3 +9,4 @@
 <P>
 <A href="http://veselcraft.ru"><IMG src="static/images/banners/vc.gif" width="88" height="31" alt="Veselcraft"></IMG></A>
 {% endfor %}
+</CENTER>

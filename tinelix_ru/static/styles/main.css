@@ -12,10 +12,6 @@ a {
     text-decoration: none;
 }
 
-p {
-    margin-top: 8px;
-}
-
 input {
     background-color: #202020;
     background: #202020;
@@ -44,8 +40,7 @@ input:hover, input:focus {
     margin-top: 6px;
 }
 
-.header-links {
-    background-color: #2A2A2A;
+.header_links {
     font-size: 8pt;
     font-weight: 700;
 }
@@ -59,7 +54,7 @@ input:hover, input:focus {
     color: #ffffff;
     padding: 2px;
     height: 16px;
-    width: 420px;
+    width: 400px;
 }
 
 .search_btn {
@@ -72,13 +67,26 @@ input:hover, input:focus {
     margin: auto;
 }
 
-.weather_widget {
-    font-size: 8pt;
+.active_header {
+    font-size: 10pt;
+    background-color: #00ffff;
+    color: #000000;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
-.weather_widget p {
+.active_subheader {
+    font-size: 10pt;
     margin-top: 4px;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
+    padding-left: 4px;
+}
+
+.weather_widget, .holidays_widget {
+    font-size: 8pt;
 }
 
 .weather_city {
@@ -96,62 +104,42 @@ input:hover, input:focus {
     font-weight: 500;
 }
 
-.holidays_widget {
-    font-size: 8pt;
+.holidays_link {
+   color: #ffff00;
 }
 
-.holidays_widget p {
-    margin-top: 4px;
-    margin-bottom: 2px;
+.feed_area {
+    background-color: #000000;
+    border: solid 1px #00ffff;
 }
 
 .feed_left {
+    background-color: #181818;
     font-size: 8pt;
 }
 
-.feed_left h4 {
-    font-size: 12pt;
-}
-
-.feed_left h5 {
+.feed_left h2, .content h2 {
     font-size: 10pt;
 }
 
-.feed_left h6 {
+.feed_left h6, .content h6 {
     margin-top: 8px;
     margin-bottom: 8px;
     font-size: 7pt;
     color: #AFAFAF;
 }
 
-.content {
+.feed_content {
     font-size: 10pt;
 }
 
-.content h4 {
-    font-size: 12pt;
-}
-
-.content h5 {
-    font-size: 10pt;
-}
-
-.content h6 {
-    font-size: 7pt;
-    color: #AFAFAF;
+.content_area {
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .feed_top {
     padding-bottom: 16px;
-}
-
-.feed_title_primary {
-    margin-bottom: 8px;
-}
-
-.feed_title_secondary {
-    margin-top: 8px;
-    margin-bottom: 8px;
 }
 
 .feed_subtitle {
