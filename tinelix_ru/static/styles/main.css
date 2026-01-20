@@ -118,16 +118,22 @@ input:hover, input:focus {
     border: solid 1px #00ffff;
 }
 
-.feed_left {
+.feed_left_p1 {
     font-size: 8pt;
     padding: 4px;
 }
 
-.feed_left h2, .content h2 {
+.feed_left_p2 {
+    font-size: 8pt;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.feed_left_p1 h2, .feed_left_p2 h2, .content h2 {
     font-size: 10pt;
 }
 
-.feed_left h6, .content h6 {
+.feed_left_p1 h6, .feed_left_p2 h6, .content h6 {
     margin-top: 8px;
     margin-bottom: 8px;
     font-size: 7pt;
