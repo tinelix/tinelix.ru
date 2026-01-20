@@ -1,16 +1,27 @@
 {% extends "base.html" %}
 {% block title %}Tinelix - информационный портал технологий и не только{% endblock title %}
 {% block left_col %}
-<TD width="160" class="feed_left">
-	<P class="active_header"><B>Digital Новости</B>
-	{% include "include/newsfeed.html" %}
-	<HR color="#4a4a4a" noshade></HR>
-	<P class="active_header"><B>Реклама</B>
-	{% include "include/ads.html" %}
-	<HR color="#4a4a4a" noshade></HR>
-	<P class="active_header"><B>Партнеры</B></P>
-	{% include "include/partners.html" %}
-</TD>
+<TR>
+	<TD width="160" class="feed_left" bgcolor="#181818">
+		<DIV class="active_header"><B>Digital Новости</B></DIV>
+		{% include "include/newsfeed.html" %}
+		<HR color="#4a4a4a" noshade></HR>
+	</TD>
 {% endblock left_col %}
+{% block left_col2 %}
+<TR>
+	<TD width="160" class="feed_left" bgcolor="#181818">
+		<DIV class="active_header"><B>Реклама</B></DIV>
+		{% include "include/ads.html" %}
+		<HR color="#4a4a4a" noshade></HR>
+	</TD>
+</TR>
+<TR>
+<TD width="160" class="feed_left" bgcolor="#181818">
+		<DIV class="active_header"><B>Партнеры</B></DIV>
+		{% include "include/partners.html" %}
+	</TD>
+</TR>
+{% endblock left_col2 %}
 {% block header %}Главная{% endblock header %}
 {% block content %}Сайт находится в разработке и будет открыт в процессе поступления информации. <P>Следите в нашем Telegram-канале: <A href="https://t.me/tinelix">@tinelix</A>{% endblock content %}
