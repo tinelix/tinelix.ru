@@ -86,7 +86,7 @@ input:hover, input:focus {
 .active_subheader {
     font-size: 10pt;
     margin-top: 8px;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     padding-left: 4px;
 }
 
