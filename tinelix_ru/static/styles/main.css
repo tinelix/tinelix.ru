@@ -173,3 +173,8 @@ input:hover, input:focus {
     margin-top: 3px;
     margin-bottom: 3px;
 }
+
+.vertical_banner {
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
