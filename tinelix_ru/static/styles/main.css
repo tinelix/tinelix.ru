@@ -12,7 +12,6 @@ a {
     text-decoration: none;
 }
 
-
 a img {
     border: none;
 }
@@ -156,4 +155,13 @@ input:hover, input:focus {
 
 .feed_subtitle a {
     color: #808080;
+}
+
+.feed_banner_margin {
+    margin-top: 3px;
+}
+
+.feed_bottom_link {
+    margin-top: 3px;
+    margin-bottom: 6px;
 }
