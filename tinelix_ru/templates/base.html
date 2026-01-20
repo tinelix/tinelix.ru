@@ -7,7 +7,7 @@
 		<LINK rel="stylesheet" href="{% static "styles/main.css" %}">
 	</HEAD>
 	<BODY bgcolor="#000000" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0">
-		<TABLE cellpadding="0" cellspacing="4" width="100%" class="header-links">
+		<TABLE width="100%" cellpadding="0" cellspacing="4" class="header-links">
 				<TBODY>
 					<TR>
 						{% for link in links %}
@@ -23,56 +23,54 @@
 					</TR>
 				</TBODY>
 		</TABLE>
-		<TABLE width="100%" cellpadding="0" cellspacing="0">
+		<TABLE width="700" cellpadding="0" cellspacing="0" class="active_area">
+			<TR>
+				<TD width="144" height="80" valign="middle">
+					<IMG src="{% static "images/default/logo.gif" %}" alt="Tinelix"></IMG>
+				</TD>
+				<TD align="center" valign="middle">
+					<FORM action="http://go.tinelix.ru/search" class="search_area">
+						<INPUT name="q" type="text" value="Введите запрос для поиска в Интернете..." size="58" id="web_search" class="search_ta">
+						<INPUT type="submit" class="search_btn" value="Найти">
+					</FORM>
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE class="active_area" width="700" height="75" cellpadding="0" cellspacing="0">
+			<TBODY>
 				<TR>
-					<TD colspan="100"></TD>
-					<TD width="144" height="80" valign="middle">
-						<IMG src="{% static "images/default/logo.gif" %}" alt="Tinelix"></IMG>
+					<TD width="20"></TD>
+					<TD>
+						<TABLE width="660" cellpadding="0" cellspacing="0">
+							<TBODY>
+								<TR>
+									<TD width="160" bgcolor="#0000ff">
+										{% include "include/weather.html" %}
+									</TD>
+									<TD width="10"></TD>
+									<TD width="160" bgcolor="#6f00ff">
+										{% include "include/holidays.html" %}
+									</TD>
+									<TD colspan="100"></TD>
+								</TR>
+							</TBODY>
+						</TABLE>
 					</TD>
-					<TD align="center" valign="middle" width="560">
-						<FORM action="http://go.tinelix.ru/search" class="search_area">
-							<INPUT name="q" type="text" value="Введите запрос для поиска в Интернете..." size="58" id="web_search" class="search_ta">
-							<INPUT type="submit" class="search_btn" value="Найти">
-						</FORM>
-					</TD>
-					<TD colspan="100"></TD>
+					<TD width="20"></TD>
 				</TR>
-			</TABLE>
-			<TABLE width="100%" height="75" cellpadding="0" cellspacing="0">
-				<TBODY>
-					<TR>
-						<TD colspan="100"></TD>
-						<TD width="680">
-							<TABLE width="680" cellpadding="0" cellspacing="0">
-								<TBODY>
-									<TR>
-										<TD width="160" bgcolor="#0000ff">
-											{% include "include/weather.html" %}
-										</TD>
-										<TD width="5"></TD>
-										<TD width="160" bgcolor="#6f00ff">
-											{% include "include/holidays.html" %}
-										</TD>
-										<TD colspan="100"></TD>
-									</TR>
-								</TBODY>
-							</TABLE>
-						</TD>
-						<TD colspan="100"></TD>
-					</TR>
-				</TBODY>
+			</TBODY>
 		</TABLE>
 		<P>
-		<TABLE width="100%" cellpadding="0" cellspacing="0">
+		<TABLE class="active_area" width="700" cellpadding="0" cellspacing="0">
 				<TBODY>
 					<TR>
-						<TD colspan="100"></TD>
+						<TD width="20"></TD>
 						{% block left_col %}{% endblock left_col %}
-						<TD valign="top" class="content" width="500">	
+						<TD valign="top" class="content">	
 							<H4>{% block header %}{% endblock header %}</H4>
 							{% block content %}{% endblock content %}
 						</TD>
-                                                <TD colspan="100"></TD>
+						<TD width="20"></TD>
                                         </TR>
 				</TBODY>
 		<TABLE>

@@ -58,7 +58,7 @@ input:hover, input:focus {
 .search_ta {
     color: #ffffff;
     padding: 2px;
-    height: 22px;
+    height: 16px;
     width: 420px;
 }
 
@@ -66,6 +66,10 @@ input:hover, input:focus {
     font-weight: 700;
     width: 70px;
     height: 22px;
+}
+
+.active_area {
+    margin: auto;
 }
 
 .weather_widget {
