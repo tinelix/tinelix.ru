@@ -85,7 +85,7 @@ input:hover, input:focus {
 
 .active_subheader {
     font-size: 10pt;
-    margin-top: 4px;
+    margin-top: 8px;
     margin-bottom: 4px;
     padding-left: 4px;
 }
@@ -134,8 +134,8 @@ input:hover, input:focus {
 }
 
 .feed_left_p1 h6, .feed_left_p2 h6, .content h6 {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
     font-size: 7pt;
     color: #AFAFAF;
 }
@@ -148,6 +148,7 @@ input:hover, input:focus {
 .content_area {
     padding-left: 4px;
     padding-right: 4px;
+    padding-top: 4px;
 }
 
 .feed_top {
@@ -156,7 +157,7 @@ input:hover, input:focus {
 
 .feed_subtitle {
     margin-top: 4px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     color: #808080;
     font-size: 8pt;
 }
