@@ -57,18 +57,14 @@ input:hover, input:focus {
 .search_ta {
     color: #ffffff;
     padding: 2px;
-    height: 16px;
     width: 400px;
+    height: 22px;
 }
 
 .search_btn {
     font-weight: 700;
     width: 70px;
     height: 22px;
-}
-
-.active_area {
-    margin: auto;
 }
 
 .active_header {
@@ -116,6 +112,11 @@ input:hover, input:focus {
 .feed_area {
     background-color: #000000;
     border: solid 1px #00ffff;
+}
+
+.small_padding {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .feed_left_p1 {
