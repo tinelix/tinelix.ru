@@ -12,6 +12,11 @@ a {
     text-decoration: none;
 }
 
+
+a img {
+    border: none;
+}
+
 input {
     background-color: #202020;
     background: #202020;
