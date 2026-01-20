@@ -1,5 +1,5 @@
-body {
-    font-family: Verdana, Tahoma, Arial;
+body, font {
+    font-family: Verdana, Tahoma, Arial Cyr, Arial, sans-serif;
     font-size: 10pt;
 }
 
@@ -68,12 +68,11 @@ input:hover, input:focus {
     height: 22px;
 }
 
-.today_widget {
-    background: #0000ff;
-    padding: 6px;
+.weather_widget {
+    font-size: 8pt;
 }
 
-.today_widget p {
+.weather_widget p {
     margin-top: 4px;
     margin-bottom: 2px;
 }
@@ -93,8 +92,13 @@ input:hover, input:focus {
     font-weight: 500;
 }
 
-.weather_link {
+.holidays_widget {
     font-size: 8pt;
+}
+
+.holidays_widget p {
+    margin-top: 4px;
+    margin-bottom: 2px;
 }
 
 .feed_left {

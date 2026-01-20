@@ -1,3 +1,5 @@
+import codecs
+
 from django.shortcuts import render
 from datetime import datetime
 
@@ -34,6 +36,14 @@ def index(request):
 					"timestamp": "2026-01-01 00:00",
 					"source": "Tinelix"
 				}
-      			    ]
-	      }
-	return render(request, "home.html", ctx)
+      			    ],
+	      "holidays": [
+		
+	      ]
+	}
+
+	response = render(request, "home.html", ctx)
+	response['Content-Type'] = "text/html; charset=" + charset
+	response.content = response.content.decode("utf-8").encode(charset)
+
+	return response

@@ -1,0 +1,18 @@
+<TABLE class="holidays_widget" height="73" cellpadding="0" cellspacing="2">
+	<TBODY>
+		<TR>
+			<TD valign="middle" align="center">
+				{% for holiday in holidays %}
+					<MARQUEE>{{ holidays }}</MARQUEE>
+				{% empty %}
+					<MARQUEE scrollamount="1" direction="up" height="36">Пока нет предстоящих праздников</MARQUEE>
+				{% endfor %}
+			</TD>
+		</TR>
+		<TR>
+			<TD height="20" align="center" valign="middle">
+				<A href="holidays" class="holidays_link">Праздники на {{ current_dt|date:" d E" }}</A>
+			</TD>
+		</TR>
+	</TBODY>			
+</TABLE>

@@ -2,6 +2,6 @@
 {% autoescape off %}
 <H5><A href="{{ news.link|escape }}">{{ news.title|escape }}</A></H5>
 {{ news.summary|escape }}
-<H6>{{ news.timestamp|escape }} · {{ news.source|escape }}</H6>
+<H6>{{ news.timestamp|escape }} &#8226; {{ news.source|escape }}</H6>
 {% endautoescape %}
 {% endfor %}
