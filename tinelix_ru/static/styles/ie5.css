@@ -1,0 +1,11 @@
+*html .search-ta {
+    // quirk for IE5
+    height : 22px ; 
+    _height: 22px;
+}
+
+*html .search-btn {
+    // quirk for IE5
+    height : 22px ; 
+    _height: 22px;
+}

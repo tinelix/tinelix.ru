@@ -4,10 +4,13 @@
 	<HEAD>
 		<TITLE>{% block title %}Tinelix{% endblock title %}</TITLE>
 		<META name="http-equiv" content="Content-Type: text/html; charset={{ charset }}" charset="{{ charset }}">
-		<LINK rel="stylesheet" href="{% static "styles/main.css" %}">
+		<!--[if IE 5]>
+		<LINK rel="stylesheet" href="{% static "styles/ie5.css" %}" type="text/css">
+		<![endif]-->
+		<LINK rel="stylesheet" href="{% static "styles/main.css" %}" type="text/css">
 	</HEAD>
 	<BODY bgcolor="#000000" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0">
-		<TABLE width="100%" cellpadding="0" cellspacing="4" bgcolor="#2A2A2A" class="header_links">
+		<TABLE width="100%" cellspacing="4" cellpadding="0" bgcolor="#2A2A2A" border="0" class="header-links" align="center">
 				<TBODY>
 					<TR>
 						{% for link in links %}
@@ -23,35 +26,34 @@
 					</TR>
 				</TBODY>
 		</TABLE>
-		<DIV align="center">
-		<TABLE width="700" cellpadding="0" cellspacing="0" class="active_area">
+		<TABLE width="700" cellpadding="0" cellspacing="0" class="active-area" align="center">
 			<TR>
 				<TD width="144" height="80" valign="middle">
 					<IMG src="{% static "images/default/logo.gif" %}" alt="Tinelix"></IMG>
 				</TD>
 				<TD align="center" valign="middle">
-					<FORM action="http://go.tinelix.ru/search" class="search_area">
-						<INPUT name="q" type="text" value="Введите запрос для поиска в Интернете..." size="56" id="web_search" class="search_ta">
-						<INPUT type="submit" class="search_btn" value="Найти">
+					<FORM action="http://go.tinelix.ru/search" class="search-area">
+						<INPUT name="q" type="text" value="Введите запрос для поиска в Интернете..." size="56" id="web_search" class="search-ta">
+						<INPUT type="submit" class="search-btn" value="Найти">
 					</FORM>
 				</TD>
 			</TR>
 		</TABLE>
-		<TABLE width="700" height="75" cellpadding="0" cellspacing="0">
+		<TABLE width="700" height="75" cellpadding="0" cellspacing="0" border="0" align="center">
 			<TBODY>
 				<TR>
 					<TD>
 						<TABLE width="660" cellpadding="0" cellspacing="0">
 							<TBODY>
 								<TR>
-									<TD width="160" bgcolor="#0000ff" align="left">
+									<TD bgcolor="#0000ff" align="center">
 										{% include "include/weather.html" %}
 									</TD>
-									<TD width="10"></TD>
-									<TD width="160" bgcolor="#6f00ff" align="left">
+									<TD width="10">&nbsp;&nbsp;</TD>
+									<TD bgcolor="#6f00ff" align="center">
 										{% include "include/holidays.html" %}
 									</TD>
-									<TD colspan="100"></TD>
+									<TD width="75%"></TD>
 								</TR>
 							</TBODY>
 						</TABLE>
@@ -60,17 +62,16 @@
 				</TR>
 			</TBODY>
 		</TABLE>
-		<P class="small_padding">
-		<TABLE class="feed_area" width="700" bordercolor="#00ffff" bgcolor="#181818" cellpadding="0" cellspacing="0">
+		<P class="small-padding">
+		<TABLE class="feed-area" width="700" bordercolor="#00ffff" bgcolor="#181818" cellpadding="4" cellspacing="0" align="center">
 				<TBODY>
 					{% block left_col %}{% endblock left_col %}
-						<TD valign="top" class="feed_content" rowspan="20" bgcolor="#000000" align="left">
-							<P class="active_header"><B>{% block header %}{% endblock header %}</B>
-							<DIV class="content_area">{% block content %}{% endblock content %}</DIV>
+						<TD valign="top" class="feed-content" rowspan="20" bgcolor="#000000" align="left">
+							<DIV class="active-header"><B>{% block header %}{% endblock header %}</B></DIV>
+							<DIV class="content-area">{% block content %}{% endblock content %}</DIV>
 						</TD>
 					{% block left_col2 %}{% endblock left_col2 %}
 				</TBODY>
 		<TABLE>
-		</DIV>
 	</BODY>
 </HTML>
