@@ -119,25 +119,19 @@ input:hover, input:focus {
 }
 
 .small-padding {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin: 0px;
+    font-size: 7pt;
 }
 
-.feed-left-p1 {
+.feed-left {
     font-size: 8pt;
-    padding: 4px;
 }
 
-.feed-left-p2 {
-    font-size: 8pt;
-    padding: 4px;
-}
-
-.feed-left-p1 h2, .feed-left-p2 h2, .content h2 {
+.feed-left h2, .content h2 {
     font-size: 10pt;
 }
 
-.feed-left-p1 h6, .feed-left-p2 h6, .content h6 {
+.feed-left h6, .content h6 {
     margin-top: 4px;
     margin-bottom: 4px;
     font-size: 7pt;
@@ -159,11 +153,21 @@ input:hover, input:focus {
     padding-bottom: 16px;
 }
 
-.feed-subtitle {
-    margin-top: 4px;
-    margin-bottom: 2px;
-    color: #808080;
+.feed-footer-p1 {
+    color: #a0a0a0;
+    font-size: 7pt;
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.feed-footer-p2 {
+    color: #a0a0a0;
     font-size: 8pt;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .feed-subtitle a {

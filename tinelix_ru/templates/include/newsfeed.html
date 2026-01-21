@@ -3,7 +3,7 @@
 <P class="active-subheader"><B><A href="{{ news.link|escape }}">{{ news.title|escape }}</A></B></P>
 <DIV class="content-area">
   {{ news.summary|escape }}
-  <H6>{{ news.timestamp|escape }} &#8226; {{ news.source|escape }}</H6>
 </DIV>
+<DIV class="feed-footer-p1"><B>{{ news.timestamp|escape }} &#8226; {{ news.source|escape }}</B></DIV>
 {% endautoescape %}
 {% endfor %}
