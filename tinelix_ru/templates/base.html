@@ -62,15 +62,16 @@
 				</TR>
 			</TBODY>
 		</TABLE>
-		<P class="small-padding">&nbsp;</P>
+		<P class="small-padding">
 		<TABLE class="feed-area" width="700" bordercolor="#00ffff" bgcolor="#181818" cellpadding="4" cellspacing="0" align="center">
 				<TBODY>
 					<TR>
 						<TD width="160" class="feed-left" bgcolor="#181818" align="left" valign="top">
 						{% block left_col %}{% endblock left_col %}
 						</TD>
-						<TD class="feed-content" bgcolor="#000000" align="left" valign="top">
-							<DIV class="active-header"><B>{% block header %}{% endblock header %}</B></DIV>
+						<TD width="528" class="feed-content" bgcolor="#000000" align="left" valign="top">
+							<P class="active-header"><B>{% block header %}{% endblock header %}</B></P>
+							<P class="small-padding">
 							<DIV class="content-area">{% block content %}{% endblock content %}</DIV>
 						</TD>
 					</TR>
