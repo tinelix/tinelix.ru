@@ -3,17 +3,23 @@
 {% block left_col %}
 <DIV class="feed-left">
 	<P class="active-header"><B>Digital Новости</B></P>
-	<P class="small-padding">{% include "include/newsfeed.html" %}
+	<DIV class="feed-left-area">
+		{% include "include/newsfeed.html" %}
+	</DIV>
 </DIV>
-<P class="small-padding">
+<DIV class="small-padding"></DIV>
 <DIV class="feed-left">
 	<P class="active-header"><B>Реклама</B></P>
-	<P class="small-padding">{% include "include/ads.html" %}
+	<DIV class="feed-left-area">
+		{% include "include/ads.html" %}
+	</DIV>
 </DIV>
-<P class="small-padding">
+<DIV class="small-padding"></DIV>
 <DIV class="feed-left">
 	<P class="active-header"><B>Партнеры</B></P>
-	<P class="small-padding">{% include "include/partners.html" %}
+	<DIV class="feed-left-area">
+		{% include "include/partners.html" %}
+	</DIV>
 </DIV>
 {% endblock left_col %}
 

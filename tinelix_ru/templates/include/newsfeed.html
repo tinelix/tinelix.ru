@@ -1,9 +1,10 @@
 {% for news in newsfeed %}
 {% autoescape off %}
 <P class="active-subheader"><B><A href="{{ news.link|escape }}">{{ news.title|escape }}</A></B></P>
-<DIV class="content-area">
+<DIV class="feed-left-summary">
   {{ news.summary|escape }}
 </DIV>
 <DIV class="feed-footer-p1"><B>{{ news.timestamp|escape }} &#8226; {{ news.source|escape }}</B></DIV>
+<P class="small-padding">
 {% endautoescape %}
 {% endfor %}

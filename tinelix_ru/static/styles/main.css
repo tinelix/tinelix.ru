@@ -87,7 +87,7 @@ input:hover, input:focus {
 .active-subheader {
     font-size: 10pt;
     margin-top: 8px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     padding-left: 4px;
 }
 
@@ -120,7 +120,7 @@ input:hover, input:focus {
 
 .small-padding {
     margin-top: 4px;
-    font-size: 7pt;
+    margin-bottom: 4px;
 }
 
 .feed-left {
@@ -139,14 +139,25 @@ input:hover, input:focus {
     color: #AFAFAF;
 }
 
-.feed-content {
-    font-size: 10pt;
-    padding: 4px;
-}
-
-.content-area {
+.feed-left-summary {
     padding-left: 4px;
     padding-right: 4px;
+}
+
+.feed-content {
+    font-size: 10pt;
+}
+
+.feed-content-area {
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.feed-content-area p {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .feed-top {
