@@ -1,15 +1,30 @@
-<CENTER>
-{% for banners in partners %}
-{% autoescape off %}
-<A href="{{ banners.link|escape }}"><IMG src="{{ banners.src }}" width="88" height="31" alt="{{ banners.name }}"></IMG></A>
 <DIV class="small-padding"></DIV>
-{% endautoescape %}
-{% empty %}
-<DIV class="small-padding"></DIV>
-<A href="http://narodweb.ru" class="vertical-banner"><IMG src="static/images/banners/narodweb.gif" width="88" height="31" alt="Народное достояние Рунета"></IMG></A>
-<P class="small-padding">
-<A href="http://veselcraft.ru" class="vertical-banner"><IMG src="static/images/banners/vc.gif" width="88" height="31" alt="Народное достояние Рунета"></IMG></A>
-{% endfor %}
-<P class="small-padding">
-<A href="banners">Добавить кнопку на сайт</A>
-</CENTER>
+<TABLE align="center" width="160" cellpadding="0" cellspacing="0">
+  <TBODY>
+    {% for banners in partners %}
+    {% autoescape off %}
+    <TR>
+      <TD align="center" valign="middle" height="90">
+        <A href="{{ banners.link|escape }}"><IMG src="{{ banners.src }}" width="88" height="31" alt="{{ banners.name }}"></IMG></A>
+      </TD>
+    </TR>
+    {% endautoescape %}
+    {% empty %}
+    <TR>
+      <TD align="center" valign="middle" height="35">
+        <A href="http://narodweb.ru" class="vertical-banner"><IMG src="static/images/banners/narodweb.gif" width="88" height="31" alt="Народное достояние Рунета"></IMG></A>
+      </TD>
+    </TR>
+    <TR>
+      <TD align="center" valign="middle" height="35">
+        <A href="http://veselcraft.ru" class="vertical-banner"><IMG src="static/images/banners/vc.gif" width="88" height="31" alt="Veselcraft"></IMG></A>
+      </TD>
+    </TR>
+    {% endfor %}
+    <TR>
+      <TD align="center" valign="middle" height="16">
+        <A href="banners" class="widget-link">Добавить кнопку на сайт</A>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>

@@ -26,9 +26,9 @@
 					</TR>
 				</TBODY>
 		</TABLE>
-		<TABLE width="700" cellpadding="0" cellspacing="0" class="active-area" align="center">
+		<TABLE width="700" height="80" cellpadding="0" cellspacing="0" class="active-area" align="center">
 			<TR>
-				<TD width="144" height="80" valign="middle">
+				<TD width="144" valign="middle">
 					<IMG src="{% static "images/default/logo.gif" %}" alt="Tinelix"></IMG>
 				</TD>
 				<TD align="center" valign="middle">
@@ -52,7 +52,7 @@
 						<TD width="10">&nbsp;&nbsp;</TD>
 						<TD width="160" bgcolor="#000000" align="center">
 						</TD>
-						<TD width="10">&nbsp;&nbsp;</TD>
+						<TD width="10"></TD>
 						<TD width="160" bgcolor="#000000" align="center">
 								
 						</TD>
@@ -72,6 +72,29 @@
 						</TD>
 					</TR>
 				</TBODY>
-		<TABLE>
+		</TABLE>
+		<TABLE width="700" cellpadding="2" cellspacing="0" align="center" class="feed-footer">
+			<TBODY>
+				<TR>
+					<TD valign="top" width="350" rowspan="10">
+						<B>&copy {{ current_dt|date:"Y" }} Dmitry Tretyakov. Все права защищены.</B><P>Копирование и публикация материалов без указания авторства запрещены и преследуются в соответствии с действующим законодательством.
+					</TD>
+				</TR>
+				<TR>
+					<TD rowspan="10" valign="top">
+					<B>Мы в социальных сетях</B>
+						<P><A href="http://t.me/tinelix"><IMG src="{% static "images/social/telegram.gif" %}"></IMG></A>&nbsp;<A href="http://dzen.ru/tinelix"><IMG src="{% static "images/social/dzen.gif" %}"></IMG></A>&nbsp;<A href="http://mastodon.ml/@tinelix"><IMG src="{% static "images/social/mastodon.gif" %}"></IMG></A>&nbsp;<A href="http://fedimovie.com/c/tinelix"><IMG src="{% static "images/social/peertube.gif" %}"></IMG></A>
+					</TD>
+				</TR>
+				<TR>
+					<TD>
+						<A href="about">О нас</A>
+						<P><A href="donate">Поддержать наш сайт</A>
+						<P><A href="mailto:tinelix@mail.ru">Обратная связь</A>
+						<P><A href="privacy">Условия приватности</A>
+					</TD>
+				</TR>
+			</TBODY>
+		</TABLE>
 	</BODY>
 </HTML>

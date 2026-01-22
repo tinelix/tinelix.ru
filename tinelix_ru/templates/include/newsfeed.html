@@ -4,7 +4,9 @@
 <DIV class="feed-left-summary">
   {{ news.summary|escape }}
 </DIV>
-<DIV class="feed-footer-p1"><B>{{ news.timestamp|escape }} &#8226; {{ news.source|escape }}</B></DIV>
-<P class="small-padding">
+<DIV class="feed-left-footer-p1"><B>{{ news.timestamp|escape }} &#8226; {{ news.source|escape }}</B></DIV>
 {% endautoescape %}
+{% if forloop.last %}
+<P class="small-padding">
+{% endif %}
 {% endfor %}

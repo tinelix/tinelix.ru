@@ -6,10 +6,14 @@
   <H6>{{ promo.advert|escape }} · {{ promo.erid|escape }}</H6>
 </DIV>
 {% endautoescape %}
+{% if forloop.last %}
+<P class="small-padding">
+{% endif %}
 {% empty %}
 <P class="active-subheader"><B>Здесь могла быть ваша реклама</B></P>
 <DIV class="feed-left-summary">
   Для деловых предложений свяжитесь по эл. почте:
   <BR><A href="mailto:tinelix@mail.ru">tinelix(at)mail.ru</A>
 </DIV>
+<P class="small-padding">
 {% endfor %}

@@ -91,6 +91,10 @@ input:hover, input:focus {
     padding-left: 4px;
 }
 
+.widget-link {
+    font-size: 8pt;
+}
+
 .weather-widget, .holidays-widget {
     font-size: 8pt;
 }
@@ -123,16 +127,21 @@ input:hover, input:focus {
     margin-bottom: 4px;
 }
 
-.feed-left {
+.feed-left-p1 {
     font-size: 8pt;
     margin-bottom: 8px;
 }
 
-.feed-left h2, .content h2 {
+.feed-left-p2 {
+    font-size: 8pt;
+    margin-bottom: 2px;
+}
+
+.feed-left-p1 h2, .feed-left-p2 h2, .content h2 {
     font-size: 10pt;
 }
 
-.feed-left h6, .content h6 {
+.feed-left-p1 h6, .feed-left-p2 h6, .content h6 {
     margin-top: 4px;
     margin-bottom: 4px;
     font-size: 7pt;
@@ -164,7 +173,7 @@ input:hover, input:focus {
     padding-bottom: 16px;
 }
 
-.feed-footer-p1 {
+.feed-left-footer-p1 {
     color: #a0a0a0;
     font-size: 7pt;
     padding-top: 4px;
@@ -172,7 +181,7 @@ input:hover, input:focus {
     padding-right: 4px;
 }
 
-.feed-footer-p2 {
+.feed-left-footer-p2 {
     color: #a0a0a0;
     font-size: 8pt;
     padding-top: 4px;
@@ -183,6 +192,18 @@ input:hover, input:focus {
 
 .feed-subtitle a {
     color: #808080;
+}
+
+.feed-footer {
+    color: #a0a0a0;
+    font-size: 8pt;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.feed-footer p {
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .feed-banner-margin {
