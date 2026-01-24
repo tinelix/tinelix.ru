@@ -1,0 +1,36 @@
+{% load static %}
+
+<TABLE width="700" cellpadding="2" cellspacing="0" align="center" class="feed-footer">
+			<TBODY>
+				<TR>
+					<TD valign="top" width="350" rowspan="10">
+						<B>&copy {{ current_dt|date:"Y" }} Dmitry Tretyakov. Все права защищены.</B><P>Копирование и публикация материалов без указания авторства запрещены и преследуются в соответствии с действующим законодательством.
+					</TD>
+				</TR>
+				<TR>
+					<TD rowspan="10" valign="top" width="189">
+					<B>Мы в социальных сетях</B>
+						<P><A href="https://t.me/tinelix">
+							<IMG src="{% static "images/social/telegram.gif" %}" alt="Telegram" width="24" height="24" border="0"></IMG>
+						</A>
+						<A href="https://dzen.ru/tinelix">
+							<IMG src="{% static "images/social/dzen.gif" %}" alt="Дзен" width="24" height="24" border="0"></IMG>
+						</A>
+						<A href="https://mastodon.ml/@tinelix">
+							<IMG src="{% static "images/social/mastodon.gif" %}" alt="Mastodon" width="24" height="24" border="0"></IMG>
+						</A>
+						<A href="https://fedimovie.com/c/tinelix">
+							<IMG src="{% static "images/social/peertube.gif" %}" alt="PeerTube"width="24" height="24" border="0"></IMG>
+						</A>
+					</TD>
+				</TR>
+				<TR>
+					<TD>
+						<A href="about">О нас</A>
+						<P><A href="donate">Поддержать наш сайт</A>
+						<P><A href="mailto:tinelix@mail.ru">Обратная связь</A>
+						<P><A href="privacy">Условия приватности</A>
+					</TD>
+				</TR>
+			</TBODY>
+		</TABLE>

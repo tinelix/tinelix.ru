@@ -8,8 +8,13 @@
 		<LINK rel="stylesheet" href="{% static "styles/ie5.css" %}" type="text/css">
 		<![endif]-->
 		<LINK rel="stylesheet" href="{% static "styles/main.css" %}" type="text/css">
+		<!--[if IE]>
+		<SCRIPT src="{% static "scripts/json/json2.js" %}" type="text/javascript"></SCRIPT>
+		<![endif]-->
+		<SCRIPT src="{% static "scripts/compat.js" %}" type="text/javascript"></SCRIPT>
+		<SCRIPT src="{% static "scripts/main.js" %}" type="text/javascript"></SCRIPT>
 	</HEAD>
-	<BODY bgcolor="#000000" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0">
+	<BODY bgcolor="#000000" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0" onload="onPageLoad()">
 		<TABLE width="100%" cellspacing="4" cellpadding="0" bgcolor="#2A2A2A" border="0" class="header-links" align="center">
 				<TBODY>
 					<TR>
@@ -20,7 +25,9 @@
 						</TD>
 						{% endautoescape %}
 						{% endfor %}
-						<TD align="right">
+						<TD align="center" width="80" id="sitemap_link">Ещё &raquo;</TD>
+						<TD align="center">&nbsp;</TD>
+						<TD align="right" width="168">
 							<B>{{ current_dt|date:"D, d E" }} &#8226; {{ current_dt|date:"H:i" }}</B>
 						</TD>
 					</TR>
@@ -43,11 +50,11 @@
 			<TBODY>
 				<TR>
 						<TD width="160" bgcolor="#0000ff" align="center">
-							{% include "include/weather.html" %}
+							{% include "include/widgets/weather.html" %}
 						</TD>
 						<TD width="10">&nbsp;&nbsp;</TD>
 						<TD width="160" bgcolor="#6f00ff" align="center">
-							{% include "include/holidays.html" %}
+							{% include "include/widgets/holidays.html" %}
 						</TD>
 						<TD width="10">&nbsp;&nbsp;</TD>
 						<TD width="160" bgcolor="#000000" align="center">
@@ -73,39 +80,6 @@
 					</TR>
 				</TBODY>
 		</TABLE>
-		<TABLE width="700" cellpadding="2" cellspacing="0" align="center" class="feed-footer">
-			<TBODY>
-				<TR>
-					<TD valign="top" width="350" rowspan="10">
-						<B>&copy {{ current_dt|date:"Y" }} Dmitry Tretyakov. Все права защищены.</B><P>Копирование и публикация материалов без указания авторства запрещены и преследуются в соответствии с действующим законодательством.
-					</TD>
-				</TR>
-				<TR>
-					<TD rowspan="10" valign="top">
-					<B>Мы в социальных сетях</B>
-						<P><A href="http://t.me/tinelix">
-							<IMG src="{% static "images/social/telegram.gif" %}" width="24" height="24" border="0"></IMG>
-						</A>
-						<A href="http://dzen.ru/tinelix">
-							<IMG src="{% static "images/social/dzen.gif" %}" width="24" height="24" border="0"></IMG>
-						</A>
-						<A href="http://mastodon.ml/@tinelix">
-							<IMG src="{% static "images/social/mastodon.gif" %}" width="24" height="24" border="0"></IMG>
-						</A>
-						<A href="http://fedimovie.com/c/tinelix">
-							<IMG src="{% static "images/social/peertube.gif" %}" width="24" height="24" border="0"></IMG>
-						</A>
-					</TD>
-				</TR>
-				<TR>
-					<TD>
-						<A href="about">О нас</A>
-						<P><A href="donate">Поддержать наш сайт</A>
-						<P><A href="mailto:tinelix@mail.ru">Обратная связь</A>
-						<P><A href="privacy">Условия приватности</A>
-					</TD>
-				</TR>
-			</TBODY>
-		</TABLE>
+		{% include "include/footer.html" %}
 	</BODY>
 </HTML>
