@@ -14,7 +14,7 @@
 		<SCRIPT src="{% static "scripts/compat.js" %}" type="text/javascript"></SCRIPT>
 		<SCRIPT src="{% static "scripts/main.js" %}" type="text/javascript"></SCRIPT>
 	</HEAD>
-	<BODY bgcolor="#000000" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0" onload="onPageLoad()">
+	<BODY bgcolor="#000000" background="{% static "images/backgrounds/default.gif" %}" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0" onload="onPageLoad()">
 		<TABLE width="100%" cellspacing="4" cellpadding="0" bgcolor="#2A2A2A" border="0" class="header-links" align="center">
 				<TBODY>
 					<TR>
@@ -36,7 +36,7 @@
 		<TABLE width="700" height="80" cellpadding="0" cellspacing="0" class="active-area" align="center">
 			<TR>
 				<TD width="144" valign="middle">
-					<IMG src="{% static "images/default/logo.gif" %}" alt="Tinelix"></IMG>
+					<IMG src="{% static "images/logos/default.gif" %}" alt="Tinelix"></IMG>
 				</TD>
 				<TD align="center" valign="middle">
 					<FORM action="http://go.tinelix.ru/search" class="search-area">
@@ -57,10 +57,10 @@
 							{% include "include/widgets/holidays.html" %}
 						</TD>
 						<TD width="10">&nbsp;&nbsp;</TD>
-						<TD width="160" bgcolor="#000000" align="center">
+						<TD width="160" align="center">
 						</TD>
 						<TD width="10"></TD>
-						<TD width="160" bgcolor="#000000" align="center">
+						<TD width="160" align="center">
 								
 						</TD>
 					</TR>

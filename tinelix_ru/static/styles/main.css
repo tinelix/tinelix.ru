@@ -1,6 +1,7 @@
 html, body {
     font-family: Verdana, Tahoma, Arial Cyr, Arial, sans-serif;
     font-size: 9pt;
+    margin: 0px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -118,7 +119,6 @@ input:hover, input:focus {
 }
 
 .feed-area {
-    background-color: #000000;
     border: solid 1px #00ffff;
 }
 
@@ -195,10 +195,16 @@ input:hover, input:focus {
 }
 
 .feed-footer {
+    border-left: 1px solid #8f8f8f;
+    border-right: 1px solid #8f8f8f;
+    border-bottom: 1px solid #8f8f8f;
+    background: #000000aa;
     color: #a0a0a0;
     font-size: 8pt;
-    margin-top: 4px;
-    margin-bottom: 4px;
+}
+
+.feed-footer td {
+    background-color: #000000;
 }
 
 .feed-footer p {
