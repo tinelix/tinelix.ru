@@ -17,10 +17,6 @@ a img {
     border: none;
 }
 
-input:hover, input:focus {
-    border: solid 1px #00ffff;
-}
-
 .warning-banner {
     background: #ffff00;
     color: #000000;
@@ -39,6 +35,11 @@ input:hover, input:focus {
 .header-links, .header-links td {
     font-size: 8pt;
     font-weight: 700;
+}
+
+.clean-form {
+    margin: 0px;
+    padding: 0px;
 }
 
 .search-area {
@@ -69,7 +70,18 @@ input:hover, input:focus {
     height: 22px;
 }
 
-.search-ta:hover, .search-ta:focus, .search-btn:hover {
+.input-radio, .input-cb {
+    accent-color: #00ffff;
+    margin: 1px;
+    padding: 0px;
+    vertical-align: top;
+}
+
+.input-radio + label, .input-cb + label {
+    margin-left: 2px;
+}
+
+.search-ta:hover, .search-ta:focus, .search-ta:hover, .search-ta:focus {
     border: solid #00ffff 1px;
 }
 
@@ -90,6 +102,12 @@ input:hover, input:focus {
     margin-top: 8px;
     margin-bottom: 2px;
     padding-left: 4px;
+}
+
+.widgets-frame {
+    border-left: 1px solid #00ffff;
+    border-right: 1px solid #00ffff;
+    border-top: 1px solid #00ffff;
 }
 
 .widget-link {

@@ -1,12 +1,8 @@
-{% for news in newsfeed %}
-{% autoescape off %}
-<P class="active-subheader"><B><A href="{{ news.link|escape }}">{{ news.title|escape }}</A></B></P>
-<DIV class="feed-left-summary">
-  {{ news.summary|escape }}
-</DIV>
-<DIV class="feed-left-footer-p1"><B>{{ news.timestamp|escape }} &#8226; {{ news.source|escape }}</B></DIV>
-{% endautoescape %}
-{% if forloop.last %}
-<P class="small-padding">
-{% endif %}
-{% endfor %}
+							{% for news in newsfeed %}
+							{% autoescape off %}
+							<P class="active-subheader"><B><A href="{{ news.link|escape }}">{{ news.title|escape }}</A></B></P>
+							<DIV class="feed-left-summary">
+								{{ news.summary|escape }}
+							</DIV>
+							<DIV class="feed-left-footer-p1"><B>{{ news.timestamp|escape }} &#8226; {{ news.source|escape }}</B></DIV>{% endautoescape %}{% if forloop.last %}
+							<P class="small-padding">{% endif %}{% endfor %}

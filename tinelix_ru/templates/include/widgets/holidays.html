@@ -1,19 +1,20 @@
 {% load static %}
-<TABLE class="holidays-widget" width="160" height="73" cellpadding="0" cellspacing="2" background="{% static "images/widgets/holidays/background.gif" %}">
-	<TBODY>
-		<TR>
-			<TD valign="middle" align="center">
-				{% for holiday in holidays %}
-					<MARQUEE>{{ holidays }}</MARQUEE>
-				{% empty %}
-					<MARQUEE scrollamount="1" direction="up" height="45" hspace="4">Пока нет предстоящих праздников</MARQUEE>
-				{% endfor %}
-			</TD>
-		</TR>
-		<TR>
-			<TD height="20" align="center" valign="middle">
-				<A href="holidays" class="holidays-link">Праздники на {{ current_dt|date:" d E" }}</A>
-			</TD>
-		</TR>
-	</TBODY>			
-</TABLE>
+							<TABLE class="holidays-widget" width="156" height="73" cellpadding="0" cellspacing="0" background="{% static "images/widgets/holidays/background.gif" %}" align="center">
+								<TBODY>
+									<TR>
+										<TD valign="middle" align="center">
+											{% for holiday in holidays %}
+												<MARQUEE>{{ holidays }}</MARQUEE>
+											{% empty %}
+												<MARQUEE scrollamount="1" direction="up" height="45" hspace="4">Пока нет предстоящих праздников</MARQUEE>
+											{% endfor %}
+										</TD>
+									</TR>
+									<TR>
+										<TD height="25" align="center" valign="middle">
+											<A href="holidays" class="holidays-link">Праздники на {{ current_dt|date:"j b" }}.</A>
+										</TD>
+									</TR>
+								</TBODY>
+							</TABLE>
+						

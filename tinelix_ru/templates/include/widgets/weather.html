@@ -1,16 +1,17 @@
 {% load static %}
-<TABLE class="weather-widget" width="160" height="73" cellpadding="0" cellspacing="2" background="{% static "images/widgets/weather/snowy.gif" %}">
-	<TBODY>
-		<TR>
-			<TD align="center" valign="middle">
-				<SPAN class="weather-temp">{{ weather.temp }}</SPAN>
-				<BR><SPAN class="weather-city">{{ weather.city }}</SPAN>
-			</TD>
-		</TR>
-		<TR>
-			<TD height="20" align="center">
-				<A href="weather" class="widget-link">Прогноз на 7 дней</A>
-			</TD>
-		</TR>
-	</TBODY>
-</TABLE>
+							<TABLE class="weather-widget" width="156" height="73" cellpadding="0" cellspacing="0" background="{% static "images/widgets/weather/snowy.gif" %}" align="center">
+								<TBODY>
+									<TR>
+										<TD align="center" valign="middle">
+											<SPAN class="weather-temp">{{ weather.temp }}</SPAN>
+											<BR><SPAN class="weather-city">{{ weather.city }}</SPAN>
+										</TD>
+									</TR>
+									<TR>
+										<TD height="25" align="center">
+											<A href="weather" class="widget-link">Прогноз на 7 дней</A>
+										</TD>
+									</TR>
+								</TBODY>
+							</TABLE>
+						

@@ -28,50 +28,44 @@
 						<TD align="center" width="80" id="sitemap_link">Ещё &raquo;</TD>
 						<TD align="center">&nbsp;</TD>
 						<TD align="right" width="168">
-							<B>{{ current_dt|date:"D, d E" }} &#8226; {{ current_dt|date:"H:i" }}</B>
+							<B>{{ current_dt|date:"D, j E" }} &#8226; {{ current_dt|date:"H:i" }}</B>
 						</TD>
 					</TR>
 				</TBODY>
 		</TABLE>
+		<FORM action="http://192.168.0.22/search" class="clean-form">
 		<TABLE width="700" height="80" cellpadding="0" cellspacing="0" class="active-area" align="center">
 			<TR>
 				<TD width="144" valign="middle">
 					<IMG src="{% static "images/logos/default.gif" %}" alt="Tinelix"></IMG>
 				</TD>
 				<TD align="center" valign="middle">
-					<FORM action="http://go.tinelix.ru/search" class="search-area">
+					<DIV class="search-area">
 						<INPUT name="q" type="text" value="Введите запрос для поиска в Интернете..." size="56" id="web_search" class="search-ta">
 						<INPUT type="submit" class="search-btn" value="Найти">
-					</FORM>
+					</DIV>
 				</TD>
 			</TR>
 		</TABLE>
-		<TABLE width="670" height="75" cellpadding="0" cellspacing="0" border="0" align="center">
+		<TABLE width="700" height="75" cellpadding="0" cellspacing="6" border="0" align="center" bgcolor="#000000" class="widgets-frame">
 			<TBODY>
 				<TR>
-						<TD width="160" bgcolor="#0000ff" align="center">
+						<TD width="164" bgcolor="#0000ff" align="center">
 							{% include "include/widgets/weather.html" %}
 						</TD>
-						<TD width="10">&nbsp;&nbsp;</TD>
-						<TD width="160" bgcolor="#6f00ff" align="center">
+						<TD width="164" bgcolor="#6f00ff" align="center">
 							{% include "include/widgets/holidays.html" %}
 						</TD>
-						<TD width="10">&nbsp;&nbsp;</TD>
-						<TD width="160" align="center">
-						</TD>
-						<TD width="10"></TD>
-						<TD width="160" align="center">
-								
-						</TD>
+						<TD width="164" align="center"></TD>
+						<TD width="164" align="center"></TD>
+						<TD align="center"></TD>
 					</TR>
 			</TBODY>
 		</TABLE>
-		<DIV class="small-padding"></DIV>
 		<TABLE class="feed-area" width="700" bordercolor="#00ffff" bgcolor="#181818" cellpadding="4" cellspacing="0" align="center">
 				<TBODY>
 					<TR>
-						<TD width="160" class="feed-left" bgcolor="#181818" align="left" valign="top">
-						{% block left_col %}{% endblock left_col %}
+						<TD width="160" class="feed-left" bgcolor="#181818" align="left" valign="top">{% block left_col %}{% endblock left_col %}
 						</TD>
 						<TD width="528" class="feed-content" bgcolor="#000000" align="left" valign="top">
 							<P class="active-header"><B>{% block header %}{% endblock header %}</B></P>
@@ -80,6 +74,7 @@
 					</TR>
 				</TBODY>
 		</TABLE>
+		</FORM>
 		{% include "include/footer.html" %}
 	</BODY>
 </HTML>

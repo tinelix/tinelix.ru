@@ -1,3 +1,4 @@
+
 """tinelix_ru URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -21,4 +22,5 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', home.index),
+    path('search/', SearchMachine().index)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
