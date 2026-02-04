@@ -19,8 +19,9 @@ from django.urls import path
 from tinelix_ru.pages import *
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('', home.index),
-    path('search/', SearchMachine().index)
+    path('search', SearchMachine().index)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

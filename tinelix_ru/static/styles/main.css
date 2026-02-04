@@ -71,17 +71,33 @@ a img {
 }
 
 .input-radio, .input-cb {
-    accent-color: #00ffff;
-    margin: 1px;
+    margin-bottom: 2px;
+    margin-top: 5px;
+}
+
+.input-radio input[type=radio], .input-cb input[type=checkbox] {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 2px;
     padding: 0px;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
-.input-radio + label, .input-cb + label {
+.input-radio input[type=radio]:checked, .input-cb input[type=checkbox]:checked {
+    accent-color: #00ffff;
+}
+
+.input-radio input[type=radio]::before, .input-cb input[type=checkbox]::before {
+    padding-top: 2px;
+}
+
+.input-radio input[type=radio] + label, .input-cb input[type=checkbox] + label {
     margin-left: 2px;
+    vertical-align: middle;
 }
 
-.search-ta:hover, .search-ta:focus, .search-ta:hover, .search-ta:focus {
+.search-ta:hover, .search-ta:focus, .search-ta:hover, .search-ta:focus, .search-btn:hover, .search-btn:focus {
     border: solid #00ffff 1px;
 }
 

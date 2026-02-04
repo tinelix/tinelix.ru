@@ -1,0 +1,4 @@
+.input-cb input {
+    margin: -4px -3px 0 -4px !ie;
+    /*vertical-align: bottom;*/
+}

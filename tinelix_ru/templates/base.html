@@ -5,11 +5,14 @@
 		<TITLE>{% block title %}Tinelix{% endblock title %}</TITLE>
 		<META name="http-equiv" content="Content-Type: text/html; charset={{ charset }}" charset="{{ charset }}">
 		<!--[if IE 5]>
-		<LINK rel="stylesheet" href="{% static "styles/ie5.css" %}" type="text/css">
+			<LINK rel="stylesheet" href="{% static "styles/ie5.css" %}" type="text/css">
 		<![endif]-->
 		<LINK rel="stylesheet" href="{% static "styles/main.css" %}" type="text/css">
 		<!--[if IE]>
-		<SCRIPT src="{% static "scripts/json/json2.js" %}" type="text/javascript"></SCRIPT>
+			<SCRIPT src="{% static "scripts/json/json2.js" %}" type="text/javascript"></SCRIPT>
+		<![endif]-->
+		<!--[if lte IE 7]>
+			<LINK rel="stylesheet" href="{% static "styles/mshtml.css" %}" type="text/css">
 		<![endif]-->
 		<SCRIPT src="{% static "scripts/compat.js" %}" type="text/javascript"></SCRIPT>
 		<SCRIPT src="{% static "scripts/main.js" %}" type="text/javascript"></SCRIPT>
