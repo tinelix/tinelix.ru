@@ -9,23 +9,28 @@ class PageHeader:
 		links = [
 			{
 				"name": "IRC-чат",
-				"url":	"http://irc.tinelix.ru"
+				"url":	"http://irc.tinelix.ru",
+				"width": 62
 			},
 			{
 				"name": "Музыка",
-				"url":  "http://music.tinelix.ru"
+				"url":  "http://music.tinelix.ru",
+				"width": 70
 			},
 			{
 				"name": "Фотографии",
 				"url": 	"http://photos.tinelix.ru",
+				"width": 90
 			},
 			{
 				"name": "Блог",
-				"url":	"http://blog.tinelix.ru"
+				"url":	"http://blog.tinelix.ru",
+				"width": 50
 			},
 			{
-				"name": "Ретро-веб",
-				"url": "http://retroweb.tinelix.ru"
+				"name": "Настройки",
+				"url": "http://tune.tinelix.ru",
+				"width": 82
 			}
 		]
 		return links

@@ -16,7 +16,7 @@ function getJSONfrom(url) {
     http.send(null);
 }
 
-function onPageLoad() {
+function onPageLoad(pageName) {
     var sitemap_link = document.getElementById("sitemap_link");
 
     if(isMSIESpecified(1, 8)) {
@@ -24,6 +24,9 @@ function onPageLoad() {
     } else {
         sitemap_link.addEventListener('click', onSitemapLinkClick);
     }
+
+    if(pageName.match("search"))
+	hideAllSidebarSubheaders();
 }
 
 function onSitemapLinkClick() {
@@ -36,4 +39,27 @@ function onSitemapLinkClick() {
         "</TR>" +
       "</TABLE>"
     );*/
+}
+
+function hideSidebarSubheader(index) {
+    var summary = document.getElementById("sidebar-summary-" + (index + 1));
+    var arrowIcon = document.getElementById("sidebar-arrow-" + (index + 1));
+
+    if(summary != null) {
+    	if(summary.style.display.match("none")) {
+           arrowIcon.src = arrowIcon.src.replace("expand", "hide");
+	   summary.style.display = "block";
+    	} else {
+	   arrowIcon.src = arrowIcon.src.replace("hide", "expand");
+           summary.style.display = "none";
+	}
+    }
+}
+
+function hideAllSidebarSubheaders() {
+    var i = 0;
+
+    for(i = 0; i < 4; i++) {
+        hideSidebarSubheader(i);
+    }
 }

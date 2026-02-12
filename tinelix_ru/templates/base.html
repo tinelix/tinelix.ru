@@ -17,18 +17,18 @@
 		<SCRIPT src="{% static "scripts/compat.js" %}" type="text/javascript"></SCRIPT>
 		<SCRIPT src="{% static "scripts/main.js" %}" type="text/javascript"></SCRIPT>
 	</HEAD>
-	<BODY bgcolor="#000000" background="{% static "images/backgrounds/default.gif" %}" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0" onload="onPageLoad()">
+	<BODY bgcolor="#000000" background="{% static "images/backgrounds/default.gif" %}" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0" onload="onPageLoad('{% block page_name %}{% endblock page_name %}');">
 		<TABLE width="100%" cellspacing="4" cellpadding="0" bgcolor="#2A2A2A" border="0" class="header-links" align="center">
 				<TBODY>
 					<TR>
 						{% for link in links %}
 						{% autoescape off %}
-						<TD align="center" width="80">
+						<TD align="center" width="{{ link.width }}">
 							<B><A href="{{ link.url|escape }}">{{ link.name|escape }}</A></B>
 						</TD>
 						{% endautoescape %}
 						{% endfor %}
-						<TD align="center" width="80" id="sitemap_link">Ещё &raquo;</TD>
+						<TD align="center" width="56" id="sitemap_link">Ещё &raquo;</TD>
 						<TD align="center">&nbsp;</TD>
 						<TD align="right" width="168">
 							<B>{{ current_dt|date:"D, j E" }} &#8226; {{ current_dt|date:"H:i" }}</B>
@@ -50,21 +50,7 @@
 				</TD>
 			</TR>
 		</TABLE>
-		<TABLE width="700" height="75" cellpadding="0" cellspacing="6" border="0" align="center" bgcolor="#000000" class="widgets-frame">
-			<TBODY>
-				<TR>
-						<TD width="164" bgcolor="#0000ff" align="center">
-							{% include "include/widgets/weather.html" %}
-						</TD>
-						<TD width="164" bgcolor="#6f00ff" align="center">
-							{% include "include/widgets/holidays.html" %}
-						</TD>
-						<TD width="164" align="center"></TD>
-						<TD width="164" align="center"></TD>
-						<TD align="center"></TD>
-					</TR>
-			</TBODY>
-		</TABLE>
+		{% block topbar %}{% endblock topbar %}
 		<TABLE class="feed-area" width="700" bordercolor="#00ffff" bgcolor="#181818" cellpadding="4" cellspacing="0" align="center">
 				<TBODY>
 					<TR>

@@ -23,5 +23,6 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('', home.index),
-    path('search', SearchMachine().index)
+    path('search', SearchMachine().index),
+    path('calendar', WebCalendar().index)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

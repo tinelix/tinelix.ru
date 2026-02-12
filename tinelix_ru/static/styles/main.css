@@ -120,6 +120,13 @@ a img {
     padding-left: 4px;
 }
 
+.resizeable-subheader {
+    font-size: 10pt;
+    padding-left: 4px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
 .widgets-frame {
     border-left: 1px solid #00ffff;
     border-right: 1px solid #00ffff;

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Календарь - Tinelix{% endblock title %}
+{% block page_name %}calendar{% endblock page_name %}
+{% block left_col %}
+{% include "include/sidebars/calendar/sidebar.html" %}
+{% endblock left_col %}
+
+{% block header %}Календарь{% endblock header %}
+
+{% block content %}
+  <TABLE width="514">
+    <TR>
+      <TH align="center">{{ current_dt|date:"F Y" }}</TH>
+      <TH align="center">В этом месяце</TH>
+    </TR>
+    <TR>
+      <TD width="180" align="center" valign="top">
+        {% autoescape on %}
+          {{ calendar_table|safe }}
+        {% endautoescape %}
+      </TD>
+      <TD width="334" valign="top">Рабочих дней: ?<P><B>Праздники:</B><P>Их пока нет.</P><B>Дни рождения:</B><P>Их пока нет.</P></TD>
+    </TR>
+  </TABLE>
+{% endblock content %}

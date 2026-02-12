@@ -1,5 +1,15 @@
-							<P class="active-subheader"><B>Жанры сайтов</B></P>
-                                                        <DIV class="feed-left-summary">
+{% load static %}
+							<TABLE cellpadding="0" cellspacing="0" class="resizeable-subheader" onclick="hideSidebarSubheader(0)">
+								<TR>
+									<TD width="136" valign="middle">
+										<B>Жанры сайтов</B>
+									</TD>
+									<TD width="20" align="center" valign="middle">
+										<IMG src="{{ static_dir }}static/images/sidebar/content_hide.gif" id="sidebar-arrow-1"></IMG>
+									</TD>
+								</TR>
+							</TABLE>
+                                                        <DIV class="feed-left-summary" id="sidebar-summary-1">
                                                                 <DIV class="input-cb">
 									<INPUT type="checkbox" name="ws_genre" value="personal">
                                                                         	<LABEL>Личные страницы</LABEL>
@@ -56,8 +66,17 @@
                                                                         </INPUT>
                                                                 </DIV>
                                                         </DIV>
-							<P class="active-subheader"><B>Предпочитаемые языки</B></P>
-							<DIV class="feed-left-summary">
+							<TABLE cellpadding="0" cellspacing="0" class="resizeable-subheader" onclick="hideSidebarSubheader(1)">
+                                                                <TR>
+                                                                        <TD width="136" valign="middle">
+                                                                                <B>Предпочитаемые языки</B>
+                                                                        </TD>
+                                                                        <TD width="20" align="center" valign="middle">
+                                                                                <IMG src="{{ static_dir }}static/images/sidebar/content_hide.gif" id="sidebar-arrow-2"></IMG>
+                                                                        </TD>
+                                                                </TR>
+                                                        </TABLE>
+							<DIV class="feed-left-summary" id="sidebar-summary-2">
 								<DIV class="input-cb">
 									<INPUT type="checkbox" name="ws_lang" value="ru">
 										<LABEL>Русский</LABEL>
@@ -69,8 +88,17 @@
 									</INPUT>
 								</DIV>
 							</DIV>
-							<P class="active-subheader"><B>Технические требования</B></P>
-							<DIV class="feed-left-summary">
+							<TABLE cellpadding="0" cellspacing="0" class="resizeable-subheader" onclick="hideSidebarSubheader(2)">
+                                                                <TR>
+                                                                        <TD width="136" valign="middle">
+                                                                                <B>Технические требования</B>
+                                                                        </TD>
+                                                                        <TD width="20" align="center" valign="middle">
+                                                                                <IMG src="{{ static_dir }}static/images/sidebar/content_hide.gif" id="sidebar-arrow-3"></IMG>
+                                                                        </TD>
+                                                                </TR>
+                                                        </TABLE>
+							<DIV class="feed-left-summary" id="sidebar-summary-3">
 								<DIV class="input-cb">
 									<INPUT type="checkbox" name="wb_require" value="http">
 										<LABEL>HTTP</LABEL>
@@ -92,8 +120,17 @@
 									</INPUT>
 								</DIV>
 							</DIV>
-							<P class="active-subheader"><B>Региональные настройки</B></P>
-							<DIV class="feed-left-summary">
+							<TABLE cellpadding="0" cellspacing="0" class="resizeable-subheader" onclick="hideSidebarSubheader(3)">
+                                                                <TR>
+                                                                        <TD width="136" valign="middle">
+                                                                                <B>Региональные настройки</B>
+                                                                        </TD>
+                                                                        <TD width="20" align="center" valign="middle">
+                                                                                <IMG src="{{ static_dir }}static/images/sidebar/content_hide.gif" id="sidebar-arrow-4"></IMG>
+                                                                        </TD>
+                                                                </TR>
+                                                        </TABLE>
+							<DIV class="feed-left-summary" id="sidebar-summary-4">
                                                                 <DIV class="input-cb">
                                                                         <INPUT type="checkbox" name="wb_regional" value="legitimate_formally">
                                                                                 <LABEL>Формально легитимные</LABEL>

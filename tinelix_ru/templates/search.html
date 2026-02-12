@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Tinelix - информационный портал технологий и не только{% endblock title %}
+{% block page_name %}search{% endblock page_name %}
 {% block left_col %}
 {% include "include/sidebars/search/sidebar.html" %}
 {% endblock left_col %}
 
 {% block header %}Поиск в Интернете{% endblock header %}
+
 {% block content %}
 {% for result in search_results %}
 {% empty %}
@@ -12,4 +14,7 @@
 Скорее всего, в нашем поисковой выдаче нет ни одного сайта, содержащий данный запрос.
 <P>Вы можете это исправить, сформулировав другой запрос или отправив предложения на почту <A href="mailto:tinelix@mail.ru">tinelix(at)mail.ru</A>.
 {% endfor %}
+{% if search_results %}
+<P><I>Здесь были показаны только те сайты, которые были включены в поисковую систему. Ответственность за содержимое контента несут владельцы сайтов и их пользователи.</I>
+{% endif %}
 {% endblock content %}
