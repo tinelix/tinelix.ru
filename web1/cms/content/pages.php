@@ -61,7 +61,7 @@ class PagesCollection {
         \r\n                                    margin-bottom: 0px
         \r\n                                  \"><b>Приветствуем!</b></p>
         \r\n        <p align=\"center\" style=\"font-size: 10pt; margin-top: 2px\">".htmlspecialchars($formattedMskTime)."</p>
-        \r\n        <p align=\"center\">Если не видишь картинки, кликни <a href=\"".$this->cms->protocol.web1_subdomain."?lite=1\">сюда.</p>
+        \r\n        <p align=\"center\">Если не видишь картинки, кликни <a href=\"".$this->cms->protocol.web1_subdomain."/?lite=1\">сюда.</p>
         \r\n        <div align=\"center\">";
 
         $columns = "";
@@ -160,20 +160,23 @@ class PagesCollection {
         \r\n            <table width=\"640\" class=\"footer\" cellpadding=\"4\">
         \r\n                <tbody>
         \r\n                    <tr>
-        \r\n                        <td align=\"center\">
+        \r\n                        <td align=\"center\" colspan=\"4\">
         \r\n                            Copyright © 2023-2026 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
         \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">Исходный код сайта</a>
-        \r\n                            <p>
-        \r\n                            <img style=\"border:0;\"
+        \r\n                        </td>
+        \r\n                    </tr>
+        \r\n                    <tr>
+        \r\n                        <td align=\"center\">
+        \r\n                            <img style=\"border:0;\" width=\"88\" height=\"31\"
         \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/anybrowser.gif\"
-        \r\n                                     alt=\"Лучше смотрится с любым браузером\" height=\"31\" width=\"88\">
+        \r\n                                     alt=\"Лучше смотрится с любым браузером\">
         \r\n                            <a href=\"https://gnu.org\">
-        \r\n                                <img style=\"border:0;width:88px;height:31px\"
+        \r\n                                <img style=\"border:0;\" width=\"88\" height=\"31\"
         \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/gnu.png\"
         \r\n                                     alt=\"Свободное ПО нужно каждому!\" />
         \r\n                            </a>
         \r\n                            <a href=\"http://old-web.com\">
-        \r\n                                <img style=\"border:0;width:88px;height:31px\"
+        \r\n                                <img style=\"border:0;\" width=\"88\" height=\"31\"
         \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/old-web.gif\"
         \r\n                                     alt=\"Old-Web.com - возвращаем старый Интернет и старые сайты, обсуждаем старые технологии\" />
         \r\n                            </a>
@@ -227,11 +230,14 @@ class PagesCollection {
         while($contact = $result->fetchArray()) {
             array_push($contacts, $contact);
         }
+        
+        $html = $html."<TABLE>
+        \r\n               <TBODY>";
+        
         for($i = 0; $i < count($contacts); ++$i) {
-            $html = $html."
-            \r\n                            <b>".$this->purifier->purify($contacts[$i][1]).":</b> ".$this->purifier->purify($contacts[$i][2])."<br>";
+            $html = $html."<TR><TH width=\"100\">".$this->purifier->purify($contacts[$i][1])."</TH><TD>".$this->purifier->purify($contacts[$i][2])."</TD></TR>";
         }
-        $html = $html."
+        $html = $html."</TBODY></TABLE>
         \r\n
         \r\n                        </div>
         \r\n                    </td>";

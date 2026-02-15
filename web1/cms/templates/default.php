@@ -62,6 +62,7 @@
 		";
 
 	    $html = $html."
+            <script src=\"".$this->cms->protocol.web1_subdomain."/scripts/search.js\"></script>
             \r\n    </head>
             \r\n    <body bgcolor=\"#000000\" text=\"#ffffff\""; 
 
@@ -140,11 +141,24 @@
                     $menu = $menu."\r\n<a href=\"".$this->cms->protocol.htmlspecialchars($menu_items[$i][2].$params)."\">".htmlspecialchars($menu_items[$i][1])."</a>";
             }
             $html = "
+            <TABLE width=\"640\" cellspacing=\"0\" cellpadding=\"4\" border=\"0\" bgcolor=\"#000000\" align=\"center\">
+                <tbody>
+                    <tr>
+                        <td width=\"440\" align=\"left\">
+                            <FORM action=\"http://search.tinelix.ru\" class=\"search-area\">
+                                <INPUT name=\"q\" type=\"text\" value=\"Введите запрос для поиска в Интернете...\" size=\"36\" id=\"web_search\" class=\"search-ta\" onfocus=\"onFocusSearchTextArea()\">
+                                <INPUT type=\"submit\" class=\"search-btn\" value=\"Найти\">
+                            </FORM>
+                        </td>
+                        <td align=\"right\" valign=\"middle\"><i>Работает на базе <a href=\"http://search.tinelix.ru/about.php?lg=ru-ru\">FrogFind</a></i></td>
+                    </tr>
+                </tbody>
+            </TABLE>
                 \r\n        <table width=\"640\" cellspacing=\"4\" cellpadding=\"0\" border=\"0\" bgcolor=\"#1a1a1a\">
                 \r\n            <tbody>
                 \r\n                <tr>
                 \r\n                    <td width=\"150\" valign=\"top\">
-		\r\n			    <div class=\"menu-column\">
+                \r\n                        <div class=\"menu-column\">
                 \r\n                        	<div class=\"title-text\">МЕНЮ САЙТА</div>
                 \r\n                        	<hr class=\"title-line cell\" size=\"1\" noshade />
                 \r\n                        	<div class=\"menu-links text\" style=\"margin-bottom: 0px;\">
@@ -169,20 +183,23 @@
             \r\n            <table width=\"640\" class=\"footer\" cellpadding=\"4\">
             \r\n                <tbody>
             \r\n                    <tr>
-            \r\n                        <td align=\"center\">
+            \r\n                        <td align=\"center\" colspan=\"4\">
             \r\n                            Copyright © 2023-2026 Dmitry Tretyakov (aka. Tinelix). Стиль Web 1.0.
             \r\n                            <br><a href=\"https://github.com/tinelix/tinelix.ru\">Исходный код сайта</a>
-            \r\n                            <p>
-            \r\n                            <img style=\"border:0;\"
+            \r\n                        </td>
+            \r\n                    </tr>
+            \r\n                    <tr>
+            \r\n                        <td align=\"center\">
+            \r\n                            <img style=\"border:0;\" width=\"88\" height=\"31\"
             \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/anybrowser.gif\"
-            \r\n                                     alt=\"Лучше смотрится с любым браузером\" height=\"31\" width=\"88\">
+            \r\n                                     alt=\"Лучше смотрится с любым браузером\">
             \r\n                            <a href=\"https://gnu.org\">
-            \r\n                                <img style=\"border:0;width:88px;height:31px\"
+            \r\n                                <img style=\"border:0;\" width=\"88\" height=\"31\"
             \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/gnu.png\"
             \r\n                                     alt=\"Свободное ПО нужно каждому!\" />
             \r\n                            </a>
             \r\n                            <a href=\"http://old-web.com\">
-            \r\n                                <img style=\"border:0;width:88px;height:31px\"
+            \r\n                                <img style=\"border:0;\" width=\"88\" height=\"31\"
             \r\n                                     src=\"".$this->cms->protocol.web1_subdomain."/banners/old-web.gif\"
             \r\n                                     alt=\"Old-Web.com - возвращаем старый Интернет и старые сайты, обсуждаем старые технологии\" />
             \r\n                            </a>
