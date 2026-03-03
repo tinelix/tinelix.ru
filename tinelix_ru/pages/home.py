@@ -39,7 +39,8 @@ def index(request):
       			    ],
 	      "holidays": [
 		
-	      ]
+	      ], 
+	      "static_dir": "../"
 	}
 
 	response = render(request, "home.html", ctx)

@@ -18,6 +18,7 @@
 		<SCRIPT src="{% static "scripts/main.js" %}" type="text/javascript"></SCRIPT>
 	</HEAD>
 	<BODY bgcolor="#000000" background="{% static "images/backgrounds/default.gif" %}" text="#ffffff" link="#00ffff" alink="#00ffff" vlink="#00ffff" topmargin="0" leftmargin="0" rightmargin="0" onload="onPageLoad('{% block page_name %}{% endblock page_name %}');">
+		{% include "include/banner.html" %}
 		<TABLE width="100%" cellspacing="4" cellpadding="0" bgcolor="#2A2A2A" border="0" class="header-links" align="center">
 				<TBODY>
 					<TR>

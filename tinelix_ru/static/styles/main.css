@@ -18,14 +18,9 @@ a img {
 }
 
 .warning-banner {
-    background: #ffff00;
-    color: #000000;
-    width: 588px;
     text-align: left;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .warning-banner p {
