@@ -39,7 +39,9 @@ class WebCalendar:
 		max_days = monthrange(dt.year, dt.month)[1]
 		first_day = datetime(dt.year, dt.month, 1)
 
-		if first_day.weekday() > 0:
+		if first_day.weekday() > 0 and max_days > 28:
+			max_weeks = round(max_days / 7) + 2
+		elif first_day.weekday() == 0 or max_days <= 28:
 			max_weeks = round(max_days / 7) + 1
 		else:
 			max_weeks = round(max_days / 7)
