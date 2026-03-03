@@ -168,6 +168,10 @@ a img {
     margin-bottom: 4px;
 }
 
+.small-left-padding {
+    padding-left: 6px;
+}
+
 .feed-left-p1 {
     font-size: 8pt;
     margin-bottom: 8px;
@@ -208,6 +212,10 @@ a img {
 .feed-content-area p {
     margin-top: 8px;
     margin-bottom: 8px;
+}
+
+.feed-content-area table {
+    font-size: 10pt;
 }
 
 .feed-top {
