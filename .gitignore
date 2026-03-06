@@ -1,2 +1,5 @@
 db.sqlite3
 tinelix_ru/__pycache__
+tinelix_ru/pages/__pycache__
+tinelix_ru/static/__pycache__
+tinelix_ru/templates/__pycache__
