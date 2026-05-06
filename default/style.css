@@ -146,7 +146,7 @@ a, a:visited {
 }
 
 .photo-list img {
-    border: 3px solid rgb(221, 103, 0);
+    border: 3px solid #399cde;
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 15px;

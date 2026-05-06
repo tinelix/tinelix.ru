@@ -261,7 +261,7 @@ class PagesCollection {
             array_push($projects, $project);
         }
         for($i = 0; $i < count($projects); ++$i) {
-            if($html_encoding) {
+            if($html_encoding && !str_starts_with($projects[$i][3], "http://")) {
                 if(strpos($projects[$i][3], "?")) {
                     $params = "&encoding=".$this->db->encoding;
                 } else {
@@ -293,7 +293,7 @@ class PagesCollection {
         $page = $result->fetchArray();
         $page_title = mb_strtoupper($page[1]);
 
-        if($i > 0 && $i <= 3) {
+        if($i > 0 && $i <= 4) {
             $html = "
             \r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
             \r\n                        <div class=\"title-text\">".htmlspecialchars($page_title)."</div>
@@ -395,8 +395,7 @@ class PagesCollection {
             \r\n                            <div align=\"center\">
             \r\n                                <img src=\"".$this->cms->protocol.htmlspecialchars($banners[$i][2])."\" width=\"88\" height=\"31\" alt=\"\">
             \r\n                                <p>
-            \r\n                                <textarea rows=\"4\" cols=\"40\" readonly class=\"full-code\">
-            &lt;a href=\"".$this->cms->protocol.web1_subdomain."\"&gt;&lt;img src=\"http://".$banners[$i][2]."\" width=\"88\" height=\"31\" border=\"0\"/&gt;&lt;/a&gt;</textarea>
+            \r\n                                <textarea rows=\"4\" cols=\"40\" readonly class=\"full-code-banner full-code-fixed\">&lt;a href=\"".$this->cms->protocol.web1_subdomain."\"&gt;&lt;img src=\"http://".$banners[$i][2]."\" width=\"88\" height=\"31\" border=\"0\" /&gt;&lt;/a&gt;</textarea>
             </div>
             \r\n                            ";
         }
@@ -875,6 +874,70 @@ class PagesCollection {
         \r\n                        <div class=\"title-text\">22-Й ДЕНЬ РОЖДЕНИЯ ДМИТРИЯ ТРЕТЬЯКОВА</div>
         \r\n                        <hr class=\"title-line\" size=\"1\" noshade/><div class=\"text\">".$page."</div>";
 
+        if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
+        }
+    }
+    
+    function showDonationPage() {
+        $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
+        \r\n                        <div class=\"title-text\">ПОЖЕРТВОВАНИЯ</div>
+        \r\n                        <hr class=\"title-line\" size=\"1\" noshade/>
+        \r\n                        <div class=\"text\">Вы можете финансово поддержать автора любым удобным способом, перечисленные ниже. Уведомления о донатах приходят в <a href=\"https://mastodon.ml/@tinelix\">нашем аккаунте Mastodon</a>.
+        \r\n                        <ul>";
+        
+        $min_donate_price = 50.0;
+        $min_boosty_donate_price = 10.0;
+        $min_boosty_subscription_price = 65.0;
+        
+        $query = "SELECT id, name, icon, credentials, link FROM wallets WHERE type = 0;";
+        $result = $this->priv_db->query($query) or die("Last error: {$this->priv_db->lastErrorMsg()}\n");
+        $wallets = array();
+        
+        while($wallet = $result->fetchArray()) {
+            array_push($wallets, $wallet);
+        }
+        
+        $html = $html."<h3>Один раз</h3>";
+        
+        for($i = 0; $i < count($wallets); ++$i) {
+            if($wallets[$i][2] != null)
+                $html = $html."
+                \r\n                            <li><img src=\"".$this->purifier->purify($wallets[$i][2])."\" alt=\"".$this->purifier->purify($wallets[$i][1])."\"></img> ".$this->purifier->purify($wallets[$i][3])."</li>
+                \r\n                            ";
+            else
+                $html = $html."
+                \r\n                            <li><a href=\"".$this->purifier->purify($wallets[$i][4])."\">".$this->purifier->purify($wallets[$i][1])."</a></li>
+                \r\n                            ";
+        }
+        
+        $query = "SELECT id, name, icon, credentials, link FROM wallets WHERE type = 1;";
+        $result = $this->priv_db->query($query) or die("Last error: {$this->priv_db->lastErrorMsg()}\n");
+        $wallets = array();
+        
+        while($wallet = $result->fetchArray()) {
+            array_push($wallets, $wallet);
+        }
+        
+        $html = $html."<h3 class=\"lime-header\">На регулярной основе</h3>";
+        
+        for($i = 0; $i < count($wallets); ++$i) {
+            if($wallets[$i][2] != null)
+                $html = $html."
+                \r\n                            <li><img src=\"".$this->purifier->purify($wallets[$i][2])."\" alt=\"".$this->purifier->purify($wallets[$i][1])."\"></img> ".$this->purifier->purify($wallets[$i][3])."</li>
+                \r\n                            ";
+            else
+                $html = $html."
+                \r\n                            <li><a href=\"".$this->purifier->purify($wallets[$i][4])."\">".$this->purifier->purify($wallets[$i][1])."</a></li>
+                \r\n                            ";
+        }
+        
+        $html = $html."</ul><h6 style=\"font-weight:500; text-align:left; font-size:8pt;\">* Минимальная цена одноразового пожертвования: ".$min_donate_price." руб. Для сервиса Boosty - ".$min_boosty_donate_price." руб.</h6><h6 style=\"font-weight:500; text-align:left; font-size:8pt;\">** С подпиской вы получаете особые преимущества в зависимости от уровня: &quot;Базовый&quot;, &quot;Стандартный&quot; и &quot;Максимальный&quot;. Минимальная цена подписки: ".$min_boosty_subscription_price." руб.</h6>
+        </ul>
+        </div>
+        \r\n                    </td>";
         if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
             echo mb_convert_encoding($html, "windows-1251", "utf-8");
         } else {
