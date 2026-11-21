@@ -10,7 +10,7 @@ function updateNewYearCountdown() {
         		var sec_text  = document.getElementById("ny_countdown_sec");
 
 			var currDate = new Date();
-			var newYearDate = new Date(2026, 0, 1);
+			var newYearDate = new Date(2027, 0, 1);
 			
 			var tzOffset = currDate.getTimezoneOffset();
 			var selectedTzOffset = 0;
@@ -19,29 +19,64 @@ function updateNewYearCountdown() {
 			    clearInterval(timer);
 			    return;
 			}
-
-			if(region_list.value == "paris" || region_list.value == "berlin") {
-			    selectedTzOffset = -1 * 60;
-			} else if(region_list.value == "kiev" || region_list.value == "kaliningrad" || region_list.value == "helsinki") {
-			    selectedTzOffset = -2 * 60;
-			} else if(region_list.value == "minsk" || region_list.value == "sevastopol" || region_list.value == "donetsk" || region_list.value == "lugansk" || region_list.value == "moscow" || region_list.value == "petersburg" || region_list.value == "n_novgorod") {
-			    selectedTzOffset = -3 * 60;
-			} else if(region_list.value == "yerevan" || region_list.value == "astrakhan" || region_list.value == "volgograd" || region_list.value == "ulyanovsk" || region_list.value == "samara") {
-			    selectedTzOffset = -4 * 60;
-			} else if(region_list.value == "yekaterinburg" || region_list.value == "chelyabinsk" || region_list.value == "astana") {
-			    selectedTzOffset = -5 * 60;
-			} else if(region_list.value == "omsk") {
-			    selectedTzOffset = -6 * 60;
-			} else if(region_list.value == "tomsk" || region_list.value == "novosibirsk" || region_list.value == "barnaul" || region_list.value == "gorno-altaisk" || region_list.value == "krasnoyarsk") {
-			    selectedTzOffset = -7 * 60;
-			} else if(region_list.value == "irkutsk" || region_list.value == "beijing") {
-			    selectedTzOffset = -8 * 60;
-			} else if(region_list.value == "yakutsk") {
-			    selectedTzOffset = -9 * 60;
-			} else if(region_list.value == "vladivostok") {
-			    selectedTzOffset = -10 * 60;
-			} else if(region_list.value == "magadan") {
-			    selectedTzOffset = -11 * 60;
+			
+			switch(region_list.value) {
+				case "berlin":
+				case "paris":
+					selectedTzOffset = -1 * 60;
+					break;
+				case "kiev":
+				case "kaliningrad":
+				case "helsinki":
+					selectedTzOffset = -2 * 60;
+					break;
+				case "minsk":
+				case "sevastopol":
+				case "donetsk":
+				case "lugansk":
+				case "herson":
+				case "moscow":
+				case "petersburg":
+				case "n_novgorod":
+					selectedTzOffset = -3 * 60;
+					break;
+				case "yerevan":
+				case "astrakhan":
+				case "volgograd":
+				case "ulyanovsk":
+				case "samara":
+					selectedTzOffset = -4 * 60;
+					break;
+				case "yekaterinburg":
+				case "chelyabinsk":
+				case "astana":
+					selectedTzOffset = -5 * 60;
+					break;
+				case "omsk":
+					selectedTzOffset = -6 * 60;
+					break;
+				case "tomsk":
+				case "novisibirsk":
+				case "barnaul":
+				case "gorno-altaisk":
+				case "krasnoyarsk":
+					selectedTzOffset = -7 * 60;
+					break;
+				case "irkutsk":
+					selectedTzOffset = -8 * 60;
+					break;
+				case "yakutsk":
+					selectedTzOffset = -9 * 60;
+					break;
+				case "vladivostok":
+					selectedTzOffset = -10 * 60;
+					break;
+				case "magadan":
+					selectedTzOffset = -11 * 60;
+					break;
+				case "kamchatka":
+					selectedTzOffset = -12 * 60;
+					break;
 			}
 
 			var countdownTime = -(currDate.getTime() - newYearDate.getTime()) + ((-tzOffset + selectedTzOffset) * 60 * 1000);

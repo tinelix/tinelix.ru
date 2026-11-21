@@ -375,6 +375,76 @@ class PagesCollection {
             echo $html;
         }
     }
+    
+    public function showTeletextArchivePage() {
+        $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
+        \r\n                        <div class=\"title-text\">АРХИВ ТЕЛЕТЕКСТА</div>
+        \r\n                        <hr class=\"title-line\" size=\"1\" noshade />
+        \r\n                        <div class=\"text\">";
+
+        $query = "SELECT id, name FROM ttx_countries;";
+        $result = $this->priv_db->query($query) or die("Last error: {$this->priv_db->lastErrorMsg()}\n");
+        
+        $countries = array();
+        while($country = $result->fetchArray()) {
+            array_push($countries, $country);
+        }
+        
+        for($i = 0; $i < count($countries); ++$i) {
+            $html = $html."
+            \r\n                            <h3>".htmlspecialchars($countries[$i][1])."</h3>";
+            
+            $query = "SELECT id, name, prefix, legal_info FROM ttx_channels;";
+            $result = $this->priv_db->query($query) or die("Last error: {$this->priv_db->lastErrorMsg()}\n");
+            
+            $channels = array();
+            while($channel = $result->fetchArray()) {
+                array_push($channels, $channel);
+            }
+            
+            for($i2 = 0; $i2 < count($channels); ++$i2) {
+                $html = $html."
+            \r\n                            <h4>".htmlspecialchars($channels[$i2][1])."</h4>\r\n";
+            
+                $query = "SELECT id, recorded_date, bc_location, source, published, status FROM ttx_records;";
+                $result = $this->priv_db->query($query) or die("Last error: {$this->priv_db->lastErrorMsg()}\n");
+            
+                $records = array();
+                while($record = $result->fetchArray()) {
+                    array_push($records, $record);
+                }
+                
+                if(count($records) > 0) {
+                    $html = $html."<table cellspacing=\"1\" width=\"480\" class=\"styled-table\"><tbody><tr>
+                    <th>Дата записи</th>
+                    <th>Место вещания</th>
+                    <th>Автор публикации</th>
+                    <th>Состояние</th></tr>";
+                    for($i3 = 0; $i3 < count($records); ++$i3) {
+                        $html = $html."<tr>
+                        <td width=\"100\" align=\"center\">".htmlspecialchars($records[$i3][1])."</td>
+                        <td>".$this->purifier->purify($records[$i3][2])."</td>
+                        <td>".$this->purifier->purify($records[$i3][3])."</td>
+                        <td>".$this->purifier->purify($records[$i3][4])."</td>
+                        </tr>";
+                    }
+                    $html = $html."</tbody></table><h4>Юридическая информация</h4>";
+                    $html = $html.$this->purifier->purify($channels[$i2][3]);
+                } else {
+                    $html = $html."Тут пока ничего нет";
+                }
+            }
+        }
+
+        $html = $html."</div>
+        \r\n                    </td>";
+
+        if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
+            echo mb_convert_encoding($html, "windows-1251", "utf-8");
+        } else {
+            echo $html;
+        }
+    }
 
     public function showWebsiteBannersPage() {
         $query = "SELECT id, name, link FROM banners;";
@@ -481,7 +551,7 @@ class PagesCollection {
     }
 
     function showMoreNewYearCountdown() {
-        $year = "2025";
+        $year = "2026";
 
         $current_time = time();
 
@@ -624,6 +694,11 @@ class PagesCollection {
                     $tz_name = "Asia/Magadan";
                     $tz_offset = 11 * 60 * 60;
                     break;
+                case "kamchatka":
+                    $l18n_tz_name = "Камчатское время: ";
+                    $tz_name = "Asia/Kamchatka";
+                    $tz_offset = 12 * 60 * 60;
+                    break;
             }
         }
 
@@ -704,11 +779,14 @@ class PagesCollection {
             <option value=\"yakutsk\">Якутск</option>
             <option value=\"vladivostok\">Владивосток</option>
             <option value=\"magadan\">Магадан</option>
-            <option disabled>------- <3 Мир вам! <3 -------</option>
+            <option value=\"kamchatka\">Камчатка</option>
+            <option disabled>-- Мирного неба над головой! --</option>
             <option value=\"sevastopol\">Севастополь</option>
             <option value=\"donetsk\">Донецк</option>
             <option value=\"lugansk\">Луганск</option>
+            <option value=\"herson\">Херсон</option>
             <option disabled>------- Другие страны -------</option>
+            <option value=\"london\">Лондон, Великобритания</option>
             <option value=\"berlin\">Берлин, Германия</option>
             <option value=\"paris\">Париж, Франция</option>
             <option value=\"helsinki\">Хельсинки, Финляндия</option>
@@ -809,83 +887,12 @@ class PagesCollection {
             return $html;
         }
     }
-
-    function showBirthdayCelebrations() {
-
-        $current_time = time();
-
-        $tz_offset = 3 * 60 * 60;
-
-        $birthday = strtotime("2026-01-06");
-        $birthday_countdown = floor((-$current_time - $tz_offset + $birthday) / (60 * 60 * 24));
-
-        $query = "SELECT id, text, author, anonymous, url FROM bd_celebrations ORDER BY id DESC;";
-        $result = $this->priv_db->query($query) or die("Last error: {$this->priv_db->lastErrorMsg()}\n");
-        $celebrations = array();
-
-        while($celebration = $result->fetchArray()) {
-            array_push($celebrations, $celebration);
-        }
-
-        $page = "<b>6 января 2026 года</b> автору Дзен-канала Tinelix и разработчику Дмитрию Третьякову исполнилось 22 года.<p>В этот день рождения присоединился его друг с ником CompTester, которому исполнилось 21 год.<h3 class=\"cyan-header\">Доска поздравлений</h3><p>Подробнее о том, как попасть в доску поздравлений, можно узнать в нашем <a href=\"https://t.me/tinelix\">Telegram-канале</a>.<P>Поздравления принимаются до 8 января 10:00 МСК.<P>";
-
-        if($birthday_countdown <= 3 && $birthday_countdown >= -3) {
-            if(count($celebrations) === 0)
-                $page .= "<I>Пока ждем поздравлений...</I>";
-
-            for($i = 0; $i < count($celebrations); ++$i) {
-                $page .= "<div class=\"";
-
-                switch($i % 3) {
-                    case 0:
-                        $page .= "red-birthday-frame";
-                        break;
-                    case 1:
-                        $page .= "green-birthday-frame";
-                        break;
-                    case 2:
-                        $page .= "blue-birthday-frame";
-                        break;
-                }
-
-                $page .= "\">";
-                $page .= $this->purifier->purify($celebrations[$i][1])."<P class=\"author_info\"><I>";
-                if($celebrations[$i][3] === "true")
-                    $page .= "Отправлено анонимно";
-                else
-                    $page .= htmlspecialchars($celebrations[$i][2]);
-
-		//if($celebrations[$i][4] != null)
-		    //$page .= "<a href=\"".$this->cms->protocol.web1_subdomain.$celebrations[$i][4]."\">".$celebrations[$i][$4];
-		
-                $page .= "</I></div>";
-
-                if($i < count($celebrations) - 1) {
-                    $page .= "<p style=\"margin-top: 4px\">";
-                }
-            }
-        } else if($birthday_countdown > 0){
-            $page = "<h3>Обратный отсчет</h3>До дня рождения осталось <b>".$birthday_countdown."</b> дн.";
-        } else {
-            $page = "<h3>Обратный отсчет</h3>Увидимся в 2027-м году!";
-        }
-
-        $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
-        \r\n                        <div class=\"title-text\">22-Й ДЕНЬ РОЖДЕНИЯ ДМИТРИЯ ТРЕТЬЯКОВА</div>
-        \r\n                        <hr class=\"title-line\" size=\"1\" noshade/><div class=\"text\">".$page."</div>";
-
-        if(!$this->cms->encoding || $this->cms->encoding != "utf-8") {
-            echo mb_convert_encoding($html, "windows-1251", "utf-8");
-        } else {
-            echo $html;
-        }
-    }
     
     function showDonationPage() {
         $html = "\r\n                    <td bgcolor=\"#000000\" valign=\"top\" rowspan=\"3\">
         \r\n                        <div class=\"title-text\">ПОЖЕРТВОВАНИЯ</div>
         \r\n                        <hr class=\"title-line\" size=\"1\" noshade/>
-        \r\n                        <div class=\"text\">Вы можете финансово поддержать автора любым удобным способом, перечисленные ниже. Уведомления о донатах приходят в <a href=\"https://mastodon.ml/@tinelix\">нашем аккаунте Mastodon</a>.
+        \r\n                        <div class=\"text\">Вы можете финансово поддержать автора любым удобным способом, перечисленные ниже. Уведомления о донатах приходят в <a href=\"https://mastodon.ml/@tinelix\">нашем аккаунте Mastodon</a> и <a href=\"https://t.me/tinelixdonations\">Telegram-канале</a>.
         \r\n                        <ul>";
         
         $min_donate_price = 50.0;
